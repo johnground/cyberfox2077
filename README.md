@@ -1,93 +1,111 @@
-# CyberFox-2077
+# CyberFox-2077: Git/GitLab Training Program
 
+Welcome to CyberFox-2077, a cyberpunk-themed training program designed to teach the fundamentals and advanced functionalities of Git and GitLab. This course also focuses on developing Ansible Roles/Playbooks for OpenCTI, providing a hands-on experience in managing cybersecurity projects.
 
+## About the Course
 
-## Getting started
+CyberFox-2077 is a comprehensive training program divided into six modules. Each module is crafted to guide learners through various aspects of Git, GitLab, and Ansible, with a special emphasis on applying these skills to OpenCTI projects.
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+## Course Modules
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+1. **Introduction to Version Control and Git**: Understanding the basics of Git and its importance in modern software development.
+2. **GitLab Essentials**: Exploring the features of GitLab and how they enhance project collaboration and version control.
+3. **Advanced Git Techniques**: Diving deeper into Git to uncover powerful tools and techniques for effective version management.
+4. **Ansible and Automation**: Introducing Ansible for automating application deployment and configuration management.
+5. **Developing Ansible Roles for OpenCTI**: Hands-on module focused on creating Ansible Roles and Playbooks tailored for OpenCTI.
+6. **Best Practices in Git and Ansible**: Consolidating the knowledge with best practices and industry standards for Git and Ansible.
 
-## Add your files
+## Getting Started
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+To get started with CyberFox-2077, clone this repository and follow the instructions in each module's directory.
 
+```bash
+git clone https://hyperlethalvector.com/CyberFox-2077.git
+cd CyberFox-2077
 ```
-cd existing_repo
-git remote add origin https://hyperlethalvector.com/gitlab/gitlab-instance-8b316f6a/cyberfox-2077.git
-git branch -M main
-git push -uf origin main
+## Setting up the Development Environment
+This course's interactive elements are designed with Preact and can be run in a Docker container. Follow these steps to set up your environment:
+
+1. ## Ensure Docker is installed on your machine.
+2. ## Build the Docker image from scratch without using cache with the following command:
+
+
+```bash
+docker build --no-cache -t cyberfox-2077 .
+```
+1. ## Once the image is built, run the container using:
+
+```bash
+docker run -d -p 3000:3000 -p 6000:6000 --name cyberfox cyberfox-2077
+```
+### This will start the Node.js server and the Hyper terminal, exposing the necessary ports for web and X11 access. Building with `--no-cache` will take longer since each layer of the image is created anew. This command should be used especially when you want to make sure that the latest versions of dependencies are fetched or when you want to avoid potential issues caused by the Docker cache.
+
+### The -d flag runs the container in detached mode, allowing the terminal to be used for other commands while the container runs in the background. The -p 3000:3000 flag maps the container's port 3000 to port 3000 on the host machine for the Node.js server, and the -p 6000:6000 flag maps the X11 port for Hyper. This setup allows you to access the Node.js server via localhost:3000 and the X11 port via port 6000 on your host machine.
+
+## The --name cyberfox option names your running container cyberfox for easier reference. 
+
+## Interacting with the Docker Container and the Hyper Terminal
+## starting nodejs server in docker container
+### To start the Node.js server, run the following command:
+
+```bash
+docker exec -it cyberfox npm start
 ```
 
-## Integrate with your tools
+### To access the Hyper terminal, run the following command:
 
-- [ ] [Set up project integrations](https://hyperlethalvector.com/gitlab/gitlab-instance-8b316f6a/cyberfox-2077/-/settings/integrations)
+```bash
+docker exec -it cyberfox hyper
+```
+### This will open the Hyper terminal in the container. You can now run the commands in the course modules.
 
-## Collaborate with your team
+## Interacting with the Docker Container - General Purpose TroubleShooting
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+###To view the output of your Node.js server, you can use the following command:
+```bash
+docker logs cyberfox
+```
 
-## Test and Deploy
+###If you need to stop the server, you can do so with the following command:
 
-Use the built-in continuous integration in GitLab.
+```bash
+docker stop cyberfox
+```
+###To start the server again, simply use:
+```bash
+docker start cyberfox
+```
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+If you need to enter the container to interact with the Node.js environment directly, you can use the exec command to start a shell session:
 
-***
+```bash
+docker exec -it cyberfox /bin/bash
+```
+### To start all over again, you can remove the container and image with the following commands:
 
-# Editing this README
+Windows PowerShell:
+```bash
+docker stop $(docker ps -a -q) ; docker rm -f $(docker ps -a -q) ; docker rmi -f $(docker images -a -q) ; docker volume rm $(docker volume ls -q) ; docker network rm $(docker network ls -q) ; docker system prune -a -f --volumes
+```
+Linux Bash:
+```bash
+docker stop $(docker ps -a -q) && docker rm -f $(docker ps -a -q) && docker rmi -f $(docker images -a -q) && docker volume rm $(docker volume ls -q) && docker network rm $(docker network ls -q) && docker system prune -a -f --volumes
+```
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
 
-## Suggestions for a good README
+## Prerequisites
+1. **Basic understanding of command line interfaces and text editors.**
+2. **Installation of Git and Docker on your machine.**
+**(Optional) Access to a GitLab account for hands-on experience.**
+#Using the Course
+Each module contains a mix of theoretical concepts and practical exercises. It is recommended to follow the modules in sequence for a progressive learning experience.
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+## Contributions
+Contributions to CyberFox-2077 are welcome! If you have suggestions or improvements, please create an issue or a pull request.
 
 ## License
-For open source projects, say how it is licensed.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+## Acknowledgements
+OpenCTI for providing the context for cybersecurity project management.
+The Git and GitLab communities for their invaluable resources and support.
