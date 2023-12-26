@@ -1,5 +1,225 @@
+console.log(h)
+import { h, render, Fragment } from 'preact';
+function App() {
+  return (
+    <div className="app-skeleton">
+      <header className="app-header">
+        <div className="app-header__anchor">
+          <span className="app-header__anchor__text">Night-City NetWire</span>
+        </div>
+        <nav>
+          <ul className="nav">
+            {FIXTURES.headerMenu.map((navItem, navItemIndex) => (
+              <NavItem key={navItemIndex} navItem={navItem} />
+            ))}
+          </ul>
+        </nav>
+        <div />
+      </header>
+      <div className="app-container">
+        <div className="app-a">
+          <div className="segment-topbar">
+            <div className="segment-topbar__header">
+              <TextHeading3 className="segment-topbar__title">
+                Messages
+              </TextHeading3>
+            </div>
+            <div className="segment-topbar__aside">
+              <div className="button-toolbar">
+                <a className="button button--primary button--size-lg">
+                  <IconFeedAdd className="button__icon" />
+                </a>
+              </div>
+            </div>
+          </div>
 
-import { h, render, Component } from 'preact';
+          <form className="form-search" onSubmit={(e) => e.preventDefault()}>
+            <div className="form-group">
+              <div className="form-control form-control--with-addon">
+                <input name="query" placeholder="Search..." type="text" />
+                <div className="form-control__addon form-control__addon--prefix">
+                  <IconSearchSubmit />
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <NavSection renderTitle={(props) => <h2 {...props}>Feeds</h2>}>
+            <ChannelNav
+              activeChannel={{ id: "a0cc", name: "Watson" }}
+              channels={FIXTURES.feed}
+            />
+          </NavSection>
+
+          <NavSection renderTitle={(props) => <h2 {...props}>Direct</h2>}>
+            <ConversationNav conversations={FIXTURES.conversation} />
+          </NavSection>
+        </div>
+        <div className="app-main">
+          <div className="channel-feed">
+            <div className="segment-topbar">
+              <div className="segment-topbar__header">
+                <TextOverline className="segment-topbar__overline">
+                  NetWire_Seed: d869db7fe62fb07c25a0403ecaea55031744b5fb
+                </TextOverline>
+                <TextHeading4 className="segment-topbar__title">
+                  <ChannelLink name="Watson" />
+                </TextHeading4>
+              </div>
+              <div className="segment-topbar__aside">
+                <div className="button-toolbar">
+                  <a className="button button--default">
+                    <IconFeedMute className="button__icon" />
+                  </a>
+                  <a className="button button--default">
+                    <IconFeedSettings className="button__icon" />
+                  </a>
+                  <a className="button button--default">
+                    <IconMenuMore className="button__icon" />
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="channel-feed__body">
+              <FeedMessage message={FIXTURES.messages[0]} />
+              <FeedMessage message={FIXTURES.messages[0]} />
+            </div>
+            <div className="channel-feed__footer">
+              <form
+                className="channel-message-form"
+                action="#"
+                onSubmit={(e) => e.preventDefault()}
+              >
+                <div className="form-group">
+                  <label className="form-label" for="message">
+                    Message
+                  </label>
+                  <div className="form-control">
+                    <textarea
+                      id="message"
+                      className="form-control"
+                      name="message"
+                    ></textarea>
+                  </div>
+                </div>
+                <div className="form-footer">
+                  <Button size="xl" type="submit" variant="primary">
+                    Send
+                  </Button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div className="app-b">
+          <Pad>
+            <TextHeading3 $as="h4">What's this?</TextHeading3>
+            <TextParagraph1>
+              A <em>fake</em> Slack or Discord type of app inspired by Cyberpunk
+              2077. This app is static, eg. not implementing much logic.
+            </TextParagraph1>
+            <TextParagraph1>
+              The goal is: showcasing a start of a UI kit. If you've played the
+              game, you' might be able to pick-up some similarities with the
+              in-game menus.
+            </TextParagraph1>
+          </Pad>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function NavSection({ children, renderTitle }) {
+  return (
+    <div className="nav-section">
+      <div className="nav-section__header">
+        {renderTitle({ className: "nav-section__title" })}
+      </div>
+      <div className="nav-section__body">{children}</div>
+    </div>
+  );
+}
+
+function FeedMessage({ message }) {
+  return (
+    <div className="message">
+      <div className="message__body">
+        <div>
+          {
+            "I got a gig lined up in Watson, no biggie. If you prove useful, expect more side gigs coming your way. I need a half-decent netrunner. Hit me up, provide credentials, eddies on completion."
+          }
+        </div>
+      </div>
+      <div className="message__footer">
+        <span className="message__authoring">V. M. Vargas</span>
+        {" - 11:04pm"}
+      </div>
+    </div>
+  );
+}
+
+function ChannelNav({ activeChannel = null, channels = [] }) {
+  return (
+    <ul className="nav">
+      {channels.map((channel) => (
+        <li className="nav__item">
+          <a
+            className={`nav__link ${
+              activeChannel && activeChannel.id === channel.id
+                ? "nav__link--active"
+                : ""
+            }`}
+            href="#"
+          >
+            <ChannelLink {...channel}>{name}</ChannelLink>
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function ConversationNav({ activeConversation = null, conversations = [] }) {
+  return (
+    <ul className="nav">
+      {conversations.map((convo) => (
+        <li className="nav__item">
+          <a
+            className={`nav__link ${
+              activeConversation && activeConversation.id === convo.id
+                ? "nav__link--active"
+                : ""
+            }`}
+            href="#"
+          >
+            <ConversationLink conversation={convo} />
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function ChannelLink({ icon, name, unread }) {
+  return (
+    <span
+      className={`channel-link ${
+        unread > 0 ? "conversation-link--unread" : ""
+      }`}
+    >
+      <span className="channel-link__icon">#</span>
+      <span className="channel-link__element">{name}</span>
+
+      {unread > 0 && (
+        <span className="channel-link__element">
+          <Badge>{unread}</Badge>
+        </span>
+      )}
+    </span>
+  );
+}
+
 function ConversationLink({ conversation }) {
   return (
     <span

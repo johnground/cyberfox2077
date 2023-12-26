@@ -43,11 +43,16 @@ WORKDIR /home/cyberfox
 # Copy application source including package.json, webpack.config.js, .babelrc, src folder, etc.
 COPY --chown=cyberfox:cyberfox . .
 
-# Install Node.js dependencies including Preact
+# Install Node.js dependencies including Preact and Babel presets
 RUN npm install
+RUN npm install @babel/preset-env @babel/preset-react babel-plugin-transform-react-jsx --save-dev
 
 # Build the Preact components using webpack
 RUN npm run build
+
+# Create log directories for supervisord and set permissions
+RUN mkdir -p /var/log/supervisor && \
+    chown -R cyberfox:cyberfox /var/log/supervisor
 
 # Copy supervisord configuration file
 COPY --chown=cyberfox:cyberfox supervisord.conf /etc/supervisor/conf.d/supervisord.conf
@@ -61,11 +66,9 @@ EXPOSE 6000
 # Set the display environment variable for X11
 ENV DISPLAY :0
 
-# No need to create 'projects' directory if it's already in the copied context
-# RUN mkdir -p projects
-
 # Command to start supervisord which can manage both your server and any other process
 CMD ["/usr/bin/supervisord"]
+
 
 
 
