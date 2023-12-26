@@ -1,4 +1,5 @@
 
+import { h, render, Component } from 'preact';
 function ConversationLink({ conversation }) {
   return (
     <span

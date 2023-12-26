@@ -12,7 +12,8 @@ RUN apt-get update && apt-get install -y \
     wget \
     git \
     libasound2 \
-    supervisor && \
+    supervisor \
+    build-essential && \
     curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
     apt-get install -y nodejs && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -36,11 +37,20 @@ RUN echo "exec openbox-session" > /etc/X11/xinit/xinitrc
 # Create a non-root user 'cyberfox' and set the home directory
 RUN useradd -m cyberfox
 
-# Switch to non-root user
-USER cyberfox
-
 # Set the working directory to the current user's directory
 WORKDIR /home/cyberfox
+
+# Copy application source including package.json, webpack.config.js, .babelrc, src folder, etc.
+COPY --chown=cyberfox:cyberfox . .
+
+# Install Node.js dependencies including Preact
+RUN npm install
+
+# Build the Preact components using webpack
+RUN npm run build
+
+# Copy supervisord configuration file
+COPY --chown=cyberfox:cyberfox supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Expose the Node.js server port
 EXPOSE 3000
@@ -51,17 +61,8 @@ EXPOSE 6000
 # Set the display environment variable for X11
 ENV DISPLAY :0
 
-# Initialize package.json for npm
-RUN npm init -y
-
-# Install Preact
-RUN npm install preact
-
-# Copy application source
-COPY --chown=cyberfox:cyberfox . .
-
-# Copy supervisord configuration file
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
-# Command to start supervisord
+# Command to start supervisord which can manage both your server and any other process
 CMD ["/usr/bin/supervisord"]
+
+
+
