@@ -23,22 +23,25 @@ RUN apt-get update && apt-get install -y \
     libnotify4 \
     xdg-utils
 
-# Install Hyper as root
+# Create a non-root user 'cyberfox' and set the home directory
+RUN useradd -m cyberfox
+
+# Set the working directory to the non-root user's directory
+WORKDIR /home/cyberfox
+
+# Download and install Hyper as the non-root user
 RUN wget https://releases.hyper.is/download/deb -O hyper.deb && \
     dpkg -i hyper.deb && \
     rm hyper.deb
+
+# Change ownership of the home directory
+RUN chown -R cyberfox:cyberfox /home/cyberfox
 
 # Verify Hyper installation
 RUN which hyper
 
 # Setup Openbox for X11
 RUN echo "exec openbox-session" > /etc/X11/xinit/xinitrc
-
-# Create a non-root user 'cyberfox' and set the home directory
-RUN useradd -m cyberfox
-
-# Set the working directory to the current user's directory
-WORKDIR /home/cyberfox
 
 # Copy application source including package.json, webpack.config.js, .babelrc, src folder, etc.
 COPY --chown=cyberfox:cyberfox . .
@@ -65,6 +68,9 @@ EXPOSE 6000
 
 # Set the display environment variable for X11
 ENV DISPLAY :0
+
+# Switch to non-root user for running applications
+USER cyberfox
 
 # Command to start supervisord which can manage both your server and any other process
 CMD ["/usr/bin/supervisord"]

@@ -5,7 +5,7 @@ function App() {
     <div className="app-skeleton">
       <header className="app-header">
         <div className="app-header__anchor">
-          <span className="app-header__anchor__text">Night-City NetWire</span>
+          <span className="app-header__anchor__text">CyberFox-2077 Git/Gitlab Training</span>
         </div>
         <nav>
           <ul className="nav">
@@ -60,7 +60,7 @@ function App() {
             <div className="segment-topbar">
               <div className="segment-topbar__header">
                 <TextOverline className="segment-topbar__overline">
-                  NetWire_Seed: d869db7fe62fb07c25a0403ecaea55031744b5fb
+                  GitFox_Seed: aHlwZXJsZXRoYWx2ZWN0b3IuY29tL2dpdGxhYg==
                 </TextOverline>
                 <TextHeading4 className="segment-topbar__title">
                   <ChannelLink name="Watson" />
@@ -112,19 +112,49 @@ function App() {
           </div>
         </div>
         <div className="app-b">
-          <Pad>
-            <TextHeading3 $as="h4">What's this?</TextHeading3>
-            <TextParagraph1>
-              A <em>fake</em> Slack or Discord type of app inspired by Cyberpunk
-              2077. This app is static, eg. not implementing much logic.
-            </TextParagraph1>
-            <TextParagraph1>
-              The goal is: showcasing a start of a UI kit. If you've played the
-              game, you' might be able to pick-up some similarities with the
-              in-game menus.
-            </TextParagraph1>
-          </Pad>
-        </div>
+         <Pad>
+           <TextHeading3 $as="h4">README.md</TextHeading3>
+           <TextParagraph1>
+             Welcome to CyberFox-2077, a cyberpunk-themed training program designed to teach the fundamentals and advanced functionalities of Git and GitLab. This course also focuses on developing Ansible Roles/Playbooks for OpenCTI, providing a hands-on experience in managing cybersecurity projects.
+           </TextParagraph1>
+           <TextHeading3 $as="h4">About the Course</TextHeading3>
+           <TextParagraph1>
+             CyberFox-2077 is a comprehensive training program divided into six modules. Each module is crafted to guide learners through various aspects of Git, GitLab, and Ansible, with a special emphasis on applying these skills to OpenCTI projects.
+           </TextParagraph1>
+           <TextHeading3 $as="h4">Prerequisites</TextHeading3>
+           <ul>
+            <li>Basic understanding of command line interfaces and text editors.</li>
+            <li>Installation of Git and Docker on your machine.</li>
+            <li>(Optional) Access to a GitLab account for hands-on experience.</li>
+            <li>A computer capable of running docker containers with at least 12GB of RAM.</li>
+           </ul>
+           <TextHeading3 $as="h4">Course Modules</TextHeading3>
+           <ol>
+             <li>
+               <strong>Introduction to Version Control and Git</strong>: Understanding the basics of Git and its importance in modern software development.
+             </li>
+              <li>
+               <strong>GitLab Essentials</strong>: Exploring the features of GitLab and how they enhance project collaboration and version control.
+             </li>
+              <li>
+               <strong>Advanced Git Techniques</strong>: Diving deeper into Git to uncover powerful tools and techniques for effective version management.
+             </li>
+              <li>
+               <strong>Ansible and Automation</strong>: Introducing Ansible for automating application deployment and configuration management.
+             </li>
+              <li>
+               <strong>Developing Ansible Roles for OpenCTI</strong>: Hands-on module focused on creating Ansible Roles and Playbooks tailored for OpenCTI.
+             </li>
+              <li>
+               <strong>Best Practices in Git and Ansible</strong>: Consolidating the knowledge with best practices and industry standards for Git and Ansible.
+             </li>
+           </ol>
+        <TextHeading3 $as="h4">Getting Started</TextHeading3>
+         <TextParagraph1>
+          To get started with CyberFox-2077, clone this repository and follow the instructions in each module's directory.
+         </TextParagraph1>
+        </Pad>
+       </div>
       </div>
     </div>
   );
