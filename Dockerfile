@@ -17,11 +17,18 @@ RUN apt-get update && apt-get install -y \
     apt-get install -y nodejs && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# Install dependencies for Hyper
+RUN apt-get update && apt-get install -y \
+    libnotify4 \
+    xdg-utils
+
 # Install Hyper as root
 RUN wget https://releases.hyper.is/download/deb -O hyper.deb && \
-    dpkg -i hyper.deb || apt-get install -f -y && \
-    rm hyper.deb && \
-    which hyper
+    dpkg -i hyper.deb && \
+    rm hyper.deb
+
+# Verify Hyper installation
+RUN which hyper
 
 # Setup Openbox for X11
 RUN echo "exec openbox-session" > /etc/X11/xinit/xinitrc

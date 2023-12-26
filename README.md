@@ -6,6 +6,12 @@ Welcome to CyberFox-2077, a cyberpunk-themed training program designed to teach 
 
 CyberFox-2077 is a comprehensive training program divided into six modules. Each module is crafted to guide learners through various aspects of Git, GitLab, and Ansible, with a special emphasis on applying these skills to OpenCTI projects.
 
+## Prerequisites
+1. Basic understanding of command line interfaces and text editors.
+2. Installation of Git and Docker on your machine.
+3. (Optional) Access to a GitLab account for hands-on experience.
+4. A computer capable of running docker containers with at least 12GB of RAM.
+
 ## Course Modules
 
 1. **Introduction to Version Control and Git**: Understanding the basics of Git and its importance in modern software development.
@@ -92,11 +98,6 @@ Linux Bash:
 docker stop $(docker ps -a -q) && docker rm -f $(docker ps -a -q) && docker rmi -f $(docker images -a -q) && docker volume rm $(docker volume ls -q) && docker network rm $(docker network ls -q) && docker system prune -a -f --volumes
 ```
 
-
-## Prerequisites
-1. **Basic understanding of command line interfaces and text editors.**
-2. **Installation of Git and Docker on your machine.**
-**(Optional) Access to a GitLab account for hands-on experience.**
 #Using the Course
 Each module contains a mix of theoretical concepts and practical exercises. It is recommended to follow the modules in sequence for a progressive learning experience.
 
