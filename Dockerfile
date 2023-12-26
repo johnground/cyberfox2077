@@ -11,7 +11,8 @@ RUN apt-get update && apt-get install -y \
     openbox \
     wget \
     git \
-    libasound2 && \
+    libasound2 \
+    supervisor && \
     curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
     apt-get install -y nodejs && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -24,14 +25,14 @@ RUN wget https://releases.hyper.is/download/deb -O hyper.deb && \
 # Setup Openbox for X11
 RUN echo "exec openbox-session" > /etc/X11/xinit/xinitrc
 
-# Create a non-root user 'myuser' and set the home directory
-RUN useradd -m myuser
+# Create a non-root user 'cyberfox' and set the home directory
+RUN useradd -m cyberfox
 
 # Switch to non-root user
-USER myuser
+USER cyberfox
 
 # Set the working directory to the current user's directory
-WORKDIR /home/myuser
+WORKDIR /home/cyberfox
 
 # Expose the Node.js server port
 EXPOSE 3000
@@ -49,15 +50,10 @@ RUN npm init -y
 RUN npm install preact
 
 # Copy application source
-COPY --chown=myuser:myuser . .
+COPY --chown=cyberfox:cyberfox . .
 
-# Command to start your services
-CMD ["sh", "-c", "node server.js & hyper"]
+# Copy supervisord configuration file
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-
-
-
-
-
-
-
+# Command to start supervisord
+CMD ["/usr/bin/supervisord"]

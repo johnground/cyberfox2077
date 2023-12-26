@@ -38,15 +38,15 @@ docker build --no-cache -t cyberfox-2077 .
 ```bash
 docker run -d -p 3000:3000 -p 6000:6000 --name cyberfox cyberfox-2077
 ```
-### This will start the Node.js server and the Hyper terminal, exposing the necessary ports for web and X11 access. Building with `--no-cache` will take longer since each layer of the image is created anew. This command should be used especially when you want to make sure that the latest versions of dependencies are fetched or when you want to avoid potential issues caused by the Docker cache.
+This will start the Node.js server and the Hyper terminal, exposing the necessary ports for web and X11 access. Building with `--no-cache` will take longer since each layer of the image is created anew. This command should be used especially when you want to make sure that the latest versions of dependencies are fetched or when you want to avoid potential issues caused by the Docker cache.
 
-### The -d flag runs the container in detached mode, allowing the terminal to be used for other commands while the container runs in the background. The -p 3000:3000 flag maps the container's port 3000 to port 3000 on the host machine for the Node.js server, and the -p 6000:6000 flag maps the X11 port for Hyper. This setup allows you to access the Node.js server via localhost:3000 and the X11 port via port 6000 on your host machine.
+The -d flag runs the container in detached mode, allowing the terminal to be used for other commands while the container runs in the background. The -p 3000:3000 flag maps the container's port 3000 to port 3000 on the host machine for the Node.js server, and the -p 6000:6000 flag maps the X11 port for Hyper. This setup allows you to access the Node.js server via localhost:3000 and the X11 port via port 6000 on your host machine.
 
-## The --name cyberfox option names your running container cyberfox for easier reference. 
+The --name cyberfox option names your running container cyberfox for easier reference.
 
 ## Interacting with the Docker Container and the Hyper Terminal
-## starting nodejs server in docker container
-### To start the Node.js server, run the following command:
+starting nodejs server in docker container
+To start the Node.js server, run the following command:
 
 ```bash
 docker exec -it cyberfox npm start
