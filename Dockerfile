@@ -61,6 +61,9 @@ EXPOSE 6000
 # Set the display environment variable for X11
 ENV DISPLAY :0
 
+# No need to create 'projects' directory if it's already in the copied context
+# RUN mkdir -p projects
+
 # Command to start supervisord which can manage both your server and any other process
 CMD ["/usr/bin/supervisord"]
 

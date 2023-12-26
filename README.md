@@ -42,8 +42,16 @@ docker build --no-cache -t cyberfox-2077 .
 1. **Once the image is built, run the container using:**
 
 ```bash
-docker run -d -p 3000:3000 -p 6000:6000 --name cyberfox -v $(pwd):/home/cyberfox cyberfox-2077
+docker run -d -p 3000:3000 -v "$(pwd)/projects:/home/cyberfox/projects" --name cyberfox cyberfox-2077
 ```
+
+2. **running docker with xll forwarding**
+
+```bash
+docker run -it -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --user cyberfox cyberfox-2077 hyper
+```
+
+
 This will start the Node.js server and the Hyper terminal, exposing the necessary ports for web and X11 access. Building with `--no-cache` will take longer since each layer of the image is created anew. This command should be used especially when you want to make sure that the latest versions of dependencies are fetched or when you want to avoid potential issues caused by the Docker cache.
 
 The `-d`flag runs the container in detached mode, allowing the terminal to be used for other commands while the container runs in the background. The `-p 3000:3000` flag maps the container's port 3000 to port 3000 on the host machine for the Node.js server, and the `-p 6000:6000` flag maps the X11 port for Hyper. This setup allows you to access the Node.js server via `localhost:3000` and the X11 port via port 6000 on your host machine.
@@ -67,7 +75,8 @@ docker exec -it -d cyberfox npm start
 ### To access the Hyper terminal, run the following command:
 
 ```bash
-docker exec -it cyberfox hyper 
+docker exec -it --user cyberfox cyberfox hyper
+
 ```
 ### This will open the Hyper terminal in the container. You can now run the commands in the course modules.
 
