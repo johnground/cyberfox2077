@@ -4,7 +4,7 @@ FROM ubuntu:latest
 # Avoid prompts from apt
 ENV DEBIAN_FRONTEND noninteractive
 
-# Install curl and other dependencies, update Node.js and npm to latest versions
+# Install curl, Python, build tools, and other dependencies
 RUN apt-get update && apt-get install -y \
     curl \
     xorg \
@@ -13,15 +13,23 @@ RUN apt-get update && apt-get install -y \
     git \
     libasound2 \
     supervisor \
-    build-essential && \
-    curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
-    apt-get install -y nodejs && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+    build-essential \
+    python3 \
+    make \
+    g++ \
+    libx11-dev \
+    libxkbfile-dev \
+    libsecret-1-dev \
+    && curl -sL https://deb.nodesource.com/setup_16.x | bash - \
+    && apt-get install -y nodejs \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install dependencies for Hyper
 RUN apt-get update && apt-get install -y \
     libnotify4 \
-    xdg-utils
+    xdg-utils \
+    libgtk-3-0 \
+    libgbm-dev
 
 # Create a non-root user 'cyberfox' and set the home directory
 RUN useradd -m cyberfox
@@ -46,9 +54,9 @@ RUN echo "exec openbox-session" > /etc/X11/xinit/xinitrc
 # Copy application source including package.json, webpack.config.js, .babelrc, src folder, etc.
 COPY --chown=cyberfox:cyberfox . .
 
-# Install Node.js dependencies including Preact and Babel presets
+# Install Node.js dependencies including Preact, Babel presets, and node-pty
 RUN npm install
-RUN npm install @babel/preset-env @babel/preset-react babel-plugin-transform-react-jsx --save-dev
+RUN npm install @babel/preset-env @babel/preset-react babel-plugin-transform-react-jsx node-pty --save-dev
 
 # Build the Preact components using webpack
 RUN npm run build
@@ -74,6 +82,7 @@ USER cyberfox
 
 # Command to start supervisord which can manage both your server and any other process
 CMD ["/usr/bin/supervisord"]
+
 
 
 

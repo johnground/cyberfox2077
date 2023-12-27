@@ -1,5 +1,7 @@
 const express = require('express');
-const { exec } = require('child_process');
+const { spawn } = require('node-pty'); // Import node-pty
+const path = require('path');
+const os = require('os');
 const app = express();
 const http = require('http');
 const server = http.createServer(app);
@@ -10,10 +12,31 @@ const io = new Server(server);
 app.use(express.static('.'));
 
 io.on('connection', (socket) => {
+    console.log('a user connected');
+
+    // Initialize node-pty with a shell upon new socket connection
+    const shell = os.platform() === 'win32' ? 'powershell.exe' : 'bash';
+
+    const ptyProcess = spawn(shell, [], {
+        name: 'xterm-color',
+        cwd: process.env.PWD, // or another directory you wish to set as the current working directory
+        env: process.env
+    });
+
+    // When the front-end sends a command, write it to the ptyProcess
     socket.on('terminal-input', (input) => {
-        processData(input, (output) => {
-            socket.emit('terminal-output', output);
-        });
+        ptyProcess.write(input);
+    });
+
+    // When the ptyProcess generates data, send it to the front-end
+    ptyProcess.on('data', function(data) {
+        socket.emit('terminal-output', data);
+    });
+
+    // Clean up the terminal process on disconnect
+    socket.on('disconnect', () => {
+        ptyProcess.kill();
+        console.log('user disconnected');
     });
 });
 
@@ -22,32 +45,6 @@ server.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
 
-const projectsPath = '/home/cyberfox/projects'; // Path to the 'projects' directory
+// Removed processData and sanitizeInput functions
+// as we are now using node-pty to manage shell commands directly.
 
-function processData(input, callback) {
-    const sanitizedInput = sanitizeInput(input);
-
-    if (sanitizedInput) {
-        exec(sanitizedInput, { cwd: projectsPath }, (error, stdout, stderr) => {
-            if (error) {
-                console.error(`exec error: ${error}`);
-                return callback(`Error: ${error.message}`);
-            }
-            if (stderr) {
-                console.error(`stderr: ${stderr}`);
-                return callback(stderr);
-            }
-            callback(stdout);
-        });
-    } else {
-        callback('Invalid command');
-    }
-}
-
-function sanitizeInput(input) {
-    // Implement your command sanitization logic here
-    if (input.startsWith('git') && !input.includes('&&') && !input.includes(';')) {
-        return input;
-    }
-    return null;
-}

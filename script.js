@@ -36,7 +36,7 @@ function App() {
           <form className="form-search" onSubmit={(e) => e.preventDefault()}>
             <div className="form-group">
               <div className="form-control form-control--with-addon">
-                <input name="query" placeholder="Search..." type="text" />
+                <input name="query" placeholder="Cyber Query.." type="text" />
                 <div className="form-control__addon form-control__addon--prefix">
                   <IconSearchSubmit />
                 </div>
@@ -44,14 +44,14 @@ function App() {
             </div>
           </form>
 
-          <NavSection renderTitle={(props) => <h2 {...props}>Feeds</h2>}>
+          <NavSection renderTitle={(props) => <h2 {...props}>Course Modules</h2>}>
             <ChannelNav
-              activeChannel={{ id: "a0cc", name: "Watson" }}
+              activeChannel={{ id: "a0cc", name: "Module 4: Advanced Git Techniques" }}
               channels={FIXTURES.feed}
             />
           </NavSection>
 
-          <NavSection renderTitle={(props) => <h2 {...props}>Direct</h2>}>
+          <NavSection renderTitle={(props) => <h2 {...props}>Holocron of Knowledge</h2>}>
             <ConversationNav conversations={FIXTURES.conversation} />
           </NavSection>
         </div>
@@ -63,7 +63,7 @@ function App() {
                   GitFox_Seed: aHlwZXJsZXRoYWx2ZWN0b3IuY29tL2dpdGxhYg==
                 </TextOverline>
                 <TextHeading4 className="segment-topbar__title">
-                  <ChannelLink name="Watson" />
+                  <ChannelLink name="CyberFox" />
                 </TextHeading4>
               </div>
               <div className="segment-topbar__aside">
@@ -146,7 +146,7 @@ function App() {
                <strong>Developing Ansible Roles for OpenCTI</strong>: Hands-on module focused on creating Ansible Roles and Playbooks tailored for OpenCTI.
              </li>
               <li>
-               <strong>Best Practices in Git and Ansible</strong>: Consolidating the knowledge with best practices and industry standards for Git and Ansible.
+               <strong>Beyond Ansible and Git: Master Advanced Deployment Techniques</strong>: This course takes you a step further than the basics. Here, you'll not only deploy an Ansible role from a control node but also delve into the intricacies of integrating it with a sophisticated deployment platform. By adapting your role to this advanced environment, you'll gain hands-on experience with real-world applications, honing your skills to meet the demands of complex system management. Prepare to bridge the gap between theory and practice, emerging with the capability to handle advanced deployment scenarios with confidence.
              </li>
            </ol>
         <TextHeading3 $as="h4">Getting Started</TextHeading3>
@@ -177,13 +177,35 @@ function FeedMessage({ message }) {
       <div className="message__body">
         <div>
           {
-            "I got a gig lined up in Watson, no biggie. If you prove useful, expect more side gigs coming your way. I need a half-decent netrunner. Hit me up, provide credentials, eddies on completion."
+            `
+        CyberFox-2077 System Initialization...
+-------------------------------------
+[OK] Establishing secure connection to CyberFox mainframe... 
+[OK] Validating system integrity... 
+[OK] Encryption protocols engaged... 
+[OK] Booting up ansible-node v2.4.1... 
+[OK] Syncing with GitLab repository... 
+[OK] Loading advanced deployment platform... 
+[OK] Integrating Ansible roles and playbooks... 
+[OK] Activating OpenCTI plugins and extensions... 
+[OK] Compiling Preact components for Cyber interface... 
+[OK] Launching xterm.js terminal emulation... 
+[OK] Establishing WebSocket connections... 
+[OK] Initiating Docker container orchestration... 
+[OK] Setting X11 forwarding for Hyper terminal... 
+
+CyberFox-2077 Operational Status: ONLINE
+System is now ready for advanced Git and Ansible operations.
+All systems functioning within optimal parameters.
+
+Welcome to CyberFox-2077 Training Program. Prepare for an immersive learning experience.
+Type 'help' for assistance or 'begin' to start your journey into the future of version control and automation.`
           }
         </div>
       </div>
       <div className="message__footer">
-        <span className="message__authoring">V. M. Vargas</span>
-        {" - 11:04pm"}
+        <span className="message__authoring">System .Git</span>
+        {" - 23:04pm"}
       </div>
     </div>
   );
@@ -381,40 +403,40 @@ const IconShop = MakeIcon(
 
 const FIXTURES = {
   headerMenu: [
-    { notificationCount: 0, text: "Home" },
-    { isActive: true, notificationCount: 11, text: "Messages" },
-    { notificationCount: 0, text: "Shop" },
-    { notificationCount: 0, text: "Map" },
+    { notificationCount: 0, text: "CyberFox-2077 Home" },
+    { isActive: true, notificationCount: 11, text: "Progress" },
+    { notificationCount: 0, text: "Project" },
+    { notificationCount: 0, text: "Ansible" },
     { notificationCount: 0, text: "Files" }
   ],
   feed: [
-    { id: "5ba5", name: "Afterlife", unread: 3 },
-    { id: "4f22", name: "NCPD-Gigs" },
-    { id: "fee9", name: "Pacifica" },
-    { id: "a0cc", name: "Watson" },
-    { id: "dee3", name: "_T_SQUAD", isPrivate: true, unread: 2 }
+    { id: "5ba5", name: "Module 1: Introduction to Version Control and Git", unread: 5 },
+    { id: "4f22", name: "Module 2: GitLab Essentials", unread: 6 },
+    { id: "fee9", name: "Module 3: Advanced Git Techniques", unread: 4 },
+    { id: "a0cc", name: "Module 4: Ansible and Automation", unread: 7 },
+    { id: "a0df", name: "Module 5: Developing Ansible Roles for OpenCTI", unread: 6 },
+    { id: "dee3", name: "Module 6: Beyond Ansible and Git", isPrivate: true, unread: 5 }
   ],
   conversation: [
     {
       id: "cc23",
       isOnline: true,
       unread: 5,
-      name: "Rogue Amendiares"
+      name: "OpenCTI Project Progression"
     },
-    { id: "95b4", isOnline: true, name: "Takemura", unread: 1 },
-    { id: "10cf", name: "Wakado O., Regina Jones" },
-    { id: "e466", name: "Dexter DeShawn" },
-    { id: "ca0b", name: "Megabuilding H10 Administration" }
+    { id: "95b4", isOnline: true, name: "Ansible Control Node", unread: 1 },
+    { id: "10cf", name: "Git Command Sheet" },
+    { id: "e466", name: "OpenCTI" },
+    { id: "ca0b", name: "Ansible Roles" }
   ],
   messages: [
     {
       id: "fd0cf",
-      content:
-        "I got a gig lined up in Watson, no biggie. If you prove useful, expect more side gigs coming your way. I need a half-decent netrunner. Hit me up, provide credentials, eddies on completion.",
+      content: "fubar", // Provide a valid value for the content property
       dateTime: "2077-10-09T11:04:57Z",
       author: {
         id: "d12c",
-        name: "V.M. Vargas"
+        name: "System.Git"
       }
     }
   ]
