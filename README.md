@@ -42,7 +42,7 @@ docker build --no-cache -t cyberfox-2077 .
 1. **Once the image is built, run the container using:**
 
 ```bash
-docker run -d -p 3000:3000 -v "$(pwd)/projects:/home/cyberfox/projects" --name cyberfox cyberfox-2077
+docker run -d -p 3000:3000 -p 6000:6000 -v "$(pwd)/projects:/home/cyberfox/projects" --name cyberfox cyberfox-2077
 ```
 
 2. **running docker with xll forwarding**

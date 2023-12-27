@@ -56,7 +56,7 @@ COPY --chown=cyberfox:cyberfox . .
 
 # Install Node.js dependencies including Preact, Babel presets, and node-pty
 RUN npm install
-RUN npm install @babel/preset-env @babel/preset-react babel-plugin-transform-react-jsx node-pty --save-dev
+RUN npm install @babel/preset-env @babel/preset-react babel-plugin-transform-react-jsx node-pty preact preact-router --save-dev
 
 # Build the Preact components using webpack
 RUN npm run build
@@ -82,6 +82,9 @@ USER cyberfox
 
 # Command to start supervisord which can manage both your server and any other process
 CMD ["/usr/bin/supervisord"]
+
+
+
 
 
 
