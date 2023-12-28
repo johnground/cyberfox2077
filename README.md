@@ -86,10 +86,18 @@ This course's interactive elements are designed with Preact and can be run in a 
 1. **Ensure Docker is installed on your machine.** You can download Docker Desktop for Windows or Mac from the official Docker website. For Linux users, follow the instructions for your specific distribution.
 2. **Build the Docker image from scratch without using cache with the following command:**
 
+Windows WSL With Docker Desktop:
 
 ```bash
 docker build --no-cache -t cyberfox-2077 .
 ```
+Linux Ubuntu 22.04:
+    
+```bash
+docker build --no-cache -t cyberfox-2077 .
+```
+
+
 1. **Once the image is built, run the container using:**
 
 ```bash

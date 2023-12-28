@@ -7,8 +7,8 @@ html,
 body {
   --colors-bg--300: #1e181e;
   --colors-bg--500: #191a1e;
-  --colors-primary--200: #bc3810;
-  --colors-primary--300: #ef8c35;
+  --colors-primary--200: #f4908b;
+  --colors-primary--300: #ea6f69;
   --colors-primary--500: #e8615a;
   --colors-primary--600: #9c3230;
   --colors-primary--700: #5e2122;
@@ -568,14 +568,5 @@ textarea {
 .segment-topbar__aside {
   align-self: flex-start;
   box-shadow: -6px -4px 24px rgba(156, 50, 48, 0.4);
-.app-b__collapsible {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
 }
 
-.app-b__collapsible--expanded {
-    max-height: 500px; /* Adjust as needed for your content */
-    overflow-y: auto;
-}
-}
