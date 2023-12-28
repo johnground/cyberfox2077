@@ -441,5 +441,21 @@ const FIXTURES = {
     }
   ]
 };
+// Function to toggle the collapse state
+function toggleCollapse() {
+    const collapsible = document.querySelector('.app-b__collapsible');
+    const isExpanded = collapsible.classList.contains('app-b__collapsible--expanded');
+    if (isExpanded) {
+        collapsible.classList.remove('app-b__collapsible--expanded');
+    } else {
+        collapsible.classList.add('app-b__collapsible--expanded');
+    }
+}
+
+// Add event listener to the toggle button
+document.addEventListener('DOMContentLoaded', () => {
+    const toggleButton = document.querySelector('.app-b__toggle');
+    toggleButton.addEventListener('click', toggleCollapse);
+});
 
 render(<App />, document.getElementById("root"));
