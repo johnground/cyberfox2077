@@ -3,17 +3,19 @@ import { Router } from 'preact-router';
 
 // Import your page components
 import Home from './Home';
-// Import other components as needed
+import MessagePage from './MessagePage'; // Import the new MessagePage component
 
 class AppRouter extends Component {
     render() {
         return (
             <Router>
                 <Home path="/" />
-                {/* Add more routes here for other components */}
+                <MessagePage path="/messages" /> {/* New route for the MessagePage */}
+                {/* You can add more routes here for other components in the future */}
             </Router>
         );
     }
 }
 
 export default AppRouter;
+

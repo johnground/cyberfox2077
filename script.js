@@ -82,7 +82,6 @@ function App() {
             </div>
             <div className="channel-feed__body">
               <FeedMessage message={FIXTURES.messages[0]} />
-              <FeedMessage message={FIXTURES.messages[0]} />
             </div>
             <div className="channel-feed__footer">
               <form
