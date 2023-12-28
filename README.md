@@ -12,6 +12,14 @@ CyberFox-2077 is a comprehensive training program divided into six modules. Each
 3. (Optional) Access to a GitLab account for hands-on experience.
 4. A computer capable of running docker containers with at least 12GB of RAM.
 
+**Ubuntu 22.04 LTS** is recommended, here is the docker onliner for ubuntu 22.04 LTS to install docker and add your user to the docker group. This scripts also enables docker to start on boot and starts docker after installation. Milage may vary on other distributions.
+
+# Write a guide here on how to install Docker on the windows in a code block explaining the steps
+
+```bash
+sudo apt update && sudo apt install -y apt-transport-https ca-certificates curl software-properties-common && curl -fsSL https://get.docker.com | sudo bash - && sudo usermod -aG docker $USER && sudo systemctl enable docker && sudo systemctl start docker && source ~/.bashrc
+```
+
 ## Course Modules
 
 1. **Introduction to Version Control and Git**: Understanding the basics of Git and its importance in modern software development.

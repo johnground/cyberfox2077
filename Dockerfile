@@ -1,5 +1,5 @@
-# Start with the latest Ubuntu base image
-FROM ubuntu:latest
+# Start with a specific Ubuntu base image
+FROM ubuntu:22.04
 
 # Avoid prompts from apt
 ENV DEBIAN_FRONTEND noninteractive
@@ -54,14 +54,20 @@ RUN echo "exec openbox-session" > /etc/X11/xinit/xinitrc
 # Copy application source including package.json, webpack.config.js, .babelrc, src folder, etc.
 COPY --chown=cyberfox:cyberfox . .
 
+# Switch to non-root user for running applications
+USER cyberfox
+
 # Install Node.js dependencies including Preact, Babel presets, and node-pty
 RUN npm install
-RUN npm install @babel/preset-env @babel/preset-react babel-plugin-transform-react-jsx node-pty preact preact-router --save-dev
+RUN npm install webpack webpack-cli @babel/preset-env @babel/preset-react babel-plugin-transform-react-jsx node-pty preact preact-router --save-dev
 
 # Build the Preact components using webpack
-RUN npm run build
+RUN ./node_modules/.bin/webpack --mode production
 
-# Create log directories for supervisord and set permissions
+# Switch back to root user to perform root-level operations
+USER root
+
+# Create log directories for supervisord as root user and change ownership
 RUN mkdir -p /var/log/supervisor && \
     chown -R cyberfox:cyberfox /var/log/supervisor
 
@@ -77,11 +83,11 @@ EXPOSE 6000
 # Set the display environment variable for X11
 ENV DISPLAY :0
 
-# Switch to non-root user for running applications
-USER cyberfox
-
 # Command to start supervisord which can manage both your server and any other process
 CMD ["/usr/bin/supervisord"]
+
+
+
 
 
 

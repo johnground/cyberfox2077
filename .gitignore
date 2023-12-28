@@ -1,0 +1,31 @@
+
+# Node modules and npm cache
+node_modules/
+.npm/
+
+# Log files
+*.log
+.npm/_logs/
+supervisord.log
+
+# Editor and system files
+.DS_Store
+.hyper.js
+.hyper_plugins/
+
+# Temporary files
+*~
+*.temp
+*.tmp
+
+# User-specific configuration files
+.config/
+
+# Build artifacts
+dist/
+
+# Miscellaneous
+clipboard.js
+test.html
+
+# Add any Docker related files if needed
