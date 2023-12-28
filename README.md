@@ -11,14 +11,57 @@ CyberFox-2077 is a comprehensive training program divided into six modules. Each
 2. Installation of Git and Docker on your machine.
 3. (Optional) Access to a GitLab account for hands-on experience.
 4. A computer capable of running docker containers with at least 12GB of RAM.
+5. git installed on your machine
+6. docker installed on your machine
+
+# Installing Git on Ubuntu 22.04 LTS
+
+Please note that this code assumes you have administrative privileges (`sudo`) and the `apt` package manager is available on your system.
+
+``` bash
+sudo apt update && apt install git -y && git --version && git config --global user.name "Your Name" && git config --global user.email " 
+```
+
+This code snippet demonstrates the installation process for Git using the `apt` package manager. The following steps are performed:
+
+1. Update the package lists using `sudo apt update`.
+2. Install Git using `apt install git -y`.
+3. Verify the installation by checking the Git version using `git --version`.
+4. Set the global Git user name using `git config --global user.name "Your Name"`.
+5. Set the global Git user email using `git config --global user.email "your@email.com"`.
+
+
+
+# Installing Git on Windows
+1. Go to the official Git website (https://git-scm.com/downloads) and download the latest version of Git for Windows. The download will start automatically. Once the download is complete, double-click the installer to start the installation process. Follow the on-screen instructions to complete the installation. During the installation, you can leave all the default settings as they are. Once the installation is finished, Git will be available in the Windows Command Prompt or powershell.
+
 
 **Ubuntu 22.04 LTS** is recommended, here is the docker onliner for ubuntu 22.04 LTS to install docker and add your user to the docker group. This scripts also enables docker to start on boot and starts docker after installation. Milage may vary on other distributions.
-
-# Write a guide here on how to install Docker on the windows in a code block explaining the steps
 
 ```bash
 sudo apt update && sudo apt install -y apt-transport-https ca-certificates curl software-properties-common && curl -fsSL https://get.docker.com | sudo bash - && sudo usermod -aG docker $USER && sudo systemctl enable docker && sudo systemctl start docker && source ~/.bashrc
 ```
+# Installing Docker on Windows
+
+1. Go to the official Docker website (https://www.docker.com/products/docker-desktop) and download Docker Desktop for Windows.
+
+2. Once the download is complete, double-click the installer to start the installation process.
+
+3. Follow the on-screen instructions to complete the installation. During the installation, Docker Desktop may require you to enable Hyper-V and Windows Subsystem for Linux (WSL) features. Make sure to enable these features if prompted.
+
+4. After the installation is finished, Docker Desktop will start automatically. You will see a Docker icon in the system tray.
+
+5. Click on the Docker icon in the system tray to open Docker Desktop. It may take a few moments to start up.
+
+6. Once Docker Desktop is running, you can verify the installation by opening a command prompt or PowerShell window and running the following command:
+
+    ```bash
+    docker version
+    ```
+
+    This command will display the version of Docker installed on your system.
+
+7. Congratulations! Docker is now installed on your Windows machine. You can start using Docker to run containers and manage your development environments.
 
 ## Course Modules
 

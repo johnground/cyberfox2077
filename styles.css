@@ -14,9 +14,9 @@ body {
   --colors-primary--700: #5e2122;
   --colors-primary--800: #451717;
   --colors-primary--900: #3c181a;
-  --colors-secondary--500: #2be4ea;
+  --colors-secondary--500: #1d199a72;
   --colors-secondary--900: #295459;
-  --colors-tertiary--500: #fed33f;
+  --colors-tertiary--500: #3dd459;
   --colors-on_bg--500: var(--colors-primary--500);
   --colors-on_tertiary--500: var(--colors-bg--300);
   --colors-on_primary--500: var(--colors-primary--200);
@@ -42,7 +42,7 @@ body {
   background-color: var(--colors-bg--500);
   background-image: radial-gradient(
     ellipse at 33% 10%,
-    #461616 0%,
+    #da5423 0%,
     transparent 75%
   );
   background-repeat: no-repeat;
@@ -135,7 +135,7 @@ a {
 }
 
 .nav-section__title {
-  color: #2be4ea;
+  color: #1cd82c;
   font-size: 1rem;
   margin: 0;
 }

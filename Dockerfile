@@ -61,6 +61,9 @@ USER cyberfox
 RUN npm install
 RUN npm install webpack webpack-cli @babel/preset-env @babel/preset-react babel-plugin-transform-react-jsx node-pty preact preact-router --save-dev
 
+# Set permission for webpack
+RUN chmod +x ./node_modules/.bin/webpack
+
 # Build the Preact components using webpack
 RUN ./node_modules/.bin/webpack --mode production
 
