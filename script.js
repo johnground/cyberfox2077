@@ -104,7 +104,7 @@ function App() {
                 </div>
                 <div className="form-footer">
                   <Button size="xl" type="submit" variant="primary">
-                    Send
+                    Execute
                   </Button>
                 </div>
               </form>
