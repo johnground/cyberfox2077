@@ -58,8 +58,9 @@ COPY --chown=cyberfox:cyberfox . .
 USER cyberfox
 
 # Install Node.js dependencies including Preact, Babel presets, and node-pty
-RUN npm install
-RUN npm install webpack webpack-cli @babel/preset-env @babel/preset-react babel-plugin-transform-react-jsx node-pty preact preact-router --save-dev
+# Plus, install the @babel/plugin-transform-react-jsx for Preact
+RUN npm install && \
+    npm install webpack webpack-cli @babel/preset-env @babel/preset-react @babel/plugin-transform-react-jsx node-pty preact preact-router --save-dev
 
 # Set permission for webpack
 RUN chmod +x ./node_modules/.bin/webpack
@@ -88,6 +89,7 @@ ENV DISPLAY :0
 
 # Command to start supervisord which can manage both your server and any other process
 CMD ["/usr/bin/supervisord"]
+
 
 
 

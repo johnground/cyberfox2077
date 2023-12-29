@@ -1,15 +1,15 @@
 const express = require('express');
-const { spawn } = require('node-pty'); // Import node-pty
-const path = require('path');
+const { spawn } = require('node-pty');
 const os = require('os');
 const app = express();
 const http = require('http');
 const server = http.createServer(app);
 const { Server } = require('socket.io');
 const io = new Server(server);
+const path = require('path');
 
-// Serve static files from the root directory
-app.use(express.static('.'));
+// Serve static files from the working directory
+app.use(express.static('/home/cyberfox'));
 
 io.on('connection', (socket) => {
     console.log('a user connected');
@@ -38,6 +38,11 @@ io.on('connection', (socket) => {
         ptyProcess.kill();
         console.log('user disconnected');
     });
+});
+
+// Add a catch-all route to serve index.html for non-API requests
+app.get('*', (req, res) => {
+    res.sendFile(path.join('/home/cyberfox', 'index.html'));
 });
 
 const PORT = 3000;
