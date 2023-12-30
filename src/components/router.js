@@ -2,34 +2,24 @@
 
 import { h, Component } from 'preact';
 import { Router } from 'preact-router';
+import App from './App'; // Import App component
 import Home from './Home';
 import MessagePage from './MessagePage';
-// Add additional imports for new components here, like ProgressPage, ProjectPage, AnsiblePage, etc.
+import ProgressPage from './ProgressPage';
+import ProjectPage from './ProjectPage';
+import AnsiblePage from './AnsiblePage';
 
 class AppRouter extends Component {
-  // Example state initialization
-  state = {
-    someStateValue: null,
-  };
-
-  // Example lifecycle method
-  componentDidMount() {
-    // Fetch data or perform some setup
-    this.setState({ someStateValue: 'Initialized' });
-  }
-
-  // Provide the routes and corresponding components
   render() {
     return (
       <Router>
-        <Home path="/" />
+        <App path="/" />
+        <Home path="/home" />
         <MessagePage path="/messages" />
-        {/* Define routes for additional new components here */}
-        {/* Example:
         <ProgressPage path="/progress" />
         <ProjectPage path="/project" />
         <AnsiblePage path="/ansible" />
-        */}
+        {/* Add other routes as needed */}
       </Router>
     );
   }

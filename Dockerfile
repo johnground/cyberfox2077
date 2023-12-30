@@ -1,35 +1,27 @@
-# Start with a specific Ubuntu base image
-FROM ubuntu:22.04
+# Use the official Node.js 16 image
+FROM node:16-bullseye
 
 # Avoid prompts from apt
 ENV DEBIAN_FRONTEND noninteractive
 
-# Install curl, Python, build tools, and other dependencies
+# Install Xorg, Openbox, wget, git, libasound2, supervisor, and other dependencies
 RUN apt-get update && apt-get install -y \
-    curl \
     xorg \
     openbox \
     wget \
     git \
     libasound2 \
     supervisor \
-    build-essential \
-    python3 \
-    make \
-    g++ \
-    libx11-dev \
-    libxkbfile-dev \
-    libsecret-1-dev \
-    && curl -sL https://deb.nodesource.com/setup_16.x | bash - \
-    && apt-get install -y nodejs \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
-
-# Install dependencies for Hyper
-RUN apt-get update && apt-get install -y \
     libnotify4 \
     xdg-utils \
     libgtk-3-0 \
-    libgbm-dev
+    libgbm-dev \
+    # Ensure libnss3 is installed for Hyper dependencies
+    libnss3 \
+    # Ensure libsecret-1-0 is installed for Hyper dependencies
+    libsecret-1-0 \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
 
 # Create a non-root user 'cyberfox' and set the home directory
 RUN useradd -m cyberfox
@@ -39,7 +31,7 @@ WORKDIR /home/cyberfox
 
 # Download and install Hyper as the non-root user
 RUN wget https://releases.hyper.is/download/deb -O hyper.deb && \
-    dpkg -i hyper.deb && \
+    dpkg -i hyper.deb || apt-get install -f && \
     rm hyper.deb
 
 # Change ownership of the home directory
@@ -58,9 +50,9 @@ COPY --chown=cyberfox:cyberfox . .
 USER cyberfox
 
 # Install Node.js dependencies including Preact, Babel presets, and node-pty
-# Plus, install the @babel/plugin-transform-react-jsx for Preact
-RUN npm install && \
-    npm install webpack webpack-cli @babel/preset-env @babel/preset-react @babel/plugin-transform-react-jsx node-pty preact preact-router --save-dev
+# Note: Removed explicit babel-plugin-transform-react-jsx as it's included in preset-react
+RUN npm install \
+    && npm install webpack webpack-cli @babel/preset-env @babel/preset-react preact preact-router node-pty --save-dev
 
 # Set permission for webpack
 RUN chmod +x ./node_modules/.bin/webpack
@@ -89,6 +81,8 @@ ENV DISPLAY :0
 
 # Command to start supervisord which can manage both your server and any other process
 CMD ["/usr/bin/supervisord"]
+
+
 
 
 
