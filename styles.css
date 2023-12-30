@@ -2,7 +2,10 @@
   box-sizing: border-box;
   position: relative;
 }
-
+.header-logo {
+  width: 100px;
+  height: auto; 
+}
 html,
 body {
   --colors-bg--300: #1e181e;

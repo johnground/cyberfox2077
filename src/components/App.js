@@ -19,6 +19,7 @@ const App = () => {
   return (
     <div className="app-skeleton">
     <header className="app-header">
+      <img src="/assets/gitfox.png" alt="Git Fox" className="header-logo" />
       {FIXTURES.headerMenu.map((item, index) => (
         <NavItem key={index} navItem={item} />
       ))}
