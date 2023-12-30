@@ -26,6 +26,10 @@ const FIXTURES = {
       { id: "e466", name: "OpenCTI" },
       { id: "ca0b", name: "Ansible Roles" }
     ],
+    channels: [ 
+      { id: "general", name: "General" },
+      { id: "help", name: "Help" },
+    ],
     messages: [
       {
         id: "fd0cf",

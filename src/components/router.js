@@ -1,28 +1,9 @@
-// router.js
+import { h } from 'preact';
+import { render } from 'preact';
+import App from './App';
 
-import { h, Component } from 'preact';
-import { Router } from 'preact-router';
-import App from './App'; // Import App component
-import Home from './Home';
-import MessagePage from './MessagePage';
-import ProgressPage from './ProgressPage';
-import ProjectPage from './ProjectPage';
-import AnsiblePage from './AnsiblePage';
+// Assuming 'app' is the ID of your root element in your HTML file.
+const rootElement = document.getElementById('app');
 
-class AppRouter extends Component {
-  render() {
-    return (
-      <Router>
-        <App path="/" />
-        <Home path="/home" />
-        <MessagePage path="/messages" />
-        <ProgressPage path="/progress" />
-        <ProjectPage path="/project" />
-        <AnsiblePage path="/ansible" />
-        {/* Add other routes as needed */}
-      </Router>
-    );
-  }
-}
-
-export default AppRouter;
+// Render the App component to the root element.
+render(<App />, rootElement);
