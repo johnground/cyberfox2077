@@ -4,7 +4,8 @@
     "preact": "^10.19.3",
     "preact-render-to-string": "latest",
     "preact-router": "latest",
-    "socket.io": "^4.7.2"
+    "socket.io": "^4.7.2",
+    "socket.io-client": "^4.7.2"
   },
   "devDependencies": {
     "@babel/core": "^7.23.6",
@@ -22,4 +23,3 @@
     "build": "webpack --mode production"
   }
 }
-
