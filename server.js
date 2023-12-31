@@ -8,7 +8,6 @@ const { Server } = require('socket.io');
 const io = new Server(server);
 const path = require('path');
 
-// Serve static files from the working directory
 app.use(express.static('/home/cyberfox'));
 
 io.on('connection', (socket) => {

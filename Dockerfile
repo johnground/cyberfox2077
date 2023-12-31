@@ -12,19 +12,29 @@ RUN apt-get update && apt-get install -y \
     git \
     libasound2 \
     supervisor \
+    sudo \
+    vim \
+    nano \
     libnotify4 \
     xdg-utils \
     libgtk-3-0 \
     libgbm-dev \
-    # Ensure libnss3 is installed for Hyper dependencies
     libnss3 \
-    # Ensure libsecret-1-0 is installed for Hyper dependencies
     libsecret-1-0 \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# Create a non-root user 'cyberfox' with no password, and set their home directory
+RUN useradd -m cyberfox --shell /bin/bash
 
-# Create a non-root user 'cyberfox' and set the home directory
-RUN useradd -m cyberfox
+# Create the /etc/sudoers.d/ directory if it doesn't exist
+RUN mkdir -p /etc/sudoers.d/
+
+# Add cyberfox user to sudoers with no password requirement
+RUN echo "cyberfox ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/cyberfox
+RUN chmod 0440 /etc/sudoers.d/cyberfox
+
+# Set the user's shell to bash instead of sh
+RUN chsh -s /bin/bash cyberfox
 
 # Set the working directory to the non-root user's directory
 WORKDIR /home/cyberfox
@@ -49,10 +59,11 @@ COPY --chown=cyberfox:cyberfox . .
 # Switch to non-root user for running applications
 USER cyberfox
 
-# Install Node.js dependencies including Preact, Babel presets, and node-pty
-# Note: Removed explicit babel-plugin-transform-react-jsx as it's included in preset-react
-RUN npm install \
-    && npm install webpack webpack-cli @babel/preset-env @babel/preset-react preact preact-router node-pty --save-dev
+# Install Node.js dependencies
+RUN npm install
+
+# Install additional build or dev dependencies
+RUN npm install webpack webpack-cli @babel/preset-env @babel/preset-react preact preact-router node-pty --save-dev
 
 # Set permission for webpack
 RUN chmod +x ./node_modules/.bin/webpack
@@ -81,6 +92,7 @@ ENV DISPLAY :0
 
 # Command to start supervisord which can manage both your server and any other process
 CMD ["/usr/bin/supervisord"]
+
 
 
 
