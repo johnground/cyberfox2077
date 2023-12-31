@@ -1,0 +1,20 @@
+/* variables.css */
+:root {
+  --colors-bg--300: #1e181e;
+  --colors-bg--500: #191a1e;
+  /* ... other color variables ... */
+  --colors-active--500: #2bfea0;
+
+  --fonts-primary: "Rajdhani", sans-serif;
+  --fonts-secondary: "VT323", monospace;
+
+  --ui-glow: 0 0 5px var(--colors-primary--500);
+  /* ... other UI variables ... */
+  --ui-notch-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - var(--ui-notch-amount) + 2px),
+    calc(100% - var(--ui-notch-amount) + 2px) 100%,
+    0 100%
+  );
+}
