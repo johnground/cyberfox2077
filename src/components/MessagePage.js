@@ -2,15 +2,18 @@ import { h, Component } from 'preact';
 import FeedMessage from './FeedMessage';
 
 class MessagePage extends Component {
+  // Step 1
   state = {
     command: '',
     output: [],
   };
 
+  // Step 2
   handleCommandChange = (event) => {
     this.setState({ command: event.target.value });
   };
 
+  // Step 3
   handleSubmit = (event) => {
     event.preventDefault();
     const { command, output } = this.state;
@@ -38,6 +41,7 @@ class MessagePage extends Component {
     });
   };
 
+  // Step 4
   render() {
     const { command, output } = this.state;
     return (
@@ -45,7 +49,7 @@ class MessagePage extends Component {
         <div className="channel-feed__body">
           {/* Display each command and its output */}
           {output.map((entry, index) => (
-            <FeedMessage key={index} message={entry} />
+            <FeedMessage key={index} message={entry.commandOutput} />
           ))}
         </div>
         <div className="channel-feed__footer">
@@ -82,3 +86,4 @@ class MessagePage extends Component {
 }
 
 export default MessagePage;
+
