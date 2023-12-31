@@ -6,6 +6,13 @@
   width: 100px;
   height: auto; 
 }
+
+.nav__item {
+  list-style-type: none; /* Removes bullets/dots from list items */
+  margin: 0; /* Resets default margin */
+  padding: 0; /* Resets default padding */
+}
+
 html,
 body {
   --colors-bg--300: #1e181e;
