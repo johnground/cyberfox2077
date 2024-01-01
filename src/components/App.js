@@ -5,7 +5,7 @@ import NavItem from './NavItem';
 import ChannelNav from './ChannelNav';
 import ConversationNav from './ConversationNav';
 import FIXTURES from './Fixtures';
-import Terminal from './Terminal'; // This imports the new Terminal component
+import TerminalComponent from './xterm';
 
 // Import your page components
 import Home from './Home';
@@ -37,10 +37,10 @@ const App = () => {
             <AnsiblePage path="/ansible" />
           </Router>
           {/* Place the Terminal component outside of the Router to keep it persistent */}
-          <Terminal />
+          <TerminalComponent />
         </div>
         <div className="app-b">
-          <Pad>Some content for the sidebar B</Pad>
+          <Pad></Pad>
         </div>
       </div>
     </div>

@@ -39,16 +39,8 @@ RUN chsh -s /bin/bash cyberfox
 # Set the working directory to the non-root user's directory
 WORKDIR /home/cyberfox
 
-# Download and install Hyper as the non-root user
-RUN wget https://releases.hyper.is/download/deb -O hyper.deb && \
-    dpkg -i hyper.deb || apt-get install -f && \
-    rm hyper.deb
-
 # Change ownership of the home directory
 RUN chown -R cyberfox:cyberfox /home/cyberfox
-
-# Verify Hyper installation
-RUN which hyper
 
 # Setup Openbox for X11
 RUN echo "exec openbox-session" > /etc/X11/xinit/xinitrc
@@ -61,6 +53,9 @@ USER cyberfox
 
 # Install Node.js dependencies
 RUN npm install
+
+# Install xterm and xterm-addon-fit with the correct version
+RUN npm install xterm xterm-addon-fit@0.8.0
 
 # Install additional build or dev dependencies
 RUN npm install webpack webpack-cli @babel/preset-env @babel/preset-react preact preact-router node-pty --save-dev

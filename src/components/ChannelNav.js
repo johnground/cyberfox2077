@@ -5,7 +5,7 @@ const ChannelNav = ({ activeChannel, channels }) => {
   return (
     <ul className="nav">
       <li className="nav__item">
-        <ChannelLink id="1" name="Test Channel" unread={3} />
+        <ChannelLink id="1" name="MODULES" unread={6} />
       </li>
       {/* Add more ChannelLink items as needed */}
     </ul>

@@ -1,7 +1,7 @@
 const FIXTURES = {
     headerMenu: [
       { notificationCount: 0, text: "CyberFox-2077 Home" },
-      { isActive: true, notificationCount: 11, text: "Progress" },
+      { notificationCount: 0, text: "README" },
       { notificationCount: 0, text: "Project" },
       { notificationCount: 0, text: "Ansible" },
       { notificationCount: 0, text: "Files" }
