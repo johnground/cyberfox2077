@@ -7,6 +7,36 @@
   height: auto; 
 }
 
+h1, h2, h3, h4, h5, h6 {
+  /* Existing styles */
+  font-family: var(--fonts-primary);
+  color: var(--cp-glitch-text);
+  text-shadow: var(--glow-blue);
+}
+
+.text-heading1, .text-heading2, .text-heading3 {
+  /* Existing styles */
+  letter-spacing: 0.1em; /* Spacing for the cyberpunk look */
+  text-transform: uppercase;
+}
+
+:root {
+  --cp-dark-background: #101010;
+  --cp-neon-blue: #29fdff;
+  --cp-neon-green: #19ff00;
+  --cp-neon-yellow: #fdff00;
+  --cp-neon-purple: #b224ef;
+  --cp-glitch-text: #caf0f8;
+
+  --fonts-primary: "Orbitron", sans-serif; /* or any futuristic-looking font */
+  --fonts-secondary: "Courier Prime", monospace; /* for technical/monospace text */
+  
+  /* Additional glow effects for cyberpunk style */
+  --glow-blue: 0 0 5px var(--cp-neon-blue), 0 0 15px var(--cp-neon-blue);
+  --glow-green: 0 0 5px var(--cp-neon-green), 0 0 15px var(--cp-neon-green);
+  --glow-yellow: 0 0 5px var(--cp-neon-yellow), 0 0 15px var(--cp-neon-yellow);
+  --glow-purple: 0 0 5px var(--cp-neon-purple), 0 0 15px var(--cp-neon-purple);
+}
 .nav__item {
   list-style-type: none; /* Removes bullets/dots from list items */
   margin: 0; /* Resets default margin */
@@ -49,12 +79,20 @@ body {
     0 100%
   );
 
-  background-color: var(--colors-bg--500);
-  background-image: radial-gradient(
-    ellipse at 33% 10%,
-    #461616 0%,
-    transparent 75%
-  );
+  background-color: var(--cp-dark-background);
+  background-image: linear-gradient(315deg, var(--cp-neon-blue) 0%, var(--cp-dark-background) 74%),
+                    url('gitfox.png'); /* Replace 'gitfox.png' with the actual path to your background image */
+  background-blend-mode: overlay;
+  background-size: cover; /* Ensures the background image covers the entire area */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-attachment: fixed; /* The background is fixed with regard to the viewport */
+  background-position: center center; /* Centers the background image */
+  color: var(--colors-on_bg--500);
+  font-family: var(--fonts-primary);
+  min-height: 100vh; /* This ensures that the minimum height of the body is the entire height of the viewport */
+  margin: 0; /* Reset any default margins */
+  padding: 0; /* Reset any default padding */
+}
   background-repeat: no-repeat;
   color: var(--colors-on_bg--500);
   font-family: var(--fonts-primary);
@@ -69,22 +107,58 @@ a {
   text-decoration: none;
 }
 
+/* Container for the entire terminal */
+.terminal-container {
+  display: flex;
+  flex-direction: column;
+  height: 90vh; /* Set this to the desired height of the terminal within your layout */
+  background: #280101e4; /* Adjust the terminal background as needed */
+  margin: 10px; /* Adjust as needed */
+  position: relative; /* Establishes a positioning context for absolute children */
+}
+
+/* Scrollable output area */
+.terminal__output {
+  flex-grow: 1; /* Allows this element to grow and fill available space */
+  overflow-y: auto; /* Make it scrollable */
+  padding: 10px;
+  background: #510202e4; /* Assuming the terminal background is black */
+}
+
+/* Command input area */
+.terminal__input-form {
+  position: absolute; /* Positions the input form at the bottom of .terminal-container */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #020202; /* The color of the lower bar */
+  padding: 10px; /* Padding inside the input area */
+}
+
+/* Styles for the input */
+.form-control {
+  width: calc(100% - 120px); /* Adjust width according to the padding and button width */
+  margin-right: 10px; /* Space between the input and the button */
+  /* ...other styles */
+}
+
 .app-skeleton {
   padding: 0 1rem;
   height: 100vh;
   min-width: 1024px;
 }
 
-.app-header {
+.app-header, .segment-topbar {
   align-items: center;
   display: flex;
   grid-area: header;
   justify-content: space-between;
   margin-bottom: 1rem;
   padding: 1rem 0 0.5rem 0;
+  background: var(--cp-dark-background)
 }
 
-.app-header::after {
+.app-header::after, .segment-topbar::after {
   background-color: var(--colors-primary--500);
   box-shadow: var(--ui-glow);
   bottom: 0;
@@ -93,6 +167,7 @@ a {
   position: absolute;
   left: 0;
   width: 100%;
+  box-shadow: var(--glow-blue);
 }
 
 .app-header__anchor {
@@ -155,7 +230,10 @@ a {
   margin: 0;
   padding: 0;
 }
-
+.nav__link, .app-header .nav__link, .channel-link, .conversation-link {
+  /* Existing styles */
+  text-shadow: var(--glow-blue); /* Blue glow for text */
+}
 .nav__link {
   line-height: 1.4rem;
 }
@@ -194,7 +272,12 @@ a {
 .nav-section .nav__item + .nav__item {
   margin-top: 0.125rem;
 }
-
+.nav-section__header {
+  /* Existing styles */
+  background-color: var(--cp-dark-background);
+  border-color: var(--cp-neon-blue);
+  color: var(--cp-glitch-text);
+}
 .nav-section .nav__link {
   border: 1px solid transparent;
   border-radius: 3px;
@@ -209,6 +292,8 @@ a {
 .nav-section .nav__link:hover {
   background-color: var(--colors-bg--300);
   border: 1px solid #5d2322;
+    background-color: var(--cp-neon-green);
+  border: 1px solid var(--cp-neon-green);
 }
 
 .nav-section .nav__link--active,
@@ -278,10 +363,15 @@ a {
   clip-path: var(--ui-notch-path);
 }
 
-.pad__body {
+pad, .message__body {
   padding: 0.75rem;
   padding-bottom: var(--ui-notch-amount);
+    background-color: var(--cp-dark-background);
+  border-color: var(--cp-neon-yellow);
+  box-shadow: var(--glow-yellow); /* Yellow glow effect */
 }
+
+
 
 .pad::before {
   background-color: var(--colors-primary--600);
@@ -579,4 +669,17 @@ textarea {
   align-self: flex-start;
   box-shadow: -6px -4px 24px rgba(156, 50, 48, 0.4);
 }
+/* Pulse effect on buttons and links */
+@keyframes pulse-neon {
+  0%, 100% {
+    text-shadow: var(--glow-blue);
+  }
+  50% {
+    text-shadow: var(--glow-yellow);
+  }
+}
 
+.button, .nav__link {
+  /* Existing styles */
+  animation: pulse-neon 1.5s infinite ease-in-out;
+}
