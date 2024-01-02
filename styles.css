@@ -79,7 +79,7 @@ body {
 
   background-color: var(--cp-dark-background);
   background-image: linear-gradient(315deg, var(--cp-neon-blue) 0%, var(--cp-dark-background) 74%),
-                    url('gitfox.png');
+                    url('/assets/redcyberfox.png');
   background-blend-mode: overlay;
   background-size: cover; 
   background-repeat: no-repeat; 
