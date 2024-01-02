@@ -1,46 +1,12 @@
-/**
- * Copyright (c) 2014 The xterm.js authors. All rights reserved.
- * Copyright (c) 2012-2013, Christopher Jeffrey (MIT License)
- * https://github.com/chjj/term.js
- * @license MIT
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
- * Originally forked from (with the author's permission):
- *   Fabrice Bellard's javascript vt100 for jslinux:
- *   http://bellard.org/jslinux/
- *   Copyright (c) 2011 Fabrice Bellard
- *   The original design remains. The terminal itself
- *   has been extended to include xterm CSI codes, among
- *   other features.
- */
-
-/**
- *  Default styles for xterm.js
- */
-
 .xterm {
     cursor: text;
     position: relative;
     user-select: none;
     -ms-user-select: none;
     -webkit-user-select: none;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background for cyberpunk theme */
+    color: #38f40e; /* Neon green text for cyberpunk look */
+    font-family: 'Orbitron', sans-serif; /* Futuristic font */
 }
 
 .xterm.focus,
@@ -51,10 +17,6 @@
 .xterm .xterm-helpers {
     position: absolute;
     top: 0;
-    /**
-     * The z-index of the helpers must be higher than the canvases in order for
-     * IMEs to appear on top.
-     */
     z-index: 5;
 }
 
@@ -62,7 +24,6 @@
     padding: 0;
     border: 0;
     margin: 0;
-    /* Move textarea out of the screen to the far left, so that the cursor is not visible */
     position: absolute;
     opacity: 0;
     left: -9999em;
@@ -70,16 +31,14 @@
     width: 0;
     height: 0;
     z-index: -5;
-    /** Prevent wrapping so the IME appears against the textarea at the correct position */
     white-space: nowrap;
     overflow: hidden;
     resize: none;
 }
 
 .xterm .composition-view {
-    /* TODO: Composition position got messed up somewhere */
     background: #000;
-    color: #FFF;
+    color: #38f40e;
     display: none;
     position: absolute;
     white-space: nowrap;
@@ -91,7 +50,6 @@
 }
 
 .xterm .xterm-viewport {
-    /* On OS X this is required in order for the scroll bar to appear fully opaque */
     background-color: #000;
     overflow-y: scroll;
     cursor: default;
@@ -100,6 +58,7 @@
     left: 0;
     top: 0;
     bottom: 0;
+    scrollbar-color: #29fdff #101010; /* Neon blue scrollbar */
 }
 
 .xterm .xterm-screen {
@@ -126,7 +85,6 @@
 }
 
 .xterm.enable-mouse-events {
-    /* When mouse events are enabled (eg. tmux), revert to the standard pointer cursor */
     cursor: default;
 }
 
@@ -136,7 +94,6 @@
 }
 
 .xterm.column-select.focus {
-    /* Column selection mode */
     cursor: crosshair;
 }
 
@@ -161,29 +118,15 @@
 }
 
 .xterm-dim {
-    /* Dim should not apply to background, so the opacity of the foreground color is applied
-     * explicitly in the generated class and reset to 1 here */
-    opacity: 1 !important;
+    opacity: 0.5; /* Dimmed text */
 }
 
-.xterm-underline-1 { text-decoration: underline; }
-.xterm-underline-2 { text-decoration: double underline; }
-.xterm-underline-3 { text-decoration: wavy underline; }
-.xterm-underline-4 { text-decoration: dotted underline; }
-.xterm-underline-5 { text-decoration: dashed underline; }
-
-.xterm-overline {
-    text-decoration: overline;
-}
-
-.xterm-overline.xterm-underline-1 { text-decoration: overline underline; }
-.xterm-overline.xterm-underline-2 { text-decoration: overline double underline; }
-.xterm-overline.xterm-underline-3 { text-decoration: overline wavy underline; }
-.xterm-overline.xterm-underline-4 { text-decoration: overline dotted underline; }
-.xterm-overline.xterm-underline-5 { text-decoration: overline dashed underline; }
-
-.xterm-strikethrough {
-    text-decoration: line-through;
+.xterm-underline-1, .xterm-underline-2, .xterm-underline-3, 
+.xterm-underline-4, .xterm-underline-5, .xterm-overline, 
+.xterm-overline.xterm-underline-1, .xterm-overline.xterm-underline-2, 
+.xterm-overline.xterm-underline-3, .xterm-overline.xterm-underline-4, 
+.xterm-overline.xterm-underline-5, .xterm-strikethrough {
+    text-decoration-color: #29fdff; /* Neon blue for text decoration */
 }
 
 .xterm-screen .xterm-decoration-container .xterm-decoration {
@@ -207,3 +150,4 @@
     z-index: 2;
     position: relative;
 }
+

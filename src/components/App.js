@@ -7,7 +7,7 @@ import ConversationNav from './ConversationNav';
 import FIXTURES from './Fixtures';
 import TerminalComponent from './xterm';
 
-// Import your page components
+
 import Home from './Home';
 import ProgressPage from './ProgressPage';
 import ProjectPage from './ProjectPage';
@@ -19,7 +19,7 @@ const App = () => {
   return (
     <div className="app-skeleton">
       <header className="app-header">
-        <img src="/assets/gitfox.png" alt="Git Fox" className="header-logo" />
+        <img src="/assets/GitPunkFox.png" alt="Git Fox" className="header-logo" />
         {headerMenu.map((item, index) => (
           <NavItem key={index} navItem={item} />
         ))}
@@ -40,7 +40,9 @@ const App = () => {
           <TerminalComponent />
         </div>
         <div className="app-b">
-          <Pad></Pad>
+        {/* Sidebar B can be a static component or adapted to change with routes */}
+        {/* Example static content: */}
+        <Pad>Some content for the sidebar B</Pad>
         </div>
       </div>
     </div>
