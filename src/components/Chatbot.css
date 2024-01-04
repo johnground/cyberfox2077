@@ -11,7 +11,11 @@
   font-weight: bold; /* Bold font weight for text */
   text-transform: uppercase; /* Uppercase text for stylized look */
   border-bottom: 2px solid #ff7600; /* Neon orange bottom border */
+    box-shadow: 0 0 10px #ff7600, /* outer glow */
+               0 0 15px #ff7600, /* increased glow */
+               inset 0 0 5px #ff7600; /* inner glow to create a depth effect */
 }
+
 
 .chatbot-container {
     display: flex;
@@ -32,6 +36,9 @@
     z-index: 1000;
     overflow: hidden; /* Prevent content from spilling over when resized */
     resize: horizontal; /* Allow the element to be resized horizontally */
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5), /* existing shadow */
+                0 0 10px #ff7600, /* outer glow */
+                inset 0 0 20px #ff7600; /* inner glow effect */
   }
   
   .resize-handle {
@@ -41,7 +48,8 @@
     width: 10px; /* Width of the draggable area */
     height: 100%;
     cursor: ew-resize;
-    background-color: transparent; /* Start with a transparent handle */
+    background-color: transparent;
+    box-shadow: 0 0 8px #ff7600;  /* Start with a transparent handle */
   }
   
   .resize-handle:hover {
@@ -51,7 +59,14 @@
     flex: 1;
     overflow-y: auto;
     padding: 10px;
-    background-color: #121212; /* Slightly lighter background for the chat area */
+    background-color: #121212; 
+    background-image: url('/assets/purplefox.png'); /* add your pcb pattern image */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    box-shadow: inset 0 0 15px #ff7600, /* inner glow from the bottom to simulate light shining through */
+                inset 0 0 2px #ff7600, /* inner glow for sharp light */
+                0 0 5px #ff7600/* Slightly lighter background for the chat area */
   }
   
   .message {
@@ -63,11 +78,13 @@
     word-break: break-word;
     background-color: #2a2a2a; /* Dark background for message bubble */
     color: #fff; /* White text */
+    box-shadow: 0 0 5px #ff7600; 
   }
   
   .message.user {
     align-self: flex-end;
     border: 1px solid #ff7600; /* Neon orange border for user messages */
+    box-shadow: 0 0 8px #ff7600; 
   }
   
   .message.bot {
@@ -81,6 +98,8 @@
     padding: 10px;
     background-color: #1a1a1a; /* Consistent dark background for the input area */
     border-top: 1px solid #ff7600; /* Neon orange border top */
+        box-shadow: 0 0 8px #ff7600, /* outer bottom glow */
+                inset 0 0 5px #ff7600; /* inner top glow for depth */
   }
   
   .chat-input-area input[type="text"] {
@@ -96,6 +115,8 @@
   .chat-input-area input[type="text"]:focus {
     outline: none;
     border-color: #ff9a00; /* Brighter orange when focused */
+        box-shadow: 0 0 10px #ff9a00, /* bright glow for active state */
+                inset 0 0 5px #ff9a00; /* inner glow for depth focus */
   }
   
   .chat-input-area button {
@@ -105,8 +126,11 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    box-shadow: 0 0 5px #ff7600; /* glow effect for button to match theme */
   }
   
   .chat-input-area button:hover {
     background-color: #ff9a00; /* Brighter orange on hover */
+        box-shadow: 0 0 10px #ff9a00, /* enhanced glow for hover state */
+                inset 0 0 5px #ff9a00; /* inner glow for button hover */
   }

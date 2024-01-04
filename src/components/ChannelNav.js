@@ -1,17 +1,19 @@
 import { h } from 'preact';
 import ChannelLink from './ChannelLink';
+import './ChannelNav.css'; // Import the new ChannelNav specific stylesheet
 
-const ChannelNav = ({ activeChannel, channels }) => {
+const ChannelNav = ({ channels }) => {
   return (
-    <ul className="nav">
-      <li className="nav__item">
-        <ChannelLink id="1" name="MODULES" unread={6} />
-      </li>
-      {/* Add more ChannelLink items as needed */}
-    </ul>
+    <nav className="nav">
+      {/* The 'Modules' header will have distinct styling */}
+      <h2 className="modules-header">MODULES</h2>
+      {/* Map over channels to create a list of ChannelLink components */}
+      {channels.map((channel) => (
+        <ChannelLink key={channel.id} id={channel.id} name={channel.name} unread={channel.unread} />
+      ))}
+    </nav>
   );
 };
 
 export default ChannelNav;
 
-  
