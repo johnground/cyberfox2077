@@ -14,24 +14,37 @@ class Chatbot extends Component {
 
   sendMessageToAPI = async (userInput) => {
     this.setState({ isSending: true });
+
+    // Define the POST request body
+    const requestBody = {
+      model: "mistral", // Replace "mistral" with your actual OLLAMA model name
+      messages: [
+        { role: "user", content: userInput }
+      ]
+    };
+
     try {
-      // Update the endpoint to match the deployed Flask server (e.g., http://123.456.78.90:5000)
-      const response = await fetch('http://123.456.78.90:5000/chat', {
+      // Corrected endpoint to match OLLAMA's chat endpoint
+      const response = await fetch('http://0.0.0.0:11434/api/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ input: userInput }),
+        body: JSON.stringify(requestBody),
       });
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json();
+
+      // Assuming the API returns an array of messages and the last message is the bot's response
+      const botResponse = data.messages[data.messages.length - 1].content;
+
       this.setState((prevState) => ({
         messages: [
           ...prevState.messages,
           { text: userInput, sender: 'user' },
-          { text: data.response, sender: 'bot' },
+          { text: botResponse, sender: 'bot' },
         ],
         userInput: '',
         isSending: false,

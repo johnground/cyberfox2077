@@ -4,6 +4,9 @@ FROM node:16-bullseye
 # Avoid prompts from apt
 ENV DEBIAN_FRONTEND noninteractive
 
+# Set the OLLAMA_HOST environment variable to listen on all network interfaces
+ENV OLLAMA_HOST=0.0.0.0:11434
+
 # Install Xorg, Openbox, wget, git, libasound2, supervisor, and other dependencies
 RUN apt-get update && apt-get install -y \
     xorg \
@@ -87,8 +90,6 @@ ENV DISPLAY :0
 
 # Command to start supervisord which can manage both your server and any other process
 CMD ["/usr/bin/supervisord"]
-
-
 
 
 
