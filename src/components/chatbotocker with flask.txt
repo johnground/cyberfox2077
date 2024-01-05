@@ -1,0 +1,52 @@
+so the Flask Server listens on port 5000, when the Chatbot.js sends a message it is realyed to the other dockercontainer that contains the model?
+
+CyberFox-2077GPT
+Yes, that's correct. In a typical multi-container application setup, each container runs a piece of the overall application, and they communicate with each other over a network. Here's how the architecture would work based on your description:
+
+Chatbot.js Container:
+
+Runs the Preact application which includes your Chatbot.js component.
+Sends messages to the Flask server running in another container.
+For this to work, it needs to correctly address the Flask server using either the container name (if using Docker's internal DNS on the same Docker network) or the IP address of the host of the Flask server container.
+Flask Server Container:
+
+Hosts the Flask application which exposes a REST API endpoint at /chat.
+Listens on port 5000.
+This container needs to have the necessary model files available and the correct libraries installed to generate responses based on the message it receives from the Chatbot.js container.
+When the Flask server receives a message from Chatbot.js, it processes the message using the model, generates a response, and sends the response back to the Chatbot.js application.
+Here's how the sendMessageToAPI function in Chatbot.js might look with a correct fetch call to the Flask server endpoint:
+
+sendMessageToAPI = async (userInput) => {
+  this.setState({ isSending: true });
+  try {
+    const response = await fetch('http://flask_server:5000/chat', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ input: userInput }),
+    });
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    this.setState((prevState) => ({
+      messages: [
+        ...prevState.messages,
+        { text: userInput, sender: 'user' },
+        { text: data.response, sender: 'bot' },
+      ],
+      userInput: '',
+      isSending: false,
+    }));
+  } catch (error) {
+    console.error('Error sending message to API:', error);
+    this.setState({ isSending: false });
+  }
+};
+In the above JavaScript code:
+
+Replace 'http://flask_server:5000/chat' with the appropriate URI of your Flask server. If you're using Docker Compose, flask_server can be the service name defined for the Flask server in docker-compose.yml.
+The Flask server must be set up to allow requests from the origin of your Preact application (this could require configuring CORS headers).
+Ensure that there is a Docker network that allows the two containers—hosting your Preact application (Chatbot.js) and the Flask server—to communicate.
+A docker-compose.yml file would be helpful to manage the networking, volume configuration, and ensure that the containers can discover and communicate with each other properly.

@@ -50,14 +50,14 @@ export default class App extends Component {
     return (
       <div className="app-skeleton">
         <header className="app-header">
-          <img src="/assets/GitPunkFox.png" alt="Git Fox" className="header-logo" />
+          <img src="/assets/gitfox.png" alt="Git Fox" className="header-logo" />
           {headerMenu.map((item, index) => (
             <NavItem key={index} navItem={item} />
           ))}
         </header>
         <div className="app-container">
           <div className="app-a">
-            <ChannelNav activeChannel={feed[0]} channels={feed} />
+          <ChannelNav activeChannel={feed[0]} channels={FIXTURES.channels} />
             <ConversationNav conversations={conversation} />
           </div>
           <div className="app-main">

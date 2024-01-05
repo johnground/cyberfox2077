@@ -5,16 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CyberFox-2077 Course</title>
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Override Style to Fix Horizontal Scrollbar -->
+    <style>
+        html, body {
+            overflow-x: hidden; /* Hide horizontal scrollbar */
+        }
+    </style>
+
 </head>
 <body>
-    <!-- Updated root element ID to 'app' -->
+    <!-- Root element where your React/Preact app will mount -->
     <div id="app"></div>
+
+    <!-- Include the xterm.js library -->
+    <script src="xterm.js"></script>
 
     <!-- Include your compiled webpack bundle here -->
     <script src="dist/bundle.js"></script>
+
+    <div class="app-b__collapsible">
+        <!-- Collapsible content goes here -->
+    </div> <!-- Close the collapsible content div -->
 </body>
 </html>
-<div class="app-b__collapsible">
-
-
-</div> <!-- Close the collapsible content div -->
