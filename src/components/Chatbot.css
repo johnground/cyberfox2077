@@ -5,15 +5,15 @@
   align-items: center;
   justify-content: center;
   height: 50px; /* Fixed height for the banner */
-  background-color: #0c0c0c; /* Dark background for contrast */
-  color: #ff7600; /* Neon orange text */
+  background-color: #070707dc; /* Neon purple background for bot messages */
+  color: #a020f0; /* Primary neon purple text */
   font-size: 1.5rem; /* Larger text size for banner */
   font-weight: bold; /* Bold font weight for text */
   text-transform: uppercase; /* Uppercase text for stylized look */
-  border-bottom: 2px solid #ff7600; /* Neon orange bottom border */
-    box-shadow: 0 0 10px #ff7600, /* outer glow */
-               0 0 15px #ff7600, /* increased glow */
-               inset 0 0 5px #ff7600; /* inner glow to create a depth effect */
+  border-bottom: 2px solid #a020f0; /* Primary neon purple bottom border */
+  box-shadow: 0 0 10px #a020f0, /* Outer glow */
+               0 0 20px #a020f0, /* Increased glow */
+               inset 0 0 5px #a020f0; /* Inner glow for depth */
 }
 
 
@@ -24,10 +24,10 @@
     height: 60vh; /* Adjusted to not take the full vertical length */
     min-width: 15%; /* Minimum width to prevent too much shrinkage */
     max-width: 40%; /* Maximum width to prevent taking too much space */
+    border-left: 2px solid #a020f0;
     background-color: #0c0c0c;
     color: #f3210e;
-    border-left: 2px solid #ff7600;
-    border-top: 2px solid #ff7600;
+    border-top: 2px solid #a020f0;
     position: fixed;
     top: 20vh; /* Adjusted to lower the starting position */
     bottom: 20vh; /* Adjusted to shorten the length */
@@ -36,10 +36,10 @@
     z-index: 1000;
     overflow: hidden; /* Prevent content from spilling over when resized */
     resize: horizontal; /* Allow the element to be resized horizontally */
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5), /* existing shadow */
-                0 0 10px #ff7600, /* outer glow */
-                inset 0 0 20px #ff7600; /* inner glow effect */
-  }
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5), /* Existing shadow */
+              0 0 10px #a020f0, /* Outer glow */
+              inset 0 0 20px #a020f0; /* Inner glow effect */
+}
   
   .resize-handle {
     position: absolute;
@@ -49,11 +49,11 @@
     height: 100%;
     cursor: ew-resize;
     background-color: transparent;
-    box-shadow: 0 0 8px #ff7600;  /* Start with a transparent handle */
+    box-shadow: 0 0 8px #a020f0; /* Neon purple shadow for handle */
   }
   
   .resize-handle:hover {
-    background-color: #ff7600; /* Show the handle when hovered for visual cue */
+    background-color: #a020f0; /* Neon purple handle when hovered */
   }
   .chat-display-area {
     flex: 1;
@@ -64,9 +64,9 @@
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    box-shadow: inset 0 0 15px #ff7600, /* inner glow from the bottom to simulate light shining through */
-                inset 0 0 2px #ff7600, /* inner glow for sharp light */
-                0 0 5px #ff7600/* Slightly lighter background for the chat area */
+    box-shadow: inset 0 0 15px #a020f0, /* Inner glow from the bottom */
+                inset 0 0 2px #a020f0, /* Inner glow for sharp light */
+                0 0 5px #a020f0; /* Outer glow */
   }
   
   .message {
@@ -78,18 +78,18 @@
     word-break: break-word;
     background-color: #2a2a2a; /* Dark background for message bubble */
     color: #fff; /* White text */
-    box-shadow: 0 0 5px #ff7600; 
+    box-shadow: 0 0 5px #a020f0; /* Neon purple shadow for messages */
   }
   
   .message.user {
     align-self: flex-end;
     border: 1px solid #ff7600; /* Neon orange border for user messages */
-    box-shadow: 0 0 8px #ff7600; 
+    box-shadow: 0 0 8px #a020f0;; 
   }
   
   .message.bot {
     align-self: flex-start;
-    background-color: #ff7600; /* Neon orange background for bot messages */
+    background-color: #a020f0; /* Neon orange background for bot messages */
     color: #1a1a1d; /* Dark text for good contrast */
   }
   
@@ -97,9 +97,9 @@
     display: flex;
     padding: 10px;
     background-color: #1a1a1a; /* Consistent dark background for the input area */
-    border-top: 1px solid #ff7600; /* Neon orange border top */
-        box-shadow: 0 0 8px #ff7600, /* outer bottom glow */
-                inset 0 0 5px #ff7600; /* inner top glow for depth */
+    border-top: 1px solid #a020f0; /* Neon purple top border */
+    box-shadow: 0 0 8px #a020f0, /* Outer bottom glow */
+              inset 0 0 5px #a020f0; /* inner top glow for depth */
   }
   
   .chat-input-area input[type="text"] {
@@ -107,16 +107,16 @@
     padding: 10px;
     background-color: #2a2a2a; /* Same as message bubble */
     color: #fff; /* White text */
-    border: 1px solid #ff7600; /* Neon orange border */
+    border: 1px solid #a020f0; 
     margin-right: 10px;
     border-radius: 4px;
   }
   
   .chat-input-area input[type="text"]:focus {
     outline: none;
-    border-color: #ff9a00; /* Brighter orange when focused */
-        box-shadow: 0 0 10px #ff9a00, /* bright glow for active state */
-                inset 0 0 5px #ff9a00; /* inner glow for depth focus */
+    border-color: #b030ff; /* Different shade of purple when focused */
+    box-shadow: 0 0 10px #b030ff, /* Bright glow for active state */
+              inset 0 0 5px #b030ff; /* inner glow for depth focus */
   }
   
   .chat-input-area button {
@@ -126,11 +126,12 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    box-shadow: 0 0 5px #ff7600; /* glow effect for button to match theme */
+    background-color: #a020f0; /* Neon purple background */
+    box-shadow: 0 0 5px #a020f0;  /* glow effect for button to match theme */
   }
   
   .chat-input-area button:hover {
-    background-color: #ff9a00; /* Brighter orange on hover */
-        box-shadow: 0 0 10px #ff9a00, /* enhanced glow for hover state */
-                inset 0 0 5px #ff9a00; /* inner glow for button hover */
+    background-color: #b030ff; /* Different shade of purple on hover */
+    box-shadow: 0 0 10px #b030ff, /* Enhanced glow for hover state */
+                inset 0 0 5px #b030ff; /* Inner glow for button hover */
   }

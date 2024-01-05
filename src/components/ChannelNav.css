@@ -4,15 +4,25 @@
   }
   
   .nav__item {
-    list-style: none; /* Remove list item bullets */
-    margin-bottom: 10px; /* Space between navigation items */
-  }
-  
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    /* Neon effect */
+    box-shadow: 0 0 5px #FF0000, 0 0 10px #FF0000, 0 0 15px #FF0000, 0 0 20px #FF0000; 
+    color: #FF0000; /* Adjust the color to a neon red */
+    transition: box-shadow 0.3s ease-in-out;
+}
   /* Distinct style for the 'Modules' navigation header */
   .nav__item--header {
     font-size: 1.5em; /* Larger font size for the navigation header */
     color: #38f40e; /* Matching theme color for emphasis */
     margin-bottom: 20px; /* More space after the header item */
     text-transform: uppercase; /* Style choice to make the header stand out */
+    box-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000, 0 0 30px #FF0000, 0 0 40px #FF0000; 
   }
-  
+
+
+  .nav__item:hover {
+    /* Intensify the neon effect on hover */
+    box-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000, 0 0 30px #FF0000, 0 0 40px #FF0000; 
+}

@@ -36,9 +36,18 @@ h1, h2, h3, h4, h5, h6 {
   --glow-purple: 0 0 5px var(--cp-neon-purple), 0 0 15px var(--cp-neon-purple);
 }
 .nav__item {
-  list-style-type: none; 
-  margin: 0; 
-  padding: 0; 
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    /* Neon effect */
+    box-shadow: 0 0 5px #FF0000, 0 0 10px #FF0000, 0 0 15px #FF0000, 0 0 20px #FF0000; 
+    color: #FF0000; /* Adjust the color to a neon red */
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.nav__item:hover {
+    /* Intensify the neon effect on hover */
+    box-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000, 0 0 30px #FF0000, 0 0 40px #FF0000; 
 }
 
 html,
@@ -160,8 +169,9 @@ a {
   justify-content: space-between;
   margin-bottom: 1rem;
   padding: 1rem 0 0.5rem 0;
-  background: var(--cp-dark-background)
+  background: transparent; /* Set background to transparent */
 }
+
 
 .app-header::after, .segment-topbar::after {
   background-color: var(--colors-primary--500);
