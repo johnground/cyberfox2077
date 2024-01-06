@@ -1,24 +1,35 @@
 const express = require('express');
+const cors = require('cors');
 const { spawn } = require('node-pty');
 const os = require('os');
 const app = express();
 const http = require('http');
 const server = http.createServer(app);
 const { Server } = require('socket.io');
-const io = new Server(server);
 const path = require('path');
 
+// Enable CORS for all routes
+app.use(cors());
+
+// Serve static files from /home/cyberfox
 app.use(express.static('/home/cyberfox'));
+
+// Initialize Socket.IO server with CORS options
+const io = new Server(server, {
+    cors: {
+        origin: "*", // or specify your front-end's origin for better security
+        methods: ["GET", "POST"]
+    }
+});
 
 io.on('connection', (socket) => {
     console.log('a user connected');
 
     // Initialize node-pty with a shell upon new socket connection
     const shell = os.platform() === 'win32' ? 'powershell.exe' : 'bash';
-
     const ptyProcess = spawn(shell, [], {
         name: 'xterm-color',
-        cwd: process.env.PWD, // or another directory you wish to set as the current working directory
+        cwd: process.env.PWD, // or another directory as the current working directory
         env: process.env
     });
 
@@ -47,10 +58,6 @@ app.get('*', (req, res) => {
 const PORT = 3000;
 server.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
-});
-
-server.on('listening', () => {
-    console.log(`Server is listening on port ${PORT}`);
 });
 
 // Removed processData and sanitizeInput functions

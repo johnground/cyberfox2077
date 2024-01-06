@@ -11,16 +11,16 @@ services:
       - ./projects:/home/cyberfox/projects
     environment:
       - DISPLAY=:0
-    
+
   ollama:
     image: ollama/ollama
     container_name: ollama
-    ports:
-      - "11434:11434"
+    network_mode: host
     volumes:
       - ollama_data:/root/.ollama
     environment:
-      - OLLAMA_HOST=0.0.0.0:11434 # Presuming OLLAMA respects OLLAMA_HOST env var to bind to the right interface
+      - OLLAMA_HOST=localhost:11434
 
 volumes:
   ollama_data:
+

@@ -15,23 +15,35 @@ class Chatbot extends Component {
   sendMessageToAPI = async (userInput) => {
     this.setState({ isSending: true });
     try {
-      // Update the endpoint to match the deployed Flask server (e.g., http://123.456.78.90:5000)
-      const response = await fetch('http://123.456.78.90:5000/chat', {
+      // Endpoint for Ollama API; replace with Ollama's actual IP/hostname and port if necessary
+      const OLLAMA_API_URL = 'http://ollama:11434/api/chat';
+      const payload = {
+        model: "mistral",  // Adjust the model name as necessary
+        messages: [{ role: "user", content: userInput }]
+      };
+  
+      const response = await fetch(OLLAMA_API_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ input: userInput }),
+        body: JSON.stringify(payload),
       });
+  
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
+  
       const data = await response.json();
+  
+      // Adjust the response handling as necessary based on Ollama's response structure
+      const reply = data?.messages?.find(msg => msg.role === 'system')?.content || 'No response from Ollama';
+  
       this.setState((prevState) => ({
         messages: [
           ...prevState.messages,
           { text: userInput, sender: 'user' },
-          { text: data.response, sender: 'bot' },
+          { text: reply, sender: 'bot' },
         ],
         userInput: '',
         isSending: false,
@@ -39,6 +51,14 @@ class Chatbot extends Component {
     } catch (error) {
       console.error('Error sending message to API:', error);
       this.setState({ isSending: false });
+    }
+  };
+  
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const { userInput } = this.state;
+    if (userInput.trim()) {
+      this.sendMessageToAPI(userInput);
     }
   };
 
