@@ -6,7 +6,7 @@ services:
     container_name: cyberfox
     ports:
       - "3000:3000"
-      - "6000:6000" # If you need the X11 port exposed
+      - "6000:6000"
     volumes:
       - ./projects:/home/cyberfox/projects
     environment:
@@ -15,11 +15,18 @@ services:
   ollama:
     image: ollama/ollama
     container_name: ollama
-    network_mode: host
     volumes:
       - ollama_data:/root/.ollama
     environment:
       - OLLAMA_HOST=localhost:11434
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx_proxy
+    ports:
+      - "8080:8080" # Example port mapping
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
 
 volumes:
   ollama_data:

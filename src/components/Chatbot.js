@@ -16,7 +16,7 @@ class Chatbot extends Component {
     this.setState({ isSending: true });
     try {
       // Endpoint for Ollama API; replace with Ollama's actual IP/hostname and port if necessary
-      const OLLAMA_API_URL = 'http://ollama:11434/api/chat';
+      const OLLAMA_API_URL = 'http://localhost:8080/ollama/api/chat';
       const payload = {
         model: "mistral",  // Adjust the model name as necessary
         messages: [{ role: "user", content: userInput }]
