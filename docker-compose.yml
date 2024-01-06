@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  cyberfox:
+    build: .
+    container_name: cyberfox
+    ports:
+      - "3000:3000"
+      - "6000:6000" # If you need the X11 port exposed
+    volumes:
+      - ./projects:/home/cyberfox/projects
+    environment:
+      - DISPLAY=:0
+    
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    environment:
+      - OLLAMA_HOST=0.0.0.0:11434 # Presuming OLLAMA respects OLLAMA_HOST env var to bind to the right interface
+
+volumes:
+  ollama_data:

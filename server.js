@@ -49,6 +49,10 @@ server.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
 
+server.on('listening', () => {
+    console.log(`Server is listening on port ${PORT}`);
+});
+
 // Removed processData and sanitizeInput functions
 // as we are now using node-pty to manage shell commands directly.
 

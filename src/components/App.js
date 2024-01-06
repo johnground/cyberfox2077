@@ -6,7 +6,7 @@ import ChannelNav from './ChannelNav';
 import ConversationNav from './ConversationNav';
 import FIXTURES from './Fixtures';
 import TerminalComponent from './xterm';
-
+import Module1 from './CourseModules/Module1'; 
 import Home from './Home';
 import ProgressPage from './ProgressPage';
 import ProjectPage from './ProjectPage';
@@ -16,7 +16,8 @@ import AnsiblePage from './AnsiblePage';
 export default class App extends Component {
   // Set initial state
   state = {
-    sidebarWidth: '20%', // Initial width as a percentage
+    sidebarWidth: '20%', 
+    selectedModuleId: null,
   };
 
   // Event handler for starting the resize action
@@ -44,6 +45,10 @@ export default class App extends Component {
     document.documentElement.addEventListener('mouseup', stopDrag, false);
   };
 
+  handleModuleSelect = (moduleId) => {
+    this.setState({ selectedModuleId: moduleId });
+  };
+  
   render({}, { sidebarWidth }) {
     const { headerMenu, feed, conversation } = FIXTURES;
 
@@ -62,7 +67,8 @@ export default class App extends Component {
           </div>
           <div className="app-main">
             <Router>
-              <Home path="/" />
+              <Home path="/" /> 
+              <Module1 path="/module1" />
               <ProgressPage path="/progress" />
               <ProjectPage path="/project" />
               <AnsiblePage path="/ansible" />
