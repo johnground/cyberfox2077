@@ -14,6 +14,7 @@ class Chatbot extends Component {
 
   sendMessageToAPI = async (userInput) => {
     this.setState({ isSending: true });
+    let responseText = '';
     try {
       const OLLAMA_API_URL = 'http://localhost:8080/ollama/api/chat';
       const payload = {
@@ -30,16 +31,16 @@ class Chatbot extends Component {
       });
 
       if (!response.ok) {
-        // If the HTTP response is not ok, throw an error
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      const data = await response.json();
-
-      // Processing the API response and updating the state with the new messages
-      const replies = data.messages
-        .filter(msg => msg.role === 'assistant')
-        .map(msg => msg.content);
+      responseText = await response.text(); 
+      const splitMessages = responseText.trim().split(/\}\s*\{/);
+      const replies = splitMessages.map((msg, index, array) => {
+        if (index > 0) msg = '{' + msg;
+        if (index < array.length - 1) msg = msg + '}';
+        return JSON.parse(msg).message.content;
+      });
 
       this.setState((prevState) => ({
         messages: [
@@ -52,11 +53,11 @@ class Chatbot extends Component {
       }));
     } catch (error) {
       console.error('Error sending message to API:', error);
-      // Error handling for failed fetch requests, potentially due to CORS issues
       this.setState((prevState) => ({
         messages: [
           ...prevState.messages,
           { text: `Error: ${error.message}`, sender: 'system' },
+          { text: `Raw Response: ${responseText}`, sender: 'system' },
         ],
         isSending: false,
       }));
@@ -95,3 +96,4 @@ class Chatbot extends Component {
 }
 
 export default Chatbot;
+
