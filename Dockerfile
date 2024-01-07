@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y \
     sudo \
     vim \
     nano \
+    curl \
     libnotify4 \
     xdg-utils \
     libgtk-3-0 \

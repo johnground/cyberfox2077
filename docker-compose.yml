@@ -15,10 +15,12 @@ services:
   ollama:
     image: ollama/ollama
     container_name: ollama
+    ports:
+      - "11434:11434"
     volumes:
       - ollama_data:/root/.ollama
     environment:
-      - OLLAMA_HOST=localhost:11434
+      - OLLAMA_HOST=0.0.0.0:11434
 
   nginx:
     image: nginx:latest
