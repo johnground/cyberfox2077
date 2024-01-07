@@ -42,11 +42,14 @@ class Chatbot extends Component {
         return JSON.parse(msg).message.content;
       });
 
+      // Combine the individual replies into a single batched message
+      const combinedReplies = replies.join(' ');
+
       this.setState((prevState) => ({
         messages: [
           ...prevState.messages,
           { text: userInput, sender: 'user' },
-          ...replies.map(reply => ({ text: reply, sender: 'bot' })),
+          { text: combinedReplies, sender: 'bot' }, // Add combined replies as a single message
         ],
         userInput: '',
         isSending: false,
@@ -96,4 +99,5 @@ class Chatbot extends Component {
 }
 
 export default Chatbot;
+
 
