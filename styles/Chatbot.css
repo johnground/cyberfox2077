@@ -41,16 +41,17 @@
               inset 0 0 20px #a020f0; /* Inner glow effect */
 }
   
-  .resize-handle {
+.resize-handle {
     position: absolute;
     top: 0;
-    left: -5px; /* Position the handle to the left of the container */
+    right: 0; /* Positioned to the right for better UX */
     width: 10px; /* Width of the draggable area */
     height: 100%;
-    cursor: ew-resize;
+    cursor: ns-resize; /* Cursor indicates vertical resizing */
     background-color: transparent;
     box-shadow: 0 0 8px #a020f0; /* Neon purple shadow for handle */
-  }
+}
+
   
   .resize-handle:hover {
     background-color: #a020f0; /* Neon purple handle when hovered */
@@ -76,7 +77,7 @@
     padding: 8px 12px;
     border-radius: 18px;
     word-break: break-word;
-    background-color: #2a2a2a; /* Dark background for message bubble */
+    background-color: transparent;
     color: #fff; /* White text */
     box-shadow: 0 0 5px #a020f0; /* Neon purple shadow for messages */
   }

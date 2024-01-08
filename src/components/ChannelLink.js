@@ -1,6 +1,6 @@
 import { h } from 'preact';
 import Badge from './Badge';
-import './ChannelLink.css';
+import '/styles/ChannelLink.css';
 
 // Enhanced ChannelLink component with clickable functionality
 const ChannelLink = ({ id, name, unread, onClick }) => {

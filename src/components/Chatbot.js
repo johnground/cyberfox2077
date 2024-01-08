@@ -1,5 +1,5 @@
 import { h, Component } from 'preact';
-import './Chatbot.css';
+import '/styles/Chatbot.css';
 
 class Chatbot extends Component {
   state = {

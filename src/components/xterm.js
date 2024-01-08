@@ -1,7 +1,7 @@
 import { h, Component } from 'preact';
 import { Terminal } from 'xterm';
-import '../../styles.css';
-import 'xterm/css/xterm.css';
+import '/styles/styles.css';
+import '/styles/xterm.css';
 import io from 'socket.io-client';
 import { FitAddon } from 'xterm-addon-fit';
 

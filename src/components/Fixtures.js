@@ -41,7 +41,13 @@ const FIXTURES = {
         }
       }
       // Add more message objects as needed
-    ]
+    ],
+    gitCheatSheet: [
+        // Placeholder data structure for Git cheat sheet
+        { title: 'Git Command 1', description: 'Description for Git Command 1' },
+        { title: 'Git Command 2', description: 'Description for Git Command 2' },
+        // Add more cheat sheet items as needed
+    ],
   };
   
   export default FIXTURES;
