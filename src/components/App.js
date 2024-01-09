@@ -6,7 +6,12 @@ import ChannelNav from './ChannelNav';
 import ConversationNav from './ConversationNav';
 import FIXTURES from './Fixtures';
 import TerminalComponent from './xterm';
-import Module1 from './CourseModules/Module1';
+import Module1 from './CourseModules/Module1'
+import Module2 from './CourseModules/Module2';
+import Module3 from './CourseModules/Module3';
+import Module4 from './CourseModules/Module4';
+import Module5 from './CourseModules/Module5';
+import Module6 from './CourseModules/Module6';
 import Home from './Home';
 import ProgressPage from './ProgressPage';
 import ProjectPage from './ProjectPage';
@@ -61,11 +66,15 @@ export default class App extends Component {
           <div className="app-main">
             <Router>
               <Home path="/" />
-              <Module1 path="/module1" />
               <ProgressPage path="/progress" />
               <ProjectPage path="/project" />
               <AnsiblePage path="/ansible" />
               <Module1 path="/module/1" />
+              <Module2 path="/module/2" />
+              <Module3 path="/module/3" />
+              <Module4 path="/module/4" />
+              <Module5 path="/module/5" />
+              <Module6 path="/module/6" />
             </Router>        
             <TerminalComponent />
           </div>
