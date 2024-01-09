@@ -65,6 +65,7 @@ export default class App extends Component {
               <ProgressPage path="/progress" />
               <ProjectPage path="/project" />
               <AnsiblePage path="/ansible" />
+              <Module1 path="/module/1" />
             </Router>        
             <TerminalComponent />
           </div>
