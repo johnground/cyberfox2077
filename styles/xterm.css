@@ -1,40 +1,4 @@
-.xterm {
-    cursor: text;
-    position: relative;
-    user-select: none;
-    -ms-user-select: none;
-    -webkit-user-select: none;
-    background-color: rgba(0, 0, 0, 0.8); /* Dark background for cyberpunk theme */
-    color: #38f40e; /* Neon green text for cyberpunk look */
-    font-family: 'Orbitron', sans-serif; /* Futuristic font */
-}
 
-.xterm.focus,
-.xterm:focus {
-    outline: none;
-}
-
-.xterm .xterm-helpers {
-    position: absolute;
-    top: 0;
-    z-index: 5;
-}
-
-.xterm .xterm-helper-textarea {
-    padding: 0;
-    border: 0;
-    margin: 0;
-    position: absolute;
-    opacity: 0;
-    left: -9999em;
-    top: 0;
-    width: 0;
-    height: 0;
-    z-index: -5;
-    white-space: nowrap;
-    overflow: hidden;
-    resize: none;
-}
 
 .xterm .composition-view {
     background: #000;
@@ -51,9 +15,11 @@
 
 .xterm .xterm-viewport {
     background-color: #000;
+    overflow: hidden;
     overflow-y: scroll;
     cursor: default;
     position: absolute;
+    height: 100%;
     right: 0;
     left: 0;
     top: 0;
@@ -151,3 +117,72 @@
     position: relative;
 }
 
+.terminal {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background for cyberpunk theme */
+}
+
+.terminal__minimize-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 10;
+    background: #38f40e;
+    border: 2px solid #0ff;
+    color: #000;
+    font-size: 16px;
+    width: 32px; /* Wider button */
+    height: 32px; /* Taller button */
+    border-radius: 50%; /* Circular button */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 0 10px #0ff; /* Glowing effect */
+    outline: none;
+}
+
+.terminal.minimized .terminal__wrapper {
+    display: none;
+}
+.terminal__wrapper {
+    box-sizing: border-box; /* Include padding and borders in the element's total width and height */
+    padding: 0;
+    margin: 0;
+}
+
+.terminal::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-left: 20px solid transparent;
+    border-bottom: 20px solid rgba(0, 0, 0, 0.8); /* match the terminal's background color */
+    transform: translateY(-100%);
+}
+
+/* Pinning the terminal to the bottom of the SPA */
+.terminal.terminal__component {
+    max-width: 960px; /* Set this to the width of your main content area */
+    width: 100%;
+    height: 250px; /* Or any height you prefer */
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-top: 3px solid #38f40e;
+    box-sizing: border-box; /* Make sure padding and borders are included in the width */
+}
+
+.terminal__component .resize-handle {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    background: #38f40e; /* Or any color you prefer */
+    cursor: nwse-resize; /* Diagonal resize cursor */
+    z-index: 10;
+  }
