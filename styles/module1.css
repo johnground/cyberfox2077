@@ -1,0 +1,44 @@
+/* module1.css */
+
+/* Global Styles */
+.module-container {
+    color: #c0c0c0; /* A cyberpunk-themed text color */
+    background-color: #121212; /* Dark background for contrast */
+    font-family: 'Orbitron', sans-serif; /* A cyberpunk-themed font */
+  }
+  
+  /* Header Styles */
+  header h1 {
+    color: #ff0097; /* Neon pink for titles */
+  }
+  
+  /* Content Section Styling */
+  .content section {
+    margin-bottom: 2rem;
+  }
+  
+  .content h2 {
+    color: #00f6ff; /* Neon cyan for headings */
+  }
+  
+  /* Code Block Styling */
+  .code-block {
+    background-color: #0d1b2a; /* Deep blue background for code blocks */
+    border-left: 3px solid #ff0097; /* Neon pink border for emphasis */
+    padding: 1rem;
+    overflow-x: auto; /* Allows scrolling on x-axis if code is too wide */
+    font-family: 'Source Code Pro', monospace; /* Monospaced font for code */
+    margin: 1rem 0; /* Spacing above and below code blocks */
+    color: #7efdd6; /* Soft green for code text */
+    font-size: 0.9rem; /* Smaller font size for code blocks */
+    border-radius: 4px; /* Rounded corners for the code blocks */
+  }
+  
+  /* Code Element Styling */
+  .code-block code {
+    display: block; /* Block display for code elements */
+    white-space: pre; /* Maintains whitespace in the code formatting */
+  }
+  
+  /* Add additional styling for buttons, links, and interactive elements as needed */
+  
