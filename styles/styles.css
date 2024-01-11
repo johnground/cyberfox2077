@@ -87,8 +87,6 @@ body {
   );
 
   background-color: var(--cp-dark-background);
-  background-image: linear-gradient(315deg, var(--cp-neon-blue) 0%, var(--cp-dark-background) 74%),
-                    url('/assets/redcyberfox.png');
   background-blend-mode: overlay;
   background-size: cover; 
   background-repeat: no-repeat; 
@@ -99,7 +97,17 @@ body {
   min-height: 100vh; 
   margin: 0; 
   padding: 0; 
+  overflow: auto;
 }
+#backgroundVideo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 37.5; 
+  object-fit: cover; /* Cover the entire viewport */
+} 
 
   :root {
     background-repeat: no-repeat;
@@ -215,6 +223,8 @@ a {
 }
 
 .app-main {
+  overflow: auto;
+  height: 100%;
   grid-area: main;
 }
 
