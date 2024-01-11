@@ -12,17 +12,35 @@ const Module1 = () => {
         
         <section>
           <h2>Version Control: The Backbone of Cybersecurity</h2>
+          <h2>Chapter 1: The Genesis Commit</h2>
           <p>
-            In cybersecurity, tracking and auditing changes can be as crucial as the security measures themselves. A version control system like Git provides an immutable ledger of modifications, attributions, and the rationale behind each change.
+          The year is 2077. The neon-lit skyline of Neo-City blurs into a digital mirage, a testament to the fusion of reality and virtuality. CyberFox, a renowned code sentinel, stands vigil over this sprawling metropolis of data and deceit. With a mind as sharp as her moniker suggests, she is the last line of defense in a world where information is the ultimate currency, and cybersecurity is not just a practice but a lifeline.In cybersecurity, tracking and auditing changes can be as crucial as the security measures themselves. A version control system like Git provides an immutable ledger of modifications, attributions, and the rationale behind each change.
           </p>
-          <div className="code-block">
-            <code>git init</code>
-          </div>
+          <h3>The Backbone of Cybersecurity</h3>
+          <p>In the shadowy corners of this cybernetic domain, the silent war of ones and zeros rages on. CyberFox knows that in this world, the ability to track and audit every change is as crucial as the most sophisticated firewall. It’s the difference between order and chaos, between a functioning society and one vulnerable to the whims of digital marauders. Her tool of choice is not a weapon but a system – Git. In her hands, it transforms into an immutable ledger of history, a record of every battle won and lost in the constant fight to secure the cybernetic realm. Each entry is a tale of its own, a saga of changes made, sources attributed, and the logic behind every decision. <p></p>
+          </p>
+          <h3>The First Command: git init</h3>
+          <p>On this night, a new repository comes to life under CyberFox's watchful eyes. She utters the incantation git init, and with these two simple words, she beckons a new ally into existence. A repository, pristine and awaiting its destiny to become a bastion of progress. It's the first step in a journey of a thousand commits, a blank canvas on which the future of Neo-City will be written.</p>
+          <p>This repository will track the development of a project that is rumored to be the key to an evolutionary leap in cybersecurity. It is the harbinger of a new age, an era where every change is documented, every code revision is accounted for, and the rationale behind every alteration is as clear as the neon signs flickering in the endless night.</p>
+            <div className="code-block">
+            <code> mkdir -p /home/cyberfox/Projects/Genesis && cd /home/cyberfox/Projects/Genesis</code>
+            </div>
+            <div className="code-block">
+            <code> chown -R cyberfox:cyberfox /home/cyberfox/Projects/Genesis</code>
+            </div> 
+            <div className="code-block">
+            <code> git init</code>
+            </div> 
+            <div className="code-block">
+            <code> touch README.md</code>          
+            <code> git add README.md</code>
+            git commit -m "Initial commit"
+            </div>
           <p>
             This initializes a new Git repository locally, preparing the way for tracking and managing project files.
           </p>
-        </section>
 
+        </section>
         <section>
           <h2>Installing Git: A Step-by-Step Guide</h2>
           <p>

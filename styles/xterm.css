@@ -1,5 +1,3 @@
-
-
 .xterm .composition-view {
     background: #000;
     color: #38f40e;
@@ -8,6 +6,15 @@
     white-space: nowrap;
     z-index: 1;
 }
+.xterm .xterm-selection div {
+    background-color: rgba(41, 253, 255, 0.3); /* Transparent neon selection */
+}
+
+.xterm .xterm-cursor-layer .xterm-cursor {
+    background-color: #29fdff; /* Neon blue cursor */
+    /* Add a glow to the cursor if desired */
+    box-shadow: 0 0 5px #29fdff, 0 0 10px #29fdff;
+}
 
 .xterm .composition-view.active {
     display: block;
@@ -15,7 +22,6 @@
 
 .xterm .xterm-viewport {
     background-color: #000;
-    overflow: hidden;
     overflow-y: scroll;
     cursor: default;
     position: absolute;
@@ -85,23 +91,16 @@
 
 .xterm-dim {
     opacity: 0.5; /* Dimmed text */
+    text-shadow: 0 0 5px rgba(0, 0, 255, 0.2); /* Add a subtle shadow for dimmed text */
 }
 
-.xterm-underline-1, .xterm-underline-2, .xterm-underline-3, 
-.xterm-underline-4, .xterm-underline-5, .xterm-overline, 
-.xterm-overline.xterm-underline-1, .xterm-overline.xterm-underline-2, 
-.xterm-overline.xterm-underline-3, .xterm-overline.xterm-underline-4, 
-.xterm-overline.xterm-underline-5, .xterm-strikethrough {
+.xterm-underline {
+    text-decoration-color: #29fdff; /* Neon blue for underlined text */
+}
+
+.xterm-overline,
+.xterm-strikethrough {
     text-decoration-color: #29fdff; /* Neon blue for text decoration */
-}
-
-.xterm-screen .xterm-decoration-container .xterm-decoration {
-	z-index: 6;
-	position: absolute;
-}
-
-.xterm-screen .xterm-decoration-container .xterm-decoration.xterm-decoration-top-layer {
-	z-index: 7;
 }
 
 .xterm-decoration-overview-ruler {
@@ -112,14 +111,10 @@
     pointer-events: none;
 }
 
-.xterm-decoration-top {
-    z-index: 2;
-    position: relative;
-}
-
 .terminal {
     position: relative;
     background-color: rgba(0, 0, 0, 0.8); /* Dark background for cyberpunk theme */
+    font-family: 'Orbitron', sans-serif; /* Applying the cyberpunk theme font */
 }
 
 .terminal__minimize-btn {
@@ -145,6 +140,7 @@
 .terminal.minimized .terminal__wrapper {
     display: none;
 }
+
 .terminal__wrapper {
     box-sizing: border-box; /* Include padding and borders in the element's total width and height */
     padding: 0;
@@ -161,7 +157,6 @@
     transform: translateY(-100%);
 }
 
-/* Pinning the terminal to the bottom of the SPA */
 .terminal.terminal__component {
     max-width: 960px; /* Set this to the width of your main content area */
     width: 100%;
@@ -185,4 +180,27 @@
     background: #38f40e; /* Or any color you prefer */
     cursor: nwse-resize; /* Diagonal resize cursor */
     z-index: 10;
-  }
+}
+
+/* Ensure terminal text styles are consistent with the cyberpunk theme */
+.xterm .xterm-viewport, 
+.xterm .xterm-screen, 
+.xterm-rows {
+    color: #29fdff; /* Neon blue color */
+    font-family: 'Orbitron', sans-serif; /* Cyberpunk font for terminal */
+    font-size: 1.4em; /* Increased font size */
+    /* Neon glow with multiple layers for a deeper effect */
+    text-shadow:
+        0 0 3px #29fdff, /* Innermost light blue glow */
+        0 0 5px #29fdff, /* Middle blue glow */
+        0 0 8px #29fdff, /* Outer blue glow */
+        0 0 10px #29fdff, /* Further glow for a deep neon effect */
+        0 0 15px #29fdff; /* Farthest subtle glow */
+}
+/* Additional custom styles for xterm.js elements not listed may go here */
+
+/* Apply global neon blue edge glow effect to elements as needed */
+*:focus {
+    outline: 2px solid #29fdff;
+    outline-offset: 2px;
+}

@@ -27,8 +27,8 @@ const FIXTURES = {
       { id: "ca0b", name: "Ansible Roles" }
     ],
     channels: [ 
-      { id: "general", name: "General" },
-      { id: "help", name: "Help" },
+      { id: "readme", name: "README" },
+      { id: "cheat sheet", name: "Cheat Sheet" },
     ],
     messages: [
       {
