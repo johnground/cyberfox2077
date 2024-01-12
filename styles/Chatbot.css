@@ -36,7 +36,7 @@
               inset 0 0 20px #00b0ff; /* Inner glow effect */
 }
 
-.resize-handle {
+.chatbot-container > .resize-handle {
   position: absolute;
   bottom: 0;
   left: 0;
