@@ -24,8 +24,11 @@ export default class App extends Component {
         sidebarWidth: '20%',
         selectedModuleId: null,
         isLoading: true, // Add a loading state to the state object
+        showLoading: true,
     };
-
+    onLoadingComplete = () => {
+      this.setState({ showLoading: false });
+    };
     componentDidMount() {
         // Here you would implement the actual logic to determine when the application has loaded
         // For the sake of example, we're using a timeout to simulate a loading process
@@ -62,7 +65,7 @@ export default class App extends Component {
 
         return (
             <div className="app-skeleton">
-                {/* Loading component will show up when isLoading is true and hide when it's false */}
+                {this.state.showLoading && <Loading onFadeOutComplete={this.onLoadingComplete} />}
                 {isLoading && <Loading />}
                 <header className="app-header">
                     <img src="/assets/gitfox.png" alt="Git Fox" className="header-logo" />
