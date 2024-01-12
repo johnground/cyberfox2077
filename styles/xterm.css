@@ -7,7 +7,7 @@
     z-index: 1;
 }
 .xterm .xterm-selection div {
-    background-color: rgba(41, 253, 255, 0.3); /* Transparent neon selection */
+    background-color: rgba(41, 251, 255, 0); /* Transparent neon selection */
 }
 
 .xterm .xterm-cursor-layer .xterm-cursor {
@@ -31,6 +31,7 @@
     top: 0;
     bottom: 0;
     scrollbar-color: #29fdff #101010; /* Neon blue scrollbar */
+    padding-left: 10px; /* Add padding on the left */
 }
 
 .xterm .xterm-screen {
