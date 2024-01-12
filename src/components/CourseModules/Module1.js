@@ -48,7 +48,30 @@ const Module1 = () => {
       </div>
       <p>This initializes a new Git repository locally, preparing the way for tracking and managing project files.</p>
     </section>
+    <section>
+          <h2>Understanding .gitignore</h2>
+          <p>.gitignore files are used to tell Git which files or directories to ignore in a project. Commonly ignored files include build artifacts, temporary files created by development tools, or third-party libraries. You can create a .gitignore file in your project's root directory to specify the files that should not be tracked.</p>
+          <div className="code-block">
+            <code># Example .gitignore content<br />
+            node_modules/<br />
+            .env<br />
+            dist/<br />
+            </code>
+          </div>
+          <p>Each line in a .gitignore file specifies a pattern. Files and directories that match these patterns are excluded from Git tracking. This helps keep your repository clean and free from unnecessary files.</p>
+        </section>
 
+        <section>
+          <h2>Utilizing .gitattributes</h2>
+          <p>.gitattributes is a file that allows you to specify attributes for paths in your Git repository. It can be used to define how line endings are handled, which files are considered binary (and should not be textually diffed), or even to customize how Git merges certain files.</p>
+          <div className="code-block">
+            <code># Example .gitattributes content<br />
+            *.txt text eol=lf<br />
+            *.jpg binary<br />
+            </code>
+          </div>
+          <p>By configuring .gitattributes, you can ensure consistent handling of file types across different environments and operating systems, which is particularly important in diverse development teams.</p>
+        </section>
     <section>
       <h2>Committing with Intent: Writing Secure Commit Messages<b></b></h2>
       <p>A well-crafted commit message provides context and clarity to the changes made...</p>

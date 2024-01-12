@@ -1,48 +1,57 @@
-// Resizable.js
 import { h, Component } from 'preact';
 
-export default class Resizable extends Component {
+class Resizable extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isResizing: false,
-            startY: 0,
-            startHeight: props.height,
+            isDragging: false,
+            lastY: 0,
         };
     }
 
-    onMouseDown = (e) => {
+    startResize = (e) => {
         this.setState({
-            isResizing: true,
-            startY: e.clientY,
-            startHeight: this.props.height,
+            isDragging: true,
+            lastY: e.clientY,
         });
-        e.preventDefault();
-        document.addEventListener('mousemove', this.onMouseMove);
-        document.addEventListener('mouseup', this.onMouseUp);
+
+        document.addEventListener('mousemove', this.doResize);
+        document.addEventListener('mouseup', this.stopResize);
     };
 
-    onMouseMove = (e) => {
-        if (!this.state.isResizing) return;
-        const deltaY = e.clientY - this.state.startY;
-        const newHeight = this.state.startHeight - deltaY; // Subtract delta to increase height when moving up
-        this.props.onResize(Math.max(this.props.minHeight, newHeight));
+    doResize = (e) => {
+        if (!this.state.isDragging) {
+            return;
+        }
+    
+        const { onResize, minHeight } = this.props;
+        const { lastY } = this.state;
+        const deltaY = e.clientY - lastY;
+    
+        // Invert the resizing behavior by subtracting deltaY
+        const newHeight = Math.max(this.props.height - deltaY, minHeight);
+    
+        onResize(newHeight);
+        this.setState({ lastY: e.clientY });
     };
+    
 
-    onMouseUp = () => {
-        this.setState({ isResizing: false });
-        document.removeEventListener('mousemove', this.onMouseMove);
-        document.removeEventListener('mouseup', this.onMouseUp);
+    stopResize = () => {
+        this.setState({
+            isDragging: false,
+        });
+
+        document.removeEventListener('mousemove', this.doResize);
+        document.removeEventListener('mouseup', this.stopResize);
     };
 
     render() {
         return (
-            <div
-                className="resize-handle"
-                onMouseDown={this.onMouseDown}
-                style={{ position: 'absolute', bottom: 0, right: 0, width: '10px', height: '10px', cursor: 'ns-resize', background: '#fff' }}
-            ></div>
+            <div className="resize-handle" onMouseDown={this.startResize}>
+                {/* You can add visual elements for the resize handle here */}
+            </div>
         );
     }
 }
 
+export default Resizable;

@@ -146,6 +146,7 @@
     box-sizing: border-box; /* Include padding and borders in the element's total width and height */
     padding: 0;
     margin: 0;
+    overflow: hidden;
 }
 
 .terminal::before {
@@ -172,16 +173,30 @@
     box-sizing: border-box; /* Make sure padding and borders are included in the width */
 }
 
+.terminal__component {
+    border-top: 3px solid #38f40e; /* Existing style */
+    padding-top: 25px; /* Add padding to prevent content from hiding under the resized handle */
+    /* Other existing styles... */
+}
+
+/* Cyberpunk-themed resize handle */
 .terminal__component .resize-handle {
     position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 20px;
-    height: 20px;
-    background: #38f40e; /* Or any color you prefer */
-    cursor: nwse-resize; /* Diagonal resize cursor */
-    z-index: 10;
+    top: 0; /* Align with the top of the terminal */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center the element */
+    width: 80px; /* Make the handle wider for visibility */
+    height: 20px; /* Increase the height of the handle */
+    background: linear-gradient(90deg, rgb(23, 36, 231) 0%, rgb(14, 218, 232) 50%, rgb(94, 7, 200) 100%); /* Cyberpunk gradient */
+    border: none; /* Remove border for a sleek look */
+    border-radius: 10px; /* Rounded edges for a modern appearance */
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.75), /* Bright cyan glow */
+                0 0 10px rgba(255, 255, 0, 0.5) inset; /* Inner yellow glow for depth */
+    cursor: ns-resize; /* Cursor indicates vertical resizing */
+    z-index: 9999; /* Ensure it stays on top of other elements */
+    opacity: 1; /* Fully opaque for visibility */
 }
+
 
 /* Ensure terminal text styles are consistent with the cyberpunk theme */
 .xterm .xterm-viewport, 
@@ -204,4 +219,22 @@
 *:focus {
     outline: 2px solid #29fdff;
     outline-offset: 2px;
+}
+.xterm .xterm-viewport {
+    margin-top: 25px;/* Add padding to push the scrollbar below the handle */
+    /* Other existing styles... */
+}
+
+.terminal__component .resize-handle:hover {
+    opacity: 1; /* Fully visible when hovered */
+    box-shadow: 
+        0 0 20px #38f40e, /* Stronger green glow */
+        inset 0 0 8px #fff; /* Stronger white inner glow */
+}
+
+.resize-handle {
+    height: 10px; /* Adjust as needed */
+    background-color: #ccc; /* Visual styling */
+    cursor: ns-resize; /* Cursor indicates resizable area */
+    /* Add more styling as needed */
 }
