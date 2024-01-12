@@ -12,29 +12,31 @@ import Module3 from './CourseModules/Module3';
 import Module4 from './CourseModules/Module4';
 import Module5 from './CourseModules/Module5';
 import Module6 from './CourseModules/Module6';
+import READMEComponent from './READMEComponent'; // Make sure this component is correctly implemented
 import Home from './Home';
 import ProgressPage from './ProgressPage';
 import ProjectPage from './ProjectPage';
 import AnsiblePage from './AnsiblePage';
-import GitCheatSheet from './GitCheatSheet'; // Import GitCheatSheet component
+import GitCheatSheet from './GitCheatSheet';
 import Loading from './Loading';
 
 export default class App extends Component {
     state = {
         sidebarWidth: '20%',
         selectedModuleId: null,
-        isLoading: true, // Add a loading state to the state object
-        showLoading: true,
+        isLoading: true, // State for initial loading
+        showLoading: true, // State to control the display of the Loading component
     };
+
     onLoadingComplete = () => {
-      this.setState({ showLoading: false });
+        this.setState({ showLoading: false });
     };
+
     componentDidMount() {
-        // Here you would implement the actual logic to determine when the application has loaded
-        // For the sake of example, we're using a timeout to simulate a loading process
+        // Simulate loading process
         setTimeout(() => {
             this.setState({ isLoading: false });
-        }, 3000); // Adjust this timeout as needed for your app's load time
+        }, 3000);
     }
 
     handleMouseDown = (event) => {
@@ -52,7 +54,7 @@ export default class App extends Component {
             document.documentElement.removeEventListener('mouseup', stopDrag, false);
         };
 
-        document.documentElement.addEventListener('mousemove', doDrag, false);
+        document.documentElement.addEventListener('mousemove', doDrag.bind(this), false);
         document.documentElement.addEventListener('mouseup', stopDrag, false);
     };
 
@@ -66,7 +68,6 @@ export default class App extends Component {
         return (
             <div className="app-skeleton">
                 {this.state.showLoading && <Loading onFadeOutComplete={this.onLoadingComplete} />}
-                {isLoading && <Loading />}
                 <header className="app-header">
                     <img src="/assets/gitfox.png" alt="Git Fox" className="header-logo" />
                     {headerMenu.map((item, index) => (
@@ -90,6 +91,7 @@ export default class App extends Component {
                             <Module4 path="/module/4" />
                             <Module5 path="/module/5" />
                             <Module6 path="/module/6" />
+                            <READMEComponent path="/readme" />
                         </Router>        
                         <TerminalComponent />
                     </div>
@@ -102,4 +104,5 @@ export default class App extends Component {
         );
     }
 }
+
 
