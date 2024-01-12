@@ -8,7 +8,8 @@ class Loading extends Component {
         loadingMessage: 'Initializing CyberFox-2077 Core System...',
         showPasswordPrompt: false,
         password: '',
-        isPasswordCorrect: false
+        isPasswordCorrect: false,
+        unlockFadeOut: false
     };
 
     componentDidMount() {
@@ -68,25 +69,26 @@ class Loading extends Component {
     }
 
     verifyPassword = () => {
-        // Assuming 'masterpassword' is the correct password
-        if (this.state.password === "masterpassword") {
-            this.setState({ isPasswordCorrect: true });
+        if (this.state.password === "masterpassword") {  // Replace with your actual master password
+            this.setState({ unlockFadeOut: true });
             setTimeout(() => {
+                this.setState({ isPasswordCorrect: true });
                 if (this.props.onLoadingComplete) {
                     this.props.onLoadingComplete();
                 }
-            }, 1000); // Fade out transition
+            }, 1000); // Duration of the fade-out animation
         } else {
             alert("Incorrect password!");
         }
     }
 
-    render({}, { loadingProgress, isFadingOut, loadingMessage, showPasswordPrompt, isPasswordCorrect }) {
+    render({}, { loadingProgress, isFadingOut, loadingMessage, showPasswordPrompt, isPasswordCorrect, unlockFadeOut }) {
         if (isPasswordCorrect) {
-            return null; // Transition to the next screen or component
+            return null; // Or transition to the main application content
         }
 
-        const fadeOutClass = isFadingOut ? 'fade-out' : '';
+
+        const fadeOutClass = isFadingOut || unlockFadeOut ? 'fade-out' : '';
         return (
             <div class={`container ${fadeOutClass}`}>
                 <div id='loader'>
@@ -104,7 +106,7 @@ class Loading extends Component {
                             &nbsp;CAUTION, Do not turn off.
                         </p>
                     </div>
-                    {showPasswordPrompt &&
+                    {showPasswordPrompt && !unlockFadeOut &&
                         <div class="password-prompt">
                             <div class="password-content">
                                 <h2>ACCESS SYSTEM.GIT</h2>

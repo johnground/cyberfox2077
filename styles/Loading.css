@@ -87,8 +87,8 @@
     text-align: end;
   }
 
-.fade-out {
-  animation: fadeOut 1s ease-in-out forwards;
+  .fade-out {
+    animation: fadeOut 1s ease-in-out forwards;
 }
 
 @keyframes opcty {
@@ -107,8 +107,8 @@
 }
 
 @keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; visibility: hidden; }
+    from { opacity: 1; }
+    to { opacity: 0; visibility: hidden; }
 }
 
 /* Custom text animation */
