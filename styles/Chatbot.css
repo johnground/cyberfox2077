@@ -45,6 +45,15 @@
   background-color: #00b0ff; /* Neon blue for visibility */
   cursor: ns-resize;
 }
+.chatbot-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover the container fully */
+  z-index: -1; /* Ensure it stays in the background */
+}
 
 .resize-handle:hover {
   background-color: #00b0ff; /* Neon blue handle when hovered */
@@ -54,8 +63,7 @@
   flex: 1;
   overflow-y: auto;
   padding: 10px;
-  background-color: #121212; 
-  background-image: url('/assets/purplefox.png'); /* Add your PCB pattern image */
+  background-color: rgba(151, 147, 147, 0.045);   /* Add your PCB pattern image */
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -144,4 +152,15 @@
   background-color: #b030ff; /* Different shade of purple on hover */
   box-shadow: 0 0 10px #b030ff, /* Enhanced glow for hover state */
               inset 0 0 5px #b030ff; /* Inner glow for button hover */
+}
+.chatbot-container::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust color and opacity to your liking */
+  z-index: -1; /* Same level as the video, but above it to serve as an overlay */
 }

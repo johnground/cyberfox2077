@@ -84,7 +84,12 @@ class Chatbot extends Component {
     const { messages, userInput, isSending, height } = this.state;
     return (
       <div className="chatbot-container" style={{ height: `${height}px` }}>
+        <video autoPlay muted loop className="chatbot-video-bg">
+          <source src="/assets/purplefox.mp4" type="video/mp4" />
+          Your browser does not support HTML5 video.
+        </video>
         <div className="chatbot-banner">LLM....Initialized=System.Git</div>
+  
         <div className="chat-display-area">
           {messages.map((message, index) => (
             <div key={index} className={`message ${message.sender}`}>
