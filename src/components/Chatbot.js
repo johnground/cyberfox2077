@@ -6,6 +6,11 @@ class Chatbot extends Component {
     messages: [],
     userInput: '',
     isSending: false,
+    height: 300, // Initial height of the chatbot
+  };
+
+  handleResize = (newHeight) => {
+    this.setState({ height: newHeight });
   };
 
   handleInput = (e) => {
@@ -76,9 +81,9 @@ class Chatbot extends Component {
   };
 
   render() {
-    const { messages, userInput, isSending } = this.state;
+    const { messages, userInput, isSending, height } = this.state;
     return (
-      <div className="chatbot-container">
+      <div className="chatbot-container" style={{ height: `${height}px` }}>
         <div className="chatbot-banner">LLM....Initialized=System.Git</div>
         <div className="chat-display-area">
           {messages.map((message, index) => (
@@ -93,9 +98,28 @@ class Chatbot extends Component {
             Send
           </button>
         </div>
+        <div className="resize-handle" onMouseDown={(e) => this.startResize(e)}></div>
       </div>
     );
   }
+
+  startResize = (e) => {
+    const startY = e.clientY;
+    const startHeight = this.state.height;
+
+    const doDrag = (e) => {
+      const newHeight = startHeight + (e.clientY - startY);
+      this.handleResize(Math.max(newHeight, 100)); // Minimum height
+    };
+
+    const stopDrag = () => {
+      document.removeEventListener('mousemove', doDrag);
+      document.removeEventListener('mouseup', stopDrag);
+    };
+
+    document.addEventListener('mousemove', doDrag);
+    document.addEventListener('mouseup', stopDrag);
+  };
 }
 
 export default Chatbot;
