@@ -166,3 +166,23 @@
   background-color: rgba(0, 0, 0, 0.5); /* Adjust color and opacity to your liking */
   z-index: -1; /* Same level as the video, but above it to serve as an overlay */
 }
+
+.message.feedback {
+    color: #28fdff; /* Neon blue text */
+    background-color: rgba(-1, 0, 0, 0.6); /* Semi-transparent black background */
+    text-shadow: -1 0 5px #29fdff; /* Neon blue text glow */
+    /* other styles similar to .message */
+  }
+  .resize-handle-horizontal {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 10px; /* Adjust the width of the handle */
+    height: 100%;
+    background-color: #00b0ff; /* Neon blue for visibility */
+    cursor: ew-resize;
+  }
+  
+  .resize-handle-horizontal:hover {
+    background-color: #00b0ff; /* Neon blue handle when hovered */
+  }
