@@ -1,0 +1,39 @@
+.matrix-rain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    pointer-events: none;
+  }
+  .rain-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1; /* behind everything but above the background */
+    pointer-events: none; /* allows click-through */
+  }
+
+  .raindrop {
+  width: 1px;
+  height: 90px;
+  color: #29fdff;
+  background: linear-gradient(to bottom, #0F0F0F, #737373); /* silver gradient */
+  position: absolute;
+  bottom: 100%;
+  animation: fall linear infinite;
+}
+
+/* Blue color raindrop */
+.raindrop.blue {
+  background: linear-gradient(to bottom, #0000FF, #00FFFF); /* blue gradient */
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh); /* fall to the bottom of the viewport */
+  }
+}

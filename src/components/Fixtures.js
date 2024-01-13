@@ -7,12 +7,7 @@ const FIXTURES = {
       { notificationCount: 0, text: "Files" }
     ],
     feed: [
-      { id: "5ba5", name: "Module 1: Introduction to Version Control and Git", unread: 5 },
-      { id: "4f22", name: "Module 2: GitLab Essentials", unread: 6 },
-      { id: "fee9", name: "Module 3: Advanced Git Techniques", unread: 4 },
-      { id: "a0cc", name: "Module 4: Ansible and Automation", unread: 7 },
-      { id: "a0df", name: "Module 5: Developing Ansible Roles for OpenCTI", unread: 6 },
-      { id: "dee3", name: "Module 6: Beyond Ansible and Git", isPrivate: true, unread: 5 }
+      
     ],
     conversation: [
       {
@@ -27,8 +22,8 @@ const FIXTURES = {
       { id: "ca0b", name: "Ansible Roles" }
     ],
     channels: [ 
-      { id: "general", name: "General" },
-      { id: "help", name: "Help" },
+      { id: "readme", name: "README" },
+      { id: "cheat sheet", name: "Cheat Sheet" },
     ],
     messages: [
       {
@@ -41,7 +36,25 @@ const FIXTURES = {
         }
       }
       // Add more message objects as needed
-    ]
+    ],
+    gitCheatSheet: [
+      { title: 'git init', description: 'Initialize a new Git repository in the current directory.' },
+      { title: 'git clone [url]', description: 'Clone a repository into a new directory, pulling down all the data from the repository.' },
+      { title: 'git add [file]', description: 'Add a file to the staging area, marking it for inclusion in the next commit.' },
+      { title: 'git commit -m "[message]"', description: 'Commit the staged changes to the repository with a descriptive message.' },
+      { title: 'git status', description: 'Show the status of changes as untracked, modified, or staged.' },
+      { title: 'git push [remote] [branch]', description: 'Push the committed changes to a remote repository.' },
+      { title: 'git pull [remote] [branch]', description: 'Fetch and merge changes from the remote repository to the local repository.' },
+      { title: 'git branch', description: 'List all of the branches in the repository, or create a new one.' },
+      { title: 'git checkout [branch-name]', description: 'Switch to a specified branch and update the working directory.' },
+      { title: 'git merge [branch]', description: 'Merge the specified branch’s history into the current branch.' },
+      { title: 'git rebase [branch]', description: 'Reapply commits on top of another base tip.' },
+      { title: 'git log', description: 'Show the commit logs.' },
+      { title: 'git diff', description: 'Show the differences between commits, commit and working tree, etc.' },
+      { title: 'git stash', description: 'Stash the changes in a dirty working directory away.' },
+      { title: 'git tag [tag-name]', description: 'Create, list, delete or verify a tag object signed with GPG.' },
+      // Add more cheat sheet items as needed
+    ],
   };
   
   export default FIXTURES;

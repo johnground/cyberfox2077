@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+/* Cyberpunk theme enhancements */
+.flex {
+  display: flex;
+}
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(28,0,36,1) 100%);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#loader {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  color: #0f0;
+  text-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
+}
+
+.loading-text {
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 0.3rem;
+  margin-right: 1rem; /* Ensure spacing between text and percentage */
+}
+
+.therefore {
+  font-size: 24px;
+  animation: rotate 1s linear infinite;
+  padding-top: 9.5px;
+  height: fit-content;
+}
+
+.loading-number {
+  font-family: 'Orbitron', sans-serif;
+}
+
+#loading-bar-border {
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  border-radius: 3px;
+  border-top: 1px solid rgba(255,255,255,0.5);
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+  width: 100%;
+}
+
+.loading-bar {
+  height: 0.6rem;
+  margin: 1px 0;
+  background: white;
+  animation: charging 3s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+#warning {
+  margin-top: 0.5rem;
+  font-family: 'Orbitron', sans-serif;
+  display: flex;
+  height: 1.2rem;
+}
+
+.exclamation {
+  width: 1rem;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  color: black;
+  border-radius: 3px;
+}
+
+#line-cascades {
+    animation: initText 10s ease-in-out; /* Adjust the timing as needed */
+    animation-fill-mode: forwards;
+    color: #b5b5b5;
+    font-size: 12px;
+    white-space: pre;
+    text-align: end;
+  }
+
+  .fade-out {
+    animation: fadeOut 1s ease-in-out forwards;
+}
+
+@keyframes opcty {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes charging {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; visibility: hidden; }
+}
+
+/* Custom text animation */
+@keyframes initText {
+    0% { content: "Initializing CyberFox-2077 Core System..." }
+    5% { content: "Decrypting Cybernetic Protocols... 5%" }
+    10% { content: "Compiling Git.sys Manifest... 10%" }
+    15% { content: "Injecting Netrunners' Codebase... 15%" }
+    20% { content: "Calibrating Neural Network Interfaces... 20%" }
+    25% { content: "Synthesizing GitLab Repositories... 25%" }
+    30% { content: "Rerouting Data Through Quantum Subnet... 30%" }
+    35% { content: "Enhancing Cyberfox-2077 Algorithms... 35%" }
+    40% { content: "Cross-Compiling Cyberware Modules... 40%" }
+    45% { content: "Charging Cyberdeck Capacitors... 45%" }
+    50% { content: "Launching Git Repositories Sync... 50%" }
+    55% { content: "Integrating GitLab CI/CD Pipelines... 55%" }
+    60% { content: "Activating Advanced Cybernetic HUD... 60%" }
+    65% { content: "Initiating Neural Uplink Encryption... 65%" }
+    70% { content: "Establishing Secure GitLab Connection... 70%" }
+    75% { content: "Calibrating Version Control Timelines... 75%" }
+    80% { content: "Loading Arasaka Security Protocols... 80%" }
+    85% { content: "Finalizing Cyberfox-2077 Enhancements... 85%" }
+    90% { content: "Sequencing Cybergenic Kernel... 90%" }
+    95% { content: "Completing GitLab Ultimate Deployment... 95%" }
+    100% { content: "CyberFox-2077 Ready. Welcome, Netrunner... 100%" }
+  }
+
+#line-cascades {
+    animation: initText 20s ease-in-out; /* Adjust the timing as needed */
+    animation-fill-mode: forwards;
+    color: #b5b5b5;
+    font-size: 12px;
+    white-space: pre;
+    text-align: end;
+    /* Place this element absolutely inside the loader if needed */
+    position: absolute;
+    bottom: 10%; /* Adjust as needed */
+    width: 100%;
+  }
+  
+  .password-prompt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 400px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #0f0;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 10000; /* Ensure it's above all other content */
+    box-shadow: 0 0 20px #0f0;
+}
+
+.password-content h2 {
+    color: #0f0;
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 0 0 10px #0f0;
+    margin-bottom: 20px;
+}
+
+.password-content input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #0f0;
+    background: transparent;
+    color: #0f0;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.password-content button {
+    background: #0f0;
+    border: none;
+    padding: 10px 20px;
+    color: black;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+}
+
+.password-content button:hover {
+    background: #1a1a1a;
+    color: #0f0;
+}

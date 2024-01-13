@@ -1,0 +1,240 @@
+.xterm .composition-view {
+    background: #000;
+    color: #38f40e;
+    display: none;
+    position: absolute;
+    white-space: nowrap;
+    z-index: 1;
+}
+.xterm .xterm-selection div {
+    background-color: rgba(41, 251, 255, 0); /* Transparent neon selection */
+}
+
+.xterm .xterm-cursor-layer .xterm-cursor {
+    background-color: #29fdff; /* Neon blue cursor */
+    /* Add a glow to the cursor if desired */
+    box-shadow: 0 0 5px #29fdff, 0 0 10px #29fdff;
+}
+
+.xterm .composition-view.active {
+    display: block;
+}
+
+.xterm .xterm-viewport {
+    background-color: #000;
+    overflow-y: scroll;
+    cursor: default;
+    position: absolute;
+    height: 100%;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    scrollbar-color: #29fdff #101010; /* Neon blue scrollbar */
+    padding-left: 10px; /* Add padding on the left */
+}
+
+.xterm .xterm-screen {
+    position: relative;
+}
+
+.xterm .xterm-screen canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.xterm .xterm-scroll-area {
+    visibility: hidden;
+}
+
+.xterm-char-measure-element {
+    display: inline-block;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: -9999em;
+    line-height: normal;
+}
+
+.xterm.enable-mouse-events {
+    cursor: default;
+}
+
+.xterm.xterm-cursor-pointer,
+.xterm .xterm-cursor-pointer {
+    cursor: pointer;
+}
+
+.xterm.column-select.focus {
+    cursor: crosshair;
+}
+
+.xterm .xterm-accessibility,
+.xterm .xterm-message {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    color: transparent;
+    pointer-events: none;
+}
+
+.xterm .live-region {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.xterm-dim {
+    opacity: 0.5; /* Dimmed text */
+    text-shadow: 0 0 5px rgba(0, 0, 255, 0.2); /* Add a subtle shadow for dimmed text */
+}
+
+.xterm-underline {
+    text-decoration-color: #29fdff; /* Neon blue for underlined text */
+}
+
+.xterm-overline,
+.xterm-strikethrough {
+    text-decoration-color: #29fdff; /* Neon blue for text decoration */
+}
+
+.xterm-decoration-overview-ruler {
+    z-index: 8;
+    position: absolute;
+    top: 0;
+    right: 0;
+    pointer-events: none;
+}
+
+.terminal {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background for cyberpunk theme */
+    font-family: 'Orbitron', sans-serif; /* Applying the cyberpunk theme font */
+}
+
+.terminal__minimize-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 10;
+    background: #38f40e;
+    border: 2px solid #0ff;
+    color: #000;
+    font-size: 16px;
+    width: 32px; /* Wider button */
+    height: 32px; /* Taller button */
+    border-radius: 50%; /* Circular button */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 0 10px #0ff; /* Glowing effect */
+    outline: none;
+}
+
+.terminal.minimized .terminal__wrapper {
+    display: none;
+}
+
+.terminal__wrapper {
+    box-sizing: border-box; /* Include padding and borders in the element's total width and height */
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.terminal::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-left: 20px solid transparent;
+    border-bottom: 20px solid rgba(0, 0, 0, 0.8); /* match the terminal's background color */
+    transform: translateY(-100%);
+}
+
+.terminal.terminal__component {
+    max-width: 960px; /* Set this to the width of your main content area */
+    width: 100%;
+    height: 250px; /* Or any height you prefer */
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-top: 3px solid #38f40e;
+    box-sizing: border-box; /* Make sure padding and borders are included in the width */
+}
+
+.terminal__component {
+    border-top: 3px solid #38f40e; /* Existing style */
+    padding-top: 25px; /* Add padding to prevent content from hiding under the resized handle */
+    /* Other existing styles... */
+}
+
+/* Cyberpunk-themed resize handle */
+.terminal__component .resize-handle {
+    position: absolute;
+    top: 0; /* Align with the top of the terminal */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center the element */
+    width: 80px; /* Make the handle wider for visibility */
+    height: 20px; /* Increase the height of the handle */
+    background: linear-gradient(90deg, rgb(23, 36, 231) 0%, rgb(14, 218, 232) 50%, rgb(94, 7, 200) 100%); /* Cyberpunk gradient */
+    border: none; /* Remove border for a sleek look */
+    border-radius: 10px; /* Rounded edges for a modern appearance */
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.75), /* Bright cyan glow */
+                0 0 10px rgba(255, 255, 0, 0.5) inset; /* Inner yellow glow for depth */
+    cursor: ns-resize; /* Cursor indicates vertical resizing */
+    z-index: 9999; /* Ensure it stays on top of other elements */
+    opacity: 1; /* Fully opaque for visibility */
+}
+
+
+/* Ensure terminal text styles are consistent with the cyberpunk theme */
+.xterm .xterm-viewport, 
+.xterm .xterm-screen, 
+.xterm-rows {
+    color: #29fdff; /* Neon blue color */
+    font-family: 'Orbitron', sans-serif; /* Cyberpunk font for terminal */
+    font-size: 1.4em; /* Increased font size */
+    /* Neon glow with multiple layers for a deeper effect */
+    text-shadow:
+        0 0 3px #29fdff, /* Innermost light blue glow */
+        0 0 5px #29fdff, /* Middle blue glow */
+        0 0 8px #29fdff, /* Outer blue glow */
+        0 0 10px #29fdff, /* Further glow for a deep neon effect */
+        0 0 15px #29fdff; /* Farthest subtle glow */
+}
+/* Additional custom styles for xterm.js elements not listed may go here */
+
+/* Apply global neon blue edge glow effect to elements as needed */
+*:focus {
+    outline: 2px solid #29fdff;
+    outline-offset: 2px;
+}
+.xterm .xterm-viewport {
+    margin-top: 25px;/* Add padding to push the scrollbar below the handle */
+    /* Other existing styles... */
+}
+
+.terminal__component .resize-handle:hover {
+    opacity: 1; /* Fully visible when hovered */
+    box-shadow: 
+        0 0 20px #38f40e, /* Stronger green glow */
+        inset 0 0 8px #fff; /* Stronger white inner glow */
+}
+
+.resize-handle {
+    height: 10px; /* Adjust as needed */
+    background-color: #ccc; /* Visual styling */
+    cursor: ns-resize; /* Cursor indicates resizable area */
+    /* Add more styling as needed */
+}

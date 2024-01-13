@@ -1,6 +1,6 @@
 import { h } from 'preact';
 import ChannelLink from './ChannelLink';
-import './ChannelNav.css'; // Import the new ChannelNav specific stylesheet
+import '/styles/ChannelNav.css'; // Import the new ChannelNav specific stylesheet
 
 const ChannelNav = ({ channels }) => {
   return (
@@ -14,6 +14,7 @@ const ChannelNav = ({ channels }) => {
     </nav>
   );
 };
+
 
 export default ChannelNav;
 

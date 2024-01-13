@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CyberFox-2077 Course</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles/styles.css">
 
     <!-- Override Style to Fix Horizontal Scrollbar -->
     <style>
@@ -12,20 +12,24 @@
             overflow-x: hidden; /* Hide horizontal scrollbar */
         }
     </style>
-
 </head>
 <body>
+    <!-- Background Video -->
+    <video autoplay muted loop id="backgroundVideo" style="object-fit: cover;">
+        <source src="/assets/redcyberfox4.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
     <!-- Root element where your React/Preact app will mount -->
     <div id="app"></div>
 
     <!-- Include the xterm.js library -->
     <script src="xterm.js"></script>
+   
 
     <!-- Include your compiled webpack bundle here -->
     <script src="dist/bundle.js"></script>
 
-    <div class="app-b__collapsible">
-        <!-- Collapsible content goes here -->
-    </div> <!-- Close the collapsible content div -->
+    
 </body>
 </html>

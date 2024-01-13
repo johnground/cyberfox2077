@@ -8,6 +8,7 @@ const server = http.createServer(app);
 const { Server } = require('socket.io');
 const path = require('path');
 const { exec } = require('child_process');
+const fs = require('fs');
 
 // Enable CORS for all routes
 app.use(cors());
@@ -23,25 +24,20 @@ const io = new Server(server, {
     }
 });
 
-// Utility function for command validation (update as needed)
+// Utility function for command validation
 function isValidCommand(command) {
-    // Define a list of valid commands or a validation logic
-    const validCommands = ['load ollama model']; // Example
+    const validCommands = ['load ollama model'];
     return validCommands.includes(command);
 }
 
-// Utility function for command sanitization (update as needed)
+// Utility function for command sanitization
 function sanitizeCommand(command) {
-    // Implement sanitization logic here
-    return command; // Placeholder
+    return command;
 }
 
 // Function to execute commands in ollama container
 function executeOllamaCommand(command, callback) {
-    // Sanitize and validate command here
     const sanitizedCommand = sanitizeCommand(command);
-
-    // Execute command in ollama container
     const ollamaCommand = `docker exec ollama ${sanitizedCommand}`;
     exec(ollamaCommand, (error, stdout, stderr) => {
         if (error) {
@@ -54,8 +50,6 @@ function executeOllamaCommand(command, callback) {
 
 io.on('connection', (socket) => {
     console.log('a user connected');
-
-    // Initialize node-pty with a shell upon new socket connection
     const shell = os.platform() === 'win32' ? 'powershell.exe' : 'bash';
     const ptyProcess = spawn(shell, [], {
         name: 'xterm-color',
@@ -63,7 +57,6 @@ io.on('connection', (socket) => {
         env: process.env
     });
 
-    // When the front-end sends a command, write it to the ptyProcess
     socket.on('terminal-input', (input) => {
         const trimmedInput = input.trim();
         if (isValidCommand(trimmedInput)) {
@@ -75,19 +68,28 @@ io.on('connection', (socket) => {
         }
     });
 
-    // When the ptyProcess generates data, send it to the front-end
     ptyProcess.on('data', function(data) {
         socket.emit('terminal-output', data);
     });
 
-    // Clean up the terminal process on disconnect
     socket.on('disconnect', () => {
         ptyProcess.kill();
         console.log('user disconnected');
     });
 });
 
-// Add a catch-all route to serve index.html for non-API requests
+// Route for serving README.md
+app.get('/api/readme', (req, res) => {
+    fs.readFile(path.join(__dirname, 'README.md'), 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading README.md:', err);
+            return res.status(500).send('Unable to read README.md');
+        }
+        res.type('text/plain').send(data);
+    });
+});
+
+// Catch-all route to serve index.html for non-API requests
 app.get('*', (req, res) => {
     res.sendFile(path.join('/home/cyberfox', 'index.html'));
 });

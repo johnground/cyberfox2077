@@ -1,0 +1,188 @@
+/* Chatbot.css with Cyberpunk themed adjustments for neon blue color */
+
+.chatbot-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px; /* Fixed height for the banner */
+  background-color: #070707dc; /* Dark background for banner */
+  color: #00b0ff; /* Neon blue text for banner */
+  font-size: 1.5rem; /* Adjust if needed to match heading sizes */
+  font-weight: bold; /* Bold font weight for text */
+  text-transform: uppercase; /* Uppercase text for stylized look */
+  border-bottom: 2px solid #00b0ff; /* Neon blue bottom border */
+  box-shadow: 0 0 10px #00b0ff, /* Outer glow */
+               0 0 20px #00b0ff, /* Increased glow */
+               inset 0 0 5px #00b0ff; /* Inner glow for depth */
+}
+
+.chatbot-container {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  height: 60vh;
+  min-width: 15%;
+  max-width: 40%;
+  border-left: 2px solid #00b0ff;
+  background-color: #0c0c0c;
+  color: #f3210e;
+  border-top: 2px solid #00b0ff;
+  position: fixed;
+  top: 20vh;
+  bottom: 20vh;
+  right: 0;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5), 0 0 10px #00b0ff, inset 0 0 20px #00b0ff;
+  z-index: 1000; /* Ensure it's above other content */
+  overflow: hidden; /* Hide overflow to keep the design neat */
+}
+
+.chatbot-container > .resize-handle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 10px; /* Adjust the height of the handle */
+  background-color: #00b0ff; /* Neon blue for visibility */
+  cursor: ns-resize;
+}
+.chatbot-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover the container fully */
+  z-index: -1; /* Ensure it stays in the background */
+}
+
+.resize-handle:hover {
+  background-color: #00b0ff; /* Neon blue handle when hovered */
+}
+
+.chat-display-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+  background-color: rgba(0, 0, 255, 0.2); /* Semi-transparent background for chat area */
+  box-shadow: inset 0 0 15px #00b0ff, inset 0 0 2px #00b0ff, 0 0 5px #00b0ff;
+}
+
+.message {
+  max-width: 80%;
+  margin-bottom: 10px;
+  line-height: 1.4;
+  padding: 8px 12px;
+  border-radius: 18px;
+  word-break: break-word;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #29fdff; /* Neon blue text */
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 0 0 5px #29fdff; /* Neon blue text glow */
+  box-shadow: 0 0 5px #29fdff; /* Neon blue shadow for messages */
+}
+
+.message.user {
+  align-self: flex-end;
+  margin-bottom: 10px;
+  line-height: 1.4;
+  padding: 8px 12px;
+  border-radius: 18px;
+  word-break: break-word;
+  background-color: rgba(255, 165, 0, 0.6); /* Semi-transparent orange background */
+  color: #fff; /* White text for contrast */
+  font-size: 1.5rem; /* Match the size to your header */
+  font-weight: bold; /* Match the weight to your header */
+  text-shadow: 0 0 5px #ff7600; /* Orange text glow for readability */
+  box-shadow: 0 0 5px #ff7600; /* Orange shadow for messages */
+  font-family: 'Your Header Font', sans-serif; /* Match the font-family to your header */
+  border: 1px solid #ff7600; /* Orange border for user messages */
+}
+
+.message.bot {
+  align-self: flex-start;
+  background-color: rgba(10, 20, 30, 0.8); /* Dark background with transparency */
+  color: #00b0ff; /* Neon blue text */
+  text-shadow: 0px 0px 8px #00b0ff; /* Glow effect for text */
+  border: 1px solid #00b0ff; /* Neon blue border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 10px; /* Padding inside the message bubble */
+  margin: 4px 0; /* Space between messages */
+  font-family: 'Orbitron', sans-serif; /* Cyberpunk-style font */
+  font-size: 1rem; /* Adjust font size as needed */
+  box-shadow: 0 0 10px #00b0ff, 0 0 20px #00b0ff; /* Neon glow effect for the bubble */
+}
+
+
+.chat-input-area {
+  display: flex;
+  padding: 10px;
+  background-color: #1a1a1a; /* Consistent dark background for the input area */
+  border-top: 1px solid #00b0ff; /* Neon blue top border */
+  box-shadow: 0 0 8px #00b0ff, /* Outer bottom glow */
+              inset 0 0 5px #00b0ff; /* Inner top glow for depth */
+}
+
+.chat-input-area input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  background-color: #2a2a2a;
+  color: #fff;
+  border: 1px solid #00b0ff;
+  margin-right: 10px;
+  border-radius: 4px;
+}
+
+
+.chat-input-area input[type="text"]:focus {
+  outline: none;
+  border-color: #b030ff;
+  box-shadow: 0 0 10px #00b0ff, inset 0 0 5px #00b0ff;
+}
+.chat-input-area button {
+  padding: 10px 15px;
+  background-color: #00b0ff; /* Neon blue background */
+  color: #1a1a1d;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 0 5px #00b0ff;
+}
+
+
+.chat-input-area button:hover {
+  background-color: #b030ff;
+  box-shadow: 0 0 10px #b030ff, inset 0 0 5px #b030ff;
+}
+
+.chatbot-container::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust color and opacity to your liking */
+  z-index: -1; /* Same level as the video, but above it to serve as an overlay */
+}
+
+.message.feedback {
+    color: #28fdff; /* Neon blue text */
+    background-color: rgba(-1, 0, 0, 0.6); /* Semi-transparent black background */
+    text-shadow: -1 0 5px #29fdff; /* Neon blue text glow */
+    /* other styles similar to .message */
+  }
+  .resize-handle-horizontal {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 10px; /* Adjust the width of the handle */
+    height: 100%;
+    background-color: #00b0ff; /* Neon blue for visibility */
+    cursor: ew-resize;
+  }
+  
+  .resize-handle-horizontal:hover {
+    background-color: #00b0ff; /* Neon blue handle when hovered */
+  }

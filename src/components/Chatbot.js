@@ -6,39 +6,14 @@ class Chatbot extends Component {
     messages: [],
     userInput: '',
     isSending: false,
-    waitingMessage: null, // Store the key for the waiting message
   };
 
   handleInput = (e) => {
     this.setState({ userInput: e.target.value });
   };
 
-  addWaitingMessage = () => {
-    // Add a unique key for the waiting message to remove it later
-    const waitingMessageKey = Date.now();
-    this.setState((prevState) => ({
-      messages: [
-        ...prevState.messages,
-        { key: waitingMessageKey, text: "This may take a second, you are running on CPU...", sender: 'system' },
-      ],
-      waitingMessage: waitingMessageKey,
-    }));
-    return waitingMessageKey;
-  };
-
-  removeWaitingMessage = (key) => {
-    this.setState((prevState) => ({
-      messages: prevState.messages.filter(message => message.key !== key),
-      waitingMessage: null,
-    }));
-  };
-
   sendMessageToAPI = async (userInput) => {
     this.setState({ isSending: true });
-
-    // Add the waiting message and get its key
-    const waitingMessageKey = this.addWaitingMessage();
-
     let responseText = '';
     try {
       const OLLAMA_API_URL = 'http://localhost:8080/ollama/api/chat';
@@ -59,7 +34,7 @@ class Chatbot extends Component {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      responseText = await response.text();
+      responseText = await response.text(); 
       const splitMessages = responseText.trim().split(/\}\s*\{/);
       const replies = splitMessages.map((msg, index, array) => {
         if (index > 0) msg = '{' + msg;
@@ -67,13 +42,14 @@ class Chatbot extends Component {
         return JSON.parse(msg).message.content;
       });
 
+      // Combine the individual replies into a single batched message
       const combinedReplies = replies.join(' ');
 
       this.setState((prevState) => ({
         messages: [
-          ...prevState.messages.filter(message => message.key !== waitingMessageKey), // Remove the waiting message
+          ...prevState.messages,
           { text: userInput, sender: 'user' },
-          { text: combinedReplies, sender: 'bot' },
+          { text: combinedReplies, sender: 'bot' }, // Add combined replies as a single message
         ],
         userInput: '',
         isSending: false,
@@ -81,7 +57,6 @@ class Chatbot extends Component {
     } catch (error) {
       console.error('Error sending message to API:', error);
       this.setState((prevState) => ({
-        messages: prevState.messages.filter(message => message.key !== waitingMessageKey), // Remove the waiting message
         messages: [
           ...prevState.messages,
           { text: `Error: ${error.message}`, sender: 'system' },
@@ -107,7 +82,7 @@ class Chatbot extends Component {
         <div className="chatbot-banner">LLM....Initialized=System.Git</div>
         <div className="chat-display-area">
           {messages.map((message, index) => (
-            <div key={message.key || index} className={`message ${message.sender}`}>
+            <div key={index} className={`message ${message.sender}`}>
               {message.text}
             </div>
           ))}
