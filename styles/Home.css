@@ -27,4 +27,28 @@
 /* Ensure to include the font via a link in your HTML or import in your CSS */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap');
 
-  
+  /* Button Styles */
+.home-container button {
+    background: transparent; /* Transparent background */
+    border: 2px solid #00ffff; /* Neon blue border */
+    color: #00ffff; /* Neon blue text */
+    text-transform: uppercase; /* Capitalize button text */
+    padding: 10px 20px; /* Spacing around text */
+    font-size: 1em; /* Adjust size as needed */
+    font-family: 'Orbitron', sans-serif; /* Futuristic font */
+    text-shadow: 0 0 5px #00ffff; /* Neon text glow */
+    box-shadow: 0 0 10px #00ffff, inset 0 0 10px #00ffff; /* Outer and inner glow */
+    border-radius: 0; /* Sharp edges */
+    cursor: pointer; /* Cursor pointer */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.home-container button:hover {
+    color: #ffffff; /* Bright white text on hover */
+    box-shadow: 0 0 15px #00ffff, inset 0 0 15px #00ffff; /* Increased glow on hover */
+}
+
+.home-container button:active {
+    box-shadow: 0 0 5px #00ffff, inset 0 0 5px #00ffff; /* Smaller glow when clicked */
+    transform: translateY(2px); /* Slight movement to simulate pressing */
+}
