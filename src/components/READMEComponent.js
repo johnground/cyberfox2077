@@ -1,4 +1,6 @@
 import { h, Component } from 'preact';
+import marked from 'marked'; // Import marked library
+import '/styles/readme.css'; // Import the README styles
 
 class READMEComponent extends Component {
   state = {
@@ -15,7 +17,7 @@ class READMEComponent extends Component {
         return response.text();
       })
       .then((data) => {
-        this.setState({ readmeContent: data, isLoading: false });
+        this.setState({ readmeContent: marked(data), isLoading: false }); // Convert markdown to HTML
       })
       .catch((error) => {
         console.error('Failed to fetch README:', error);
@@ -28,10 +30,11 @@ class READMEComponent extends Component {
       return <div>Loading README...</div>;
     }
 
+    // Use dangerouslySetInnerHTML to render raw HTML
     return (
-      <div>
+      <div className="readme-container">
         <h1>README</h1>
-        <pre>{readmeContent}</pre>
+        <div dangerouslySetInnerHTML={{ __html: readmeContent }} />
       </div>
     );
   }

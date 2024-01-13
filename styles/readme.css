@@ -1,0 +1,53 @@
+/* readme.css */
+
+.readme-container {
+    font-family: 'Orbitron', sans-serif;
+    color: #29fdff; /* Neon blue text */
+    background-color: #101010; /* Dark background */
+    padding: 20px; /* Padding around the content */
+    border-radius: 5px; /* Optional: rounded corners */
+    box-shadow: 0 0 10px #29fdff; /* Neon glow effect */
+    overflow: auto; /* Enable scrolling on overflow */
+  }
+  
+  .readme-container h1,
+  .readme-container h2,
+  .readme-container h3,
+  .readme-container h4,
+  .readme-container h5,
+  .readme-container h6 {
+    text-shadow: 0 0 5px #29fdff, 0 0 10px #29fdff; /* Neon text shadow for headers */
+    margin-top: 20px; /* Spacing between headers */
+    margin-bottom: 10px; /* Spacing after headers */
+  }
+  
+  .readme-container a {
+    color: #29fdff; /* Neon blue text for links */
+    text-decoration: none; /* No underline */
+    text-shadow: 0 0 5px #29fdff, 0 0 10px #29fdff; /* Neon text shadow for links */
+  }
+  
+  .readme-container p {
+    margin-bottom: 10px; /* Space between paragraphs */
+  }
+  
+  .readme-container pre {
+    white-space: pre-wrap; /* Allow code blocks to wrap */
+    word-break: break-word; /* Break lines within words if necessary */
+    background: #0d0d0d; /* Slightly lighter dark background for code blocks */
+    border: 1px solid #29fdff; /* Neon blue border for code blocks */
+    box-shadow: 0 0 5px #29fdff; /* Neon glow effect for code blocks */
+    color: #ffffff; /* White text for code */
+    padding: 15px; /* Padding inside code blocks */
+    margin-bottom: 20px; /* Space after code blocks */
+    overflow: auto; /* Enable scrolling on overflow */
+  }
+  
+  .readme-container code {
+    background: inherit; /* Inherit from parent (for inline code) */
+    padding: 2px 4px; /* Padding for inline code */
+    border-radius: 4px; /* Rounded corners for inline code */
+  }
+  
+  /* Add custom styles for other markdown elements as needed */
+  
