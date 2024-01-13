@@ -1,20 +1,40 @@
 import { h, Component } from 'preact';
 
-export default class READMEComponent extends Component {
-  state = { content: '' };
+class READMEComponent extends Component {
+  state = {
+    readmeContent: '',
+    isLoading: true,
+  };
 
   componentDidMount() {
     fetch('/api/readme')
-      .then(response => response.text())
-      .then(text => this.setState({ content: text }))
-      .catch(error => console.error('Error fetching README:', error));
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.text();
+      })
+      .then((data) => {
+        this.setState({ readmeContent: data, isLoading: false });
+      })
+      .catch((error) => {
+        console.error('Failed to fetch README:', error);
+        this.setState({ isLoading: false });
+      });
   }
 
-  render({}, { content }) {
+  render({}, { readmeContent, isLoading }) {
+    if (isLoading) {
+      return <div>Loading README...</div>;
+    }
+
     return (
-      <div className="readme-content">
-        <pre>{content}</pre>
+      <div>
+        <h1>README</h1>
+        <pre>{readmeContent}</pre>
       </div>
     );
   }
 }
+
+export default READMEComponent;

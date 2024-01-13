@@ -226,6 +226,8 @@ a {
 .app-b {
   grid-area: side;
   overflow: hidden;
+  overflow-x: hidden; /* Hide horizontal overflow */
+  padding: 0; /* Remove any padding that may cause overflow */
 }
 .app-b > .resize-handle {
   width: 100%; /* Make sure it occupies only the available space */
@@ -235,6 +237,7 @@ a {
   left: 0;
   background-color: #00b0ff; /* Neon blue for visibility */
   cursor: ns-resize;
+  width: calc(100% - 4px);
 }
 .app-main {
   overflow: auto;
