@@ -17,7 +17,12 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.1em; 
   text-transform: uppercase;
 }
-
+* {
+  margin: 0;
+  padding: 0;
+  /* Ensure box-sizing is set to border-box */
+  box-sizing: border-box;
+}
 :root {
   --cp-dark-background: #101010;
   --cp-neon-blue: #29fdff;
@@ -220,8 +225,17 @@ a {
 
 .app-b {
   grid-area: side;
+  overflow: hidden;
 }
-
+.app-b > .resize-handle {
+  width: 100%; /* Make sure it occupies only the available space */
+  height: 10px; /* Or as per your design */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #00b0ff; /* Neon blue for visibility */
+  cursor: ns-resize;
+}
 .app-main {
   overflow: auto;
   height: 100%;

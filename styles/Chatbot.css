@@ -34,13 +34,15 @@
   box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5), 0 0 10px #00b0ff, inset 0 0 20px #00b0ff;
   z-index: 1000; /* Ensure it's above other content */
   overflow: hidden; /* Hide overflow to keep the design neat */
+  overflow-x: hidden; /* Hide horizontal overflow */
+  overflow-y: auto; /* Auto-scroll for vertical overflow */
 }
 
 .chatbot-container > .resize-handle {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
+  right: 0; 
   height: 10px; /* Adjust the height of the handle */
   background-color: #00b0ff; /* Neon blue for visibility */
   cursor: ns-resize;
@@ -186,3 +188,7 @@
   .resize-handle-horizontal:hover {
     background-color: #00b0ff; /* Neon blue handle when hovered */
   }
+
+  *, *::before, *::after {
+  box-sizing: border-box; /* This ensures padding and borders are inside the element's total width and height */
+}
