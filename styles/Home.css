@@ -1,19 +1,30 @@
-.home-container {
-    position: absolute; /* Changed from 'relative' */
-    top: calc(60px + 5%); /* Reduced from 20% to 10% to move it up */
-    left: 0;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Start content at the top */
-    align-items: center;
-    height: calc(80vh - 60px); /* Adjust the height if necessary */
+.faq-section {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: #39ff14; /* Neon text color */
+    border-left: 5px solid #39ff14; /* Neon accent border */
+    border-radius: 5px;
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 0 0 5px rgba(57, 255, 20, 0.7);
 }
 
 
-.module-list {
-    list-style: none;
-    padding: 0;
+.faq-section h2, .faq-section h3 {
+    border-bottom: 1px solid #39ff14; /* Neon accent under headings */
 }
+
+.faq-section dt {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.faq-section dd {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+/* Ensure to include the font via a link in your HTML or import in your CSS */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap');
 
   
