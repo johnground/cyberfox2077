@@ -1,5 +1,6 @@
 import { h } from 'preact';
 import ChannelLink from './ChannelLink';
+import '/styles/ChannelNav.css'; // Make sure to import the correct path of ChannelNav.css
 
 const ChannelNav = ({ activeChannel, channels }) => {
   return (
