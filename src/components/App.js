@@ -1,5 +1,5 @@
 import { h, Component } from 'preact';
-import { Router } from 'preact-router';
+import { Router, route } from 'preact-router';
 import Chatbot from './Chatbot';
 import NavItem from './NavItem';
 import ChannelNav from './ChannelNav';
@@ -12,7 +12,7 @@ import Module3 from './CourseModules/Module3';
 import Module4 from './CourseModules/Module4';
 import Module5 from './CourseModules/Module5';
 import Module6 from './CourseModules/Module6';
-import READMEComponent from './READMEComponent'; // Make sure this component is correctly implemented
+import READMEComponent from './READMEComponent';
 import Home from './Home';
 import ProgressPage from './ProgressPage';
 import ProjectPage from './ProjectPage';
@@ -24,8 +24,8 @@ export default class App extends Component {
     state = {
         sidebarWidth: '20%',
         selectedModuleId: null,
-        isLoading: true, // State for initial loading
-        showLoading: true, // State to control the display of the Loading component
+        isLoading: true,
+        showLoading: true,
     };
 
     onLoadingComplete = () => {
@@ -33,7 +33,6 @@ export default class App extends Component {
     };
 
     componentDidMount() {
-        // Simulate loading process
         setTimeout(() => {
             this.setState({ isLoading: false });
         }, 3000);
@@ -43,7 +42,7 @@ export default class App extends Component {
         event.preventDefault();
         const startWidth = this.sidebar.offsetWidth;
         const startX = event.clientX;
-
+        
         const doDrag = (event) => {
             const newWidth = Math.max(15, Math.min(40, (startWidth + event.clientX - startX) / window.innerWidth * 100));
             this.setState({ sidebarWidth: newWidth + '%' });
@@ -58,8 +57,11 @@ export default class App extends Component {
         document.documentElement.addEventListener('mouseup', stopDrag, false);
     };
 
-    handleModuleSelect = (moduleId) => {
-        this.setState({ selectedModuleId: moduleId });
+    handleRoute = e => {
+        if (e.url === '/notfound') {
+            route('/', true);
+        }
+        this.currentUrl = e.url;
     };
 
     render({}, { sidebarWidth, isLoading }) {
@@ -80,7 +82,7 @@ export default class App extends Component {
                         <ConversationNav conversations={conversation} />
                     </div>
                     <div className="app-main">
-                        <Router>
+                        <Router onChange={this.handleRoute}>
                             <Home path="/" />
                             <ProgressPage path="/progress" />
                             <ProjectPage path="/project" />
@@ -92,6 +94,7 @@ export default class App extends Component {
                             <Module5 path="/module/5" />
                             <Module6 path="/module/6" />
                             <READMEComponent path="/readme" />
+                            {/* Removed NotFoundPage to handle redirection */}
                         </Router>        
                         <TerminalComponent />
                     </div>
@@ -104,5 +107,3 @@ export default class App extends Component {
         );
     }
 }
-
-
