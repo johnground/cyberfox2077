@@ -33,6 +33,14 @@ export default class App extends Component {
     };
 
     componentDidMount() {
+        const firstLoad = !localStorage.getItem('hasLoadedBefore');
+        if (firstLoad) {
+            this.setState({ isLoading: true, showLoading: true });
+            localStorage.setItem('hasLoadedBefore', 'true');
+        } else {
+            this.setState({ isLoading: false, showLoading: false });
+        }
+        
         setTimeout(() => {
             this.setState({ isLoading: false });
         }, 3000);
@@ -64,12 +72,12 @@ export default class App extends Component {
         this.currentUrl = e.url;
     };
 
-    render({}, { sidebarWidth, isLoading }) {
+    render({}, { sidebarWidth, isLoading, showLoading }) {
         const { headerMenu, feed, conversation } = FIXTURES;
 
         return (
             <div className="app-skeleton">
-                {this.state.showLoading && <Loading onFadeOutComplete={this.onLoadingComplete} />}
+                {showLoading && <Loading onFadeOutComplete={this.onLoadingComplete} />}
                 <header className="app-header">
                     <img src="/assets/gitfox.png" alt="Git Fox" className="header-logo" />
                     {headerMenu.map((item, index) => (
@@ -99,11 +107,12 @@ export default class App extends Component {
                         <TerminalComponent />
                     </div>
                     <div className="app-b" ref={(el) => { this.sidebar = el; }} style={{ width: sidebarWidth }}>
-                        <div className="resize-handle" onMouseDown={this.handleMouseDown}></div>
-                        <Chatbot />
-                    </div>
+                    <div className="resize-handle" onMouseDown={this.handleMouseDown}></div>
+                    <Chatbot />
                 </div>
             </div>
-        );
-    }
+        </div>
+    );
+  }
 }
+
