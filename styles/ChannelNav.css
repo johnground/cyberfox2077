@@ -1,28 +1,67 @@
-/* ChannelNav specific styles */
-.nav {
-    padding: 20px 0; /* Add padding to the top and bottom of the navigation */
+@keyframes pulse {
+  0%, 100% {
+      box-shadow: 0 0 15px #39ff14, 0 0 30px #39ff14, 0 0 45px #39ff14, 0 0 60px #39ff14;
+      opacity: 0.7;
   }
-  
-  .nav__item {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    /* Neon effect */
-    box-shadow: 0 0 5px #FF0000, 0 0 10px #FF0000, 0 0 15px #FF0000, 0 0 20px #FF0000; 
-    color: #FF0000; /* Adjust the color to a neon red */
-    transition: box-shadow 0.3s ease-in-out;
+  50% {
+      box-shadow: 0 0 25px #39ff14, 0 0 50px #39ff14, 0 0 75px #39ff14, 0 0 100px #39ff14;
+      opacity: 1;
+  }
 }
-  /* Distinct style for the 'Modules' navigation header */
-  .nav__item--header {
-    font-size: 1.5em; /* Larger font size for the navigation header */
-    color: #38f40e; /* Matching theme color for emphasis */
-    margin-bottom: 20px; /* More space after the header item */
-    text-transform: uppercase; /* Style choice to make the header stand out */
-    box-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000, 0 0 30px #FF0000, 0 0 40px #FF0000; 
+
+.nav {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Dark background for contrast */
+  border-radius: 10px; /* Rounded corners */
+  position: relative; /* Positioning context for pseudo-elements */
+  font-family: 'Orbitron', sans-serif;
+  animation: pulse 2s infinite ease-in-out;
+  overflow: hidden; /* Ensures pseudo-elements don't overflow */
+}
+
+.nav::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('/assets/PCB.png'); /* Crackling effect image */
+  opacity: 0.5;
+  z-index: -1; /* Position under the content */
+  background-size: cover;
+  mix-blend-mode: color-dodge; /* Blending mode to integrate with the glow */
+}
+
+.nav__item {
+  color: #39ff14; /* Neon green text */
+  padding: 10px 20px; /* Spacing for each item */
+  text-shadow: 0 0 5px rgba(57, 255, 20, 0.7), /* Neon text glow */
+                0 0 10px rgba(57, 255, 20, 0.7), /* Stronger glow */
+                0 0 20px rgba(57, 255, 20, 0.7); /* Even stronger glow */
+  position: relative; /* Above the pseudo-element */
+}
+
+.nav__item:last-child {
+  border-bottom
+  : none; /* Remove border for the last item */
+}
+
+.nav__item:hover {
+background-color: rgba(57, 255, 20, 0.2); /* Slight background highlight on hover */
+}
+
+.nav__item a {
+color: inherit; /* Inherit the color from the parent element /
+text-decoration: none; / Remove underline /
+display: block; / Make the entire area clickable */
+}
+
+
+@media (max-width: 600px) {
+  .nav__item {
+    padding: 5px 10px; /* Smaller spacing for mobile */
   }
-
-
-  .nav__item:hover {
-    /* Intensify the neon effect on hover */
-    box-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000, 0 0 30px #FF0000, 0 0 40px #FF0000; 
 }

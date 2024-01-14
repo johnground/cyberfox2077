@@ -19,21 +19,39 @@ CyberFox-2077 is a comprehensive training program divided into six modules. Each
 Please note that this code assumes you have administrative privileges (`sudo`) and the `apt` package manager is available on your system.
 
 ``` bash
-sudo apt update && apt install git -y && git --version && git config --global user.name "Your Name" && git config --global user.email " 
+sudo apt update && apt install git -y && git --version && git config --global user.name "Your Name" && git config --global user.email  
 ```
 
 This code snippet demonstrates the installation process for Git using the `apt` package manager. The following steps are performed:
 
-1. Update the package lists using `sudo apt update`.
-2. Install Git using `apt install git -y`.
-3. Verify the installation by checking the Git version using `git --version`.
-4. Set the global Git user name using `git config --global user.name "Your Name"`.
-5. Set the global Git user email using `git config --global user.email "your@email.com"`.
+1. Update the package lists using 
+``` bash 
+sudo apt update 
+```
+2. Install Git using
+``` bash
+sudo apt install git -y
+``` 
+3. Verify the installation by checking the Git version using 
+``` bash
+git --version
+```
+4. Set the global Git user name using `
+``` bash
+git config --global user.name "Cyberfox"
+```
+5. Set the global Git user email using 
+``` bash
+git config --global user.email "CyberFox@2077.git"
+```
 
 
 
 # Installing Git on Windows
-1. Go to the official Git website (https://git-scm.com/downloads) and download the latest version of Git for Windows. The download will start automatically. Once the download is complete, double-click the installer to start the installation process. Follow the on-screen instructions to complete the installation. During the installation, you can leave all the default settings as they are. Once the installation is finished, Git will be available in the Windows Command Prompt or powershell.
+1. Go to the official Git website (https://git-scm.com/downloads) and download the latest version of Git for Windows. 
+2. The download will start automatically. Once the download is complete, double-click the installer to start the installation process. 
+3. Follow the on-screen instructions to complete the installation. During the installation, you can leave all the default settings as they are.
+4. Once the installation is finished, Git will be available in the Windows Command Prompt or powershell.
 
 
 **Ubuntu 22.04 LTS** is recommended, here is the docker onliner for ubuntu 22.04 LTS to install docker and add your user to the docker group. This scripts also enables docker to start on boot and starts docker after installation. Milage may vary on other distributions.
