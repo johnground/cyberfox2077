@@ -208,14 +208,16 @@ class Chatbot extends Component {
           {messages.map((message, index) => (
             <div key={index} className={`message ${message.sender}`}>
               {message.text}
-              {/* If the message is from the bot and is the last in the array, append the thinking dots */}
-              {isSending && message.sender === 'bot' && index === messages.length - 1 && (
-                <div className="thinking">
-                  <span>.</span><span>.</span><span>.</span>
-                </div>
-              )}
             </div>
           ))}
+          {/* Place the thinking animation bubble after all messages */}
+          {isSending && (
+            <div className="message bot">
+              <div className="thinking">
+                <span>.</span><span>.</span><span>.</span>
+              </div>
+            </div>
+          )}
           {/* Display feedback message only if it's set and we are waiting for a response */}
           {isSending && feedbackMessage && (
             <div className="message feedback">{feedbackMessage}</div>
@@ -245,6 +247,10 @@ class Chatbot extends Component {
       </div>
     );
   }
+  
+  
+  
+
 
 }
 
