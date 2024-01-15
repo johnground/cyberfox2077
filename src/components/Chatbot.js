@@ -195,6 +195,7 @@ class Chatbot extends Component {
   };
   render() {
     const { messages, userInput, isSending, height, width, feedbackMessage } = this.state;
+  
     return (
       <div className="chatbot-container" style={{ height: `${height}px`, width: `${width}px` }}>
         <video autoPlay muted loop className="chatbot-video-bg">
@@ -202,28 +203,49 @@ class Chatbot extends Component {
           Your browser does not support HTML5 video.
         </video>
         <div className="chatbot-banner">LLM....Initialized=System.Git</div>
-
+  
         <div className="chat-display-area">
           {messages.map((message, index) => (
             <div key={index} className={`message ${message.sender}`}>
               {message.text}
+              {/* If the message is from the bot and is the last in the array, append the thinking dots */}
+              {isSending && message.sender === 'bot' && index === messages.length - 1 && (
+                <div className="thinking">
+                  <span>.</span><span>.</span><span>.</span>
+                </div>
+              )}
             </div>
           ))}
-          {isSending && (
+          {/* Display feedback message only if it's set and we are waiting for a response */}
+          {isSending && feedbackMessage && (
             <div className="message feedback">{feedbackMessage}</div>
           )}
         </div>
+        
         <div className="chat-input-area">
-          <input type="text" value={userInput} onInput={this.handleInput} disabled={isSending} />
+          <input 
+            type="text" 
+            value={userInput} 
+            onInput={this.handleInput} 
+            disabled={isSending}
+          />
           <button onClick={this.handleSubmit} disabled={isSending}>
             Send
           </button>
         </div>
-        <div className="resize-handle" onMouseDown={this.startVerticalResize}></div>
-        <div className="resize-handle-horizontal" onMouseDown={this.startHorizontalResize}></div>
+  
+        <div 
+          className="resize-handle" 
+          onMouseDown={this.startVerticalResize}
+        ></div>
+        <div 
+          className="resize-handle-horizontal" 
+          onMouseDown={this.startHorizontalResize}
+        ></div>
       </div>
     );
   }
+
 }
 
 export default Chatbot;

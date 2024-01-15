@@ -8,7 +8,7 @@ header h1 {
 /* Global Styles */
 .module-container {
   color: #15f60e; /* A cyberpunk-themed text color */
-  background-color: transparent; /* Making background transparent */
+  background-color: rgba(0, 0, 0, 0.6); /* Making background transparent */
   font-family: 'Orbitron', sans-serif; /* A cyberpunk-themed font */
   font-size: 1.2rem; /* Increasing the font size for better readability */
   line-height: 1.6; /* Adjusting line height for better text wrapping and readability */

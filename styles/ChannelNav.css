@@ -1,10 +1,10 @@
 @keyframes pulse {
   0%, 100% {
-    box-shadow: 0 0 15px #29fdff, 0 0 30px #29fdff, 0 0 45px #29fdff, 0 0 60px #29fdff;
+    box-shadow: 0 0 15px #ff4500, 0 0 30px #ff4500, 0 0 45px #ff4500, 0 0 60px #ff4500;
     opacity: 0.7;
   }
   50% {
-    box-shadow: 0 0 25px #29fdff, 0 0 50px #29fdff, 0 0 75px #29fdff, 0 0 100px #29fdff;
+    box-shadow: 0 0 25px #ff4500, 0 0 50px #ff4500, 0 0 75px #ff4500, 0 0 100px #ff4500;
     opacity: 1;
   }
 }
@@ -27,47 +27,30 @@
   top: 0;
   left: 0;
   right: 0;
- 
   bottom: 0;
-  background: url('/assets/PCB.png'); /* Use the relevant path for your asset /
+  background: url('/assets/PCB.png'); /* Ensure this is the correct path */
   opacity: 0.5;
-  z-index: -1; / Position under the content /
+  z-index: -1;
   background-size: cover;
-  mix-blend-mode: color-dodge; / Blending mode to integrate with the glow */
-  }
-  
-  .nav__item {
-  color: #29fdff; /* Neon blue text to match README /
+  mix-blend-mode: color-dodge;
+}
+
+.nav__item {
+  color: #ff4500; /* Neon orange text */
   padding: 10px 20px;
-  text-shadow: 0 0 5px #29fdff, 0 0 10px #29fdff, 0 0 20px #29fdff; / Neon text glow /
-  position: relative; / Above the pseudo-element */
-  }
-  
-  .nav__item:last-child {
-    color: #39ff14; /* Neon green color */
-    text-shadow: 
-      0 0 5px #39ff14, /* Green glow */
-      0 0 10px #39ff14, /* Larger green glow for depth */
-      0 0 15px #39ff14; /* Even larger green glow for a striking effect */
-    font-weight: bold; /* Make the font bolder */
-    font-size: 1.3em; /* Slightly larger font size to stand out */
-    border-bottom: none; /* Remove the border if there was one */
-    box-shadow: 0 2px 10px rgba(57, 255, 20, 0.5); /* Edge shadow for a 3D effect */
-  }
-  
-  .nav__item:last-child a {
-    color: inherit; /* Ensure the anchor tag inherits the new color */
-    text-shadow: inherit; /* Ensure the anchor tag inherits the text shadow */
-  }
-  
-  
-  .nav__item a {
-    color: #29fdff; /* Explicitly set the neon blue color */
-    text-decoration: none; /* Remove underline */
-    display: block; /* Make the entire area clickable */
-  }
-  @media (max-width: 600px) {
+  text-shadow: 0 0 5px #ff4500, 0 0 10px #ff4500, 0 0 15px #ff4500;
+  font-weight: 400; /* A lighter font weight for a skinnier appearance */
+  position: relative;
+}
+
+.nav__item a {
+  color: inherit; /* Ensure the anchor tag inherits the neon orange color */
+  text-decoration: none;
+  display: block;
+}
+
+@media (max-width: 600px) {
   .nav__item {
-  padding: 5px 10px; /* Adjust if needed for mobile responsiveness */
+    padding: 5px 10px; /* Adjust if needed for mobile responsiveness */
   }
-  }
+}
