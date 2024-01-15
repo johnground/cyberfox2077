@@ -1,33 +1,30 @@
-/* Container for channel links, providing space at the top */
 .channel-container {
-  margin-top: 50px; /* Adjust the value as needed to push the elements down */
+  margin-top: 50px;
 }
 
-/* Specific style for the 'Modules' header to differentiate it from channel links */
 .modules-header {
-  font-size: 1.5em; /* Emphasize the header with a larger font size */
-  color: #38f40e; /* Use a color that stands out, matching the theme */
-  margin-bottom: 20px; /* Create space between the header and the first channel link */
-  padding-left: 10px; /* Provide alignment with the channel links */
+  font-size: 1.5em;
+  color: #29fdff; /* Matching neon blue from README */
+  margin-bottom: 20px;
+  padding-left: 10px;
 }
 
-/* Styling for each channel link */
 .channel-link {
   cursor: pointer;
   transition: box-shadow 0.3s ease-in-out;
-  padding: 10px; /* Adds padding inside the box */
-  margin-bottom: 10px; /* Separates each channel link */
-  display: block; /* Each link takes the full width available */
-  font-size: 1.2em; /* Increases the font size for readability */
+  padding: 10px;
+  margin-bottom: 10px;
+  display: block;
+  font-size: 1.2em;
+  color: #29fdff; /* Neon blue text to match README */
+  text-shadow: 0 0 5px #29fdff, 0 0 10px #29fdff; /* Adding neon text glow */
 }
 
-/* Hover and active state for channel links to provide visual feedback */
 .channel-link:hover,
 .channel-link.active {
-  box-shadow: 0px 0px 15px 2px #38f40e; /* Glowing effect on hover or active */
+  box-shadow: 0px 0px 15px 2px #29fdff; /* Glowing effect on hover/active */
 }
 
-/* Default state for inactive channel links */
 .channel-link:not(.active) {
-  box-shadow: 0px 0px 8px 1px #38f40e; /* Subtle glow for inactive links */
+  box-shadow: 0px 0px 8px 1px #29fdff; /* Subtle glow for inactive links */
 }

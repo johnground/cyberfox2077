@@ -1,11 +1,11 @@
 @keyframes pulse {
   0%, 100% {
-      box-shadow: 0 0 15px #39ff14, 0 0 30px #39ff14, 0 0 45px #39ff14, 0 0 60px #39ff14;
-      opacity: 0.7;
+    box-shadow: 0 0 15px #29fdff, 0 0 30px #29fdff, 0 0 45px #29fdff, 0 0 60px #29fdff;
+    opacity: 0.7;
   }
   50% {
-      box-shadow: 0 0 25px #39ff14, 0 0 50px #39ff14, 0 0 75px #39ff14, 0 0 100px #39ff14;
-      opacity: 1;
+    box-shadow: 0 0 25px #29fdff, 0 0 50px #29fdff, 0 0 75px #29fdff, 0 0 100px #29fdff;
+    opacity: 1;
   }
 }
 
@@ -13,12 +13,12 @@
   list-style-type: none;
   padding: 0;
   margin: 20px 0;
-  background-color: rgba(0, 0, 0, 0.7); /* Dark background for contrast */
-  border-radius: 10px; /* Rounded corners */
-  position: relative; /* Positioning context for pseudo-elements */
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  position: relative;
   font-family: 'Orbitron', sans-serif;
   animation: pulse 2s infinite ease-in-out;
-  overflow: hidden; /* Ensures pseudo-elements don't overflow */
+  overflow: hidden;
 }
 
 .nav::before {
@@ -27,41 +27,37 @@
   top: 0;
   left: 0;
   right: 0;
+ 
   bottom: 0;
-  background: url('/assets/PCB.png'); /* Crackling effect image */
+  background: url('/assets/PCB.png'); /* Use the relevant path for your asset /
   opacity: 0.5;
-  z-index: -1; /* Position under the content */
+  z-index: -1; / Position under the content /
   background-size: cover;
-  mix-blend-mode: color-dodge; /* Blending mode to integrate with the glow */
-}
-
-.nav__item {
-  color: #39ff14; /* Neon green text */
-  padding: 10px 20px; /* Spacing for each item */
-  text-shadow: 0 0 5px rgba(57, 255, 20, 0.7), /* Neon text glow */
-                0 0 10px rgba(57, 255, 20, 0.7), /* Stronger glow */
-                0 0 20px rgba(57, 255, 20, 0.7); /* Even stronger glow */
-  position: relative; /* Above the pseudo-element */
-}
-
-.nav__item:last-child {
-  border-bottom
-  : none; /* Remove border for the last item */
-}
-
-.nav__item:hover {
-background-color: rgba(57, 255, 20, 0.2); /* Slight background highlight on hover */
-}
-
-.nav__item a {
-color: inherit; /* Inherit the color from the parent element /
-text-decoration: none; / Remove underline /
-display: block; / Make the entire area clickable */
-}
-
-
-@media (max-width: 600px) {
-  .nav__item {
-    padding: 5px 10px; /* Smaller spacing for mobile */
+  mix-blend-mode: color-dodge; / Blending mode to integrate with the glow */
   }
-}
+  
+  .nav__item {
+  color: #29fdff; /* Neon blue text to match README /
+  padding: 10px 20px;
+  text-shadow: 0 0 5px #29fdff, 0 0 10px #29fdff, 0 0 20px #29fdff; / Neon text glow /
+  position: relative; / Above the pseudo-element */
+  }
+  
+  .nav__item:last-child {
+  border-bottom: none;
+  }
+  
+  .nav__item:hover {
+  background-color: rgba(57, 255, 20, 0.2); /* Adjust if needed for hover state */
+  }
+  
+  .nav__item a {
+    color: #29fdff; /* Explicitly set the neon blue color */
+    text-decoration: none; /* Remove underline */
+    display: block; /* Make the entire area clickable */
+  }
+  @media (max-width: 600px) {
+  .nav__item {
+  padding: 5px 10px; /* Adjust if needed for mobile responsiveness */
+  }
+  }
