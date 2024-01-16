@@ -65,7 +65,79 @@ const Module2 = () => {
           <p>GitLab is not just a tool; it's an ally in the cybersecurity realm. With features like private repositories, RBAC, security scanning, and CI/CD, GitLab fortifies your digital fortress, safeguarding the sanctity of your code.</p>
         </section>
 
-        {/* Additional content sections can be added here */}
+        {/* Section: The Art of Cyber War with GitLab */}
+<section>
+  <h2>The Art of Cyber War with GitLab</h2>
+  <p><i>(CyberFox, with a determined look, scans through GitLab's dashboard.)</i></p>
+  <p>In the shadowy realm of cyber warfare, knowledge and preparation are keys to victory. GitLab's continuous integration and deployment tools act as the front line, automating code testing to ensure only the strongest code survives.</p>
+  <p>Command Line Steps:</p>
+  <div className="code-block">
+    <code>
+      # Access GitLab's CI/CD settings<br />
+      echo "Navigate to your GitLab project -&gt; Settings -&gt; CI / CD"<br />
+      <br />
+      # Set up a basic pipeline<br />
+      echo "Create a .gitlab-ci.yml file in your project's root directory"<br />
+      echo "Define stages and jobs for testing and deployment"<br />
+    </code>
+  </div>
+</section>
+
+{/* Section: Securing the Perimeter with GitLab CI/CD */}
+<section>
+  <h2>Securing the Perimeter with GitLab CI/CD</h2>
+  <p><i>(A visualization of digital fortifications appears, representing GitLab's CI/CD pipelines.)</i></p>
+  <p>GitLab's CI/CD pipelines are like high walls and guarded gates of a fortress. They automatically test code for vulnerabilities, ensuring only secure code is deployed to production.</p>
+  <p>Command Line Steps:</p>
+  <div className="code-block">
+    <code>
+      # Configure security scanning in your pipeline<br />
+      echo "Add security scanning jobs in your .gitlab-ci.yml"<br />
+      echo "Use GitLab's built-in security templates for SAST, DAST, and Dependency Scanning"<br />
+    </code>
+  </div>
+</section>
+
+{/* Section: The Silent Guardians: GitLab's Private Repositories */}
+<section>
+  <h2>The Silent Guardians: GitLab's Private Repositories</h2>
+  <p><i>(A series of secured vaults appear, symbolizing GitLab's private repositories.)</i></p>
+  <p>Private repositories in GitLab are like secret vaults, accessible only to those with the right clearance.</p>
+  <p>Command Line Steps:</p>
+  <div className="code-block">
+    <code>
+      # Create a new private repository in GitLab<br />
+      echo "Go to GitLab -&gt; New project -&gt; Visibility Level: Private"&lt;br /&gt;<br />
+      <br />
+      # Clone the private repository to your local machine<br />
+      echo "git clone [your-private-repo-link]"&lt;br /&gt;<br />
+    </code>
+  </div>
+</section>
+
+{/* Section: Mastering the Cyber Hunt: Advanced GitLab Features */}
+<section>
+  <h2>Mastering the Cyber Hunt: Advanced GitLab Features</h2>
+  <p><i>(CyberFox adjusts her virtual reality headset, diving deeper into GitLab's advanced features.)</i></p>
+  <p>Mastering GitLab's advanced features is akin to honing one 's weapons for a cyber threat hunter. Features like advanced issue tracking, merge request approvals, and extensive logging capabilities are essential tools.</p>
+
+  <p>Command Line Steps:</p>
+  <div className="code-block">
+    <code>
+      # Utilize advanced issue tracking<br />
+      echo "Navigate to GitLab project -&gt; Issues -&gt; Create new issue with detailed descriptions and labels"&lt;br /&gt;<br />
+      <br />
+      # Implement merge request approvals<br />
+      echo "Go to GitLab project -&gt; Settings -&gt; Merge requests -&gt; Enable 'Merge request approvals'"&lt;br /&gt;<br />
+      echo "Define the number of necessary approvals and eligible approvers"&lt;br /&gt;<br />
+      <br />
+      # Set up extensive logging<br />
+      echo "In your project's .gitlab-ci.yml, configure jobs to output detailed logs"&lt;br /&gt;<br />
+      echo "Utilize GitLab's logging features to capture and review deployment and operational logs"&lt;br /&gt;<br />
+    </code>
+  </div>
+</section>
+
 
         <footer className="module-footer">
           {/* Navigation buttons for moving between modules */}
