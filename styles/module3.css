@@ -1,0 +1,79 @@
+/* module1.css */
+header h1 {
+  text-align: center; /* This centers the text within the header */
+  margin: 0 auto; /* This will have no effect on text alignment but is good practice for horizontal centering if the element had a width */
+}
+
+
+/* Global Styles */
+.module-container {
+  color: #15f60e; /* A cyberpunk-themed text color */
+  background-color: rgba(0, 0, 0, 0.6); /* Making background transparent */
+  font-family: 'Orbitron', sans-serif; /* A cyberpunk-themed font */
+  font-size: 1.2rem; /* Increasing the font size for better readability */
+  line-height: 1.6; /* Adjusting line height for better text wrapping and readability */
+}
+  
+/* Header Styles */
+header h1 {
+    color: #ff0097; /* Neon pink for titles */
+}
+  
+/* Content Section Styling */
+.content section {
+  margin-bottom: 2rem;
+  max-width: 800px; /* Setting a max-width for text to avoid overly long lines */
+  margin-left: auto; /* These two margin rules center the content section if the parent is wider */
+  margin-right: auto;
+  padding: 0 1rem; /* Adding some padding to ensure text doesn't touch the edges */
+}
+
+.content h2 {
+    color: #00f6ff; /* Neon cyan for headings */
+}
+  
+.content p, .content li { /* Assuming 'p' and 'li' tags are used for text content */
+    text-align: justify; /* Justify aligns text for better wrapping and a more polished look */
+    hyphens: auto; /* Enables hyphenation of text for better line-breaking */
+    margin-bottom: 1rem; /* Adds a little space after each paragraph or list item */
+}
+
+/* Code Block Styling */
+.code-block {
+    background-color: rgba(13, 27, 42, 0.7); /* Semi-transparent deep blue background for code blocks */
+    border-left: 3px solid #ff0097; /* Neon pink border for emphasis */
+    display: inline-block;
+    padding: 1rem;
+    overflow-x: auto; /* Allows scrolling on x-axis if code is too wide */
+    font-family: 'Source Code Pro', monospace; /* Monospaced font for code */
+    margin: 1rem 0; /* Spacing above and below code blocks */
+    color: #7efdd6; /* Soft green for code text */
+    font-size: 0.9rem; /* Smaller font size for code blocks */
+    border-radius: 4px; /* Rounded corners for the code blocks */
+}
+  
+/* Code Element Styling */
+.code-block code {
+    display: inline-block; /* Block display for code elements */
+    white-space: pre; /* Maintains whitespace in the code formatting */
+}
+
+header h1 {
+  font-size: 2.5rem; /* Much larger font size for main titles */
+  margin-bottom: 0.5rem; /* Space below the header */
+}
+
+.content h2 {
+    font-size: 2rem; /* Larger font size for secondary titles */
+    margin-bottom: 0.5rem; /* Space below subheaders */
+}
+
+.content h3 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.content h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
