@@ -41,18 +41,18 @@ h1, h2, h3, h4, h5, h6 {
   --glow-purple: 0 0 5px var(--cp-neon-purple), 0 0 15px var(--cp-neon-purple);
 }
 .nav__item {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    /* Neon effect */
-    box-shadow: 0 0 5px #FF0000, 0 0 10px #FF0000, 0 0 15px #FF0000, 0 0 20px #FF0000; 
-    color: #FF0000; /* Adjust the color to a neon red */
-    transition: box-shadow 0.3s ease-in-out;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  /* Neon blue effect */
+  box-shadow: 0 0 5px #29fdff, 0 0 10px #29fdff, 0 0 15px #29fdff, 0 0 20px #29fdff; 
+  color: #29fdff; /* Adjust the color to a neon blue */
+  transition: box-shadow 0.3s ease-in-out;
 }
 
 .nav__item:hover {
-    /* Intensify the neon effect on hover */
-    box-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000, 0 0 30px #FF0000, 0 0 40px #FF0000; 
+  /* Intensify the neon effect on hover */
+  box-shadow: 0 0 10px #29fdff, 0 0 20px #29fdff, 0 0 30px #29fdff, 0 0 40px #29fdff; 
 }
 
 html,
@@ -297,9 +297,8 @@ a {
   align-items: baseline;
   display: flex;
   text-shadow: var(--ui-glow-text);
-  text-transform: uppercase;
-  transition: transform 0.25s;
-}
+  text-transform: uppercase
+  }
 
 .app-header .nav__link:hover {
   color: var(--colors-primary--200);
@@ -359,9 +358,6 @@ a {
 .channel-link__element + .channel-link__element,
 .conversation-link__element + .conversation-link__element {
   margin-left: 0.75rem;
-}
-
-.conversation-link__icon {
 }
 
 .conversation-link__icon::after {
@@ -429,10 +425,7 @@ pad, .message__body {
   z-index: 100;
 }
 
-/* @component: form-* */
-input,
-textarea {
-}
+
 
 .form-label {
   background-color: var(--colors-primary--600);
@@ -570,7 +563,6 @@ textarea {
   display: block;
   height: 1.125rem;
   line-height: 1;
-  vertical-align: top;
   width: 1.125rem;
 }
 
@@ -642,8 +634,6 @@ textarea {
   flex-grow: 1;
 }
 
-.channel-feed__footer {
-}
 
 .channel-message-form {
   align-items: flex-start;

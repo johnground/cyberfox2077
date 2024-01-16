@@ -4,6 +4,53 @@ header h1 {
   margin: 0 auto; /* This will have no effect on text alignment but is good practice for horizontal centering if the element had a width */
 }
 
+.nav__item--active {
+  color: var(--cp-neon-blue);
+  text-shadow: var(--glow-blue);
+}
+
+.nav__item--active {
+  background: linear-gradient(90deg, rgba(0,0,0,0) 0%, var(--cp-neon-purple) 100%);
+  border-left: 4px solid var(--cp-neon-blue);
+  padding-left: calc(1rem - 4px); /* Adjust padding to account for border */
+}
+
+/* Hover effect for sidebar items */
+.nav__item:hover {
+  color: var(--cp-neon-blue);
+  text-shadow: var(--glow-blue);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Specific styling for the sidebar to match the cyberpunk theme */
+.sidebar {
+  background-color: var(--cp-dark-background);
+  padding: 1rem;
+  font-family: var(--fonts-primary);
+}
+
+/* Style for non-active sidebar modules to dim them slightly */
+.nav__item--inactive {
+  color: var(--cp-neon-green);
+  text-shadow: none;
+  background: transparent;
+  padding-left: 1rem; /* Regular padding for inactive items */
+}
+
+/* Style modifications for the text within the sidebar */
+.nav__link {
+  display: block;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+/* Ensure the sidebar has a scrolling capability if content overflows */
+.sidebar {
+  overflow-y: auto;
+  height: 100vh; /* Full height of the viewport */
+}
 
 /* Global Styles */
 .module-container {
