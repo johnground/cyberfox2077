@@ -1,91 +1,61 @@
 import { h } from 'preact';
-import '/styles/styles.css'; // Ensure this path is correct for your styles
+import '/styles/module3.css'; // Make sure to provide the correct path to your CSS file
 
-const Module1 = () => {
+const Module3 = () => {
   return (
     <div className="module-container">
       <header>
-        <h1 className="module-title">Module 1: Introduction to Version Control for Cybersecurity</h1>
+        <h1>Module 3: Advanced Git Techniques - The CyberFox Chronicles</h1>
       </header>
-      
-      <div className="content">
-        <section className="content-section">
-          <h2>Version Control: What Every Cybersecurity Professional Should Know</h2>
-          <p>Welcome to Module 1 of our course on Version Control for Cybersecurity Professionals. 
-          In this module, we'll explore the fundamental concepts of version control and understand 
-          its crucial role in cybersecurity practices.</p>
+      <article className="content">
+        <section>
+          <h2>Decoding the Git Matrix: Rebasing Reality</h2>
+          <p><i>(CyberFox's fingers dance across the terminal, each keystroke reshaping the very fabric of the repository's history.)</i></p>
+          <p>Understanding the flow of time is crucial in the cyber realm, and with Git rebase, CyberFox bends the commit timeline to her will, ensuring a clean, linear history that tells a tale as she sees fit.</p>
+          <div className="code-block">
+            <code>git rebase -i HEAD~5</code>
+          </div>
+          <p><i>(Her screen illuminates with possibilities, commits waiting for her command to rewrite their existence.)</i></p>
         </section>
 
-        <section className="content-section">
-          <h2>Why Version Control Matters</h2>
-          <p>Version control is not just for developers; it's a valuable tool for cybersecurity 
-          experts too. We'll discuss how version control helps you track changes in security 
-          policies, configurations, and incident response procedures. Learn how it enhances 
-          collaboration among security teams.</p>
+        <section>
+          <h2>Mastering the Merge: Confluence of Code Streams</h2>
+          <p>In the network's neural pathways, branches diverge and converge like streams in a vast digital delta. CyberFox stands at the confluence, orchestrating the merge with deft precision, ensuring that no byte is out of place.</p>
+          <div className="code-block">
+            <code>git merge --no-ff feature-branch</code>
+          </div>
+          <p>The <code>--no-ff</code> flag commands Git to create a new commit object during the merge, preserving the history of the feature branch's existence.</p>
         </section>
 
-        <section className="content-section">
-          <h2>Getting Started with Git</h2>
-          <p>If you're new to Git, don't worry! We'll introduce you to this popular version control 
-          system. Git's simplicity and power make it a perfect fit for managing security-related 
-          code, scripts, and configurations.</p>
+        <section>
+          <h2>Stashing Secrets: The Hidden Cache of Code</h2>
+          <p><i>(Alerts flash across her HUD — an urgent fix is needed in production. With unsaved changes still in her workspace, CyberFox needs a place to store them temporarily.)</i></p>
+          <p>Like a shadow vault, <code>git stash</code> conceals her work in progress, tucked away from prying eyes until she can return to continue her craft.</p>
+          <div className="code-block">
+            <code>git stash push -m "New feature work in progress"</code>
+          </div>
         </section>
 
-        <section className="content-section">
-          <h2>Installing GitLab with Docker</h2>
-          <p>Now, let's explore how to set up a GitLab instance using Docker. GitLab provides a 
-          comprehensive platform for managing your security projects, including code repositories, 
-          issue tracking, and continuous integration.</p>
-          <ol>
-            <li>Install Docker on your system.</li>
-            <li>Pull the GitLab Docker image: <code>docker pull gitlab/gitlab-ce:latest</code></li>
-            <li>Run the GitLab container with the necessary configuration:</li>
-            <pre>
-{`docker run --detach \\
-  --hostname gitlab.example.com \\
-  --publish 443:443 --publish 80:80 --publish 22:22 \\
-  --name gitlab \\
-  --restart always \\
-  --volume /srv/gitlab/config:/etc/gitlab \\
-  --volume /srv/gitlab/logs:/var/log/gitlab \\
-  --volume /srv/gitlab/data:/var/opt/gitlab \\
-  gitlab/gitlab-ce:latest`}
-            </pre>
-            <li>Access GitLab through your web browser at <code>http://localhost/users/sign_in</code>.</li>
-          </ol>
+        <section>
+          <h2>Cherry-Picking Fragments of Time</h2>
+          <p>Sometimes, the future needs a spark from the past. CyberFox plucks specific commits from the branches of time, cherry-picking them to weave into the current narrative of her project's code.</p>
+          <div className="code-block">
+            <code>git cherry-pick 4a2b3c4d</code>
+          </div>
         </section>
 
-        <section className="content-section">
-          <h2>Setting Up Your GitLab Password</h2>
-          <p>Once your GitLab instance is up and running, you will need to set up the initial root password for the root user...</p>
-          {/* Include the rest of the steps for setting up the GitLab password */}
+        <section>
+          <h2>Epilogue: The Artisan of Archives</h2>
+          <p><i>(The terminal's glow fades to a whisper, leaving only the echo of keystrokes in the air.)</i></p>
+          <p>The chronicles of CyberFox's exploits within the Git matrix extend beyond mere version control. They are a testament to her mastery over the codebase, a dance of digits and decisions that shape the future of the cybernetic domain.</p>
+          <p><i>(And so, the saga continues, for there are always more secrets to uncover, more techniques to master, and more code to write.)</i></p>
         </section>
-
-        <section className="content-section">
-          <h2>Troubleshooting</h2>
-          <p>If you encounter any issues while setting up the GitLab container with Docker, here are some troubleshooting steps...</p>
-          {/* Include the troubleshooting steps */}
-        </section>
-
-        <section className="content-section">
-          <h2>GitLab's Relevance to Cybersecurity</h2>
-          <ul>
-            <li>Private Repositories: GitLab allows you to create private repositories, which can only be accessed by authorized users.</li>
-            <li>Role-Based Access Control (RBAC): GitLab supports RBAC...</li>
-            {/* Include the rest of the GitLab's relevance to cybersecurity */}
-          </ul>
-        </section>
-
-        {/* Additional content sections would go here */}
-
-        <footer className="module-footer">
-          {/* Navigation buttons would go here */}
-        </footer>
-      </div>
+      </article>
     </div>
   );
 };
 
-export default Module1;
+export default Module3;
+
 
 

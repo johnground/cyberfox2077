@@ -9,19 +9,36 @@ const Module2 = () => {
       </header>
       
       <article className="content">
-      
       <section>
   <h2>The Transition to GitLab: CyberFox's Strategic Shift</h2>
   <p><i>(In the neon-glow of her command center, CyberFox ponders the shift from GitHub to GitLab.)</i></p>
-  <p>For CyberFox, moving from GitHub to GitLab isn't just about using a different tool; it's a tactical evolution in her cyber journey. GitLab, with its open-source ethos and integrated DevOps capabilities, represents a new frontier in version control and collaboration. This strategic shift gears her towards a more comprehensive platform, enhancing her cyber operations.</p>
+  <p>For CyberFox, moving from GitHub to GitLab isn't just about using a different tool; it's a tactical evolution in her Netrunner operations. GitLab, with its open-source ethos and integrated DevOps capabilities, represents a new frontier in version control and collaboration. This strategic shift gears her towards a more comprehensive platform, enhancing her cyber operations.</p>
 </section>
 
 <section>
+  <h2>Preparation: Initialization of the AI System.Git</h2>
+  <p><i>(CyberFox turns her attention to the terminal, ready to invoke the necessary powers for their mission.)</i></p>
+  <p>"To ensure the success of our GitLab endeavor, we must first summon the the AI model," CyberFox declares, her fingers poised over the terminal.</p>
+   <li>access god mode.</li>
+  <div className="code-block">
+    <code>sudo su</code>
+  </div>
+   <li>Initialization of the AI code.</li>
+  <div className="code-block">
+    <code>netrunner_ai_init</code>
+  </div>
+  <p><i>(The terminal hums to life as the command is executed, awakening the System.Git AI model within the construct.)</i></p>
+  <p>With the model now running, CyberFox nods in satisfaction, knowing that the enhanced capabilities of System.Git will aid in their journey through the vast cyber DevOps galaxy.</p>
+</section>
+<section>
   <h2>Orchestrating GitLab in the Docker Universe</h2>
-  <p>Deploying GitLab within Docker is akin to CyberFox launching a spacecraft into the vast DevOps cosmos. This step is pivotal in her journey to master the cyber universe.</p>
+  <p>Deploying GitLab within Docker is akin to CyberFox launching a spacecraft into the vast DevOps galaxy. This step is pivotal in her journey to master intracate aspects of cyber warfare and Netrunner initiatives.</p>
   <p><i>(A holographic terminal materializes before her, displaying the Docker commands.)</i></p>
   <ol>
     <li>Verify Docker's presence in the system.</li>
+    <div className="code-block">
+      <code>docker -v</code>
+    </div>
     <li>Pull the GitLab Docker image:</li>
     <div className="code-block">
       <code>docker pull gitlab/gitlab-ce:latest</code>
@@ -43,7 +60,7 @@ const Module2 = () => {
     <li>Access GitLab at <a href="http://localhost/users/sign_in" target="_blank">http://localhost/users/sign_in</a>.</li>
   </ol>
   <p><i>(Turning to her AI companion, System.git, CyberFox inquires about the GitLab initialization time.)</i></p>
-  <p>"System.git, what should our cybernauts expect in terms of initialization time for our new GitLab instance?" CyberFox asks.</p>
+  <p>"System.git, what should our Netrunners expect in terms of initialization time for our new GitLab instance?" CyberFox asks.</p>
   <p><i>(Responding promptly, System.git displays a message for the learners.)</i></p>
   <div className="code-block">
     <code>
@@ -52,7 +69,7 @@ const Module2 = () => {
       <span className="system-git-command">/estimate gitlab-readiness</span>
     </code>
   </div>
-  <p><i>(Learners are encouraged to copy the command and send it to System.git through the course's interactive interface, engaging directly with the AI companion for a tailored response.)</i></p>
+  <p><i>(Netrunners are encouraged to copy the command and send it to System.git through the course's interactive interface, engaging directly with the AI companion for a tailored response.)</i></p>
 </section>
 
 

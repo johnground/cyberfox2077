@@ -69,15 +69,24 @@ RUN ./node_modules/.bin/webpack --mode production
 
 # Switch back to root user to perform root-level operations
 USER root
+
+# Install Docker
 RUN curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
 
 # Create log directories for supervisord as root user and change ownership
-USER root
 RUN mkdir -p /var/log/supervisor && \
     chown -R cyberfox:cyberfox /var/log/supervisor
 
 # Copy supervisord configuration file
 COPY --chown=cyberfox:cyberfox supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+USER root
+
+# Define alias for both root and cyberfox users
+RUN echo 'alias netrunner_ai_init="docker exec ollama ollama run mistral"' >> /root/.bashrc
+RUN echo 'alias netrunner_ai_init="docker exec ollama ollama run mistral"' >> /home/cyberfox/.bashrc
+
+
 
 # Expose the Node.js server port
 EXPOSE 3000
@@ -90,7 +99,6 @@ ENV DISPLAY :0
 
 # Command to start supervisord which can manage both your server and any other process
 CMD ["/usr/bin/supervisord"]
-
 
 
 
