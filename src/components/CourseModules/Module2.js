@@ -9,43 +9,52 @@ const Module2 = () => {
       </header>
       
       <article className="content">
-        <section>
-          <h2>The Transition to GitLab: CyberFox's Strategic Shift</h2>
-          <p><i>(In the neon-glow of her command center, CyberFox ponders the shift from GitHub to GitLab.)</i></p>
-          <p>For CyberFox, moving from GitHub to GitLab isn't just about using a different tool; it's a tactical evolution in her cyber journey. GitLab, with its open-source ethos and integrated DevOps capabilities, represents a new frontier in version control and collaboration. This strategic shift gears her towards a more comprehensive platform, enhancing her cyber operations.</p>
-        </section>
-
-        <section>
-          <h2>Orchestrating GitLab in the Docker Universe</h2>
-          <p>Deploying GitLab within Docker is akin to CyberFox launching a spacecraft into the vast DevOps cosmos. This step is pivotal in her journey to master the cyber universe.</p>
-          <p><i>(A holographic terminal materializes before her, displaying the Docker commands.)</i></p>
-          <ol>
-            <li>Verify Docker's presence in the system.</li>
-            <li>Pull the GitLab Docker image:</li>
-            <div className="code-block">
-              <code>docker pull gitlab/gitlab-ce:latest</code>
-            </div>
-            <li>Launch the GitLab container:</li>
-            <div className="code-block">
-            <code>
-  docker run --detach \<br />
-  --hostname gitlab.cyberfox.com \<br />
-  --publish 443:443 --publish 80:80 --publish 222:22 \<br />
-  --name gitlab \<br />
-  --restart always \<br />
-  --volume /srv/gitlab/config:/etc/gitlab \<br />
-  --volume /srv/gitlab/logs:/var/log/gitlab \<br />
-  --volume /srv/gitlab/data:/var/opt/gitlab \<br />
-  gitlab/gitlab-ce:latest
-</code>
-</div>
-<li>Access GitLab at <code>http://localhost/users/sign_in</code>.</li>
-</ol>
+      
+      <section>
+  <h2>The Transition to GitLab: CyberFox's Strategic Shift</h2>
+  <p><i>(In the neon-glow of her command center, CyberFox ponders the shift from GitHub to GitLab.)</i></p>
+  <p>For CyberFox, moving from GitHub to GitLab isn't just about using a different tool; it's a tactical evolution in her cyber journey. GitLab, with its open-source ethos and integrated DevOps capabilities, represents a new frontier in version control and collaboration. This strategic shift gears her towards a more comprehensive platform, enhancing her cyber operations.</p>
 </section>
-    <section>
-      <h2>Initial Access: CyberFox's Command Codes</h2>
-      <p>The first login to GitLab is a crucial moment. Navigate to the GitLab instance, using "root" as the username, and set a secure password. This password is the digital key to the kingdom, a symbol of access and control in the cyber realm.</p>
-    </section>
+
+<section>
+  <h2>Orchestrating GitLab in the Docker Universe</h2>
+  <p>Deploying GitLab within Docker is akin to CyberFox launching a spacecraft into the vast DevOps cosmos. This step is pivotal in her journey to master the cyber universe.</p>
+  <p><i>(A holographic terminal materializes before her, displaying the Docker commands.)</i></p>
+  <ol>
+    <li>Verify Docker's presence in the system.</li>
+    <li>Pull the GitLab Docker image:</li>
+    <div className="code-block">
+      <code>docker pull gitlab/gitlab-ce:latest</code>
+    </div>
+    <li>Launch the GitLab container:</li>
+    <div className="code-block">
+      <code>
+        docker run --detach \<br />
+        --hostname gitlab.cyberfox.com \<br />
+        --publish 443:443 --publish 80:80 --publish 222:22 \<br />
+        --name gitlab \<br />
+        --restart always \<br />
+        --volume /srv/gitlab/config:/etc/gitlab \<br />
+        --volume /srv/gitlab/logs:/var/log/gitlab \<br />
+        --volume /srv/gitlab/data:/var/opt/gitlab \<br />
+        gitlab/gitlab-ce:latest
+      </code>
+    </div>
+    <li>Access GitLab at <a href="http://localhost/users/sign_in" target="_blank">http://localhost/users/sign_in</a>.</li>
+  </ol>
+  <p><i>(Turning to her AI companion, System.git, CyberFox inquires about the GitLab initialization time.)</i></p>
+  <p>"System.git, what should our cybernauts expect in terms of initialization time for our new GitLab instance?" CyberFox asks.</p>
+  <p><i>(Responding promptly, System.git displays a message for the learners.)</i></p>
+  <div className="code-block">
+    <code>
+       Fellow Netrunners please send the following command to System.git for an estimation<br /> 
+       of GitLab's readiness based on our current system resources: <br />
+      <span className="system-git-command">/estimate gitlab-readiness</span>
+    </code>
+  </div>
+  <p><i>(Learners are encouraged to copy the command and send it to System.git through the course's interactive interface, engaging directly with the AI companion for a tailored response.)</i></p>
+</section>
+
 
     <section>
       <h2>Navigating the Cyber Labyrinth: GitLab Troubleshooting</h2>
