@@ -9,36 +9,67 @@ const Module5 = () => {
       </header>
       
       <div className="content">
+        {/* Section: CyberFox Switches to Superuser Mode */}
         <section className="content-section">
-          <h2>Embracing Automation in Threat Intelligence with Ansible</h2>
-          <p>In Module 5, CyberFox ventures into the automation of threat intelligence using Ansible. This module is designed for cybersecurity professionals who are looking to streamline their operational efficiency through automation. We'll unpack the essentials of Ansible - a powerful IT automation engine that will transform your OpenCTI deployment into a set-and-forget system.</p>
-        </section>
-
-        <section className="content-section">
-          <h2>Understanding Ansible's Role in Cybersecurity</h2>
-          <p>Before we dive into the technicalities, it's crucial to comprehend the place of Ansible within the cybersecurity framework. Ansible enables teams to automate the mundane, giving them the leverage to focus on strategic threats. It's about augmenting your team's capabilities to respond to incidents with speed and precision.</p>
-        </section>
-
-        <section className="content-section">
-          <h2>Installing Ansible and Configuring the Environment</h2>
-          <p>Begin by installing Ansible on your Linux control node. Here's how to do it using the default package manager:</p>
+          <h2>Assuming Command: CyberFox's Ascension</h2>
+          <p><i>(The command center hums with anticipation as CyberFox prepares for a crucial step in securing her network.)</i></p>
+          <p>“To master this realm, I must elevate my powers,” declares CyberFox. With a decisive command, she elevates her access:</p>
           <pre><code className="code-block">
-            sudo apt update
-            sudo apt install ansible -y
+            sudo su
           </code></pre>
-          <p>After installing, you can verify the installation with:</p>
+          <p><i>(The system acknowledges her elevated status, the screens now an open canvas for her commands.)</i></p>
+        </section>
+
+
+        <section className="content-section">
+          <h2>Installing Ansible: Orchestrating the Cyber Symphony</h2>
+          <p>“To command our cyber forces, we need Ansible,” CyberFox states, preparing her terminal for the installation.</p>
+          <pre><code className="code-block">
+            apt update
+            apt install ansible -y
+          </code></pre>
+          <p>With Ansible now ready, she checks its version, ensuring all systems are go:</p>
           <pre><code className="code-block">
             ansible --version
           </code></pre>
-          <p>Now, let's configure the Ansible environment:</p>
+        </section>
+        <section className="content-section">
+          <h2>Deploying OpenCTI: CyberFox's Strategic Maneuver</h2>
+          <p><i>(CyberFox's fingers dance across the terminal, orchestrating her next strategic move in the cyber domain.)</i></p>
+          <p>“To fortify our cyber intelligence capabilities, we must deploy OpenCTI. It shall be the core of our information gathering,” she declares, pulling the latest Ubuntu image for the task:</p>
           <pre><code className="code-block">
-            echo "[defaults]\ninventory = /etc/ansible/hosts\nremote_user = ansible_user" &gt; ansible.cfg
+            docker pull ubuntu:22.04
           </code></pre>
-          <p>Set up SSH keys for the Ansible user on your control node and copy them to managed hosts:</p>
+          <p>“Now, let us breathe life into OpenCTI,” she continues, running a new container named 'OpenCTI' on alternate ports to avoid any conflicts:</p>
           <pre><code className="code-block">
-            ssh-keygen -t rsa -b 4096
-            ssh-copy-id ansible_user@managed_host_ip
+            docker run -d --name OpenCTI -p 2222:22 -p 8181:8080 ubuntu:22.04
           </code></pre>
+          <p><i>(As the container springs to life, its digital heartbeat pulsates through the network, ready for CyberFox’s masterful orchestration.)</i></p>
+        </section>
+        <section className="content-section">
+          <h2>Establishing Secure Communications: OpenSSH Server</h2>
+          <p><i>(CyberFox turns her attention to the next critical component, ensuring secure lines of communication.)</i></p>
+          <p>“For secure and reliable connections, the OpenSSH server is our next target,” she declares. With a few keystrokes, she commences the installation:</p>
+          <pre><code className="code-block">
+            apt install openssh-server -y
+          </code></pre>
+          <p><i>(The installation completes, fortifying the cyber command center with secure and robust communication channels.)</i></p>
+        </section>
+         <section>
+          <p>She then tailors the Ansible environment to her strategic needs:</p>
+          <pre><code className="code-block">
+            echo "[defaults]\ninventory = /etc/ansible/hosts\nremote_user = ansible" &gt; ansible.cfg
+          </code></pre>
+          <p>“Now, to secure our network nodes,” she muses, initiating the creation of an Ed25519 SSH key, specifying the default file location:</p>
+          <pre><code className="code-block">
+            ssh-keygen -t ed25519 -C "cyberfox@2077" -f /root/.ssh/id_ed25519
+          </code></pre>
+          <p><i>(A digital key springs into existence, echoing through the cyber corridors with a promise of security and efficiency.)</i></p>
+          <p>She extends this key to her network allies, forging a seamless and secured alliance:</p>
+          <pre><code className="code-block">
+            ssh-copy-id ansible_user@opencti
+          </code></pre>
+          <p><i>(“With these keys, our network is now an impenetrable fortress, guarded by the strength of our united front,” CyberFox declares, as her screens glow in silent agreement.)</i></p>
         </section>
 
         <section className="content-section">
