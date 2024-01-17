@@ -34,22 +34,22 @@ const Module5 = () => {
           </code></pre>
         </section>
         <section className="content-section">
-          <h2>Deploying OpenCTI: CyberFox's Strategic Maneuver</h2>
-          <p><i>(CyberFox's fingers dance across the terminal, orchestrating her next strategic move in the cyber domain.)</i></p>
-          <p>“To fortify our cyber intelligence capabilities, we must deploy OpenCTI. It shall be the core of our information gathering,” she declares, pulling the latest Ubuntu image for the task:</p>
+          <h2>Constructing OpenCTI: The Digital Forge</h2>
+          <p><i>(With a resolute expression, CyberFox navigates to the core of her project's repository.)</i></p>
+          <p>“The time has come to forge our OpenCTI vessel, to shape it from the depths of our digital arsenal,” CyberFox articulates, her fingers poised above the terminal. She navigates to the project directory:</p>
           <pre><code className="code-block">
-            docker pull ubuntu:22.04
+            cd /projects/opencti
           </code></pre>
-          <p>“Now, let us breathe life into OpenCTI,” she continues, running a new container named 'OpenCTI' on alternate ports to avoid any conflicts:</p>
+          <p>With a deep breath, she initiates the build process, giving life to her OpenCTI vision:</p>
           <pre><code className="code-block">
-            docker run -d --name OpenCTI -p 2222:22 -p 8181:8080 ubuntu:22.04
+            docker build -t openctihost:latest .
           </code></pre>
-          <p><i>(As the container springs to life, its digital heartbeat pulsates through the network, ready for CyberFox’s masterful orchestration.)</i></p>
+          <p><i>(As the terminal hums, lines of code transform into a living entity, the OpenCTI image taking shape before her eyes.)</i></p>
         </section>
         <section className="content-section">
           <h2>Establishing Secure Communications: OpenSSH Server</h2>
           <p><i>(CyberFox turns her attention to the next critical component, ensuring secure lines of communication.)</i></p>
-          <p>“For secure and reliable connections, the OpenSSH server is our next target,” she declares. With a few keystrokes, she commences the installation:</p>
+          <p>“For secure and reliable connections, the OpenSSH server is our next target,” she declares. With a few keystrokes, she commences the installation in the Cyberfox Ansible Control node:</p>
           <pre><code className="code-block">
             apt install openssh-server -y
           </code></pre>
