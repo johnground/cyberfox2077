@@ -27,17 +27,16 @@ const Module2 = () => {
             </div>
             <li>Launch the GitLab container:</li>
             <div className="code-block">
-              <code>
-                docker run --detach \<br />
-                --hostname gitlab.cyberfox.com \<br />
-                --publish 443:443 --publish 80:80 --publish 222:22
-                <br />
---name gitlab <br />
---restart always <br />
---volume /srv/gitlab/config:/etc/gitlab <br />
---volume /srv/gitlab/logs:/var/log/gitlab <br />
---volume /srv/gitlab/data:/var/opt/gitlab <br />
-gitlab/gitlab-ce:latest
+            <code>
+  docker run --detach \<br />
+  --hostname gitlab.cyberfox.com \<br />
+  --publish 443:443 --publish 80:80 --publish 222:22 \<br />
+  --name gitlab \<br />
+  --restart always \<br />
+  --volume /srv/gitlab/config:/etc/gitlab \<br />
+  --volume /srv/gitlab/logs:/var/log/gitlab \<br />
+  --volume /srv/gitlab/data:/var/opt/gitlab \<br />
+  gitlab/gitlab-ce:latest
 </code>
 </div>
 <li>Access GitLab at <code>http://localhost/users/sign_in</code>.</li>

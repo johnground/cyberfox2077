@@ -4,11 +4,13 @@ services:
   cyberfox:
     build: .
     container_name: cyberfox
+    privileged: true
     ports:
       - "3000:3000"
       - "6000:6000"
     volumes:
       - ./projects:/home/cyberfox/projects
+      - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - DISPLAY=:0
 

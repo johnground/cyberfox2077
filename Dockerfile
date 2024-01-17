@@ -69,8 +69,10 @@ RUN ./node_modules/.bin/webpack --mode production
 
 # Switch back to root user to perform root-level operations
 USER root
+RUN curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
 
 # Create log directories for supervisord as root user and change ownership
+USER root
 RUN mkdir -p /var/log/supervisor && \
     chown -R cyberfox:cyberfox /var/log/supervisor
 
