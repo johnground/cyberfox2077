@@ -124,6 +124,7 @@ const Module1 = () => {
   <p><i>(With the command center's screens alight, CyberFox watches the history unfold, her gaze piercing through revisions.)</i></p>
   <p>In the ever-shifting landscape of cybercode, the ability to monitor changes and the state of work in progress is crucial. CyberFox, the guardian of digital chronicles, commands her terminal to reveal the story of the code.</p>
   <p>With a swift command, she aligns her focus to the main thread of her narrative:</p>
+  <p>“In the realm of code, secrets often hide in plain sight, masked by simplicity. Recall the ancient sequence known by legendary gamers, a code of direction and might. Its power lies dormant, waiting to be unleashed by the wise. Seek the sequence to unlock hidden truths,” CyberFox whispered to herself, her fingers poised above the keys, ready to delve deeper into the repository's secrets.</p>
   <div className="code-block">
     <code>git checkout master</code>
   </div>
@@ -214,12 +215,14 @@ const Module1 = () => {
   </div>
   <p>Through these advanced maneuvers, CyberFox demonstrates her adeptness at navigating the complex Git environment, skillfully shaping the codebase to accommodate new innovations while preserving its core stability.</p>
 </section>
-        <section>
-          <h2>Epilogue: CyberFox's Ascendancy in Version Control</h2>
-          <p><i>(In the glow of the terminal, a narrative of resolved conflicts and seamless merges illuminates the dim chamber.)</i></p>
-          <p>CyberFox stands sentinel in the digital realm, her knowledge of Git her greatest weapon. With each command, she weaves the future from the past, a master of digital time and space.</p>
-          <p><i>(As the streams of data slow to a gentle flow, the saga pauses, the journey far from over.)</i></p>
-        </section>
+<section>
+    <h2>Epilogue: CyberFox's Ascendancy in Version Control</h2>
+    <p><i>(In the glow of the terminal, a narrative of resolved conflicts and seamless merges illuminates the dim chamber.)</i></p>
+    <p>CyberFox stands sentinel in the digital realm, her knowledge of Git her greatest weapon. With each command, she weaves the future from the past, a master of digital time and space.</p>
+    <p>Gazing into the luminescent streams of code, CyberFox contemplates a unique hash, a cryptic key from a time of pivotal change. "In the depths of history lies knowledge once known, now obscured," she muses. "To unearth the secrets of the past, one must venture to the point where paths diverged, where the essence of a lost juncture lingers."</p>
+    <p><i>(As the streams of data slow to a gentle flow, the saga pauses, the journey far from over.)</i></p>
+</section>
+
 
         <footer className="module-footer">
           
