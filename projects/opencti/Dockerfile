@@ -1,8 +1,10 @@
 FROM ubuntu:22.04
 
 RUN apt-get update && apt-get install -y \
+	curl \
 	openssh-server \
-	vim
+	vim \
+	sudo 
 
 RUN mkdir /var/run/sshd
 RUN echo 'root:masterpassword' | chpasswd
@@ -15,5 +17,7 @@ RUN echo "export VISIBLE=now" >> /etc/profile
 
 RUN mkdir -p /etc/ansible && touch /etc/ansible/hosts
 EXPOSE 22
+
+RUN curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
 
 ENTRYPOINT ["/usr/sbin/sshd", "-D"]

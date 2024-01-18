@@ -22,7 +22,7 @@ const Module5 = () => {
         <section className="content-section">
           <h2>Installing Ansible: Orchestrating the Cyber Symphony</h2>
           <p>“To command our cyber forces, we need Ansible,” CyberFox states, preparing her terminal for the installation.</p>
-          <pre><code className="code-block">apt install ansible -y</code></pre>
+          <pre><code className="code-block">apt install ansible -y && ansible-galaxy collection install community.general</code></pre>
           <p>With Ansible now ready, she checks its version, ensuring all systems are go:</p>
           <pre><code className="code-block">ansible --version</code></pre>
         </section>
@@ -37,7 +37,7 @@ const Module5 = () => {
           <pre><code className="code-block">docker build -t openctihost:latest .</code></pre>
           <p><i>(As the terminal hums, lines of code transform into a living entity, the OpenCTI image taking shape before her eyes.)</i></p>
         </section>
-
+/
         {/* Section: Establishing Secure Communications */}
         <section className="content-section">
           <h2>Establishing Secure Communications: OpenSSH Server</h2>
@@ -61,66 +61,81 @@ const Module5 = () => {
           <p><i>(“As the key integrates with the OpenCTI host, she senses the strengthening of her network's defenses. The encrypted pathways are now guarded, impenetrable to intruders,” CyberFox reflects, her gaze fixed on the glowing screens.)</i></p>
         </section>
 
-        {/* Section: Constructing Your First Ansible Role for OpenCTI */}
         <section className="content-section">
-          <h2>Constructing Your First Ansible Role for OpenCTI</h2>
-          <p>“Before we can create our Ansible role, we must first ensure Ansible is installed on our OpenCTI host,” CyberFox notes, as she prepares the OpenCTI host for Ansible installation.</p>
-          <p>She connects to the OpenCTI host:</p>
-          <pre><code className="code-block">ssh root@openctihost</code></pre>
-          <p>Upon successful connection, she installs Ansible:</p>
-          <pre><code className="code-block">apt install ansible -y</code></pre>
-          <p><i>(With Ansible now installed, the terminal echoes back a confirmation, signaling readiness for the next strategic move.)</i></p>
+          <h2>Constructing Your First Ansible Playbook for OpenCTI</h2>
+          <p>“Before we can leverage our Ansible role we must create an inventory file to push logic</p>
           <p>“Now, to organize our network nodes effectively, we need an inventory file,” CyberFox thinks aloud. She begins crafting the inventory file, a blueprint of her network's topology:</p>
-          <pre><code className="code-block">echo -e "[opencti_hosts]\nopenctihost ansible_host=localhost ansible_port=2222" &gt; opencti_inventory</code></pre>
+          <pre><code className="code-block">echo -e "[opencti_hosts]\nopenctihost \n\n[opencti_host:vars]\nansible_host=openctihost\nansible_port=22\nansible_become=true\nansibleuser=root" &gt; opencti_inventory</code></pre>
           <p><i>(With each keystroke, the network's map starts to take shape, each node a star in the constellation of her cyber realm.)</i></p>
           <p>“Now, we can initialize our Ansible role for OpenCTI,” CyberFox announces with determination. She proceeds with the following command:</p>
-          <pre><code className="code-block">ansible-galaxy init opencti_role</code></pre>
+          <pre><code className="code-block">ansible-galaxy init opencti-playbook</code></pre>
           <p><i>(The command executes smoothly, structuring the foundation for their new Ansible role, a crucial step in fortifying their cyber defenses.)</i></p>
         </section>
 
-        {/* Section: Developing Tasks in main.yml */}
         <section className="content-section">
-          <p>Develop tasks in the `main.yml` file of your role to handle OpenCTI prerequisites:</p>
+          <p>Creating an OpenCTI Playbook to install prerequisites and source files onto target node "openctihost", create a new file and paste in the content:</p>
           <pre><code className="code-block">{`
-# roles/opencti_role/tasks/install_opencti.yml
+# /home/cyberfox/projects/opencti/opencti_playbook.yml
 ---
-- name: Install necessary packages for OpenCTI
-  apt:
-    name:
-      - apt-transport-https
-      - ca-certificates
-      - curl
-      - software-properties-common
-    state: present
-    update_cache: yes
+- name: Install OpenCTI
+  hosts: openctihost
+  become: true
+  remote_user: root
 
-- name: Add Docker GPG key
-  apt_key:
-    url: https://download.docker.com/linux/ubuntu/gpg
-    state: present
+  vars:
+    opencti_admin_email: cyberfox@system.git
+    opencti_admin_password: masterpassword
+    opencti_base_url: localhost:8181
+    opencti_port: 8181
+    app_port: 8181
+    rabbitmq_default_user: guest
+    rabbitmq_default_password: guest
+    elastic_memory_size: 4g
+    start_service: true 
+    smtp_hostname: localhost
 
-- name: Add Docker repository
-  apt_repository:
-    repo: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable'
-    state: present
+  tasks:
+    - name: ensure git is installed
+      ansible.builtin.package:
+        name: "git"
+        state: present
 
-- name: Install Docker CE
-  apt:
-    name: docker-ce
-    state: latest
-    update_cache: yes
+    - name: Git checkout OpenCTI
+      ansible.builtin.git:
+        repo: 'https://github.com/OpenCTI-Platform/docker.git'
+        dest: /opt/opencti
 
-- name: Install Docker Compose
-  get_url:
-    url: "{{ docker_compose_url }}"
-    dest: /usr/local/bin/docker-compose
-    mode: 'u+x,g+x'
+    - name: set systcl heap size
+      ansible.builtin.sysctl:
+        name: vm.max_map_count
+        value: '1048575'
+        sysctl_set: yes
 
-- name: Ensure Docker service is running
-  service:
-    name: docker
-    state: started
-    enabled: yes
+    - name: Install env file 
+      ansible.builtin.template:
+        src: env.j2
+        dest: /opt/opencti/.env
+        owner: root
+        group: root
+        mode: '0600'
+      
+
+    - name: Pull down containers
+      shell:
+        cmd: "docker compose pull"
+        chdir: /opt/opencti
+
+    - name: Adjust OpenCTI port in docker-compose file
+      lineinfile:
+       path: /opt/opencti/docker-compose.yml
+       regexp: '^\s+- "8080:8080"'
+       line: '      - "{{ app_port }}:8080"'
+       state: present
+
+    - name: Start the opencti service
+      shell:
+        cmd: "docker compose up -d"
+        chdir: /opt/opencti
           `}</code></pre>
           <p>Each task within your role should be as idempotent as possible, allowing you to rerun your playbooks without unintended side effects.</p>
         </section>

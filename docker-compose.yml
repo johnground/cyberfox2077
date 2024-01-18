@@ -38,9 +38,9 @@ services:
     container_name: openctihost
     ports:
       - "2222:22" # SSH port
-      - "8181:8080" # Web UI port
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
     # Add any other configuration needed for OpenCTI here.
 
 volumes:
   ollama_data:
-

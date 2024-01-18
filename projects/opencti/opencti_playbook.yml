@@ -1,0 +1,62 @@
+---
+- name: Install OpenCTI
+  hosts: openctihost
+  become: true
+  remote_user: root
+
+  vars:
+    opencti_admin_email: cyberfox@system.git
+    opencti_admin_password: masterpassword
+    opencti_base_url: localhost:8181
+    opencti_port: 8181
+    app_port: 8181
+    rabbitmq_default_user: guest
+    rabbitmq_default_password: guest
+    elastic_memory_size: 4
+    start_service: true 
+    smtp_hostname: localhost
+
+  tasks:
+    - name: ensure git is installed
+      ansible.builtin.package:
+        name: "git"
+        state: present
+
+    - name: Git checkout OpenCTI
+      ansible.builtin.git:
+        repo: 'https://github.com/OpenCTI-Platform/docker.git'
+        dest: /opt/opencti
+
+    - name: set systcl heap size
+      ansible.builtin.sysctl:
+        name: vm.max_map_count
+        value: '1048575'
+        sysctl_set: yes
+
+    - name: Install env file 
+      ansible.builtin.template:
+        src: env.j2
+        dest: /opt/opencti/.env
+        owner: root
+        group: root
+        mode: '0600'
+      
+
+    - name: Pull down containers
+      shell:
+        cmd: "docker compose pull"
+        chdir: /opt/opencti
+
+    - name: Adjust OpenCTI port in docker-compose file
+      lineinfile:
+       path: /opt/opencti/docker-compose.yml
+       regexp: '^\s+- "8080:8080"'
+       line: '      - "{{ app_port }}:8080"'
+       state: present
+
+    - name: Start the opencti service
+      shell:
+        cmd: "docker compose up -d"
+        chdir: /opt/opencti
+     
+

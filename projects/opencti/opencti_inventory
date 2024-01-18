@@ -1,0 +1,8 @@
+[opencti_hosts]
+openctihost 
+
+[opencti_host:vars]
+ansible_host=openctihost
+ansible_port=22
+ansible_become=true
+ansibleuser=root
