@@ -32,6 +32,15 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
 
+  opencti:
+    build:
+      context: ./projects/opencti
+    container_name: openctihost
+    ports:
+      - "2222:22" # SSH port
+      - "8181:8080" # Web UI port
+    # Add any other configuration needed for OpenCTI here.
+
 volumes:
   ollama_data:
 

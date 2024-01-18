@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y \
 	vim
 
 RUN mkdir /var/run/sshd
-RUN echo 'root:secret_password' | chpasswd
+RUN echo 'root:masterpassword' | chpasswd
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
 RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
@@ -13,6 +13,7 @@ RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so
 ENV NOTVISIBLE "in user profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 
+RUN mkdir -p /etc/ansible && touch /etc/ansible/hosts
 EXPOSE 22
 
 ENTRYPOINT ["/usr/sbin/sshd", "-D"]

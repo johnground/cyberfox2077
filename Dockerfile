@@ -86,7 +86,7 @@ USER root
 RUN echo 'alias netrunner_ai_init="docker exec ollama ollama run mistral"' >> /root/.bashrc
 RUN echo 'alias netrunner_ai_init="docker exec ollama ollama run mistral"' >> /home/cyberfox/.bashrc
 
-
+RUN mkdir -p /etc/ansible && touch /etc/ansible/hosts
 
 # Expose the Node.js server port
 EXPOSE 3000
