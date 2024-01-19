@@ -63,17 +63,12 @@ const Module5 = () => {
 
         <section className="content-section">
           <h2>Constructing Your First Ansible Playbook for OpenCTI</h2>
-          <p>“Before we can leverage our Ansible role we must create an inventory file to push logic</p>
-          <p>“Now, to organize our network nodes effectively, we need an inventory file,” CyberFox thinks aloud. She begins crafting the inventory file, a blueprint of her network's topology:</p>
-          <pre><code className="code-block">echo -e "[opencti_hosts]\nopenctihost \n\n[opencti_host:vars]\nansible_host=openctihost\nansible_port=22\nansible_become=true\nansibleuser=root" &gt; opencti_inventory</code></pre>
-          <p><i>(With each keystroke, the network's map starts to take shape, each node a star in the constellation of her cyber realm.)</i></p>
-          <p>“Now, we can initialize our Ansible role for OpenCTI,” CyberFox announces with determination. She proceeds with the following command:</p>
-          <pre><code className="code-block">ansible-galaxy init opencti-playbook</code></pre>
-          <p><i>(The command executes smoothly, structuring the foundation for their new Ansible role, a crucial step in fortifying their cyber defenses.)</i></p>
-        </section>
-
-        <section className="content-section">
-          <p>Creating an OpenCTI Playbook to install prerequisites and source files onto target node "openctihost", create a new file and paste in the content:</p>
+          <p>“Now, to organize and automate our OpenCTI deployment, we will craft an Ansible playbook,” CyberFox declares, ready to encode her strategy into automation.</p>
+          <p>She begins by creating an inventory file, defining the architecture of her network:</p>
+          <pre><code className="code-block">
+            echo -e "[opencti_hosts]\nopenctihost \n\n[opencti_host:vars]\nansible_host=openctihost\nansible_port=22\nansible_become=true\nansible_user=root" &gt; opencti_inventory
+          </code></pre>
+          <p>“With our inventory set, we can now proceed to define our playbook, the heart of our automation,” she continues, crafting the playbook with precision:</p>
           <pre><code className="code-block">{`
 # /home/cyberfox/projects/opencti/opencti_playbook.yml
 ---
@@ -90,7 +85,7 @@ const Module5 = () => {
     app_port: 8181
     rabbitmq_default_user: guest
     rabbitmq_default_password: guest
-    elastic_memory_size: 4g
+    elastic_memory_size: 4
     start_service: true 
     smtp_hostname: localhost
 
@@ -136,63 +131,40 @@ const Module5 = () => {
       shell:
         cmd: "docker compose up -d"
         chdir: /opt/opencti
-          `}</code></pre>
-          <p>Each task within your role should be as idempotent as possible, allowing you to rerun your playbooks without unintended side effects.</p>
+            `}</code></pre>
+          <p>“Each task in our playbook will ensure OpenCTI is installed, configured, and running as intended,” she notes with satisfaction.</p>
         </section>
+
         <section className="content-section">
-  <h2>Creating the Ansible Playbook</h2>
-  <p>“With our role defined, it's time to create the playbook that will orchestrate our OpenCTI deployment,” CyberFox explains. She proceeds to craft the playbook:</p>
-  <pre><code className="code-block">
-    echo -e "---\n- hosts: opencti_hosts\n  become: yes\n  roles:\n    - opencti_role" &gt; opencti_playbook.yml
-  </code></pre>
-  <p><i>(This command creates a playbook named 'opencti_playbook.yml', specifying the use of the 'opencti_role' on all hosts in the 'opencti_hosts' group.)</i></p>
-  <p>“Now, with our playbook ready, we can execute it to deploy and configure OpenCTI,” she concludes with a sense of accomplishment.</p>
-</section>
-        <section className="content-section">
-        <h2>Developing Tasks in main.yml</h2>
-        <p>“To ensure our Ansible role is structured and organized, we'll define our main tasks in the 'main.yml' file,” CyberFox states. She begins by editing the 'main.yml' to include necessary tasks:</p>
-        <pre><code className="code-block">
-         echo -e "---\n- name: Setup OpenCTI\n  include_tasks: install_opencti.yml" &gt; opencti_role/tasks/main.yml
-        </code></pre>
-        <p><i>(This command adds a task to the 'main.yml' file in the 'opencti_role/tasks' directory, which includes the 'install_opencti.yml' tasks file.)</i></p>
-        <p>“With our main tasks file configured, our role is now ready to handle the OpenCTI deployment comprehensively,” she notes with satisfaction.</p>
+          <h2>Executing the Ansible Playbook</h2>
+          <p>“With our playbook crafted, it's time to execute it and deploy OpenCTI,” CyberFox announces. She initiates the playbook with a command:</p>
+          <pre><code className="code-block">
+            ansible-playbook -i opencti_inventory opencti_playbook.yml
+          </code></pre>
+          <p>“As the playbook runs, each task is executed meticulously, orchestrating the deployment of OpenCTI on our target host,” she observes, monitoring the terminal intently.</p>
         </section>
-        <section className="content-section">
-  <h2>Executing the Ansible Playbook</h2>
-  <p>“With our playbook and role ready, it's time to execute them and deploy OpenCTI,” CyberFox announces. She executes the playbook with a command:</p>
-  <pre><code className="code-block">ansible-playbook -i opencti_inventory opencti_playbook.yml</code></pre>
-  <p><i>(This command runs the 'opencti_playbook.yml' playbook, applying the configurations and tasks defined in the 'opencti_role' to the hosts specified in the 'opencti_inventory' file.)</i></p>
-  <p>“As the playbook runs, each task is processed and applied, methodically setting up OpenCTI on our target host,” CyberFox observes, watching the terminal intently.</p>
-</section>
+
         {/* Section: Integrating Ansible with OpenCTI */}
         <section className="content-section">
           <h2>Integrating Ansible with OpenCTI for Streamlined Operations</h2>
-          <p>With the infrastructure in place, CyberFox focuses on the integration of Ansible roles with OpenCTI to automate the cyber threat intelligence pipeline. The orchestration of tasks and handlers ensures that every aspect of the OpenCTI platform is meticulously configured and maintained.</p>
-          <div className="code-block">
-            <code>ansible-playbook -i inventory install_opencti.yml</code>
-          </div>
-          <p><i>(As the playbook runs, the OpenCTI platform springs to life, each service slotting into place like gears in a well-oiled machine.)</i></p>
+          <p>With the OpenCTI platform now in place, CyberFox focuses on integrating Ansible for continuous automation and monitoring. The playbook becomes a vital tool, managing configurations and updates seamlessly.</p>
         </section>
 
         {/* Section: Advanced Ansible Strategies */}
         <section className="content-section">
-          <h2>Advanced Ansible Strategies for Complex OpenCTI Workflows</h2>
-          <p>CyberFox delves deeper, crafting advanced strategies for complex OpenCTI workflows. Utilizing Ansible's capabilities, she creates dynamic inventories and custom modules that respond to the ever-changing landscape of cyber threats.</p>
-          <div className="code-block">
-            <code>ansible-playbook -i dynamic_inventory.py opencti_advanced.yml</code>
-          </div>
+          <h2>Advanced Ansible Strategies for OpenCTI</h2>
+          <p>Delving deeper, CyberFox explores advanced Ansible techniques for OpenCTI. She experiments with dynamic inventories, custom modules, and complex playbooks to adapt to evolving cyber threats.</p>
         </section>
 
         {/* Section: Epilogue */}
         <section className="content-section">
-          <h2>Epilogue: CyberFox's Ascendancy in Automation</h2>
-          <p><i>(The command center quiets, the screens display a network in perfect harmony, automated and secure.)</i></p>
-          <p>CyberFox steps back, her vision realized. OpenCTI now operates like a digital organism, self-sustaining and intelligent, protected from threats by the automated guardianship of Ansible. The cyber realm whispers her name, a legend in the art of automation.</p>
+          <h2>Epilogue: Mastery of Automation</h2>
+          <p>CyberFox's command center now hums with a network in perfect harmony, automated and resilient. The OpenCTI platform, orchestrated by Ansible, operates with precision, safeguarded from digital threats.</p>
         </section>
 
         {/* Footer */}
         <footer className="module-footer">
-          {/* Footer content, possibly including navigation to other modules */}
+          {/* Footer content */}
         </footer>
       </div>
     </div>

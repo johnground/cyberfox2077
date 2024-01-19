@@ -19,6 +19,8 @@ import ProjectPage from './ProjectPage';
 import AnsiblePage from './AnsiblePage';
 import GitCheatSheet from './GitCheatSheet';
 import Loading from './Loading';
+import BackgroundControl from './BackgroundControl';
+
 
 export default class App extends Component {
     state = {
@@ -71,6 +73,9 @@ export default class App extends Component {
         }
         this.currentUrl = e.url;
     };
+        
+
+
 
     render({}, { sidebarWidth, isLoading, showLoading }) {
         const { headerMenu, feed, conversation } = FIXTURES;
@@ -105,6 +110,7 @@ export default class App extends Component {
                             {/* Removed NotFoundPage to handle redirection */}
                         </Router>        
                         <TerminalComponent />
+                        <BackgroundControl />
                     </div>
                     <div className="app-b" ref={(el) => { this.sidebar = el; }} style={{ width: sidebarWidth }}>
                     <div className="resize-handle" onMouseDown={this.handleMouseDown}></div>
