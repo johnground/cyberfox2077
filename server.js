@@ -89,6 +89,16 @@ app.get('/api/readme', (req, res) => {
     });
 });
 
+// Route for serving README.md for Module 6
+app.get('/api/module6-readme', (req, res) => {
+    fs.readFile(path.join(__dirname, 'Module6-README.md'), 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading Module6-README.md:', err);
+            return res.status(500).send('Unable to read Module6-README.md');
+        }
+        res.type('text/plain').send(data);
+    });
+});
 // Catch-all route to serve index.html for non-API requests
 app.get('*', (req, res) => {
     res.sendFile(path.join('/home/cyberfox', 'index.html'));
