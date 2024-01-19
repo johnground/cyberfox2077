@@ -32,6 +32,7 @@
     bottom: 0;
     scrollbar-color: #29fdff #101010; /* Neon blue scrollbar */
     padding-left: 10px; /* Add padding on the left */
+    padding-bottom: 60px;
 }
 
 .xterm .xterm-screen {
