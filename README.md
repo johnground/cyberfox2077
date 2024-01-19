@@ -53,7 +53,7 @@ git config --global user.email "CyberFox@2077.git"
 3. Follow the on-screen instructions to complete the installation. During the installation, you can leave all the default settings as they are.
 4. Once the installation is finished, Git will be available in the Windows Command Prompt or powershell.
 
-
+# Installing Docker on Linux
 **Ubuntu 22.04 LTS** is recommended, here is the docker onliner for ubuntu 22.04 LTS to install docker and add your user to the docker group. This scripts also enables docker to start on boot and starts docker after installation. Milage may vary on other distributions.
 
 ```bash
@@ -107,55 +107,17 @@ This course's interactive elements are designed with Preact and can be run in a 
 Windows WSL With Docker Desktop:
 
 ```bash
-docker build --no-cache -t cyberfox-2077 .
+docker-compose up -d
 ```
 Linux Ubuntu 22.04:
     
 ```bash
-docker build --no-cache -t cyberfox-2077 .
+docker-compose up -d
 ```
 
+1. **Once the image is built, NAvigate to the Webpage: Localhost:3000**
 
-1. **Once the image is built, run the container using:**
-
-```bash
-docker run -d -p 3000:3000 -p 6000:6000 -v "$(pwd)/projects:/home/cyberfox/projects" --name cyberfox cyberfox-2077
-```
-
-2. **running docker with xll forwarding**
-
-```bash
-docker run -it -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --user cyberfox cyberfox-2077 hyper
-```
-
-
-This will start the Node.js server and the Hyper terminal, exposing the necessary ports for web and X11 access. Building with `--no-cache` will take longer since each layer of the image is created anew. This command should be used especially when you want to make sure that the latest versions of dependencies are fetched or when you want to avoid potential issues caused by the Docker cache.
-
-The `-d`flag runs the container in detached mode, allowing the terminal to be used for other commands while the container runs in the background. The `-p 3000:3000` flag maps the container's port 3000 to port 3000 on the host machine for the Node.js server, and the `-p 6000:6000` flag maps the X11 port for Hyper. This setup allows you to access the Node.js server via `localhost:3000` and the X11 port via port 6000 on your host machine.
-
-`$(pwd)` will be replaced by your current working directory path when the command is executed.
-`-v $(pwd):/home/cyberfox` mounts the current working directory to `/home/cyberfox` in the Docker container.
-Make sure you run this command in the root of your project directory, so that the entire project is mounted into the container. This allows you to make changes to the project files and see the changes reflected in the container.
-
-The `--name cyberfox` option names your running container cyberfox for easier reference.
-
-
-
-## Interacting with the Docker Container and the Hyper Terminal
-starting nodejs server in the docker container using detached mode  
-To start the Node.js server, run the following command:
-
-```bash
-docker exec -it -d cyberfox npm start
-```
-
-### To access the Hyper terminal, run the following command:
-
-```bash
-docker exec -it --user cyberfox cyberfox hyper
-
-```
-### This will open the Hyper terminal in the container. You can now run the commands in the course modules.
+2. **You should now see the CyberFox-2077 Webpage**
 
 ## Interacting with the Docker Container - General Purpose TroubleShooting
 
@@ -195,6 +157,13 @@ Each module contains a mix of theoretical concepts and practical exercises. It i
 
 ## Contributions
 Contributions to CyberFox-2077 are welcome! If you have suggestions or improvements, please create an issue or a pull request.
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgements
+OpenCTI for providing the context for cybersecurity project management.
+The Git and GitLab communities for their invaluable resources and support.
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
