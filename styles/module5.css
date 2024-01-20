@@ -50,12 +50,15 @@ header h1 {
     color: #7efdd6; /* Soft green for code text */
     font-size: 0.9rem; /* Smaller font size for code blocks */
     border-radius: 4px; /* Rounded corners for the code blocks */
+    white-space: pre-wrap; /* Allows the text to wrap */
+    word-wrap: break-word; /* Breaks the word at the end of the line */
 }
   
 /* Code Element Styling */
 .code-block code {
     display: inline-block; /* Block display for code elements */
     white-space: pre; /* Maintains whitespace in the code formatting */
+    white-space: pre-wrap;
 }
 
 header h1 {

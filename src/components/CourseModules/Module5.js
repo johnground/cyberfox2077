@@ -62,12 +62,13 @@ const Module5 = () => {
         </section>
 
         <section className="content-section">
-          <h2>Constructing Your First Ansible Playbook for OpenCTI</h2>
-          <p>“Now, to organize and automate our OpenCTI deployment, we will craft an Ansible playbook,” CyberFox declares, ready to encode her strategy into automation.</p>
-          <p>She begins by creating an inventory file, defining the architecture of her network:</p>
-          <pre><code className="code-block">
-            echo -e "[opencti_hosts]\nopenctihost \n\n[opencti_host:vars]\nansible_host=openctihost\nansible_port=22\nansible_become=true\nansible_user=root" &gt; opencti_inventory
-          </code></pre>
+        <h2>Constructing Your First Ansible Playbook for OpenCTI</h2>
+<p>“Now, to organize and automate our OpenCTI deployment, we will craft an Ansible playbook,” CyberFox declares, ready to encode her strategy into automation.</p>
+<p>She begins by creating an inventory file, defining the architecture of her network:</p>
+<pre><code className="code-block">
+  echo -e "[opencti_hosts]\nopenctihost \n\n[opencti_host:vars]\nansible_host=openctihost\nansible_port=22\nansible_become=true\nansible_user=root" &gt; opencti_inventory
+</code></pre>
+
           <p>“With our inventory set, we can now proceed to define our playbook, the heart of our automation,” she continues, crafting the playbook with precision:</p>
           <pre><code className="code-block">{`
 # /home/cyberfox/projects/opencti/opencti_playbook.yml
@@ -85,7 +86,7 @@ const Module5 = () => {
     app_port: 8181
     rabbitmq_default_user: guest
     rabbitmq_default_password: guest
-    elastic_memory_size: 4
+    elastic_memory_size: 4g
     start_service: true 
     smtp_hostname: localhost
 
