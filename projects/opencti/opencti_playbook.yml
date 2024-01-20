@@ -58,3 +58,8 @@
       shell:
         cmd: "docker compose up -d"
         chdir: /opt/opencti
+
+    - name: Install ThreatFox Connector
+      ansible.builtin.git:
+        repo: 'https://github.com/ThreatFox/ThreatFox-OpenCTI-Connector.git'
+        dest: /opt/opencti/connectors/threatfox

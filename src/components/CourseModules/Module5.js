@@ -69,7 +69,7 @@ const Module5 = () => {
   echo -e "[opencti_hosts]\nopenctihost \n\n[opencti_host:vars]\nansible_host=openctihost\nansible_port=22\nansible_become=true\nansible_user=root" &gt; opencti_inventory
 </code></pre>
 
-          <p>“With our inventory set, we can now proceed to define our playbook, the heart of our automation,” she continues, crafting the playbook with precision:</p>
+          <p>“With our inventory set, we can now proceed to define our playbook, the heart of our automation,” as if by sensing the intent, System.git had already provided a working prototype for CyberFox:</p>
           <pre><code className="code-block">{`
 # /home/cyberfox/projects/opencti/opencti_playbook.yml
 ---
@@ -150,6 +150,23 @@ const Module5 = () => {
           <h2>Integrating Ansible with OpenCTI for Streamlined Operations</h2>
           <p>With the OpenCTI platform now in place, CyberFox focuses on integrating Ansible for continuous automation and monitoring. The playbook becomes a vital tool, managing configurations and updates seamlessly.</p>
         </section>
+        <section className="content-section">
+  <h2>The Cybernetic Symphony: Integrating ThreatFox</h2>
+  <p><i>(CyberFox, determined to enhance her network's threat intelligence, decides to integrate the ThreatFox connector into OpenCTI. This requires updating the environment configuration using the Jinja2 template.)</i></p>
+  
+  <p>“To weave this new stream of intelligence into our digital tapestry, we must update our environment settings,” CyberFox muses. She pulls up the `env.j2` file, a Jinja2 template that dynamically configures her OpenCTI environment.</p>
+
+  <p>She adds the necessary entries for the ThreatFox connector:</p>
+  <pre><code className="code-block">
+    {`THREATFOX_CONNECTOR_ID={{ lookup('community.general.random_string') | ansible.builtin.to_uuid }}
+      THREATFOX_API_KEY={{ threatfox_api_key }}`}
+  </code></pre>
+
+  <p>“With these entries, the ThreatFox connector will seamlessly integrate into our OpenCTI platform, enriching it with real-time threat intelligence,” she declares, updating the file.</p>
+
+  <p><i>(After saving the changes to the `env.j2` template, CyberFox prepares to redeploy her OpenCTI environment, anticipating the influx of critical threat data from ThreatFox.)</i></p>
+</section>
+
 
         {/* Section: Advanced Ansible Strategies */}
         <section className="content-section">

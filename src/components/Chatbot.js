@@ -111,7 +111,7 @@ class Chatbot extends Component {
     this.setState({ isSending: true, feedbackMessage: this.getRandomFeedbackMessage() });
     let responseText = '';
     try {
-      const OLLAMA_API_URL = 'http://localhost:8080/ollama/api/chat';
+      const OLLAMA_API_URL = 'http://cyberfox:8080/ollama/api/chat';
       const payload = {
         model: "mistral",
         messages: [{ role: "user", content: userInput }]

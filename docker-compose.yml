@@ -23,6 +23,8 @@ services:
       - ollama_data:/root/.ollama
     environment:
       - OLLAMA_HOST=0.0.0.0:11434
+      - OLLAMA_ORIGINS=*
+
 
   nginx:
     image: nginx:latest
