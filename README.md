@@ -95,7 +95,7 @@ sudo apt update && sudo apt install -y apt-transport-https ca-certificates curl 
 To get started with CyberFox-2077, clone this repository and follow the instructions in each module's directory.
 
 ```bash
-git clone https://hyperlethalvector.com/CyberFox-2077.git
+git clone https://github.com/johnground/cyberfox2077.git
 cd CyberFox-2077
 ```
 ## Setting up the Development Environment
