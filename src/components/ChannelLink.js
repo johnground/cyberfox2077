@@ -1,11 +1,11 @@
+// ChannelLink.js
 import { h } from 'preact';
 import { Link } from 'preact-router/match';
 import Badge from './Badge';
 import '/styles/ChannelLink.css';
 
 const ChannelLink = ({ id, name, unread }) => {
-  // Determine the correct href
-  const href = name === 'README' ? '/readme' : `/module/${id}`;
+  const href = name === 'Cheat Sheet' ? '/?show=cheat-sheet' : name === 'README' ? '/readme' : `/module/${id}`;
 
   return (
     <Link 
