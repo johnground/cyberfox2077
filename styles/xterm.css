@@ -239,3 +239,32 @@
     cursor: ns-resize; /* Cursor indicates resizable area */
     /* Add more styling as needed */
 }
+/* Styles for the terminal component */
+.terminal__component {
+  display: flex;
+  flex-direction: column;
+  position: fixed; /* Changed from relative to fixed positioning */
+  bottom: 20px; /* Added space from the bottom */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center based on full width of the element */
+  width: 45%; /* Width of terminal, adjust as needed */
+  max-height: calc(100vh - 170px); /* Subtract the top padding and an additional 20px from the viewport height */
+  background: #280101e4; /* Cyberpunk-esque dark background */
+  color: #5cef13; /* Neon-like font color for cyberpunk aesthetic */
+  font-family: 'Orbitron', sans-serif; /* Futuristic font for the cyberpunk look */
+  overflow: hidden; /* Hide overflow to eliminate unnecessary scrollbars */
+  border-radius: 10px; /* Rounded corners can be adjusted or removed as desired */
+  padding: 10px; /* Consistent padding inside the terminal */
+  box-shadow: 0 0 10px 3px #01ff38; /* Optional glow effect like a neon sign */
+  z-index: 10; /* Ensure the terminal layers above other content */
+  box-sizing: border-box; /* Make sure padding doesn't extend the size of the terminal */
+  background: rgba(1, 1, 1, 0.94);;
+}
+
+.terminal__wrapper {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 5px;
+  background: #17ec04e4;
+  box-shadow: 0 0 10px 3px #0d0152;
+}

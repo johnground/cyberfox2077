@@ -42,7 +42,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .nav__item {
   list-style-type: none;
-  margin: 0;
+  margin: auto;
   padding: 0;
   /* Neon blue effect */
   box-shadow: 0 0 5px #29fdff, 0 0 10px #29fdff, 0 0 15px #29fdff, 0 0 20px #29fdff; 
@@ -128,36 +128,6 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-/* Styles for the terminal component */
-.terminal__component {
-  display: flex;
-  flex-direction: column;
-  position: fixed; /* Changed from relative to fixed positioning */
-  bottom: 20px; /* Added space from the bottom */
-  left: 50%; /* Center horizontally */
-  transform: translateX(-50%); /* Center based on full width of the element */
-  width: 45%; /* Width of terminal, adjust as needed */
-  max-height: calc(100vh - 170px); /* Subtract the top padding and an additional 20px from the viewport height */
-  background: #280101e4; /* Cyberpunk-esque dark background */
-  color: #5cef13; /* Neon-like font color for cyberpunk aesthetic */
-  font-family: 'Orbitron', sans-serif; /* Futuristic font for the cyberpunk look */
-  overflow: hidden; /* Hide overflow to eliminate unnecessary scrollbars */
-  border-radius: 10px; /* Rounded corners can be adjusted or removed as desired */
-  padding: 10px; /* Consistent padding inside the terminal */
-  box-shadow: 0 0 10px 3px #01ff38; /* Optional glow effect like a neon sign */
-  z-index: 10; /* Ensure the terminal layers above other content */
-  box-sizing: border-box; /* Make sure padding doesn't extend the size of the terminal */
-  background: rgba(1, 1, 1, 0.94);;
-}
-
-.terminal__wrapper {
-  flex-grow: 1;
-  overflow-y: auto;
-  padding: 5px;
-  background: #17ec04e4;
-  box-shadow: 0 0 10px 3px #0d0152;
 }
 
 
@@ -263,7 +233,7 @@ a {
 
 .nav-section__title {
   color: #2be4ea;
-  font-size: 1rem;
+  font-size: 2rem;
   margin: 0;
 }
 
@@ -290,24 +260,55 @@ a {
 }
 
 .app-header .nav__item + .nav__item {
-  margin-left: 3rem;
+  margin-left: 0.5rem; /* Reduce the left margin to bring items closer */
 }
 
 .app-header .nav__link {
-  align-items: baseline;
-  display: flex;
-  text-shadow: var(--ui-glow-text);
-  text-transform: uppercase
-  }
-
+  color: #fff; /* White text for better readability */
+  background-color: rgba(75, 0, 130, 0.6); /* Softer purple with transparency */
+  border: 1px solid rgba(75, 0, 130, 0.8); /* Slightly darker border for definition */
+  border-radius: 15px 15px 0 0; /* Rounded top edges, square bottom */
+  padding: 0.5rem 1rem; /* Padding for size */
+  margin-bottom: -1px; /* Overlap the bottom border to connect with the content area */
+  box-shadow: none; /* Remove any box shadow if present */
+  text-shadow: none; /* Remove text shadow for clearer text */
+}
+/* Hover state for links */
 .app-header .nav__link:hover {
-  color: var(--colors-primary--200);
+  background-color: rgba(75, 0, 130, 0.7); /* Slightly darker on hover */
+  border-color: rgba(75, 0, 130, 0.9); /* Solid border on hover */
 }
 
-.app-header .nav__link.nav__link--active {
-  color: var(--colors-secondary--500);
-  font-size: 1.25rem;
-  transform: none;
+.app-header .nav__link--active {
+  background-color: rgba(75, 0, 130, 0.8); /* Even darker for active state */
+  border-color: rgba(75, 0, 130, 1); /* Solid border for active state */
+  box-shadow: 0 0 5px rgba(75, 0, 130, 0.5); /* Soft glow for active state */
+}
+
+.app-header .nav__link:hover, .app-header .nav__link--active {
+  background-color: var(--cp-neon-purple);
+  border-bottom-color: transparent; 
+}
+
+.app-header .nav__link--active:before, .app-header .nav__link--active:after {
+  content: '';
+  position: absolute;
+  bottom: -1px; /* Align with the bottom of the active tab */
+  width: 10px; /* Width of the corner piece */
+  height: 1px; /* Height to cover the border */
+  background: var(--background-color); /* Background color of the app or container */
+}
+.app-header .nav__link--active:before {
+  left: -1px; /* Align with the left side */
+}
+
+.app-header .nav__link--active:after {
+  right: -1px; /* Align with the right side */
+}
+.app-header .nav__link--active {
+  position: relative; /* Relative positioning to allow z-index to take effect */
+  z-index: 10; /* Higher z-index so it appears above other elements */
+  margin-bottom: -1px; /* Overlap the bottom border */
 }
 
 .nav-section .nav__item + .nav__item {
@@ -380,7 +381,7 @@ a {
 
 .badge {
   border: 1.5px solid var(--colors-tertiary--500);
-  border-radius: 3px;
+  border-radius: 50%;
   color: var(--colors-tertiary--500);
   display: inline-block;
   font-size: 0.92rem;
@@ -388,6 +389,7 @@ a {
   line-height: 1;
   padding: 0.15em 0.34em;
   vertical-align: middle;
+
 }
 
 .slate__title {

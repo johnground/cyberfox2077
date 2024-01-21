@@ -1,0 +1,54 @@
+/* General styling for the header */
+.app-header {
+    background-color: #111; /* Dark background */
+    color: #fff; /* White text color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0; /* Some padding */
+  }
+  
+  /* Styling for the navigation bar */
+  .top-nav {
+    display: flex;
+  }
+  
+  .top-nav ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+  
+  /* Styling for each navigation item */
+  .top-nav .nav__item {
+    margin: 0 20px; /* Space between items */
+  }
+  
+  /* Styling for the navigation links */
+  .top-nav .nav__link {
+    text-decoration: none; /* Removes underline */
+    color: #0ff; /* Bright cyan, common in cyberpunk aesthetics */
+    font-size: 1.2rem; /* Larger font size */
+    font-weight: bold;
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+  }
+  
+  /* Hover state for links */
+  .top-nav .nav__link:hover,
+  .top-nav .nav__link:focus {
+    color: #f0f; /* Change color on hover */
+    text-shadow: 0 0 5px #f0f; /* Neon glow effect */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .top-nav .nav__item {
+      margin: 0 10px; /* Less space between items on smaller screens */
+    }
+  
+    .top-nav .nav__link {
+      font-size: 1rem; /* Smaller font size on smaller screens */
+    }
+  }
+  
