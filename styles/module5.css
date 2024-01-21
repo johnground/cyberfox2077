@@ -5,13 +5,42 @@ header h1 {
 }
 
 
-/* Global Styles */
 .module-container {
-  color: #15f60e; /* A cyberpunk-themed text color */
-  background-color: rgba(0, 0, 0, 0.6); /* Making background transparent */
-  font-family: 'Orbitron', sans-serif; /* A cyberpunk-themed font */
-  font-size: 1.2rem; /* Increasing the font size for better readability */
-  line-height: 1.6; /* Adjusting line height for better text wrapping and readability */
+  color: var(--white); /* Use your defined white color variable */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  font-family: 'Orbitron', sans-serif; /* Cyberpunk-themed font */
+  font-size: 1.2rem; /* Font size */
+  line-height: 1.6; /* Line height */
+  position: relative; /* For pseudo-elements positioning */
+  padding: 2rem; /* Padding inside the container */
+  margin: 1rem auto; /* Center the container with automatic horizontal margins */
+  box-shadow: 0 0 15px #0f0, 0 0 30px #0f0; /* Glowing effect */
+  border: 1px solid #15f60e; /* Border color */
+  overflow: hidden; /* Hide overflow to maintain the shape of the cuts */
+  border-radius: 15px; /* Rounded corners for the container */
+}
+
+.module-container::before,
+.module-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--red), var(--yellow), var(--green), var(--blue));
+  opacity: 0.6;
+  z-index: -1;
+  border-radius: 15px; /* Rounded corners for the glow effect */
+}
+
+.module-container::before {
+  clip-path: polygon(0 0, calc(100% - var(--space-size)) 0, 100% var(--space-size), 100% calc(100% - var(--space-size)), calc(100% - var(--space-size)) 100%, var(--space-size) 100%, 0 calc(100% - var(--space-size)));
+}
+
+.module-container::after {
+  clip-path: polygon(var(--space-size) 0, 100% 0, 100% 100%, 0 100%, 0 var(--space-size));
+  opacity: 0.5;
 }
   
 /* Header Styles */
