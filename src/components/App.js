@@ -19,6 +19,7 @@ import AnsiblePage from './AnsiblePage';
 import GitCheatSheet from './GitCheatSheet';
 import Loading from './Loading';
 import BackgroundControl from './BackgroundControl';
+import ProjectDirectoryComponent from './ProjectDirectoryComponent';
 
 
 export default class App extends Component {
@@ -97,6 +98,7 @@ export default class App extends Component {
                         <Router onChange={this.handleRoute}>
                             <Home path="/" />
                             <ProgressPage path="/progress" />
+                            <ProjectDirectoryComponent path="/project" />
                             <ProjectPage path="/project" />
                             <AnsiblePage path="/ansible" />
                             <Module1 path="/module/1" />

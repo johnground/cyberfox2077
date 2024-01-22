@@ -1,5 +1,7 @@
+// NavItem.js
 import { h } from 'preact';
 import Badge from './Badge'; // Assuming Badge is also modularized
+import { route } from 'preact-router';
 
 export default function NavItem({ navItem }) {
 
@@ -8,14 +10,16 @@ export default function NavItem({ navItem }) {
     event.preventDefault();
 
     if (navItem.text === "CyberFox-2077 Home") {
-      // If it's the "CyberFox-2077 Home" link, navigate to the root path
-      window.location.href = "http://cyberfox:3000/";
+      // Navigate to the root path "/"
+      route('/');
     } else if (navItem.text === "README") {
-      // If it's the "README" link, use the route that READMEComponent is configured to handle
-      window.location.href = "http://cyberfox:3000/readme";
+      // Navigate to the README page
+      route('/readme');
+    } else if (navItem.text === "PROJECT") {
+      // Navigate to the Project directory listing
+      route('/project');
     } else {
-      // For all other links, you can define behavior or allow default behavior
-      // This is a placeholder and should be replaced with actual navigation logic
+      // Placeholder for other links
       console.log(`Navigate to ${navItem.text}`);
     }
   };
