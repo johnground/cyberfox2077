@@ -4,15 +4,19 @@ import Badge from './Badge'; // Assuming Badge is also modularized
 export default function NavItem({ navItem }) {
 
   const handleNavigation = (event) => {
-    // Prevent default anchor behavior
+    // Prevent the default anchor behavior
     event.preventDefault();
 
-    // Navigate to the root path if the link is "CyberFox-2077 Home"
     if (navItem.text === "CyberFox-2077 Home") {
+      // If it's the "CyberFox-2077 Home" link, navigate to the root path
       window.location.href = "http://cyberfox:3000/";
+    } else if (navItem.text === "README") {
+      // If it's the "README" link, use the route that READMEComponent is configured to handle
+      window.location.href = "http://cyberfox:3000/readme";
     } else {
-      // You can extend this condition to handle other specific links
-      // For now, do nothing or handle other cases as needed
+      // For all other links, you can define behavior or allow default behavior
+      // This is a placeholder and should be replaced with actual navigation logic
+      console.log(`Navigate to ${navItem.text}`);
     }
   };
 
@@ -21,7 +25,7 @@ export default function NavItem({ navItem }) {
       <a
         className={`nav__link ${navItem.isActive ? "nav__link--active" : ""}`}
         href="#"
-        onClick={handleNavigation} // Add the onClick event listener here
+        onClick={handleNavigation}
       >
         <span className="nav__link__element">{navItem.text}</span>
         {navItem.notificationCount > 0 && (

@@ -205,7 +205,7 @@ a {
   position: absolute;
   bottom: 0;
   left: 0;
-  background-color: #00b0ff; /* Neon blue for visibility */
+  background-color: #00aeff00; /* Neon blue for visibility */
   cursor: ns-resize;
   width: calc(100% - 4px);
 }

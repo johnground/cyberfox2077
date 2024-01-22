@@ -37,7 +37,6 @@ const Module5 = () => {
           <pre><code className="code-block">docker build -t openctihost:latest .</code></pre>
           <p><i>(As the terminal hums, lines of code transform into a living entity, the OpenCTI image taking shape before her eyes.)</i></p>
         </section>
-/
         {/* Section: Establishing Secure Communications */}
         <section className="content-section">
           <h2>Establishing Secure Communications: OpenSSH Server</h2>
