@@ -5,6 +5,8 @@
         cd /opt/rook-provisioner/local/roles
         (local roles will override roles that are used by `rookengine` by default)
 
+![](img/openCTI/1.%20Terminal%20optrook.png)
+
  **Navigate to github to prepare cloning down your role
     Open up firefox
     Navigate to github and your ansible role.
