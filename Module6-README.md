@@ -152,7 +152,7 @@ On this screen select `Add New VM` on the left of the screen below your ESXI ins
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`Open CTI`
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`YOUR OWN ADDED ROLE`
 
-![](img/openCTI/.png) **NEED TO HAVE THESE ROLES ADDED IN ORDER TO CAPTURE A SCREENSHOT**
+![](img/openCTI/roleselection.png)
 
 &nbsp;&nbsp;&nbsp;&nbsp;When completed, click `Save`
 
