@@ -29,7 +29,7 @@ Your role will be downloaded into your /opt/rook-provisioner/local/roles
 ### Adding your Role to the TURBO ROOK UI
 Now return to the web browser with Turbo Rook open
 Add "**/Admin**" to the end of the URL
-This opens Turbo Rook's Admin page
+&nbsp;&nbsp;&nbsp;&nbsp;This opens Turbo Rook's Admin page
 
 ![](img/openCTI/2.%20TR%20admin%20tab.png)
 
@@ -76,7 +76,7 @@ You may now scroll to the bottom of the page and click `Save`
 
 ### You are now ready to Provision a device with your newly added role!
 
-On the top bar of TURBO ROOK click on Launch Deployment
+On the top bar of TURBO ROOK click on `Launch Deployment`
 &nbsp;&nbsp;&nbsp;&nbsp;For a Deployment Type select `Blank`
 
 ![](img/openCTI/8.%20Launch%20Deployment%20Blank.png)
@@ -89,7 +89,7 @@ You will be brought to the `Blank Kit` page.
 
 ![](img/openCTI/10.%20blank%20kit%20add%20machine%20button.png)
 
-We will now walk throught the Add Hardware Pop up
+We will now walk throught the `Add Hardware` Pop up
 
 ![](img/openCTI/11.%20add%20machine%20blank%20page.png)
 
@@ -101,11 +101,11 @@ We will now walk throught the Add Hardware Pop up
 ![](img/openCTI/12.%20add%20hardware%20machine%20type.png)
 
 &nbsp;&nbsp;&nbsp;&nbsp;**Select Operating System**
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Click the box and select `EsXi 7 (core)` from the drop down
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Click the box and select `ESXi 7 (core)` from the drop down
 
 ![](img/openCTI/add%20hardware%20esxi7.png)
 
-&nbsp;&nbsp;&nbsp;&nbsp;Turn on the toggle switch for `Existing`
+&nbsp;&nbsp;&nbsp;&nbsp;Turn on the toggle switch for `Existing` to enable the ability to utilize the existing ESXi networking
 
 ![](img/openCTI/existing%20turned%20on.png)
 
@@ -119,7 +119,7 @@ We will now walk throught the Add Hardware Pop up
 ![](img/openCTI/15.%20Hypervisor%20information.png)
 
 &nbsp;&nbsp;&nbsp;&nbsp;The rest of the options below are optional and you do not need to fill them in
-&nbsp;&nbsp;&nbsp;&nbsp;Scroll down and Turn off `Run Eclypsium Scan` and `Wipe Disk Partitions before Deploying Operating Systems` 
+&nbsp;&nbsp;&nbsp;&nbsp;Scroll down and click the toggle to turn off `Run Eclypsium Scan` and `Wipe Disk Partitions before Deploying Operating Systems` 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;These are on by default but cannot be run against existing ESXi hypervisors.
 
 ![](img/openCTI/17.%20eclypandwipe%20off.png)
@@ -141,12 +141,12 @@ On this screen select `Add New VM` on the left of the screen below your ESXI ins
 &nbsp;&nbsp;&nbsp;&nbsp;**Select Operating System**
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Click the box and select `Ubuntu 22.04-desktop (beta)` from the drop down
 &nbsp;&nbsp;&nbsp;&nbsp;**Virtual Machine Properties**
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Select Hypervisor will already be auto populated with the `ESXi` already entered
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Hypervisor drop down will already be auto populated with the `ESXi` already entered
 
 ![](img/openCTI/add%20machine%20with%20ESXi.png)
 
 &nbsp;&nbsp;&nbsp;&nbsp;The remainaing options are optional and not needed for this example
-&nbsp;&nbsp;&nbsp;&nbsp;Scroll down to the bottom to the `Select Roles` section
+&nbsp;&nbsp;&nbsp;&nbsp;Scroll down to the `Select Roles` section
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Here you will select the box next to the following roles:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`Docker (core)`
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`Open CTI`
@@ -166,13 +166,13 @@ Now click The button to `Continue to License Management`
 
 ![](img/openCTI/24.%20Continue%20to%20License%20Management.png)
 
-&nbsp;&nbsp;&nbsp;&nbsp;You do not need to do anything on this page
+You do not need to do anything on this page
 Click the button to `Continue to Configuration Settings`
 
 ![](img/openCTI/26.%20continue%20to%20configuration%20settings.png)
 
-On The Configuration Settings Page the only action you need to do is Create and Confirm your defined password for the deployment.
-There is a toggle switch that allows your to `Show Password Consstraints`.
+On The `Configuration Settings` Page the only action you need to do is Create and Confirm your defined password for the deployment.
+&nbsp;&nbsp;&nbsp;&nbsp;There is a toggle switch that allows your to `Show Password Consstraints`.
 
 ![](img/openCTI/PASSWORD.png)
 
