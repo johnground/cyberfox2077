@@ -1,6 +1,7 @@
 import { h, Component } from 'preact';
 import marked from 'marked';
 import '/styles/readme.css';
+import '/styles/module.css';
 
 class READMEComponent extends Component {
     state = {

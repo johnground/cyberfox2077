@@ -18,7 +18,7 @@ Open up firefox
 
 Navigate to github and your ansible role.
 
-&nbsp;&nbsp;&nbsp;&nbsp;https://github.com/"**PUT YOUR ROLE IN HERE!**"/ansible-role-docker
+&nbsp;&nbsp;&nbsp;&nbsp;https://github.com/"**PUT YOUR ROLE IN HERE!**"
 
 To find the link to clone the role:
 
@@ -26,7 +26,7 @@ To find the link to clone the role:
 
 &nbsp;&nbsp;&nbsp;&nbsp;copy the HTTPS url displayed
 
-![](http://cyberfox:8080/img/openCTI/.png) **CANNOT TAKE THIS SCREEN SHOT UNTIL WE HAVE A GOOD URL FOR THE PROJECT**
+![](http://cyberfox:8080/img/openCTI/gitcodeclone.png) 
 
 ### Using the terminal to clone your project down
 
@@ -34,13 +34,15 @@ Return to your command prompt and run the command to clone down your project
 
 &nbsp;&nbsp;&nbsp;&nbsp;You will want to type `git clone`, paste the url you just copied, and finally enter the name of the role (following the convention of `<collection name>.<role name>`)
 
-&nbsp;&nbsp;&nbsp;&nbsp;e.g. git clone https://github.com/"**PUT YOUR ROLE IN HERE!!!**"/ansible-role-docker.git **PUT YOUR ROLE IN HERE!!!**.ansible-role-docker
+&nbsp;&nbsp;&nbsp;&nbsp;e.g. git clone https://github.com/johnground/cyberfox2077.git pfmd.cyberfox2077 
+
+&nbsp;&nbsp;&nbsp;&nbsp;You will be prompted to enter your username and password
 
 Your role will be downloaded into your /opt/rook-provisioner/local/roles
 
 &nbsp;&nbsp;&nbsp;&nbsp;use `ls` to confirm it exists as expected
 
-![](http://cyberfox:8080/img/openCTI/.png)  **CANNOT TAKE THIS SCREEN SHOT UNTIL I KNOW THE URL TO THE GIT PROJECT**
+![](http://cyberfox:8080/img/openCTI/gitclone.png)  
 
 ### Adding your Role to the TURBO ROOK UI
 
