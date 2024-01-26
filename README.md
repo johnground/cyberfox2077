@@ -163,11 +163,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Acknowledgements
 OpenCTI for providing the context for cybersecurity project management.
-The Git and GitLab communities for their invaluable resources and support.
-
-## License
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgements
-OpenCTI for providing the context for cybersecurity project management.
-The Git and GitLab communities for their invaluable resources and support.
+The Git and GitLab communities for their invaluable resources and support

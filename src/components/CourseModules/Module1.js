@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import '/styles/module1.css'; // Ensure this path is correct for your styles
+import '/styles/module.css'; // Ensure this path is correct for your styles
 
 const Module1 = () => {
   return (
@@ -7,8 +7,8 @@ const Module1 = () => {
       <header>
         <h1>Module 1: Introduction to Version Control and Git</h1>
       </header>
-      <article className="content">
-         <section>
+        <section>
+          <section className="content-section cyberpunk-btn">
           <h2>The Awakening of CyberFox</h2>
           <p><i>(In a futuristic command center, CyberFox stands poised before an array of screens.)</i></p>
           <p>With a swift, calculated keystroke, CyberFox invokes the command that will grant her elevated access:</p>
@@ -19,14 +19,14 @@ const Module1 = () => {
           <p><i>(As her access level ascends, the screens flicker, acknowledging her newfound control.)</i></p>
           <p>With the full might of administrative privileges at her command, CyberFox prepares to delve into the intricacies of Git, armed with the power to shape the digital landscape.</p>
         </section>
-        <section>
+        <section className="content-section cyberpunk-btn">
           <h2>Version Control: The Backbone of Cybersecurity</h2>
           <p><i>(In a dark room, CyberFox integrated with her cybernetic enhancements leans over her screen.)</i></p>
           <p>Tracking and auditing changes in cybersecurity are as vital as the security measures themselves. Git, a version control system, creates an immutable ledger of modifications, attributions, and rationale behind each change.</p>
           <p><i>(A shadowy figure, the embodiment of cybersecurity, steps out from the darkness.)</i></p>
           <p>In this vast digital expanse, where data and algorithms converge, the silent war rages on... The battlefields are servers, networks, and systems. Git is not just a database of project objects; it's a crucial tool in tracing errors and meticulously tracking changes for cybersecurity professionals.</p>
         </section>
-        <section>
+        <section className="content-section cyberpunk-btn">
           <h2>Installing Git: A Step-by-Step Guide</h2>
           <p>Proper setup of Git is crucial to secure your version control environment...</p>
           <div className="code-block">
@@ -38,7 +38,7 @@ const Module1 = () => {
                 git config --global user.email "CyberFox@2077.git"</code>
           </div>
         </section>
-        <section>
+        <section className="content-section cyberpunk-btn">
   <h2>Chapter 1: The Genesis Commit</h2>
   <h3>The First Command: git init</h3>
   <p><i>(A cyberneticly enhanced figure stands in an empty room, illuminated only by the glow of a terminal. They effortsly key in commands.)</i></p>
@@ -65,7 +65,7 @@ const Module1 = () => {
   <p>The terminal responds, displaying the current status of her repository and a log of her initial commit. Each line is a testament to her foresight and precision, a digital footprint in the sands of code.</p>
 </section>
 
-        <section>
+  <section className="content-section cyberpunk-btn">
   <h2>Understanding .gitignore</h2>
   <p>In the heart of the cyber key terrain, CyberFox encounters a labyrinth of data, necessitating strategic oversight. She knows that not all files are meant for the eyes of the Git guardian. To filter the essential from the ephemeral, she crafts a .gitignore file, a digital sieve for her projects.</p>
   <p>Seated at her terminal, her fingers dance across the keys, conjuring the .gitignore file into existence:</p>
@@ -83,7 +83,7 @@ const Module1 = () => {
   <p>The .gitignore file stands as a testament to her skill, ensuring that only the vital elements of her cyber endeavors are committed to the annals of Git. It's a dance of precision and foresight, played out on the canvas of her terminal.</p>
 </section>
 
-        <section>
+  <section className="content-section cyberpunk-btn">
   <h2>Utilizing .gitattributes</h2>
   <p>In the depths of the digital realm, CyberFox encounters a challenge of harmony and coherence. Different environments and systems whisper in a babel of formats and encodings. To bring order, she turns to the .gitattributes file, her tool for enforcing uniformity in her codebase.</p>
   <p>At her command center, amidst a symphony of neon and bytes, she commences the creation of the .gitattributes file:</p>
@@ -99,8 +99,7 @@ const Module1 = () => {
   <p>With each directive, CyberFox shapes the behavior of Git. Text files are now aligned with a uniform end-of-line character, ensuring consistency regardless of the platform. Binary files like JPEG images are marked, treated as opaque data chunks by Git, immune to alteration.</p>
   <p>This strategic configuration of .gitattributes ensures that all collaborators, whether human or AI, interface with the repository in a unified manner. It's a testament to CyberFox's foresight and technical acumen, as she architects a repository that stands resilient in the face of diversity and change.</p>
 </section>
-
-        <section>
+          <section className="content-section cyberpunk-btn">
           <h2>Committing with Intent: Writing Secure Commit Messages</h2>
           <p><i>(CyberFox scrutinizes the code changes before her, each line a potential vector for chaos.)</i></p>
           <p>A well-crafted commit message transcends mere description; it's an encrypted signal of intent through the noise of changes.</p>
@@ -109,7 +108,7 @@ const Module1 = () => {
           </div>
           <p>For the guardians of cyber, clarity in every commit is paramount, each message a log for future cryptanalysts to trace and understand.</p>
         </section>
-        <section>
+        <section className="content-section cyberpunk-btn">
           <h2>Branching: Isolating Development to Preserve Stability</h2>
           <p><i>In the labyrinth of code, CyberFox deftly creates a new conduit, a branch unseen by the adversaries.)</i></p>
           <p>Branching in Git allows developers to work on new features or fixes without impacting the stable version of the project. It's a strategic move, much like a chess game, ensuring the project's integrity while exploring new advancements or addressing issues.</p>
@@ -119,9 +118,9 @@ const Module1 = () => {
           </div>
           <p>This approach facilitates parallel development streams, enabling CyberFox and her team to innovate rapidly while maintaining a stable mainline.</p>
         </section>
-        <section>
-  <h2>Monitoring Changes: The Timekeepers of Code</h2>
-  <p><i>(With the command center's screens alight, CyberFox watches the history unfold, her gaze piercing through revisions.)</i></p>
+        <section className="content-section cyberpunk-btn">
+        <h2>Monitoring Changes: The Timekeepers of Code</h2>
+         <p><i>(With the command center's screens alight, CyberFox watches the history unfold, her gaze piercing through revisions.)</i></p>
   <p>In the ever-shifting landscape of cybercode, the ability to monitor changes and the state of work in progress is crucial. CyberFox, the guardian of digital chronicles, commands her terminal to reveal the story of the code.</p>
   <p>With a swift command, she aligns her focus to the main thread of her narrative:</p>
   <p>“In the realm of code, secrets often hide in plain sight, masked by simplicity. Recall the ancient sequence known by legendary gamers, a code of direction and might. Its power lies dormant, waiting to be unleashed by the wise. Seek the sequence to unlock hidden truths,” CyberFox whispered to herself, her fingers poised above the keys, ready to delve deeper into the repository's secrets.</p>
@@ -141,8 +140,7 @@ const Module1 = () => {
   <p><i>(Lines of commitment, files in flux, the relics of past decisions all laid bare before her.)</i></p>
   <p>The logs and status reports become CyberFox's map through time and space within the repository. Each entry, a marker in the continuum; each status, a signpost in the digital expanse. They guide her through the chronicles of code, allowing her to navigate the intricate tapestry of past and present actions.</p>
 </section>
-
-<section>
+<section className="content-section cyberpunk-btn">
   <h2>Chapter 2: Navigating the Merge Conflict Maze</h2>
   <p><i>(Amidst a flurry of digital fragments, CyberFox faces a clash of code, a merge conflict in the heart of the system.)</i></p>
   <p>Intent on harmonizing the divergent paths of data, CyberFox strategically manipulates the code in two branches, setting the stage for a deliberate collision.</p>
@@ -184,10 +182,7 @@ const Module1 = () => {
   <p><i>(The code now flows uninterrupted, a seamless fusion of two once-disparate paths.)</i></p>
   <p>With the conflict resolved, CyberFox has once again navigated the complex web of version control, ensuring the integrity and continuity of the digital odyssey.</p>
 </section>
-
-
-        
-<section>
+<section className="content-section cyberpunk-btn">
   <h2>Advanced Git Commands for Challenging Situations</h2>
   <p>Within the intricate network of the repository, CyberFox discovers a need to create a new feature branch based on the `master` branch, the central vein of the project's lifeblood.</p>
   <div className="code-block">
@@ -208,26 +203,22 @@ const Module1 = () => {
     <code>
       # Realigning history with interactive rebase<br />
       git rebase -i HEAD~3<br /><br />
-
       # Selectively staging changes<br />
       git add -p
     </code>
   </div>
   <p>Through these advanced maneuvers, CyberFox demonstrates her adeptness at navigating the complex Git environment, skillfully shaping the codebase to accommodate new innovations while preserving its core stability.</p>
 </section>
-<section>
+<section className="content-section cyberpunk-btn">
     <h2>Epilogue: CyberFox's Ascendancy in Version Control</h2>
     <p><i>(In the glow of the terminal, a narrative of resolved conflicts and seamless merges illuminates the dim chamber.)</i></p>
     <p>CyberFox stands sentinel in the digital realm, her knowledge of Git her greatest weapon. With each command, she weaves the future from the past, a master of digital time and space.</p>
     <p>Gazing into the luminescent streams of code, CyberFox contemplates a unique hash, a cryptic key from a time of pivotal change. "In the depths of history lies knowledge once known, now obscured," she muses. "To unearth the secrets of the past, one must venture to the point where paths diverged, where the essence of a lost juncture lingers."</p>
     <p><i>(As the streams of data slow to a gentle flow, the saga pauses, the journey far from over.)</i></p>
 </section>
-
-
         <footer className="module-footer">
-          
         </footer>
-      </article>
+      </section>
     </div>
   );
 };

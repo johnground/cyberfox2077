@@ -1,34 +1,30 @@
 import { h } from 'preact';
-import '/styles/module5.css'; // Ensure the path to your CSS is correct
+import '/styles/module.css'; // Ensure the path to your CSS is correct
 
 const Module5 = () => {
   return (
     <div className="module-container">
       <header>
-        <h1 className="module-title">Module 5: Developing Ansible Roles for OpenCTI - The Cybernetic Symphony</h1>
+        <h1> Module 5: Developing Ansible Roles for OpenCTI - The Cybernetic Symphony</h1>
       </header>
-
-      <div className="content">
         {/* Section: CyberFox Switches to Superuser Mode */}
-        <section className="content-section">
+        <section className="content-section cyberpunk-btn">
           <h2>Assuming Command: CyberFox's Ascension</h2>
           <p><i>(The command center hums with anticipation as CyberFox prepares for a crucial step in securing her network.)</i></p>
           <p>“To master this realm, I must elevate my powers,” declares CyberFox. With a decisive command, she elevates her access:</p>
           <pre><code className="code-block">sudo su</code></pre>
           <p><i>(The system acknowledges her elevated status, the screens now an open canvas for her commands.)</i></p>
         </section>
-
         {/* Section: Installing Ansible */}
-        <section className="content-section">
+        <section className="content-section cyberpunk-btn">
           <h2>Installing Ansible: Orchestrating the Cyber Symphony</h2>
           <p>“To command our cyber forces, we need Ansible,” CyberFox states, preparing her terminal for the installation.</p>
           <pre><code className="code-block">apt install ansible -y && ansible-galaxy collection install community.general</code></pre>
           <p>With Ansible now ready, she checks its version, ensuring all systems are go:</p>
           <pre><code className="code-block">ansible --version</code></pre>
         </section>
-
         {/* Section: Constructing OpenCTI */}
-        <section className="content-section">
+        <section className="content-section cyberpunk-btn">
           <h2>Constructing OpenCTI: The Digital Forge</h2>
           <p><i>(With a resolute expression, CyberFox navigates to the core of her project's repository.)</i></p>
           <p>“The time has come to forge our OpenCTI vessel, to shape it from the depths of our digital arsenal,” CyberFox articulates, her fingers poised above the terminal. She navigates to the project directory:</p>
@@ -38,7 +34,7 @@ const Module5 = () => {
           <p><i>(As the terminal hums, lines of code transform into a living entity, the OpenCTI image taking shape before her eyes.)</i></p>
         </section>
         {/* Section: Establishing Secure Communications */}
-        <section className="content-section">
+        <section className="content-section cyberpunk-btn">
           <h2>Establishing Secure Communications: OpenSSH Server</h2>
           <p><i>(CyberFox turns her attention to the next critical component, ensuring secure lines of communication.)</i></p>
           <p>“For secure and reliable connections, the OpenSSH server is our next target,” she declares. With a few keystrokes, she commences the installation in the CyberFox Ansible Control node:</p>
@@ -47,7 +43,7 @@ const Module5 = () => {
         </section>
 
         {/* Section: Tailoring Ansible Environment */}
-        <section className="content-section">
+        <section className="content-section cyberpunk-btn">
           <p>She then tailors the Ansible environment to her strategic needs:</p>
           <pre><code className="code-block">echo -e "[defaults]\ninventory = /etc/ansible/hosts\nremote_user = ansible" &gt; ansible.cfg</code></pre>
           <p>“Now, to secure our network nodes,” she muses, initiating the creation of an Ed25519 SSH key, specifying the default file location:</p>
@@ -60,7 +56,7 @@ const Module5 = () => {
           <p><i>(“As the key integrates with the OpenCTI host, she senses the strengthening of her network's defenses. The encrypted pathways are now guarded, impenetrable to intruders,” CyberFox reflects, her gaze fixed on the glowing screens.)</i></p>
         </section>
 
-        <section className="content-section">
+        <section className="content-section cyberpunk-btn">
         <h2>Constructing Your First Ansible Playbook for OpenCTI</h2>
 <p>“Now, to organize and automate our OpenCTI deployment, we will craft an Ansible playbook,” CyberFox declares, ready to encode her strategy into automation.</p>
 <p>She begins by creating an inventory file, defining the architecture of her network:</p>
@@ -135,7 +131,7 @@ const Module5 = () => {
           <p>“Each task in our playbook will ensure OpenCTI is installed, configured, and running as intended,” she notes with satisfaction.</p>
         </section>
 
-        <section className="content-section">
+        <section className="content-section cyberpunk-btn">
           <h2>Executing the Ansible Playbook</h2>
           <p>“With our playbook crafted, it's time to execute it and deploy OpenCTI,” CyberFox announces. She initiates the playbook with a command:</p>
           <pre><code className="code-block">
@@ -145,11 +141,11 @@ const Module5 = () => {
         </section>
 
         {/* Section: Integrating Ansible with OpenCTI */}
-        <section className="content-section">
+        <section className="content-section cyberpunk-btn">
           <h2>Integrating Ansible with OpenCTI for Streamlined Operations</h2>
           <p>With the OpenCTI platform now in place, CyberFox focuses on integrating Ansible for continuous automation and monitoring. The playbook becomes a vital tool, managing configurations and updates seamlessly.</p>
         </section>
-        <section className="content-section">
+        <section className="content-section cyberpunk-btn">
   <h2>The Cybernetic Symphony: Integrating ThreatFox</h2>
   <p><i>(CyberFox, determined to enhance her network's threat intelligence, decides to integrate the ThreatFox connector into OpenCTI. This requires updating the environment configuration using the Jinja2 template.)</i></p>
   
@@ -168,13 +164,13 @@ const Module5 = () => {
 
 
         {/* Section: Advanced Ansible Strategies */}
-        <section className="content-section">
+        <section className="content-section cyberpunk-btn">
           <h2>Advanced Ansible Strategies for OpenCTI</h2>
           <p>Delving deeper, CyberFox explores advanced Ansible techniques for OpenCTI. She experiments with dynamic inventories, custom modules, and complex playbooks to adapt to evolving cyber threats.</p>
         </section>
 
         {/* Section: Epilogue */}
-        <section className="content-section">
+        <section className="content-section cyberpunk-btn">
           <h2>Epilogue: Mastery of Automation</h2>
           <p>CyberFox's command center now hums with a network in perfect harmony, automated and resilient. The OpenCTI platform, orchestrated by Ansible, operates with precision, safeguarded from digital threats.</p>
         </section>
@@ -184,7 +180,6 @@ const Module5 = () => {
           {/* Footer content */}
         </footer>
       </div>
-    </div>
   );
 };
 

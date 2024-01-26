@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import '/styles/module4.css'; // Ensure the path to your CSS is correct
+import '/styles/module.css'; // Ensure the path to your CSS is correct
 
 const Module4 = () => {
   return (

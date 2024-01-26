@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import '/styles/module2.css'; // Ensure this path is correct for your styles
+import '/styles/module.css'; // Ensure this path is correct for your styles
 
 const Module2 = () => {
   return (
@@ -7,15 +7,14 @@ const Module2 = () => {
       <header>
         <h1 className="module-title">Module 2: GitLab Essentials in the Cyber Realm</h1>
       </header>
-      
-      <article className="content">
-      <section>
+      <section className="content-section cyberpunk-btn">
   <h2>The Transition to GitLab: CyberFox's Strategic Shift</h2>
   <p><i>(In the neon-glow of her command center, CyberFox ponders the shift from GitHub to GitLab.)</i></p>
   <p>For CyberFox, moving from GitHub to GitLab isn't just about using a different tool; it's a tactical evolution in her Netrunner operations. GitLab, with its open-source ethos and integrated DevOps capabilities, represents a new frontier in version control and collaboration. This strategic shift gears her towards a more comprehensive platform, enhancing her cyber operations.</p>
 </section>
 
-<section>
+
+  <section className="content-section cyberpunk-btn">
   <h2>Preparation: Initialization of the AI System.Git</h2>
   <p><i>(CyberFox turns her attention to the terminal, ready to invoke the necessary powers for their mission.)</i></p>
   <p>"To ensure the success of our GitLab endeavor, we must first summon the the AI model," CyberFox declares, her fingers poised over the terminal.</p>
@@ -73,7 +72,7 @@ const Module2 = () => {
 </section>
 
 
-    <section>
+      <section className="content-section cyberpunk-btn">
       <h2>Navigating the Cyber Labyrinth: GitLab Troubleshooting</h2>
       <p><i>(The screens display diagnostic data as CyberFox troubleshoots.)</i></p>
       <p>CyberFox's journey is not without its challenges. Here are steps to overcome common obstacles:</p>
@@ -87,28 +86,33 @@ const Module2 = () => {
       <p>For persistent issues, the GitLab community serves as an alliance of knowledge.</p>
     </section>
 
-    <section>
+ 
+      <section className="content-section cyberpunk-btn">
       <h2>Strengthening the Cyber Bastion: GitLab's Capabilities</h2>
       <p>GitLab is more than a platform; it's a fortress in the cyber landscape. Its features like private repositories, Role-Based Access Control (RBAC), security scanning, and CI/CD pipelines fortify CyberFox's digital domain, safeguarding her code's sanctity.</p>
     </section>
 
-    <section>
+
+      <section className="content-section cyberpunk-btn">
       <h2>The Art of Cyber Warfare: Mastery of GitLab's CI/CD</h2>
       <p><i>(The dashboard becomes a strategic battle map as CyberFox delves into GitLab's CI/CD tools.)</i></p>
       <p>These tools are the front line of her cyber warfare, automating code testing to ensure resilience and strength. She configures her .gitlab-ci.yml, setting stages and jobs for testing and deployment, fortifying her code against vulnerabilities.</p>
     </section>
 
-    <section>
+
+      <section className="content-section cyberpunk-btn">
       <h2>Securing the Digital Frontier with GitLab CI/CD</h2>
       <p>GitLab's CI/CD pipelines are akin to the high walls and guarded gates of a digital fortress. They act as steadfast guardians, automatically scrutinizing code for weaknesses and vulnerabilities, ensuring only the most robust and secure code is deployed into the production environment.</p>
 </section>
-    <section>
+
+      <section className="content-section cyberpunk-btn">
       <h2>The Silent Sentinels: GitLab's Private Repositories</h2>
       <p><i>(A series of encrypted vaults emerge, symbolizing GitLab's private repositories.)</i></p>
       <p>For CyberFox, private repositories in GitLab are akin to covert vaults, accessible only to those bearing the right digital keys. These sanctuaries of code are crucial for conducting clandestine cyber operations and safeguarding sensitive data.</p>
     </section>
 
-    <section>
+
+      <section className="content-section cyberpunk-btn">
       <h2>Mastering the Cyber Hunt: Leveraging Advanced GitLab Features</h2>
       <p><i>(Immersed in a virtual reality interface, CyberFox explores GitLab's advanced features.)</i></p>
       <p>As a cyber threat hunter, mastering these features is akin to refining her arsenal. Advanced issue tracking, merge request approvals, and extensive logging capabilities are vital tools in her quest to maintain digital supremacy and operational efficiency.</p>
@@ -117,7 +121,6 @@ const Module2 = () => {
     <footer className="module-footer">
       <p><i>(As the module concludes, CyberFox reflects on her journey, ready for the challenges ahead in the cyber realm.)</i></p>
     </footer>
-  </article>
 </div>
 );
 };
