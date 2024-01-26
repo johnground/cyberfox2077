@@ -58,6 +58,24 @@
   overflow: hidden; /* Hide overflow */
   margin: 1rem 0; /* Add some margin */
 }
+.readme-container {
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.readme-container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+}
+
+.image-wrapper {
+  text-align: center;
+  max-width: 100%;
+  overflow: hidden;
+  margin: 1rem 0;
+}
 
 @keyframes glitch-effect {
   0%, 100% {
