@@ -1,11 +1,12 @@
 .background-control {
-    position: fixed; /* Fixed position relative to the viewport */
-    bottom: 20px;    /* 20 pixels from the bottom */
-    right: 20px;     /* 20 pixels from the right */
-    z-index: 1000;   /* Ensure it's above other content */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
     display: flex;
     flex-direction: column;
-}
+    align-items: flex-start;
+  }
 
 .background-control button {
     padding: 10px 20px;
@@ -54,3 +55,43 @@
     transition: transform 0.3s;
 }
 
+.switch-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  
+  .switch {
+    width: 50px;
+    height: 25px;
+    background-color: #ccc;
+    border-radius: 25px;
+    position: relative;
+    transition: background-color 0.3s;
+  }
+  
+  .switch--active {
+    background-color: #4CAF50; /* Active color */
+  }
+  
+  .switch__handle {
+    width: 23px;
+    height: 23px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    transition: transform 0.3s;
+  }
+  
+  .switch--active .switch__handle {
+    transform: translateX(25px);
+  }
+  
+  .switch-label {
+    margin-left: 10px;
+    font-size: 14px;
+    color: #fff; /* Adjust based on your theme */
+  }

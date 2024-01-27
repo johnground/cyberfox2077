@@ -1,33 +1,34 @@
 import { h, Component } from 'preact';
 import '/styles/BackgroundControl.css'; // Ensure the path to your CSS is correct
+
 // Arrays of your video and image filenames
 const videoFiles = [
-    'redcyberfox.mp4',
-    'redcyberfox1.mp4',
-    'redcyberfox2.mp4',
-    'redcyberfox3.mp4',
-    'redcyberfox4.mp4',
-    'redcyberfox5.mp4',
-    'redcyberfox6.mp4',
-    'purplefox.mp4',
-    // ... other video files
-  ];
-  
-  const imageFiles = [
-    'GPTFOX.png',
-    'GitPunkFox.png',
-    'PCB.png',
-    'crackling.png',
-    'discordfox.png',
-    'gitfox.png',
-    'gitfoxcyber.png',
-    'ninjafox.png',
-    'pinkfox.png',
-    'purplefox.png',
-    'redcyberfox.png',
-    'technofox.png',
-    // ... other image files
-  ];
+  'redcyberfox.mp4',
+  'redcyberfox1.mp4',
+  'redcyberfox2.mp4',
+  'redcyberfox3.mp4',
+  'redcyberfox4.mp4',
+  'redcyberfox5.mp4',
+  'redcyberfox6.mp4',
+  'purplefox.mp4',
+  // ... other video files
+];
+
+const imageFiles = [
+  'GPTFOX.png',
+  'GitPunkFox.png',
+  'PCB.png',
+  'crackling.png',
+  'discordfox.png',
+  'gitfox.png',
+  'gitfoxcyber.png',
+  'ninjafox.png',
+  'pinkfox.png',
+  'purplefox.png',
+  'redcyberfox.png',
+  'technofox.png',
+  // ... other image files
+];
 
 class BackgroundControl extends Component {
   state = {
@@ -40,12 +41,22 @@ class BackgroundControl extends Component {
   toggleVideo = () => {
     this.setState(prevState => ({
       videoVisible: !prevState.videoVisible
-    }));
+    }), () => {
+      const videoElement = document.getElementById('backgroundVideo');
+      if (videoElement) {
+        videoElement.style.display = this.state.videoVisible ? 'block' : 'none';
+      }
+    });
   };
 
   dimVideo = () => {
     this.setState({
       videoOpacity: this.state.videoOpacity === 1 ? 0.5 : 1 // Toggle between full and half opacity
+    }, () => {
+      const videoElement = document.getElementById('backgroundVideo');
+      if (videoElement) {
+        videoElement.style.opacity = this.state.videoOpacity;
+      }
     });
   };
 
@@ -54,42 +65,46 @@ class BackgroundControl extends Component {
     const randomVideo = videoFiles[randomIndex];
     const videoElement = document.getElementById('backgroundVideo');
     if (videoElement) {
-      videoElement.src = `/assets/${randomVideo}`;
+      videoElement.src = `/assets/${randomVideo}`; // Ensure the path is correct
       videoElement.play();
       this.setState({
-        videoVisible: true,
-        mediaType: 'video' // Ensure mediaType is set to 'video'
+        currentMedia: randomVideo,
+        mediaType: 'video'
       });
     }
   };
 
+  renderSwitch = (label, action, isActive) => {
+    return (
+      <div className="switch-container" onClick={action}>
+        <div className={`switch ${isActive ? 'switch--active' : ''}`}>
+          <div className="switch__handle"></div>
+        </div>
+        <span className="switch-label">{label}</span>
+      </div>
+    );
+  };
+
+  renderControl = (label, action) => {
+    // This method is used for actions that are not toggles, such as the "Random Background" button
+    return (
+      <div className="button-container" onClick={action}>
+        <button className="button">{label}</button>
+      </div>
+    );
+  };
 
   render() {
-    const { videoVisible, videoOpacity, currentMedia, mediaType } = this.state;
-    const videoElement = document.getElementById('backgroundVideo');
-    
-    // Apply styles to video element if it's selected
-    if (videoElement && mediaType === 'video') {
-      videoElement.style.display = videoVisible ? 'block' : 'none';
-      videoElement.style.opacity = videoOpacity;
-    }
+    const { videoVisible, videoOpacity } = this.state;
 
     return (
       <div className="background-control">
-        {/* Existing buttons */}
-        <button className="toggle-button" onClick={this.toggleVideo}>
-          {videoVisible ? 'Hide Background' : 'Show Background'}
-        </button>
-        <button className="dim-button" onClick={this.dimVideo}>
-          {videoOpacity === 1 ? 'Dim Background' : 'Brighten Background'}
-        </button>
-        <button className="random-video-button" onClick={this.playRandomVideo}>
-          Play Random Video
-        </button>
+        {this.renderSwitch('Toggle Background', this.toggleVideo, videoVisible)}
+        {this.renderSwitch('Dim Background', this.dimVideo, videoOpacity < 1)}
+        {this.renderControl('Random Background', this.playRandomVideo)} {/* Updated label */}
       </div>
     );
   }
 }
 
 export default BackgroundControl;
-
