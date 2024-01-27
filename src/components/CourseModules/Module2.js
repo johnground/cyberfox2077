@@ -29,7 +29,7 @@ const Module2 = () => {
   <p><i>(The terminal hums to life as the command is executed, awakening the System.Git AI model within the construct.)</i></p>
   <p>With the model now running, CyberFox nods in satisfaction, knowing that the enhanced capabilities of System.Git will aid in their journey through the vast cyber DevOps galaxy.</p>
 </section>
-<section>
+<section className="content-section cyberpunk-btn">
   <h2>Orchestrating GitLab in the Docker Universe</h2>
   <p>Deploying GitLab within Docker is akin to CyberFox launching a spacecraft into the vast DevOps galaxy. This step is pivotal in her journey to master intracate aspects of cyber warfare and Netrunner initiatives.</p>
   <p><i>(A holographic terminal materializes before her, displaying the Docker commands.)</i></p>

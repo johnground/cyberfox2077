@@ -1,259 +1,219 @@
-### Navigate to the proper folder to prepare to download your role
+# Module 6: Beyond Ansible and Git - Turbo Rook Provisioning Engine Ansible Role Deployment
 
-On the TURBO ROOK Provisioning Laptop
+## Preparing Your Environment
 
-Open up a terminal
+### Accessing the Local Roles Folder
 
-Change directories to the local roles folder
+On the Turbo Rook Provisioning Laptop:
 
-&nbsp;&nbsp;&nbsp;&nbsp;cd /opt/rook-provisioner/local/roles
+1. Open a terminal.
+2. Navigate to the local roles directory:
 
-&nbsp;&nbsp;&nbsp;&nbsp;(local roles will override roles that are used by `rookengine` by default)
+   cd /opt/rook-provisioner/local/roles
 
-![](http://cyberfox:8080/img/openCTI/1.%20Terminal%20optrook.png)
+   Note: Local roles will override the roles used by Rook Engine by default.
 
-### Navigate to github to prepare cloning down your role
+   ![Terminal access to local roles folder](http://cyberfox:8080/img/openCTI/1.%20Terminal%20optrook.png)
 
-Open up firefox
+### Cloning Your Ansible Role from GitHub
 
-Navigate to github and your ansible role.
+1. Launch Firefox and navigate to GitHub to locate your Ansible role.
 
-&nbsp;&nbsp;&nbsp;&nbsp;https://github.com/"**PUT YOUR ROLE IN HERE!**"
+   https://github.com/"YOUR_ROLE_HERE"
 
-To find the link to clone the role:
+   Replace "YOUR_ROLE_HERE" with your specific role path.
 
-&nbsp;&nbsp;&nbsp;&nbsp;Click on the green square that says `<> Code`
+2. To clone the role, find the cloning URL:
 
-&nbsp;&nbsp;&nbsp;&nbsp;copy the HTTPS url displayed
+   - Click on the green `<> Code` button.
+   - Copy the HTTPS URL displayed.
 
-![](http://cyberfox:8080/img/openCTI/gitcodeclone.png) 
-
-### Using the terminal to clone your project down
-
-Return to your command prompt and run the command to clone down your project
-
-&nbsp;&nbsp;&nbsp;&nbsp;You will want to type `git clone`, paste the url you just copied, and finally enter the name of the role (following the convention of `<collection name>.<role name>`)
-
-&nbsp;&nbsp;&nbsp;&nbsp;e.g. git clone https://github.com/johnground/cyberfox2077.git pfmd.cyberfox2077 
-
-&nbsp;&nbsp;&nbsp;&nbsp;You will be prompted to enter your username and password
-
-Your role will be downloaded into your /opt/rook-provisioner/local/roles
-
-&nbsp;&nbsp;&nbsp;&nbsp;use `ls` to confirm it exists as expected
-
-![](http://cyberfox:8080/img/openCTI/gitclone.png)  
+   ![GitHub clone URL](http://cyberfox:8080/img/openCTI/gitcodeclone.png) 
 
 ### Adding your Role to the TURBO ROOK UI
 
 Now return to the web browser with Turbo Rook open
 
-Add "**/Admin**" to the end of the URL
+Add "/Admin" to the end of the URL
 
-&nbsp;&nbsp;&nbsp;&nbsp;This opens Turbo Rook's Admin page
+   This opens Turbo Rook's Admin page
 
-![](http://cyberfox:8080/img/openCTI/2.%20TR%20admin%20tab.png)
+![Turbo Rook Admin Tab](http://cyberfox:8080/img/openCTI/2.%20TR%20admin%20tab.png)
 
 On the left sidebar, click on `Software` to open up a drop down menu.
 
-&nbsp;&nbsp;&nbsp;&nbsp;Select `Roles`
+   Select `Roles`
 
-![](http://cyberfox:8080/img/openCTI/3.%20TR%20admin%20software%20roles.png)
+![Turbo Rook Admin Software Roles](http://cyberfox:8080/img/openCTI/3.%20TR%20admin%20software%20roles.png)
 
 In the upper right side of the screen you will see an `+ Add New` button
 
-![](http://cyberfox:8080/img/openCTI/4.%20add%20new%20button.png)
+![Add New Button](http://cyberfox:8080/img/openCTI/4.%20add%20new%20button.png)
 
 When clicked you will be brought to the `Add Role` screen
 
-![](http://cyberfox:8080/img/openCTI/5.%20add%20role%20page.png)
+![Add Role Page](http://cyberfox:8080/img/openCTI/5.%20add%20role%20page.png)
 
-&nbsp;&nbsp;&nbsp;&nbsp;**Role Name**
+- **Role Name**: Human-Readable role name
+- **Ansible Role Location**: The name of the role as saved on disk (`<collection name>.<role name>`)
+- **Description**: Write a description of your role
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Human-Readable role name
+Scroll down. You do not need to enter or adjust any of the following advanced settings:
+- Source URL
+- Source Tag
+- Hypervisor
+- Support Level
+- Supports commercial software licenses
+- Works Offline
+- Manage Role Relationships
+- Load Role from File
 
-&nbsp;&nbsp;&nbsp;&nbsp;**Ansible Role Location**
+Next, select Valid Systems for your Role:
+- For this instance, your role should be set to be valid on both a Server and VM.
+- Under the Server column, select the box next to `Ubuntu 22.04-desktop`.
+- Under the VM column, select the box next to `Ubuntu 22.04-desktop`.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The name of the role as saved on disk (`<collection name>.<role name>`)
+![Valid Systems](http://cyberfox:8080/img/openCTI/6.%20valid%20systems.png)
 
-&nbsp;&nbsp;&nbsp;&nbsp;**Description**
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Write a description of your role
-
-&nbsp;&nbsp;&nbsp;&nbsp;Scroll down
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You do not need to enter or adjust any of the following advanced settings:
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Source URL
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Source Tag
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hypervisor
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Suport Level
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Supports commercial software licenses
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Works Offline
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Manage Role Relationships
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Load Role from File
-
-&nbsp;&nbsp;&nbsp;&nbsp;Next, select Valid Systems for your Role:
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For this instance your role should be set to be valid on both a Server and VM
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Under the Server column select the box next to `Ubuntu 22.04-desktop`
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Under the VM column select the box next to `Ubuntu 22.04-desktop`
-
-![](http://cyberfox:8080/img/openCTI/6.%20valid%20systems.png)
-
-You do not need to set any System Requiremnts for this example
+You do not need to set any System Requirements for this example
 
 You may now scroll to the bottom of the page and click `Save`
 
-![](http://cyberfox:8080/img/openCTI/7.%20add%20role%20save%20button.png)
+![Add Role Save Button](http://cyberfox:8080/img/openCTI/7.%20add%20role%20save%20button.png)
 
 ### You are now ready to Provision a device with your newly added role!
 
 On the top bar of TURBO ROOK click on `Launch Deployment`
 
-&nbsp;&nbsp;&nbsp;&nbsp;For a Deployment Type select `Blank`
+   For a Deployment Type select `Blank`
 
-![](http://cyberfox:8080/img/openCTI/8.%20Launch%20Deployment%20Blank.png)
+![Launch Deployment Blank](http://cyberfox:8080/img/openCTI/8.%20Launch%20Deployment%20Blank.png)
 
 You will be brought to the `Blank Kit` page.
 
-![](http://cyberfox:8080/img/openCTI/9.%20blank%20kit%20page.png)
+![Blank Kit Page](http://cyberfox:8080/img/openCTI/9.%20blank%20kit%20page.png)
 
-&nbsp;&nbsp;&nbsp;&nbsp;Look to the right side of the screen for the ` + Add Machine ` button
+   Look to the right side of the screen for the `+ Add Machine` button
 
-![](http://cyberfox:8080/img/openCTI/10.%20blank%20kit%20add%20machine%20button.png)
+![Blank Kit Add Machine Button](http://cyberfox:8080/img/openCTI/10.%20blank%20kit%20add%20machine%20button.png)
 
-We will now walk throught the `Add Hardware` Pop up
+We will now walk through the `Add Hardware` Pop up
 
-![](http://cyberfox:8080/img/openCTI/11.%20add%20machine%20blank%20page.png)
+![Add Machine Blank Page](http://cyberfox:8080/img/openCTI/11.%20add%20machine%20blank%20page.png)
 
-&nbsp;&nbsp;&nbsp;&nbsp;**Host Name**
+- **Host Name**: Enter your Host Name
+- **Select Machine Type**: Click the box and select `Server` from the dropdown
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enter your Host Name
+![Add Hardware Machine Type](http://cyberfox:8080/img/openCTI/12.%20add%20hardware%20machine%20type.png)
 
-&nbsp;&nbsp;&nbsp;&nbsp;**Select Machine Type**
+   **Select Operating System**
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Click the box and select `Server` from the drop down
+      Click the box and select `ESXi 7 (core)` from the dropdown
 
-![](http://cyberfox:8080/img/openCTI/12.%20add%20hardware%20machine%20type.png)
+![Add Hardware ESXi 7](http://cyberfox:8080/img/openCTI/add%20hardware%20esxi7.png)
 
-&nbsp;&nbsp;&nbsp;&nbsp;**Select Operating System**
+   Turn on the toggle switch for `Existing` to enable the ability to utilize the existing ESXi networking
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Click the box and select `ESXi 7 (core)` from the drop down
+![Existing Turned On](http://cyberfox:8080/img/openCTI/existing%20turned%20on.png)
 
-![](http://cyberfox:8080/img/openCTI/add%20hardware%20esxi7.png)
+   **Hypervisor IP Address**
 
-&nbsp;&nbsp;&nbsp;&nbsp;Turn on the toggle switch for `Existing` to enable the ability to utilize the existing ESXi networking
+      Enter the IP Address of the Server you are going to provision
 
-![](http://cyberfox:8080/img/openCTI/existing%20turned%20on.png)
+   **Hypervisor Username**
 
-&nbsp;&nbsp;&nbsp;&nbsp;**Hypervisor IP Address**
+      Enter the Username for the Existing ESXi
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enter the IP Address of the Server you are going to provision
+   **Hypervisor Password**
 
-&nbsp;&nbsp;&nbsp;&nbsp;**Hypervisor Username**
+      Enter the Password for the Existing ESXi
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enter the Username for the Existing ESXi
+![Hypervisor Information](http://cyberfox:8080/img/openCTI/15.%20Hypervisor%20information.png)
 
-&nbsp;&nbsp;&nbsp;&nbsp;**Hypervisor Password**
+   The rest of the options below are optional and you do not need to fill them in
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enter the Password for the Existing ESXi
+   Scroll down and click the toggle to turn off `Run Eclypsium Scan` and `Wipe Disk Partitions before Deploying Operating Systems`
 
-![](http://cyberfox:8080/img/openCTI/15.%20Hypervisor%20information.png)
+      These are on by default but cannot be run against existing ESXi hypervisors.
 
-&nbsp;&nbsp;&nbsp;&nbsp;The rest of the options below are optional and you do not need to fill them in
+![Eclypsium and Wipe Off](http://cyberfox:8080/img/openCTI/17.%20eclypandwipe%20off.png)
 
-&nbsp;&nbsp;&nbsp;&nbsp;Scroll down and click the toggle to turn off `Run Eclypsium Scan` and `Wipe Disk Partitions before Deploying Operating Systems` 
+   Select `Save`
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;These are on by default but cannot be run against existing ESXi hypervisors.
+![Save Button](http://cyberfox:8080/img/openCTI/18.%20save%20button.png)
 
-![](http://cyberfox:8080/img/openCTI/17.%20eclypandwipe%20off.png)
+   Click `Continue to Roles and VMs`
 
-&nbsp;&nbsp;&nbsp;&nbsp;Select `Save`
+![Server Added Continue Button](http://cyberfox:8080/img/openCTI/19.%20server%20added%20continue%20button.png)
 
-![](http://cyberfox:8080/img/openCTI/18.%20save%20button.png)
+On this screen select `Add New VM` on the left of the screen below your ESXi instance
 
-&nbsp;&nbsp;&nbsp;&nbsp;Click `Continue to Roles and VMs`
+![Roles and VMs Add New VM](http://cyberfox:8080/img/openCTI/21.%20roles%20and%20vms%20add%20new%20vm.png)
 
-![](http://cyberfox:8080/img/openCTI/19.%20server%20added%20continue%20button.png)
+   **Host Name**
 
-On this screen select `Add New VM` on the left of the screen below your ESXI instance
+      Enter your host name
 
-![](http://cyberfox:8080/img/openCTI/21.%20roles%20and%20vms%20add%20new%20vm.png)
+   **Select Operating System**
 
-&nbsp;&nbsp;&nbsp;&nbsp;**Host Name**
+      Click the box and select `Ubuntu 22.04-desktop (beta)` from the dropdown
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enter your host name
+   **Virtual Machine Properties**
 
-&nbsp;&nbsp;&nbsp;&nbsp;**Select Operating System**
+      The Hypervisor dropdown will already be auto-populated with the `ESXi` already entered
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Click the box and select `Ubuntu 22.04-desktop (beta)` from the drop down
+![Add Machine with ESXi](http://cyberfox:8080/img/openCTI/add%20machine%20with%20ESXi.png)
 
-&nbsp;&nbsp;&nbsp;&nbsp;**Virtual Machine Properties**
+   The remaining options are optional and not needed for this example
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Hypervisor drop down will already be auto populated with the `ESXi` already entered
+   Scroll down to the `Select Roles` section
 
-![](http://cyberfox:8080/img/openCTI/add%20machine%20with%20ESXi.png)
+      Here you will select the box next to the following roles:
 
-&nbsp;&nbsp;&nbsp;&nbsp;The remainaing options are optional and not needed for this example
+         `Docker (core)`
 
-&nbsp;&nbsp;&nbsp;&nbsp;Scroll down to the `Select Roles` section
+         `Open CTI`
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Here you will select the box next to the following roles:
+         `YOUR OWN ADDED ROLE`
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`Docker (core)`
+![Roles Selected](http://cyberfox:8080/img/openCTI/roles%20selected.png)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`Open CTI`
+   When completed, click `Save`
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`YOUR OWN ADDED ROLE`
+![Add Machine VM and Save](http://cyberfox:8080/img/openCTI/22.%20add%20machine%20vm%20and%20save.png)
 
-![](http://cyberfox:8080/img/openCTI/roles%20selected.png)
+You can now click on the ESXi machine and a dropdown will populate showing your added VM
 
-&nbsp;&nbsp;&nbsp;&nbsp;When completed, click `Save`
+![Roles and VM Server and VM](http://cyberfox:8080/img/openCTI/23.%20rolesandvm%20server%20and%20vm.png)
 
-![](http://cyberfox:8080/img/openCTI/22.%20add%20machine%20vm%20and%20save.png)
+Now click the button to `Continue to License Management`
 
-You can now click on the ESXi machine and a drop down will populate showing your added VM
-
-![](http://cyberfox:8080/img/openCTI/23.%20rolesandvm%20server%20and%20vm.png)
-
-Now click The button to `Continue to License Management`
-
-![](http://cyberfox:8080/img/openCTI/24.%20Continue%20to%20License%20Management.png)
+![Continue to License Management](http://cyberfox:8080/img/openCTI/24.%20Continue%20to%20License%20Management.png)
 
 You do not need to do anything on this page
 
 Click the button to `Continue to Configuration Settings`
 
-![](http://cyberfox:8080/img/openCTI/26.%20continue%20to%20configuration%20settings.png)
+![Continue to Configuration Settings](http://cyberfox:8080/img/openCTI/26.%20continue%20to%20configuration%20settings.png)
 
-On The `Configuration Settings` Page the only action you need to do is Create and Confirm your defined password for the deployment.
+On the `Configuration Settings` Page the only action you need to do is Create and Confirm your defined password for the deployment.
 
-&nbsp;&nbsp;&nbsp;&nbsp;There is a toggle switch that allows your to `Show Password Consstraints`.
+   There is a toggle switch that allows you to `Show Password Constraints`.
 
-![](http://cyberfox:8080/img/openCTI/PASSWORD.png)
+![Password](http://cyberfox:8080/img/openCTI/PASSWORD.png)
 
 Once you have defined your password you can click the button to the bottom of the page that says `Continue to Review.`
 
-![](http://cyberfox:8080/img/openCTI/28.%20continue%20to%20review.png)
+![Continue to Review](http://cyberfox:8080/img/openCTI/28.%20continue%20to%20review.png)
 
 Now take a moment to Review your Deployment selections, once complete, click `Start Provisioning Deployment.`
 
-![](http://cyberfox:8080/img/openCTI/30.%20Start%20Provisioning%20Deployment.png)
+![Start Provisioning Deployment](http://cyberfox:8080/img/openCTI/30.%20Start%20Provisioning%20Deployment.png)
 
 Select `Accept` on the EULA Agreement to begin.
 
-![](http://cyberfox:8080/img/openCTI/31.%20EULA.png)
+![EULA](http://cyberfox:8080/img/openCTI/31.%20EULA.png)
 
-Lastly you will be brought to the `Build Progress` page where you can monitor the progress of your deployment.
+Lastly, you will be brought to the `Build Progress` page where you can monitor the progress of your deployment.
 
-![](http://cyberfox:8080/img/openCTI/32.%20provisioning.png)
+![Provisioning](http://cyberfox:8080/img/openCTI/32.%20provisioning.png)

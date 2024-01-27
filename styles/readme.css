@@ -51,21 +51,26 @@
 }
 
 .readme-container pre {
-  background: rgba(13, 13, 13, 0.8); /* Slightly transparent dark background for code blocks */
-  border: 1px solid #29fdff; /* Neon blue border for code blocks */
-  box-shadow: 0 0 5px #29fdff, 0 0 10px #29fdff, 0 0 15px #29fdff; /* Neon glow effect for code blocks */
-  color: #ffffff; /* White text for code */
-  padding: 15px; /* Padding inside code blocks */
-  margin-bottom: 20px; /* Space after code blocks */
-  overflow: auto; /* Enable scrolling on overflow */
-  font-family: 'Courier New', Courier, monospace; /* Monospaced font for code */
-  border-radius: 4px; /* Rounded corners for the code blocks */
+  background: rgba(13, 13, 13, 0.9); /* Darker background for better readability */
+  border: 1px solid #29fdff; /* Neon blue border */
+  box-shadow: 0 0 5px #29fdff, 0 0 10px #29fdff, 0 0 15px #29fdff; /* Neon glow */
+  color: #ffffff; /* White text */
+  padding: 15px; /* Padding */
+  margin-bottom: 20px; /* Margin below code blocks */
+  overflow: auto; /* Scrollbar for overflow */
+  font-family: 'Courier New', Courier, monospace; /* Monospace font */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 16px; /* Adjusted font size for readability */
+  line-height: 1.5; /* Increased line height for readability */
+  white-space: pre-wrap; /* Enable word wrapping */
 }
 
 .readme-container code {
-  background: inherit; /* Inherit from parent (for inline code) */
-  padding: 2px 4px; /* Padding for inline code */
-  border-radius: 4px; /* Rounded corners for inline code */
+  background: #0d0d0d; /* Distinct background for inline code */
+  color: #29fdff; /* Neon text color */
+  padding: 2px 4px; /* Padding around inline code */
+  border-radius: 4px; /* Rounded corners */
+  box-shadow: 0 0 5px #29fdff; /* Subtle glow for inline code */
 }
 
 .readme-container blockquote {
