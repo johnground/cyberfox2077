@@ -116,11 +116,7 @@ const Module2 = () => {
       <h2>Mastering the Cyber Hunt: Leveraging Advanced GitLab Features</h2>
       <p><i>(Immersed in a virtual reality interface, CyberFox explores GitLab's advanced features.)</i></p>
       <p>As a cyber threat hunter, mastering these features is akin to refining her arsenal. Advanced issue tracking, merge request approvals, and extensive logging capabilities are vital tools in her quest to maintain digital supremacy and operational efficiency.</p>
-    </section>
-
-    <footer className="module-footer">
-      <p><i>(As the module concludes, CyberFox reflects on her journey, ready for the challenges ahead in the cyber realm.)</i></p>
-    </footer>
+    </section> 
 </div>
 );
 };

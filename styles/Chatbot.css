@@ -17,9 +17,9 @@
 .chatbot-container {
   display: flex;
   flex-direction: column;
-  width: 20%;
+  width: 28%;
   height: 60vh;
-  min-width: 15%;
+  min-width: 22%;
   max-width: 40%;
   position: fixed; /* Fixed position to keep the chatbot in view */
   top: 20vh; /* Position from the top */

@@ -1,7 +1,5 @@
-# Module 6: Beyond Ansible and Git - Turbo Rook Provisioning Engine Ansible Role Deployment
-
-## Preparing Your Environment
-
+# Module 6: Beyond Ansible and Git 
+# Turbo Rook Provisioning Engine Ansible Role Deployment
 ### Accessing the Local Roles Folder
 
 On the Turbo Rook Provisioning Laptop:
