@@ -4,13 +4,32 @@ import '/styles/module.css'; // Ensure the path to your CSS is correct
 const Module4 = () => {
   return (
     <div className="module-container">
-      <header>
         <h1>Module 4: Ansible and Automation - The Symphony of Cybernetic Harmony</h1>
-      </header>
-      <section className="content-section cyberpunk-btn">
-          <p><i>(The electric hum of machinery resonates through the air. CyberFox stands amidst a web of flickering holographic displays, each one pulsing with streams of data.)</i></p>
-          <p>Within the heart of CyberFox's command center, the stage is set for a performance of orchestration unlike any other. Here, Ansible is the maestro, conducting an ensemble of machines with the finesse of a virtuoso. With the power of automation, each task, each deployment, each critical update is executed with precision and grace.</p>
-        </section>
+<section className="content-section cyberpunk-btn">
+  <p><i>(The electric hum of machinery resonates through the air. CyberFox stands amidst a web of flickering holographic displays, each one pulsing with streams of data.)</i></p>
+  <p>Within the heart of CyberFox's command center, the stage is set for a performance of orchestration unlike any other. Here, Ansible is the maestro, conducting an ensemble of machines with the finesse of a virtuoso. With the power of automation, each task, each deployment, each critical update is executed with precision and grace.</p>
+  <p>Observe a foundational Ansible playbook below. It's a script that CyberFox employs to ensure the symphony of machines operates without interruption:</p>
+  <div className="code-block">
+    <pre><code>
+{`---
+- name: Maintain operational harmony
+  hosts: all
+  become: true
+  tasks:
+    - name: Ensure Nginx service is active
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: yes
+    - name: Guarantee PostgreSQL service is active
+      ansible.builtin.service:
+        name: postgresql
+        state: started
+        enabled: yes`}
+    </code></pre>
+  </div>
+  <p><i>In this playbook, CyberFox directs Ansible to engage with every machine in the network ('hosts: all'). Using 'become: true' elevates privileges to ensure the commands have the necessary authority. Each task is a directive to start and enable crucial services — Nginx for web serving and PostgreSQL for database management. This action ensures these services are not just running ('state: started') but also set to start automatically on boot ('enabled: yes'), maintaining the network's harmony and readiness.</i></p>
+</section>
 
         <section className="content-section cyberpunk-btn">
           <h2>Invoking Ansible: The Incantation of Infrastructure</h2>

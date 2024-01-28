@@ -3,7 +3,7 @@
 .cyberpunk-btn {
   --neon-blue: #006effd2; /* Neon blue color */
   --dark-background: rgba(0, 0, 0, 0.8); /* Darker semi-transparent background */
-  --glow-effect: rgba(0, 255, 115, 0.568); /* Cyan glow for effect */
+  --glow-effect: rgba(0, 0, 0, 0.8); /* Neutral glow to match the dark background */
   --space-size: 2rem; /* Size for the space in the clip-path */
   --border-width: 4px; /* Width of the border */
   position: relative;
@@ -12,52 +12,40 @@
   padding: 1rem;
   margin: 1rem auto;
   border-radius: 15px;
-  box-shadow: 0 0 15px var(--glow-effect), 0 0 30px var(--glow-effect);
+  box-shadow: 0 0 15px var(--glow-effect), 0 0 30px var(--glow-effect); /* Adjusted to remove color transition */
   border: var(--border-width) solid var(--neon-blue);
   overflow: hidden;
   clip-path: polygon(0 0, calc(100% - var(--space-size)) 0, 100% var(--space-size), 100% calc(100% - var(--space-size)), calc(100% - var(--space-size)) 100%, var(--space-size) 100%, 0 calc(100% - var(--space-size)));
+  transition: transform 0.2s ease; /* Smooth transition for transform */
 }
 
-.cyberpunk-btn::before {
-  content: '';
-  position: absolute;
-  top: calc(var(--border-width) * -1);
-  left: calc(var(--border-width) * -1);
-  right: calc(var(--border-width) * -1);
-  bottom: calc(var(--border-width) * -1);
-  background: var(--glow-effect);
-  z-index: -1;
-  opacity: 0.6;
-  border-radius: 15px;
-  animation: glitch-effect 2s infinite;
-  display: none;
-}
 
-.cyberpunk-btn:hover::before {
-  display: block;
-}
+
 .module-container img {
-  max-width: 100%;  /* Ensures images are not wider than their container */
-  max-height: 80vh; /* Optionally limits the height of the images */
-  height: auto;     /* Maintains the aspect ratio of the images */
-  display: block;   /* Ensures images are not inline */
-  margin: 1rem auto; /* Centers images with a margin */
-  object-fit: contain; /* Ensures the image is scaled properly within its frame */
+  max-width: 100%;
+  max-height: 80vh;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+  object-fit: contain;
 }
+
 .readme-container img {
-  max-width: 100%;   /* Ensures images are not wider than their container */
-  max-height: 100%;  /* Ensures images are not taller than their container */
-  height: auto;      /* Maintains the aspect ratio of the images */
-  display: block;    /* Ensures images are not inline */
-  margin: 1rem auto; /* Centers images with a margin */
-  object-fit: contain; /* Ensures the image is scaled properly within its frame */
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+  object-fit: contain;
 }
+
 .image-wrapper {
-  text-align: center; /* Center the image */
-  max-width: 100%; /* Limit the width */
-  overflow: hidden; /* Hide overflow */
-  margin: 1rem 0; /* Add some margin */
+  text-align: center;
+  max-width: 100%;
+  overflow: hidden;
+  margin: 1rem 0;
 }
+
 .readme-container {
   line-height: 1.6;
   white-space: pre-wrap;
@@ -69,14 +57,15 @@
   display: block;
   margin: 1rem auto;
 }
-/* Neon orange effect for <p> and <p><i> elements */
+
 p, p i {
-  transition: color 0.3s ease; /* Smooth transition for color change */
+  transition: color 0.3s ease;
 }
 
 p:hover, p:active, p i:hover, p i:active {
-  color: #ff4500; /* Neon orange color */
+  color: #ff4500;
 }
+
 .image-wrapper {
   text-align: center;
   max-width: 100%;
@@ -84,45 +73,18 @@ p:hover, p:active, p i:hover, p i:active {
   margin: 1rem 0;
 }
 
-@keyframes glitch-effect {
-  0%, 100% {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    transform: translate(0);
-  }
-  10%, 20% {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    transform: translate(-5px, 5px);
-  }
-  30%, 40% {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    transform: translate(5px, -5px);
-  }
-  50%, 60% {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    transform: translate(-5px, -5px);
-  }
-  70%, 80% {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    transform: translate(5px, 5px);
-  }
-  90% {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    transform: translate(0px, 0px);
-  }
-}
-
 .header h1 {
   text-align: center;
   margin: 0 auto;
-  color: #00aeff; /* Neon blue for titles */
+  color: #00aeff;
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
-  text-shadow: 0 0 15px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.6); /* Glowing text effect */
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.6);
 }
 
 .module-container {
-  color: #00ff00f8; /* White color for text */
-  background-color: rgba(0, 0, 0, 0.8); /* Darker semi-transparent background */
+  color: #00ff0000;
+  background-color: rgba(0, 0, 0, 0.8);
   font-family: 'Orbitron', sans-serif;
   font-size: 1.2rem;
   line-height: 1.6;
@@ -130,22 +92,8 @@ p:hover, p:active, p i:hover, p i:active {
   padding: 2rem;
   margin: 1rem auto;
   box-shadow: 0 0 15px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.6);
-  border: 1px solid #3700ff; /* Neon blue border */
+  border: 1px solid #3700ff;
   overflow: hidden;
-  border-radius: 15px;
-}
-
-.module-container::before,
-.module-container::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, #006effbe, rgba(0, 0, 0, 0.8));
-  opacity: 0.6;
-  z-index: -1;
   border-radius: 15px;
 }
 
@@ -158,7 +106,6 @@ p:hover, p:active, p i:hover, p i:active {
   opacity: 0.5;
 }
 
-/* Content Section Styling */
 .content section {
   margin-bottom: 2rem;
   max-width: 800px;
@@ -168,7 +115,7 @@ p:hover, p:active, p i:hover, p i:active {
 }
 
 .content h2 {
-  color: #00f6ff; /* Neon blue for headings */
+  color: #00f6ff;
   font-size: 2rem;
   margin-bottom: 0.5rem;
 }
@@ -177,21 +124,20 @@ p:hover, p:active, p i:hover, p i:active {
   text-align: justify;
   hyphens: auto;
   margin-bottom: 1rem;
-  color: #f89009fb; /* White text for content */
+  color: #f89009fb;
 }
 
-/* Code Block Styling */
 .code-block {
-  background-color: rgba(0, 77, 255, 0.3); /* Semi-transparent blue background */
-  border-left: 3px solid #00f6ff; /* Neon blue border */
+  background-color: rgba(0, 77, 255, 0.3);
+  border-left: 3px solid #00f6ff;
   display: inline-block;
-  backdrop-filter: blur(5px); /* Glass effect */
-  border: 1px solid rgba(255, 255, 255, 0.2); /* Light border for glass effect */
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 1rem;
   overflow-x: auto;
   font-family: 'Source Code Pro', monospace;
   margin: 1rem auto;
-  color: #05f124; /* Neon blue for text */
+  color: #05f124;
   font-size: 0.9rem;
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(16, 2, 211, 0.568), 0 0 30px rgba(0, 140, 255, 0.726);
@@ -204,15 +150,14 @@ p:hover, p:active, p i:hover, p i:active {
   white-space: pre-wrap;
 }
 
-/* Additional header styles if needed */
 .content h3 {
   font-size: 1.75rem;
   margin-bottom: 0.5rem;
-  color: #0026ffb7; /* Neon blue for subheadings */
+  color: #0026ffb7;
 }
 
 .content h4 {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
-  color: #0c7af7ef; /* Neon blue for subheadings */
+  color: #0c7af7ef;
 }
