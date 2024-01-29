@@ -3,6 +3,7 @@ import '/styles/BackgroundControl.css'; // Ensure the path to your CSS is correc
 
 // Arrays of your video and image filenames
 const videoFiles = [
+  'cyberfox2077.mp4',
   'redcyberfox.mp4',
   'redcyberfox1.mp4',
   'redcyberfox2.mp4',
