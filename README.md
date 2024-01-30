@@ -115,7 +115,7 @@ Linux Ubuntu 22.04:
 docker-compose up -d
 ```
 
-1. **Once the image is built, Navigate to the Webpage: cyberfox:3000**
+1. **Once the image is built, Navigate to the Webpage: cyberfox:8080**
 
 2. **You should now see the CyberFox-2077 Webpage**
 

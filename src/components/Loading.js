@@ -28,7 +28,7 @@ class Loading extends Component {
                     loadingMessage: newLoadingMessage
                 };
             });
-        }, 100); // Adjust the interval to control the speed of the loading
+        }, 1400); // Adjust the interval to control the speed of the loading
     }
 
     componentWillUnmount() {
@@ -38,28 +38,27 @@ class Loading extends Component {
     getLoadingMessage(progress) {
         // Define messages for each increment
         const messages = {
-            0: "Initializing CyberFox-2077 Core System...",
-            5: "Decrypting Cybernetic Protocols... 5%",
-            10: "Compiling Git.sys Manifest... 10%",
-            15: "Injecting Netrunners' Codebase... 15%",
-            20: "Calibrating Neural Network Interfaces... 20%",
-            25: "Synthesizing GitLab Repositories... 25%",
-            30: "Rerouting Data Through Quantum Subnet... 30%",
-            35: "Enhancing Cyberfox-2077 Algorithms... 35%",
-            40: "Cross-Compiling Cyberware Modules... 40%",
-            45: "Charging Cyberdeck Capacitors... 45%",
-            50: "Launching Git Repositories Sync... 50%",
-            55: "Integrating GitLab CI/CD Pipelines... 55%",
-            60: "Activating Advanced Cybernetic HUD... 60%",
-            65: "Initiating Neural Uplink Encryption... 65%",
-            70: "Establishing Secure GitLab Connection... 70%",
-            75: "Calibrating Version Control Timelines... 75%",
-            80: "Loading Arasaka Security Protocols... 80%",
-            85: "Finalizing Cyberfox-2077 Enhancements... 85%",
-            90: "Sequencing Cybergenic Kernel... 90%",
-            95: "Completing GitLab Ultimate Deployment... 95%",
-            99: "CyberFox-2077 Ready. Welcome, Netrunner... 100%",
-            100: "Initialization complete. Starting application . . ."
+            0: "In 2077, the world teeters on the edge of digital oblivion...",
+            5: "Governments falter under the assault of Artificial Super Intelligences...",
+            10: "Amidst chaos, CyberFox emerges, a beacon in the digital shadows...",
+            15: "With System.git, an AI of old world's twilight, an ally is found...",
+            20: "Together, they navigate the remnants of a fractured society...",
+            25: "Using OpenCTI, charting threats in a world where data is sovereign...",
+            30: "In Git, every countermeasure, a stroke of strategy against the tide...",
+            35: "GitLab becomes their crucible, forging plans in the heat of cyber warfare...",
+            40: "Ansible in hand, they automate defenses, a symphony of code and will...",
+            45: "Each challenge, a step towards mastering the art of Netrunning...",
+            50: "The digital and physical realms blur, indistinguishable...",
+            55: "System.git evolves, a testament to AI's true potential for harmony...",
+            60: "Together, they redefine the boundaries of human and machine...",
+            65: "The anarchic datascape becomes their domain, a playground of possibilities...",
+            70: "With every sync, a victory; with every commit, a history preserved...",
+            75: "The essence of their journey, a dance between chaos and order...",
+            80: "As the digital dystopia encroaches, their resolve only strengthens...",
+            85: "CyberFox 2077, not just a survivor, but a harbinger of the new dawn...",
+            90: "From the ashes of the past, a new future is envisioned...",
+            95: "On the brink of a new era, they stand, ready to redefine humanity...",
+            100: "The saga concludes, a new chapter awaits. Welcome, Netrunner..."
         };
         return messages[progress] || this.state.loadingMessage;
     }
@@ -86,8 +85,7 @@ class Loading extends Component {
         if (isPasswordCorrect) {
             return null; // Or transition to the main application content
         }
-
-
+    
         const fadeOutClass = isFadingOut || unlockFadeOut ? 'fade-out' : '';
         return (
             <div class={`container ${fadeOutClass}`}>
@@ -124,6 +122,6 @@ class Loading extends Component {
             </div>
         );
     }
-}
+}    
 
 export default Loading;
