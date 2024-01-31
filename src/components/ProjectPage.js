@@ -1,41 +1,34 @@
-// ProjectPage.js
+import { h } from 'preact';
+import { useEffect, useState } from 'preact/hooks';
 
-import { h, Component } from 'preact';
+const ProjectPage = () => {
+    const [projects, setProjects] = useState([]); // State to store the list of projects
 
-class ProjectPage extends Component {
-  state = {
-    projects: [],
-    isLoading: true,
-  };
-
-  componentDidMount() {
-    // Fetch projects list from an API or define static data here
-    // This is just a placeholder for how you might start fetching data
-    this.setState({
-      projects: [
-        { id: 1, name: 'CyberFox-2077 Project' }, 
-        // ...other projects
-      ],
-      isLoading: false,
-    });
-  }
-
-  render({ }, { isLoading, projects }) {
-    if (isLoading) {
-      return <div>Loading...</div>;
-    }
+    useEffect(() => {
+        // Fetch the list of projects from the server
+        fetch('/api/projects')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => setProjects(data)) // Update the state with the fetched projects
+            .catch(error => {
+                console.error('Error fetching projects:', error.message);
+            });
+    }, []); // The empty array [] means this effect runs only once when the component mounts
 
     return (
-      <div>
-        <h1>Projects</h1>
-        <ul>
-          {projects.map(project => (
-            <li key={project.id}>{project.name}</li>
-          ))}
-        </ul>
-      </div>
+        <div className="project-page">
+            <h2>Projects</h2>
+            <ul>
+                {projects.map(project => (
+                    <li key={project.name}>{project.name}</li> // Render each project as a list item
+                ))}
+            </ul>
+        </div>
     );
-  }
-}
+};
 
 export default ProjectPage;

@@ -1,6 +1,6 @@
 
 import { h, Component } from 'preact';
-
+import '/styles/ProjectDirectoryComponent.css';
 class ProjectDirectoryComponent extends Component {
   state = {
     directoryContents: [],
@@ -12,7 +12,7 @@ class ProjectDirectoryComponent extends Component {
   }
 
   fetchDirectoryContents() {
-    fetch('/api/list-dir?path=' + encodeURIComponent('/home/cyberfox'))
+    fetch('/api/projects') // Updated to use the correct endpoint
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -27,6 +27,7 @@ class ProjectDirectoryComponent extends Component {
         this.setState({ isLoading: false });
       });
   }
+
 
   render({}, { directoryContents, isLoading }) {
     if (isLoading) {

@@ -1,0 +1,162 @@
+/* module.css */
+/* Cyberpunk Button Glitch Effect */
+.cyberpunk-btn {
+    --neon-blue: #006effd2; /* Neon blue color */
+    --dark-background: rgba(0, 0, 0, 0.8); /* Darker semi-transparent background */
+    --glow-effect: rgba(0, 0, 0, 0.8); /* Neutral glow to match the dark background */
+    --space-size: 2rem; /* Size for the space in the clip-path */
+    --border-width: 4px; /* Width of the border */
+    position: relative;
+    background-color: var(--dark-background);
+    color: var(--neon-blue);
+    padding: 1rem;
+    margin: 1rem auto;
+    border-radius: 15px;
+    box-shadow: 0 0 15px var(--glow-effect), 0 0 30px var(--glow-effect); /* Adjusted to remove color transition */
+    border: var(--border-width) solid var(--neon-blue);
+    overflow: hidden;
+    clip-path: polygon(0 0, calc(100% - var(--space-size)) 0, 100% var(--space-size), 100% calc(100% - var(--space-size)), calc(100% - var(--space-size)) 100%, var(--space-size) 100%, 0 calc(100% - var(--space-size)));
+    transition: transform 0.2s ease; /* Smooth transition for transform */
+  }
+  
+  
+  .module-container img {
+    max-width: 100%;
+    max-height: 80vh;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+    object-fit: contain;
+  }
+  
+  .readme-container img {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+    object-fit: contain;
+  }
+  
+  .image-wrapper {
+    text-align: center;
+    max-width: 100%;
+    overflow: hidden;
+    margin: 1rem 0;
+  }
+  
+  .readme-container {
+    line-height: 1.6;
+    white-space: pre-wrap;
+  }
+  
+  .readme-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+  }
+  
+  p, p i {
+    transition: color 0.3s ease;
+  }
+  
+  p:hover, p:active, p i:hover, p i:active {
+    color: #ff4500;
+  }
+  
+  .image-wrapper {
+    text-align: center;
+    max-width: 100%;
+    overflow: hidden;
+    margin: 1rem 0;
+  }
+  
+  .header h1 {
+    text-align: center;
+    margin: 0 auto;
+    color: #00aeff;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.6);
+  }
+  
+  .module-container {
+    color: #00ff0000;
+    background-color: rgba(0, 0, 0, 0.8);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    position: relative;
+    padding: 2rem;
+    margin: 1rem auto;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.6);
+    border: 1px solid #3700ff;
+    overflow: hidden;
+    border-radius: 15px;
+  }
+  
+  .module-container::before {
+    clip-path: polygon(0 0, calc(100% - 2rem) 0, 100% 2rem, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 2rem 100%, 0 calc(100% - 2rem));
+  }
+  
+  .module-container::after {
+    clip-path: polygon(2rem 0, 100% 0, 100% 100%, 0 100%, 0 2rem);
+    opacity: 0.5;
+  }
+  
+  .content section {
+    margin-bottom: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
+  }
+  
+  .content h2 {
+    color: #00f6ff;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .content p, .content li {
+    text-align: justify;
+    hyphens: auto;
+    margin-bottom: 1rem;
+    color: #f89009fb;
+  }
+  
+  .code-block {
+    background-color: rgba(0, 77, 255, 0.3);
+    border-left: 3px solid #00f6ff;
+    display: inline-block;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1rem;
+    overflow-x: auto;
+    font-family: 'Source Code Pro', monospace;
+    margin: 1rem auto;
+    color: #05f124;
+    font-size: 0.9rem;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(16, 2, 211, 0.568), 0 0 30px rgba(0, 140, 255, 0.726);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  .code-block code {
+    display: inline-block;
+    white-space: pre-wrap;
+  }
+  
+  .content h3 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: #0026ffb7;
+  }
+  
+  .content h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #0c7af7ef;
+  }

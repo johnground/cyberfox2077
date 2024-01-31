@@ -13,8 +13,8 @@ import Module4 from './CourseModules/Module4';
 import Module5 from './CourseModules/Module5';
 import READMEComponent from './READMEComponent';
 import Home from './Home';
-import ProgressPage from './ProgressPage';
 import ProjectPage from './ProjectPage';
+import ProgressPage from './ProgressPage';
 import AnsiblePage from './AnsiblePage';
 import GitCheatSheet from './GitCheatSheet';
 import Loading from './Loading';
@@ -99,7 +99,7 @@ export default class App extends Component {
                             <Home path="/" />
                             <ProgressPage path="/progress" />
                             <ProjectDirectoryComponent path="/project" />
-                            <ProjectPage path="/project" />
+                            <ProjectPage path="/projects" />
                             <AnsiblePage path="/ansible" />
                             <Module1 path="/module/1" />
                             <Module2 path="/module/2" />

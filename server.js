@@ -89,7 +89,17 @@ io.on('connection', (socket) => {
         console.log('user disconnected');
     });
 });
-
+const listDirectoryContents = (dirPath, callback) => {
+    fs.readdir(dirPath, (err, files) => {
+      if (err) {
+        console.error(`Error reading directory ${dirPath}:`, err);
+        return callback(err, null);
+      }
+      callback(null, files.map(file => ({ name: file })));
+    });
+  };
+  
+ 
 // Route for serving README.md
 app.get('/api/readme', (req, res) => {
     fs.readFile(path.join(__dirname, 'README.md'), 'utf8', (err, data) => {
@@ -112,6 +122,18 @@ app.get('/api/module6-readme', (req, res) => {
     });
 });
 
+app.get('/api/projects', (req, res) => {
+    const projectsDir = '/home/cyberfox/projects';
+    fs.readdir(projectsDir, (err, files) => {
+        if (err) {
+            console.error('Error reading projects directory:', err);
+            return res.status(500).send('Unable to list projects');
+        }
+        const projectFiles = files.map(file => ({ name: file }));
+        res.json(projectFiles);
+    });
+});
+
 // File upload route with error handling
 app.post('/api/upload', upload.single('file'), (req, res, next) => {
     if (!req.file) {
@@ -123,12 +145,23 @@ app.post('/api/upload', upload.single('file'), (req, res, next) => {
     res.status(500).send({ error: error.message });
 });
 
-// Catch-all route to serve index.html for non-API requests
-app.get('*', (req, res) => {
-    res.sendFile(path.join('/home/cyberfox', 'index.html'));
+app.get('*', (req, res, next) => {
+    // Check if the request Accept header expects HTML
+    if (req.headers.accept.includes('text/html')) {
+        res.sendFile(path.join('/home/cyberfox', 'index.html'));
+    } else {
+        // If not expecting HTML, pass to next middleware (which could be a 404 handler)
+        next();
+    }
+});
+
+// Add a 404 handler for any unhandled routes (optional, but good practice)
+app.use((req, res, next) => {
+    res.status(404).send({ error: "Not Found" });
 });
 
 const PORT = 3000;
 server.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+// In server.js
