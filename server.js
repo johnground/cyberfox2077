@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const multer = require('multer');
 const { spawn } = require('node-pty');
 const os = require('os');
 const app = express();
@@ -15,6 +16,17 @@ app.use(cors());
 
 // Serve static files from /home/cyberfox
 app.use(express.static('/home/cyberfox'));
+
+const storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+      cb(null, '/home/cyberfox/uploads');
+    },
+    filename: function(req, file, cb) {
+      cb(null, file.originalname);
+    }
+});
+
+const upload = multer({ storage: storage });
 
 // Initialize Socket.IO server with CORS options
 const io = new Server(server, {
@@ -99,6 +111,18 @@ app.get('/api/module6-readme', (req, res) => {
         res.type('text/plain').send(data);
     });
 });
+
+// File upload route with error handling
+app.post('/api/upload', upload.single('file'), (req, res, next) => {
+    if (!req.file) {
+        return res.status(400).send('No file uploaded.');
+    }
+    res.json({ message: 'File uploaded successfully.', fileName: req.file.originalname });
+}, (error, req, res, next) => {  // Error handling middleware for file upload route
+    console.error("Error during file upload:", error);
+    res.status(500).send({ error: error.message });
+});
+
 // Catch-all route to serve index.html for non-API requests
 app.get('*', (req, res) => {
     res.sendFile(path.join('/home/cyberfox', 'index.html'));

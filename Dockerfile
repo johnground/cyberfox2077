@@ -42,6 +42,7 @@ WORKDIR /home/cyberfox
 
 # Change ownership of the home directory
 RUN chown -R cyberfox:cyberfox /home/cyberfox
+RUN mkdir -p /home/cyberfox/uploads && chown -R cyberfox:cyberfox /home/cyberfox/uploads
 
 # Setup Openbox for X11
 RUN echo "exec openbox-session" > /etc/X11/xinit/xinitrc

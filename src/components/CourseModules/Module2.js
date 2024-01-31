@@ -93,11 +93,30 @@ const Module2 = () => {
     </section>
 
 
-      <section className="content-section cyberpunk-btn">
-      <h2>The Art of Cyber Warfare: Mastery of GitLab's CI/CD</h2>
-      <p><i>(The dashboard becomes a strategic battle map as CyberFox delves into GitLab's CI/CD tools.)</i></p>
-      <p>These tools are the front line of her cyber warfare, automating code testing to ensure resilience and strength. She configures her .gitlab-ci.yml, setting stages and jobs for testing and deployment, fortifying her code against vulnerabilities.</p>
-    </section>
+    <section className="content-section cyberpunk-btn">
+        <h2>The Art of Cyber Warfare: Mastery of GitLab's CI/CD</h2>
+        <p><i>(The dashboard becomes a strategic battle map as CyberFox configures the CI/CD pipeline.)</i></p>
+        <p>CyberFox begins by initializing a new project on GitLab, aptly named 'CyberShield'. With the project ready, she embarks on crafting the '.gitlab-ci.yml' file, the heart of GitLab's CI/CD pipeline.</p>
+        
+        <div className="code-block">
+          <code>
+            stages: ['build', 'test', 'deploy']<br />
+            build-job:<br />
+            &nbsp; stage: build<br />
+            &nbsp; script: echo "Building the project..."<br />
+            test-job:<br />
+            &nbsp; stage: test<br />
+            &nbsp; script: echo "Running tests..."<br />
+            deploy-job:<br />
+            &nbsp; stage: deploy<br />
+            &nbsp; script: echo "Deploying to staging environment..."
+          </code>
+        </div>
+        
+        <p>With the '.gitlab-ci.yml' file committed, the pipeline springs into action. The build job assembles the project, followed by the test job validating the integrity of the code. Finally, the deploy job simulates pushing the project to a staging environment, showcasing the seamless flow of CI/CD in action.</p>
+        <p><i>CyberFox reviews the pipeline execution within GitLab's UI, demonstrating the automated processes to her Netrunner allies. Each stage is marked by green checkmarks, symbolizing the successful completion of the pipeline, a testament to the prowess of GitLab's CI/CD capabilities in fortifying their cyber operations.</i></p>
+      </section>
+
 
 
       <section className="content-section cyberpunk-btn">
