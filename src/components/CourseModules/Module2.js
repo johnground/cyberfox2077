@@ -56,7 +56,7 @@ const Module2 = () => {
         gitlab/gitlab-ce:latest
       </code>
     </div>
-    <li>Access GitLab at <a href="http://localhost/users/sign_in" target="_blank">http://localhost/users/sign_in</a>.</li>
+    <li>Access GitLab at <a href="http://cyberfox/users/sign_in" target="_blank">http://cyberfox/users/sign_in</a>.</li>
   </ol>
   <p><i>(Turning to her AI companion, System.git, CyberFox inquires about the GitLab initialization time.)</i></p>
   <p>"System.git, what should our Netrunners expect in terms of initialization time for our new GitLab instance?" CyberFox asks.</p>
