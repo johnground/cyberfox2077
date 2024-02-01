@@ -6,6 +6,9 @@ Welcome to CyberFox-2077, a cyberpunk-themed training program designed to teach 
 
 CyberFox-2077 is a comprehensive training program divided into six modules. Each module is crafted to guide learners through various aspects of Git, GitLab, and Ansible, with a special emphasis on applying these skills to OpenCTI projects.
 
+**IMPORTANT WSL NOTE**
+Windows Subsystem for linux (WSL) is not supported for this course, if you choose to use it, you incur all troubleshooting and configurations. Please use a native linux environment or a virtual machine running a linux distribution.
+
 ## Prerequisites
 1. Basic understanding of command line interfaces and text editors.
 2. Installation of Git and Docker on your machine.
@@ -58,6 +61,7 @@ git config --global user.email "CyberFox@2077.git"
 
 ```bash
 sudo apt update && sudo apt install -y apt-transport-https ca-certificates curl software-properties-common && curl -fsSL https://get.docker.com | sudo bash - && sudo usermod -aG docker $USER && sudo systemctl enable docker && sudo systemctl start docker && source ~/.bashrc
+sudo apt install -y docker-compose
 ```
 
 
