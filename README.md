@@ -16,7 +16,7 @@ CyberFox-2077 is a comprehensive training program divided into six modules. Each
 
 # Installing Git on Ubuntu 22.04 LTS
 
-Please note that this code assumes you have administrative privileges (`sudo`) and the `apt` package manager is available on your system.
+Please note that this code assumes you have administrative privileges (`sudo`) and the `apt` package manager is available on your system. For the purpose of this course this script is merely demonstrative and helps you to install git and configure your user name and email. Howeever, we will be configuring our unique user name and email with CyberFox creds for the purpose of this course.
 
 ``` bash
 sudo apt update && apt install git -y && git --version && git config --global user.name "Your Name" && git config --global user.email  
@@ -59,27 +59,7 @@ git config --global user.email "CyberFox@2077.git"
 ```bash
 sudo apt update && sudo apt install -y apt-transport-https ca-certificates curl software-properties-common && curl -fsSL https://get.docker.com | sudo bash - && sudo usermod -aG docker $USER && sudo systemctl enable docker && sudo systemctl start docker && source ~/.bashrc
 ```
-# Installing Docker on Windows
 
-1. Go to the official Docker website (https://www.docker.com/products/docker-desktop) and download Docker Desktop for Windows.
-
-2. Once the download is complete, double-click the installer to start the installation process.
-
-3. Follow the on-screen instructions to complete the installation. During the installation, Docker Desktop may require you to enable Hyper-V and Windows Subsystem for Linux (WSL) features. Make sure to enable these features if prompted.
-
-4. After the installation is finished, Docker Desktop will start automatically. You will see a Docker icon in the system tray.
-
-5. Click on the Docker icon in the system tray to open Docker Desktop. It may take a few moments to start up.
-
-6. Once Docker Desktop is running, you can verify the installation by opening a command prompt or PowerShell window and running the following command:
-
-    ```bash
-    docker version
-    ```
-
-    This command will display the version of Docker installed on your system.
-
-7. Congratulations! Docker is now installed on your Windows machine. You can start using Docker to run containers and manage your development environments.
 
 ## Course Modules
 
