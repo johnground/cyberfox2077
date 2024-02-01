@@ -13,21 +13,6 @@ On the Turbo Rook Provisioning Laptop:
 
    ![Terminal access to local roles folder](http://cyberfox:8080/img/openCTI/1.%20Terminal%20optrook.png)
 
-### Cloning Your Ansible Role from GitHub
-
-1. Launch Firefox and navigate to GitHub to locate your Ansible role.
-
-   https://github.com/"YOUR_ROLE_HERE"
-
-   Replace "YOUR_ROLE_HERE" with your specific role path.
-
-2. To clone the role, find the cloning URL:
-
-   - Click on the green `<> Code` button.
-   - Copy the HTTPS URL displayed.
-
-   ![GitHub clone URL](http://cyberfox:8080/img/openCTI/gitcodeclone.png) 
-
 ### Adding your Role to the TURBO ROOK UI
 
 Now return to the web browser with Turbo Rook open
@@ -52,8 +37,8 @@ When clicked you will be brought to the `Add Role` screen
 
 ![Add Role Page](http://cyberfox:8080/img/openCTI/5.%20add%20role%20page.png)
 
-- **Role Name**: Human-Readable role name
-- **Ansible Role Location**: The name of the role as saved on disk (`<collection name>.<role name>`)
+- **Role Name**: Human-Readable role name (`cyberfox opencti`)
+- **Ansible Role Location**: The name of the role as saved on disk (`cyberfox.opencti`)
 - **Description**: Write a description of your role
 
 Scroll down. You do not need to enter or adjust any of the following advanced settings:
@@ -68,8 +53,8 @@ Scroll down. You do not need to enter or adjust any of the following advanced se
 
 Next, select Valid Systems for your Role:
 - For this instance, your role should be set to be valid on both a Server and VM.
-- Under the Server column, select the box next to `Ubuntu 22.04-desktop`.
-- Under the VM column, select the box next to `Ubuntu 22.04-desktop`.
+- Under the Server column, select the box next to `Rocky 9`.
+- Under the VM column, select the box next to `Rocky 9`.
 
 ![Valid Systems](http://cyberfox:8080/img/openCTI/6.%20valid%20systems.png)
 
@@ -128,6 +113,8 @@ We will now walk through the `Add Hardware` Pop up
 
 ![Hypervisor Information](http://cyberfox:8080/img/openCTI/15.%20Hypervisor%20information.png)
 
+   Below the Hypervisor password, click the `Get ESXi Hardware Information` to validate the login credentials and grab the info from ESXi
+
    The rest of the options below are optional and you do not need to fill them in
 
    Scroll down and click the toggle to turn off `Run Eclypsium Scan` and `Wipe Disk Partitions before Deploying Operating Systems`
@@ -154,7 +141,7 @@ On this screen select `Add New VM` on the left of the screen below your ESXi ins
 
    **Select Operating System**
 
-      Click the box and select `Ubuntu 22.04-desktop (beta)` from the dropdown
+      Click the box and select `Rocky 9` from the dropdown
 
    **Virtual Machine Properties**
 
@@ -170,9 +157,7 @@ On this screen select `Add New VM` on the left of the screen below your ESXi ins
 
          `Docker (core)`
 
-         `Open CTI`
-
-         `YOUR OWN ADDED ROLE`
+         `Cyberfox Opencti`
 
 ![Roles Selected](http://cyberfox:8080/img/openCTI/roles%20selected.png)
 
@@ -194,13 +179,15 @@ Click the button to `Continue to Configuration Settings`
 
 ![Continue to Configuration Settings](http://cyberfox:8080/img/openCTI/26.%20continue%20to%20configuration%20settings.png)
 
-On the `Configuration Settings` Page the only action you need to do is Create and Confirm your defined password for the deployment.
+On the `Configuration Settings` Create and Confirm your defined password for the deployment.
 
    There is a toggle switch that allows you to `Show Password Constraints`.
 
 ![Password](http://cyberfox:8080/img/openCTI/PASSWORD.png)
 
-Once you have defined your password you can click the button to the bottom of the page that says `Continue to Review.`
+Set the `Amount of RAM` to `8` and the `HDD Capacity` to 100
+
+Once you have defined your parameters you can click the button to the bottom of the page that says `Continue to Review.`
 
 ![Continue to Review](http://cyberfox:8080/img/openCTI/28.%20continue%20to%20review.png)
 
