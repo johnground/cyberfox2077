@@ -84,7 +84,7 @@ We will now walk through the `Add Hardware` Pop up
 
 ![Add Machine Blank Page](http://cyberfox:8080/img/openCTI/11.%20add%20machine%20blank%20page.png)
 
-- **Host Name**: Enter your Host Name
+- **Host Name**: Enter your Host Name `cyberfox-opencti`
 - **Select Machine Type**: Click the box and select `Server` from the dropdown
 
 ![Add Hardware Machine Type](http://cyberfox:8080/img/openCTI/12.%20add%20hardware%20machine%20type.png)
@@ -105,11 +105,12 @@ We will now walk through the `Add Hardware` Pop up
 
    **Hypervisor Username**
 
-      Enter the Username for the Existing ESXi
-
+      Enter the Username for the Existing ESXi:
+      root
    **Hypervisor Password**
 
-      Enter the Password for the Existing ESXi
+      Enter the Password for the Existing ESXi:
+      M@sterpassword123
 
 ![Hypervisor Information](http://cyberfox:8080/img/openCTI/15.%20Hypervisor%20information.png)
 
@@ -138,7 +139,7 @@ On this screen select `Add New VM` on the left of the screen below your ESXi ins
    **Host Name**
 
       Enter your host name
-
+      cyberfox-opencti-vm
    **Select Operating System**
 
       Click the box and select `Rocky 9` from the dropdown
