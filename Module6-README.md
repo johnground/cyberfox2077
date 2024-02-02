@@ -9,9 +9,10 @@ On the Turbo Rook Provisioning Laptop:
 
    cd /opt/rook-provisioner/local/roles
 
-   Note: Local roles will override the roles used by Rook Engine by default.
+   Note: Local roles will override the roles used by Rook Engine by default. This is where we would add custom roles, however we have already added the `cyberfox.opencti` role to the Rook Engine.
+   **your Credentials are as follows in the image below**
 
-   ![Terminal access to local roles folder](http://cyberfox:8080/img/openCTI/1.%20Terminal%20optrook.png)
+   ![creds](http://cyberfox:8080/img/openCTI/creds.png)
 
 ### Adding your Role to the TURBO ROOK UI
 
@@ -101,7 +102,7 @@ We will now walk through the `Add Hardware` Pop up
 
    **Hypervisor IP Address**
 
-      Enter the IP Address of the Server you are going to provision
+      Enter the IP Address of the Server you are going to provision, if you are virtual we have hardcoded the IP address to `172.16.2.2` if you are are at PurpleForge, you can use the ipaddress issued to you by the TurboRook Provisioning Solutiomn.
 
    **Hypervisor Username**
 
@@ -147,6 +148,9 @@ On this screen select `Add New VM` on the left of the screen below your ESXi ins
    **Virtual Machine Properties**
 
       The Hypervisor dropdown will already be auto-populated with the `ESXi` already entered
+
+   **Add Additional NICs**
+      Choose VM Network from the dropdown
 
 ![Add Machine with ESXi](http://cyberfox:8080/img/openCTI/add%20machine%20with%20ESXi.png)
 
@@ -200,6 +204,15 @@ Select `Accept` on the EULA Agreement to begin.
 
 ![EULA](http://cyberfox:8080/img/openCTI/31.%20EULA.png)
 
-Lastly, you will be brought to the `Build Progress` page where you can monitor the progress of your deployment.
+You will be brought to the `Build Progress` page where you can monitor the progress of your deployment.
 
 ![Provisioning](http://cyberfox:8080/img/openCTI/32.%20provisioning.png)
+
+Whenyou are finished with the deployment you will be given a `Finished Deployment` screen with an IP Address to access your newly provisioned openCTI instance.
+![finisheddeployment](http://cyberfox:8080/img/openCTI/finisheddeployment.png)
+
+go to the IP address and you will be greeted with the openCTI login screen
+![loginscreen](http://cyberfox:8080/img/openCTI/loginscreen.png)
+
+You have now successfully provisioned a device with your newly added role! 
+```

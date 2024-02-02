@@ -62,7 +62,10 @@ git config --global user.email "CyberFox@2077.git"
 ```bash
 sudo apt update && sudo apt install -y apt-transport-https ca-certificates curl software-properties-common && curl -fsSL https://get.docker.com | sudo bash - && sudo usermod -aG docker $USER && sudo systemctl enable docker && sudo systemctl start docker && source ~/.bashrc
 sudo apt install -y docker-compose
+sudo usermod -aG docker cyberfox
 ```
+After you install docker, you will need to log out and log back in to apply the changes to your user group. You can also use the following command to apply the changes without logging out:
+
 
 
 ## Course Modules

@@ -145,22 +145,46 @@ const Module5 = () => {
           <h2>Integrating Ansible with OpenCTI for Streamlined Operations</h2>
           <p>With the OpenCTI platform now in place, CyberFox focuses on integrating Ansible for continuous automation and monitoring. The playbook becomes a vital tool, managing configurations and updates seamlessly.</p>
         </section>
+        
         <section className="content-section cyberpunk-btn">
-  <h2>The Cybernetic Symphony: Integrating ThreatFox</h2>
-  <p><i>(CyberFox, determined to enhance her network's threat intelligence, decides to integrate the ThreatFox connector into OpenCTI. This requires updating the environment configuration using the Jinja2 template.)</i></p>
-  
-  <p>“To weave this new stream of intelligence into our digital tapestry, we must update our environment settings,” CyberFox muses. She pulls up the `env.j2` file, a Jinja2 template that dynamically configures her OpenCTI environment.</p>
+        <h2>The Awakening of the Digital Sentinel</h2>
+        <p>As the digital forge of OpenCTI hums with newfound life, CyberFox stands amidst the glow of cascading data streams. "The symphony is incomplete," she muses, "for a sentinel must awaken to guard the gates of our cyber realm."</p>
+      </section>
 
-  <p>She adds the necessary entries for the ThreatFox connector:</p>
-  <pre><code className="code-block">
-    {`THREATFOX_CONNECTOR_ID={{ lookup('community.general.random_string') | ansible.builtin.to_uuid }}
-      THREATFOX_API_KEY={{ threatfox_api_key }}`}
-  </code></pre>
+      <section className="content-section cyberpunk-btn">
+        <h2>Summoning the Sentinel</h2>
+        <p>"In the heart of our digital domain," CyberFox declares, "we must inscribe the runes that will call forth the sentinel." She weaves the incantations into the `env.j2` template:</p>
+        <pre><code className="code-block">{`
+          # Engraving the Sentinel's Runes
+          THREATFOX_CONNECTOR_ID={{ "{{" }} lookup('community.general.random_string') | ansible.builtin.to_uuid {{ "}}" }}
+          THREATFOX_API_KEY={{ "{{" }} lookup('community.general.random_string') | ansible.builtin.to_uuid {{ "}}" }}
+        `}</code></pre>
+        </section>
 
-  <p>“With these entries, the ThreatFox connector will seamlessly integrate into our OpenCTI platform, enriching it with real-time threat intelligence,” she declares, updating the file.</p>
+      <section className="content-section cyberpunk-btn">
+        <h2>The Sentinel's Covenant</h2>
+        <p>With the runes inscribed, CyberFox prepares to forge the covenant. "This covenant," she proclaims, "will be our shield against the storms of chaos."</p>
+        <pre><code className="code-block">
+          # The Sentinel's Awakening
+          - name: Integrate ThreatFox Connector
+            hosts: openctihost
+            tasks:
+              - name: Engrave the Sentinel's Runes
+                ansible.builtin.template:
+                  src: env.j2
+                  dest: /opt/opencti/.env
+        </code></pre>
+      </section>
 
-  <p><i>(After saving the changes to the `env.j2` template, CyberFox prepares to redeploy her OpenCTI environment, anticipating the influx of critical threat data from ThreatFox.)</i></p>
-</section>
+      <section className="content-section cyberpunk-btn">
+        <h2>The Convergence</h2>
+        <p>"Awaken, sentinel, and take your place among the guardians of our realm," CyberFox commands, initiating the playbook that integrates the sentinel into OpenCTI.</p>
+      </section>
+
+      <section className="content-section cyberpunk-btn">
+        <h2>Epilogue: The Symphony of Guardians</h2>
+        <p>The command center stands as a testament to CyberFox's mastery over the digital realm, now safeguarded by the vigilant sentinel - the ThreatFox connector.</p>
+      </section>
 
 
         {/* Section: Advanced Ansible Strategies */}
