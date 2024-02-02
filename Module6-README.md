@@ -1,32 +1,34 @@
 # Module 6: Beyond Ansible and Git 
-# Turbo Rook Provisioning Engine Ansible Role Deployment
-### Accessing the Local Roles Folder
+##Turbo Rook Provisioning Engine Ansible Role Deployment
+## Accessing the Local Roles Folder
 
-On the Turbo Rook Provisioning Laptop:
+**On the Turbo Rook Provisioning Laptop:**
 
-1. Open a terminal.
+1. Open a terminal window
 2. Navigate to the local roles directory:
 
-   cd /opt/rook-provisioner/local/roles
+   ``cd /opt/rook-provisioner/local/roles``
 
-   Note: Local roles will override the roles used by Rook Engine by default. This is where we would add custom roles, however we have already added the `cyberfox.opencti` role to the Rook Engine.
+   ``Note: Local roles will override the roles used by Rook Engine by default. This is where we would add custom roles, however we have already added the `cyberfox.opencti` role to the Rook Engine.``
+
    **your Credentials are as follows in the image below**
 
    ![creds](http://cyberfox:8080/img/openCTI/creds.png)
 
 ### Adding your Role to the TURBO ROOK UI
 
-Now return to the web browser with Turbo Rook open
+Now return to the web browser with Turbo Rook open the web browser and navigate to the Turbo Rook UI
 
 Add "/Admin" to the end of the URL
+```htts://turborook/admin```
 
-   This opens Turbo Rook's Admin page
+   This opens Turbo Rook's Admin page, carefully follow the steps below to add your role to the Turbo Rook UI.
 
 ![Turbo Rook Admin Tab](http://cyberfox:8080/img/openCTI/2.%20TR%20admin%20tab.png)
 
 On the left sidebar, click on `Software` to open up a drop down menu.
 
-   Select `Roles`
+Select `Roles`
 
 ![Turbo Rook Admin Software Roles](http://cyberfox:8080/img/openCTI/3.%20TR%20admin%20software%20roles.png)
 
@@ -214,5 +216,17 @@ Whenyou are finished with the deployment you will be given a `Finished Deploymen
 go to the IP address and you will be greeted with the openCTI login screen
 ![loginscreen](http://cyberfox:8080/img/openCTI/loginscreen.png)
 
+Enter the credentials you created in the configuration settings and you will be greeted with the openCTI dashboard:
+```username: cyberfox@system.git```
+```password: masterpassword ```
+
 You have now successfully provisioned a device with your newly added role! 
-```
+Current state of the openCTI dashboard will show that there are no entities or relationships. this is because we have not yet added any data to the openCTI instance. additional connectors would need to be added to the openCTI instance to begin adding data to the dashboard. In our capstone we have demonstrated how to develop a role for the Automated provisioning of openCTI through the TurbRook Provisioning Engine. 
+
+I would like to thank you for taking the time to go through this capstone with us. I hope you have learned a lot and have enjoyed the experience. If this is a course that you would like to see repeated and refined or even adapted to another use case, please let CNMF leadership know. 
+
+In the Spirit of Continuous Improvement, and longenvity of the CNMF Mission, I will push this content to the Purple Forge GitLab for future use.
+```https://code.levelup.cce.af.mil/purpleforge/CNMF_Group/purpleforge```
+
+
+Thank you for your time and attention.
