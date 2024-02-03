@@ -8,22 +8,24 @@
 }
 
 .xterm {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 14px; /* Adjust the size as needed */
-    line-height: 1.4;
-    background-color: #1e1e1e; /* Dark background for contrast */
-    color: #ffffff; /* Bright text for readability */
+    font-family: 'Courier New', Courier, monospace !important;
+    font-size: 16px !important; /* Increased from 14px to 16px */
+    line-height: 1.4 !important;
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
 }
 
-
-.xterm .xterm-selection div {
-    background-color: rgba(41, 251, 255, 0); /* Transparent neon selection */
+.terminal, .terminal__wrapper, .xterm, .xterm-viewport, .xterm-screen {
+    padding: 0;
+    margin: 0;
 }
+.xterm .xterm-selection .xterm-cursor-layer {
+    background-color: transparent !important; /* Make the cursor background transparent during selection */
+}
+
 
 .xterm .xterm-cursor-layer .xterm-cursor {
-    background-color: #29fdff; /* Neon blue cursor */
-    /* Add a glow to the cursor if desired */
-    box-shadow: 0 0 5px #29fdff, 0 0 10px #29fdff;
+    mix-blend-mode: difference; /* This will ensure the cursor stands out on the text selection */
 }
 
 .xterm .composition-view.active {
@@ -42,13 +44,20 @@
     bottom: 0;
     scrollbar-color: #29fdff #101010; /* Neon blue scrollbar */
     padding-left: 10px; /* Add padding on the left */
-    padding-bottom: 20px;
+    padding-bottom: 30px;
 }
 
 .xterm .xterm-screen {
     position: relative;
 }
 
+.terminal__wrapper, .xterm-viewport, .xterm-screen {
+    width: 100%; /* Full width for inner terminal elements */
+}
+.xterm .xterm-viewport, .xterm .xterm-screen, .xterm-rows {
+    /* Your existing styles */
+    white-space: nowrap; /* Prevent text wrapping to use horizontal space efficiently */
+}
 .xterm .xterm-screen canvas {
     position: absolute;
     left: 0;
@@ -102,8 +111,8 @@
 }
 
 .xterm-dim {
-    opacity: 0.5; /* Dimmed text */
-    text-shadow: 0 0 5px rgba(0, 0, 255, 0.2); /* Add a subtle shadow for dimmed text */
+    opacity: 1 !important; /* Full opacity */
+    text-shadow: none !important; /* Remove any shadow for dimmed text */
 }
 
 .xterm-underline {
@@ -217,12 +226,7 @@
     font-family: 'Orbitron', sans-serif; /* Cyberpunk font for terminal */
     font-size: 1.4em; /* Increased font size */
     /* Neon glow with multiple layers for a deeper effect */
-    text-shadow:
-        0 0 3px #29fdff, /* Innermost light blue glow */
-        0 0 5px #29fdff, /* Middle blue glow */
-        0 0 8px #29fdff, /* Outer blue glow */
-        0 0 10px #29fdff, /* Further glow for a deep neon effect */
-        0 0 15px #29fdff; /* Farthest subtle glow */
+    width: 100%;
     margin-bottom: 20px;
 }
 /* Additional custom styles for xterm.js elements not listed may go here */
@@ -296,30 +300,18 @@
     border-color: #ffffff !important; /* Optionally set a border color for the cursor */
 }
 
-/* Selection styles */
-.xterm .xterm-selection div {
-    background-color: rgba(255, 255, 255, 0.3) !important; /* Visible selection color */
-}
 
 /* Scrollbar styles */
 .xterm-viewport {
     scrollbar-color: #6c6c6c #2d2d2d !important; /* Scrollbar color similar to Ubuntu */
 }
 
-/* Specific text styles */
-.xterm-dim {
-    opacity: 0.5 !important; /* Dimmed text for less important content */
-}
 
 .xterm-underline {
     text-decoration: underline !important;
 }
 
-/* Ensuring visibility for text selection */
-::selection {
-    background: #ffffff !important; /* White text selection for high contrast */
-    color: #000000 !important;
-}
+
 
 /* Improve readability of bold text */
 .xterm-bold {
@@ -335,3 +327,44 @@
 .xterm .xterm-viewport {
     padding-bottom: 30px !important;
 }
+
+.xterm-dim, 
+.xterm-underline, 
+.xterm-overline, 
+.xterm-strikethrough,
+.xterm-bold {
+    opacity: 1 !important; /* Full opacity */
+    color: #38f40e !important; /* Neon green color for all text */
+    text-shadow: none !important; /* Remove any shadow for text */
+    text-decoration-color: #38f40e !important; /* Neon green for underlines and strikethroughs */
+}
+
+.xterm {
+    font-family: 'Courier New', Courier, monospace !important;
+    font-size: 16px !important; /* Increase font size slightly */
+    line-height: 1.4 !important;
+    background-color: #1e1e1e !important; /* Dark background for contrast */
+    color: #38f40e !important; /* Neon green text for readability */
+}
+.xterm .xterm-viewport,
+.xterm .xterm-screen,
+.xterm .xterm-rows,
+.xterm .xterm-dim,
+.xterm .xterm-underline,
+.xterm .xterm-overline,
+.xterm .xterm-strikethrough,
+.xterm .xterm-bold {
+    color: #38f40e !important; /* Neon green color for all text */
+    opacity: 1 !important; /* Full opacity */
+    text-shadow: none !important; /* No shadow for text */
+    text-decoration-color: #38f40e !important; /* Neon green for underlines and strikethroughs */
+}
+.xterm .xterm-selection div {
+    background-color: rgba(41, 251, 255, 0.3) !important;
+    color: #000 !important;
+} 
+
+::selection {
+    background: #ffffff !important;
+    color: #000000 !important;
+} 

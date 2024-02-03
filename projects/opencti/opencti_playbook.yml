@@ -57,4 +57,4 @@
     - name: Start the opencti service
       shell:
         cmd: "docker compose up -d"
-        chdir: /opt/openct
+        chdir: /opt/opencti
