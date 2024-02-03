@@ -6,7 +6,12 @@
     white-space: nowrap;
     z-index: 1;
 }
-
+.terminal, .terminal__component {
+    max-width: 1200px; /* Set this to match the width of your main app area */
+    width: 100%; /* This ensures the terminal stretches to fill its container */
+    margin: 0 auto; /* Center the terminal if it's narrower than the main app area */
+    /* Other styles remain unchanged */
+}
 .xterm {
     font-family: 'Courier New', Courier, monospace !important;
     font-size: 16px !important; /* Increased from 14px to 16px */
@@ -16,6 +21,7 @@
 }
 
 .terminal, .terminal__wrapper, .xterm, .xterm-viewport, .xterm-screen {
+    width: 100%;
     padding: 0;
     margin: 0;
 }
