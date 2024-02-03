@@ -1,11 +1,11 @@
 # Module 6: Beyond Ansible and Git 
-##Turbo Rook Provisioning Engine Ansible Role Deployment
+# Turbo Rook Provisioning Engine Ansible Role Deployment
 ## Accessing the Local Roles Folder
 
 **On the Turbo Rook Provisioning Laptop:**
 
 1. Open a terminal window
-2. Navigate to the local roles directory:
+2. Navigate to the local roles directory
 
    ``cd /opt/rook-provisioner/local/roles``
 
@@ -40,9 +40,9 @@ When clicked you will be brought to the `Add Role` screen
 
 ![Add Role Page](http://cyberfox:8080/img/openCTI/5.%20add%20role%20page.png)
 
-- **Role Name**: Human-Readable role name (`cyberfox opencti`)
-- **Ansible Role Location**: The name of the role as saved on disk (`cyberfox.opencti`)
-- **Description**: Write a description of your role
+**Role Name**: Human-Readable role name (`cyberfox opencti`)
+**Ansible Role Location**: The name of the role as saved on disk (`cyberfox.opencti`)
+**Description**: Write a description of your role
 
 Scroll down. You do not need to enter or adjust any of the following advanced settings:
 - Source URL
@@ -93,8 +93,7 @@ We will now walk through the `Add Hardware` Pop up
 ![Add Hardware Machine Type](http://cyberfox:8080/img/openCTI/12.%20add%20hardware%20machine%20type.png)
 
    **Select Operating System**
-
-      Click the box and select `ESXi 7 (core)` from the dropdown
+   Click the box and select `ESXi 7 (core)` from the dropdown
 
 ![Add Hardware ESXi 7](http://cyberfox:8080/img/openCTI/add%20hardware%20esxi7.png)
 
@@ -104,26 +103,32 @@ We will now walk through the `Add Hardware` Pop up
 
    **Hypervisor IP Address**
 
-      Enter the IP Address of the Server you are going to provision, if you are virtual we have hardcoded the IP address to `172.16.2.2` if you are are at PurpleForge, you can use the ipaddress issued to you by the TurboRook Provisioning Solutiomn.
+   Enter the IP Address of the Server you are going to provision, if you are virtual we have hardcoded 
+   the IP address to `172.16.2.2` if you are are at PurpleForge, 
+   you can use the ipaddress issued to you by the TurboRook Provisioning Solution.
 
    **Hypervisor Username**
 
-      Enter the Username for the Existing ESXi:
-      root
+   Enter the Username for the Existing ESXi:
+   `root`
+
    **Hypervisor Password**
 
-      Enter the Password for the Existing ESXi:
-      M@sterpassword123
+   Enter the Password for the Existing ESXi:
+   `M@sterpassword123`
 
 ![Hypervisor Information](http://cyberfox:8080/img/openCTI/15.%20Hypervisor%20information.png)
 
-   Below the Hypervisor password, click the `Get ESXi Hardware Information` to validate the login credentials and grab the info from ESXi
+   Below the Hypervisor password, click the `Get ESXi Hardware Information` to validate the 
+   login credentials and grab the info from ESXi
 
    The rest of the options below are optional and you do not need to fill them in
 
-   Scroll down and click the toggle to turn off `Run Eclypsium Scan` and `Wipe Disk Partitions before Deploying Operating Systems`
+   Scroll down and click the toggle to turn off `Run Eclypsium Scan` 
+   and 
+   `Wipe Disk Partitions before Deploying Operating Systems`
 
-      These are on by default but cannot be run against existing ESXi hypervisors.
+   These are on by default but cannot be run against existing ESXi hypervisors.
 
 ![Eclypsium and Wipe Off](http://cyberfox:8080/img/openCTI/17.%20eclypandwipe%20off.png)
 
@@ -141,18 +146,20 @@ On this screen select `Add New VM` on the left of the screen below your ESXi ins
 
    **Host Name**
 
-      Enter your host name
-      cyberfox-opencti-vm
+   Enter your host name:
+   `cyberfox-opencti-vm`
+
    **Select Operating System**
 
-      Click the box and select `Rocky 9` from the dropdown
+   Click the box and select `Rocky 9` from the dropdown
 
    **Virtual Machine Properties**
 
-      The Hypervisor dropdown will already be auto-populated with the `ESXi` already entered
+   The Hypervisor dropdown will already be auto-populated with the `ESXi` already entered
 
    **Add Additional NICs**
-      Choose VM Network from the dropdown
+   
+   Choose `VM Network` from the dropdown
 
 ![Add Machine with ESXi](http://cyberfox:8080/img/openCTI/add%20machine%20with%20ESXi.png)
 
@@ -160,11 +167,11 @@ On this screen select `Add New VM` on the left of the screen below your ESXi ins
 
    Scroll down to the `Select Roles` section
 
-      Here you will select the box next to the following roles:
+   Here you will select the box next to the following roles:
 
-         `Docker (core)`
+   `Docker (core)`
 
-         `Cyberfox Opencti`
+   `Cyberfox Opencti`
 
 ![Roles Selected](http://cyberfox:8080/img/openCTI/roles%20selected.png)
 
@@ -194,7 +201,8 @@ On the `Configuration Settings` Create and Confirm your defined password for the
 
 Set the `Amount of RAM` to `8` and the `HDD Capacity` to 100
 
-Once you have defined your parameters you can click the button to the bottom of the page that says `Continue to Review.`
+Once you have defined your parameters you can click the button to the bottom of the page that says 
+`Continue to Review.`
 
 ![Continue to Review](http://cyberfox:8080/img/openCTI/28.%20continue%20to%20review.png)
 
