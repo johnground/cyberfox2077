@@ -146,40 +146,38 @@ const Module5 = () => {
           <p>With the OpenCTI platform now in place, CyberFox focuses on integrating Ansible for continuous automation and monitoring. The playbook becomes a vital tool, managing configurations and updates seamlessly.</p>
         </section>
         
-        <section className="content-section cyberpunk-btn">
-        <h2>The Awakening of the Digital Sentinel</h2>
-        <p>As the digital forge of OpenCTI hums with newfound life, CyberFox stands amidst the glow of cascading data streams. "The symphony is incomplete," she muses, "for a sentinel must awaken to guard the gates of our cyber realm."</p>
-      </section>
-
+        {/* New Section: Unlocking the Digital Sentinel */}
       <section className="content-section cyberpunk-btn">
-        <h2>Summoning the Sentinel</h2>
-        <p>"In the heart of our digital domain," CyberFox declares, "we must inscribe the runes that will call forth the sentinel." She weaves the incantations into the `env.j2` template:</p>
+        <h2>Unlocking the Digital Sentinel</h2>
+        <p>Amidst the rhythmic hums of the OpenCTI forge, CyberFox turns her focus to awakening the network guardian - the ThreatFox connector. "A sentinel must rise, blending threat intelligence into our symphony," she contemplates.</p>
+        <p>To invoke this digital sentinel, the runes need to be correctly inscribed:</p>
         <pre><code className="code-block">{`
-          # Engraving the Sentinel's Runes
-          THREATFOX_CONNECTOR_ID={{ "{{" }} lookup('community.general.random_string') | ansible.builtin.to_uuid {{ "}}" }}
-          THREATFOX_API_KEY={{ "{{" }} lookup('community.general.random_string') | ansible.builtin.to_uuid {{ "}}" }}
+# Enhancements to the env.j2 template
+THREATFOX_CONNECTOR_ID={{ "{{" }} lookup('community.general.random_string') | ansible.builtin.to_uuid {{ "}}" }}
+THREATFOX_INTERVAL=30
+OPENCTI_URL=http://opencti:8080
+OPENCTI_TOKEN={{ "{{" }} opencti_admin_token {{ "}}" }}
         `}</code></pre>
-        </section>
+        <p>With these enhancements, the template harbours the power to integrate the sentinel seamlessly into the cybernetic realm.</p>
+      </section>
 
+      {/* New Section: Sentinel's Awakening Ceremony */}
       <section className="content-section cyberpunk-btn">
-        <h2>The Sentinel's Covenant</h2>
-        <p>With the runes inscribed, CyberFox prepares to forge the covenant. "This covenant," she proclaims, "will be our shield against the storms of chaos."</p>
+        <h2>Awakening the Digital Sentinel</h2>
+        <p>CyberFox channels her command to initiate the playbook, invoking the digital sentinel into action. The cyber skies flicker as data streams converge, heralding the awakening:</p>
         <pre><code className="code-block">
-          # The Sentinel's Awakening
-          - name: Integrate ThreatFox Connector
-            hosts: openctihost
-            tasks:
-              - name: Engrave the Sentinel's Runes
-                ansible.builtin.template:
-                  src: env.j2
-                  dest: /opt/opencti/.env
+ansible-playbook awaken_sentinel.yml
         </code></pre>
+        <p>As the playbook's orchestration completes, the sentinel stirs to life, its sight spanning the expanse of the digital domain.</p>
       </section>
 
+      {/* New Section: Harmonizing the Symphony */}
       <section className="content-section cyberpunk-btn">
-        <h2>The Convergence</h2>
-        <p>"Awaken, sentinel, and take your place among the guardians of our realm," CyberFox commands, initiating the playbook that integrates the sentinel into OpenCTI.</p>
+        <h2>Harmonizing the Symphony</h2>
+        <p>"Behold the Digital Sentinel, our vigilant guardian," CyberFox proclaims. Now fully integrated, the ThreatFox connector begins its vigil, enhancing the cyber domain's defenses with acute threat intelligence.</p>
+        <p>The symphony reaches a crescendo as each component - from superuser command to the sentinel's awakening - orchestrate in harmony under CyberFox's command.</p>
       </section>
+
 
       <section className="content-section cyberpunk-btn">
         <h2>Epilogue: The Symphony of Guardians</h2>
