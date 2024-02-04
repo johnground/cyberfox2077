@@ -168,8 +168,15 @@ THREATFOX_CONNECTOR_ID={{ lookup('community.general.random_string') | ansible.bu
   become: true
   vars:
     ansible_python_interpreter: /usr/bin/python3
-    opencti_base_url: localhost
-    opencti_port: 8181
+    opencti_base_url: "http://opencti:8080"  
+    opencti_port: 8080
+    app_port: 8080
+    opencti_admin_email: "cyberfox@system.git" 
+    opencti_admin_password: "masterpassword"  
+    rabbitmq_default_user: "guest"  
+    rabbitmq_default_password: "guest"  
+    elastic_memory_size: "4"  
+    smtp_hostname: "localhost"
 
   tasks:
     - name: Clone OpenCTI connectors repository
@@ -189,17 +196,6 @@ THREATFOX_CONNECTOR_ID={{ lookup('community.general.random_string') | ansible.bu
         dest: "/opt/opencti/external-import/threatfox/"
         remote_src: yes
 
-    - name: Template the ThreatFox Connector's .env
-      template:
-        src: "env.j2"
-        dest: "/opt/opencti/external-import/threatfox/.env"
-
-    - name: Download and install Go version of yq
-      ansible.builtin.get_url:
-        url: https://github.com/mikefarah/yq/releases/download/v4.27.2/yq_linux_amd64
-        dest: /usr/local/bin/yq
-        mode: '0755'
-
     - name: Read the .env file to get OPENCTI_ADMIN_TOKEN
       ansible.builtin.shell:
         cmd: grep OPENCTI_ADMIN_TOKEN /opt/opencti/.env | cut -d '=' -f2
@@ -210,14 +206,27 @@ THREATFOX_CONNECTOR_ID={{ lookup('community.general.random_string') | ansible.bu
       ansible.builtin.set_fact:
         actual_opencti_admin_token: "{{ opencti_token_grep.stdout }}"
 
+    - name: Template the ThreatFox Connector's .env
+      template:
+        src: "env.j2"
+        dest: "/opt/opencti/external-import/threatfox/.env"
+      vars:
+        opencti_admin_token: "{{ actual_opencti_admin_token }}"  # Pass the token to the template
+
+    - name: Download and install Go version of yq
+      ansible.builtin.get_url:
+        url: https://github.com/mikefarah/yq/releases/download/v4.27.2/yq_linux_amd64
+        dest: /usr/local/bin/yq
+        mode: '0755'
+
     - name: Insert ThreatFox MISP feed service into docker-compose.yml using yq
       ansible.builtin.shell: |
         /usr/local/bin/yq eval '.services.connector-misp-feed-threatfox = {
-          "image": "opencti/connector-misp-feed:5.12.3",
+          "image": "opencti/connector-misp-feed:5.12.29",
           "environment": [
-            "OPENCTI_URL=http://{{ opencti_base_url }}:{{ opencti_port }}",
+            "OPENCTI_URL=http://opencti:8080", 
             "OPENCTI_TOKEN={{ actual_opencti_admin_token }}",
-            "CONNECTOR_ID="CONNECTOR_ID={{ lookup('community.general.random_string'),
+            "CONNECTOR_ID={{ lookup('community.general.random_string') | ansible.builtin.to_uuid }}",
             "CONNECTOR_TYPE=EXTERNAL_IMPORT",
             "CONNECTOR_NAME=MISP Feed (ThreatFox)",
             "CONNECTOR_SCOPE=misp-feed",
@@ -242,10 +251,13 @@ THREATFOX_CONNECTOR_ID={{ lookup('community.general.random_string') | ansible.bu
           "depends_on": ["opencti"]
         }' -i /opt/opencti/docker-compose.yml
 
+
+
     - name: Restart the OpenCTI service
       ansible.builtin.shell:
         cmd: docker-compose up -d
         chdir: /opt/opencti/
+
 
   `}</code></pre>
   <p>"With each line, we draw the sentinel nearer, etching its essence into the digital fabric," she narrates as the commands ripple through the virtual ether, initiating the ritual of integration.</p>

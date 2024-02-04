@@ -4,17 +4,15 @@
   become: true
   vars:
     ansible_python_interpreter: /usr/bin/python3
-    opencti_base_url: localhost
-    opencti_port: 8181
-    app_port: 8181
-    # Ensure these variables are defined here if they are needed in the env.j2 template
-    opencti_admin_email: cyberfox@system.git
-    opencti_admin_password: masterpassword
-    rabbitmq_default_user: guest
-    rabbitmq_default_password: guest
-    elastic_memory_size: 4
-    smtp_hostname: localhost
-    # The opencti_admin_token will be read from the .env file, so it's not defined here
+    opencti_base_url: "http://opencti:8080"  
+    opencti_port: 8080
+    app_port: 8080
+    opencti_admin_email: "cyberfox@system.git" 
+    opencti_admin_password: "masterpassword"  
+    rabbitmq_default_user: "guest"  
+    rabbitmq_default_password: "guest"  
+    elastic_memory_size: "4"  
+    smtp_hostname: "localhost"
 
   tasks:
     - name: Clone OpenCTI connectors repository
@@ -58,11 +56,11 @@
         mode: '0755'
 
     - name: Insert ThreatFox MISP feed service into docker-compose.yml using yq
-      ansible.builtin.shell: >
+      ansible.builtin.shell: |
         /usr/local/bin/yq eval '.services.connector-misp-feed-threatfox = {
-          "image": "opencti/connector-misp-feed:5.12.3",
+          "image": "opencti/connector-misp-feed:5.12.29",
           "environment": [
-            "OPENCTI_URL=http://{{ opencti_base_url }}:{{ opencti_port }}",
+            "OPENCTI_URL=http://opencti:8080", 
             "OPENCTI_TOKEN={{ actual_opencti_admin_token }}",
             "CONNECTOR_ID={{ lookup('community.general.random_string') | ansible.builtin.to_uuid }}",
             "CONNECTOR_TYPE=EXTERNAL_IMPORT",
@@ -88,6 +86,7 @@
           "restart": "always",
           "depends_on": ["opencti"]
         }' -i /opt/opencti/docker-compose.yml
+
 
 
     - name: Restart the OpenCTI service
