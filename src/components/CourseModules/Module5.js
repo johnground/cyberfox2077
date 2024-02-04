@@ -153,20 +153,109 @@ const Module5 = () => {
         <p>To invoke this digital sentinel, the runes need to be correctly inscribed:</p>
         <pre><code className="code-block">{`
 # Enhancements to the env.j2 template
-THREATFOX_CONNECTOR_ID={{ "{{" }} lookup('community.general.random_string') | ansible.builtin.to_uuid {{ "}}" }}
-THREATFOX_INTERVAL=30
-OPENCTI_URL=http://opencti:8080
-OPENCTI_TOKEN={{ "{{" }} opencti_admin_token {{ "}}" }}
+THREATFOX_CONNECTOR_ID={{ lookup('community.general.random_string') | ansible.builtin.to_uuid }}
         `}</code></pre>
         <p>With these enhancements, the template harbours the power to integrate the sentinel seamlessly into the cybernetic realm.</p>
       </section>
+      <section className="content-section cyberpunk-btn">
+  <h2>Awakening the Digital Sentinel</h2>
+  <p>The glimmer of resolve in CyberFox's eyes shines as brightly as the neon lights of her command center. "To bring our guardian to life, we script the ritual," she intones, referring to the ansible playbook - <code>awaken_sentinel.yml</code>. This potent script is key to merging the sentinel with the digital domain.</p>
+  <p>"Let's script the awakening," CyberFox continues, sharing the sacred text:</p>
+  <pre><code className="code-block">{`
+---
+- name: Integrate ThreatFox Connector into OpenCTI
+  hosts: openctihost
+  become: true
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+    opencti_base_url: localhost
+    opencti_port: 8181
 
+  tasks:
+    - name: Clone OpenCTI connectors repository
+      git:
+        repo: 'https://github.com/OpenCTI-Platform/connectors.git'
+        dest: '/opt/opencti-connectors'
+        version: 'master'
+
+    - name: Ensure the ThreatFox directory exists
+      ansible.builtin.file:
+        path: "/opt/opencti/external-import/threatfox"
+        state: directory
+
+    - name: Copy ThreatFox specific files from cloned repo
+      ansible.builtin.copy:
+        src: "/opt/opencti-connectors/external-import/threatfox/"
+        dest: "/opt/opencti/external-import/threatfox/"
+        remote_src: yes
+
+    - name: Template the ThreatFox Connector's .env
+      template:
+        src: "env.j2"
+        dest: "/opt/opencti/external-import/threatfox/.env"
+
+    - name: Download and install Go version of yq
+      ansible.builtin.get_url:
+        url: https://github.com/mikefarah/yq/releases/download/v4.27.2/yq_linux_amd64
+        dest: /usr/local/bin/yq
+        mode: '0755'
+
+    - name: Read the .env file to get OPENCTI_ADMIN_TOKEN
+      ansible.builtin.shell:
+        cmd: grep OPENCTI_ADMIN_TOKEN /opt/opencti/.env | cut -d '=' -f2
+      register: opencti_token_grep
+      changed_when: false
+
+    - name: Set the OPENCTI_ADMIN_TOKEN fact from the .env file
+      ansible.builtin.set_fact:
+        actual_opencti_admin_token: "{{ opencti_token_grep.stdout }}"
+
+    - name: Insert ThreatFox MISP feed service into docker-compose.yml using yq
+      ansible.builtin.shell: |
+        /usr/local/bin/yq eval '.services.connector-misp-feed-threatfox = {
+          "image": "opencti/connector-misp-feed:5.12.3",
+          "environment": [
+            "OPENCTI_URL=http://{{ opencti_base_url }}:{{ opencti_port }}",
+            "OPENCTI_TOKEN={{ actual_opencti_admin_token }}",
+            "CONNECTOR_ID="CONNECTOR_ID={{ lookup('community.general.random_string'),
+            "CONNECTOR_TYPE=EXTERNAL_IMPORT",
+            "CONNECTOR_NAME=MISP Feed (ThreatFox)",
+            "CONNECTOR_SCOPE=misp-feed",
+            "CONNECTOR_CONFIDENCE_LEVEL=60",
+            "CONNECTOR_UPDATE_EXISTING_DATA=true",
+            "CONNECTOR_RUN_AND_TERMINATE=false",
+            "CONNECTOR_LOG_LEVEL=info",
+            "MISP_FEED_URL=https://threatfox.abuse.ch/downloads/misp/",
+            "MISP_FEED_SSL_VERIFY=true",
+            "MISP_FEED_IMPORT_FROM_DATE=2022-11-01",
+            "MISP_FEED_CREATE_REPORTS=true",
+            "MISP_FEED_REPORT_TYPE=misp-event",
+            "MISP_FEED_CREATE_INDICATORS=true",
+            "MISP_FEED_CREATE_OBSERVABLES=true",
+            "MISP_FEED_CREATE_OBJECT_OBSERVABLES=true",
+            "MISP_FEED_IMPORT_TO_IDS_NO_SCORE=40",
+            "MISP_FEED_IMPORT_UNSUPPORTED_OBSERVABLES_AS_TEXT=false",
+            "MISP_FEED_IMPORT_WITH_ATTACHMENTS=yes",
+            "MISP_FEED_INTERVAL=60"
+          ],
+          "restart": "always",
+          "depends_on": ["opencti"]
+        }' -i /opt/opencti/docker-compose.yml
+
+    - name: Restart the OpenCTI service
+      ansible.builtin.shell:
+        cmd: docker-compose up -d
+        chdir: /opt/opencti/
+
+  `}</code></pre>
+  <p>"With each line, we draw the sentinel nearer, etching its essence into the digital fabric," she narrates as the commands ripple through the virtual ether, initiating the ritual of integration.</p>
+</section>
       {/* New Section: Sentinel's Awakening Ceremony */}
       <section className="content-section cyberpunk-btn">
         <h2>Awakening the Digital Sentinel</h2>
         <p>CyberFox channels her command to initiate the playbook, invoking the digital sentinel into action. The cyber skies flicker as data streams converge, heralding the awakening:</p>
         <pre><code className="code-block">
-ansible-playbook awaken_sentinel.yml
+        ansible-playbook -i opencti_inventory awaken_sentinel.yml
         </code></pre>
         <p>As the playbook's orchestration completes, the sentinel stirs to life, its sight spanning the expanse of the digital domain.</p>
       </section>
