@@ -77,56 +77,59 @@ const Module2 = () => {
         </div>
         <p><i>(A call to action echoes through the cybernetic corridors, inviting Netrunners to commune with System.git via the course's interactive conduit, melding their minds with the AI for a bespoke chronicle of the GitLab odyssey.)</i></p>
       </section>
-            <section className="content-section cyberpunk-btn"> 
-                <h2>Initial Access: Securing the Gateway to GitLab</h2> 
-                <p><i>(As the newly deployed GitLab instance hums with life, CyberFox stands ready to fortify its digital gates against any potential cyber threats.)</i></p> 
-                <p>"In the digital realm, the strength of our fortress is defined by the robustness of its entrance," CyberFox reflects. "It's imperative we reinforce our portal with impenetrable defenses and infuse it with our unique code of honor."</p> 
-                <ol> 
-                    <li><h3>Stepping into the heart of the GitLab container:</h3>
-                        <div className="code-block"> 
-                            <code>docker exec -it gitlab /bin/bash</code> 
-                        </div> 
-                    </li>
-                    <li><h3>Summoning the core of GitLab intelligence </h3> 
-                        <div className="code-block"> 
-                            <code>gitlab-rails console -e production</code> 
-                        </div>
-                    </li>
-                    <li><h3>Enacting the rite of passage, bestowing upon the guardian a new identity and the keys to the kingdom:</h3>
-                        <div className="code-block"> 
-                            <code> 
-                                user = User.where(id: 1).first<br /> 
-                                user.username = 'cyberfox'<br /> 
-                                user.password = 'masterpassword'<br /> 
-                                user.password_confirmation = 'masterpassword'<br /> 
-                                user.save! 
-                            </code> 
-                        </div>
-                    </li>
-                </ol> 
-                <p><i>(With each command, CyberFox weaves her essence into the fabric of GitLab, transforming the generic administrator into a sentinel that mirrors her cybernetic spirit.)</i></p> 
-                <p>"Our digital bastion now stands tall, a beacon of strength and identity in the boundless cyber sea," CyberFox proclaims with a steely resolve. "Let us venture forth, secure in the knowledge that our gateway reflects our unwavering commitment to cybersecurity and the unique ethos of our domain."</p> 
-            </section> 
-            <section className="content-section cyberpunk-btn">
-                <h2>Navigating the Cyber Labyrinth: GitLab Troubleshooting</h2>
-                <p><i>(The screens display diagnostic data as CyberFox troubleshoots.)</i></p>
-                <p>CyberFox's journey is not without its challenges. Here are steps to overcome common obstacles:</p>
-                <ul>
-                    <li>Confirm Docker's active status.</li>
-                    <li>Ensure the correct GitLab image: <code>gitlab/gitlab-ce:latest</code>.</li>
-                    <li>Check for port conflicts (443, 80, 22).</li>
-                    <li>Analyze Docker container logs for insights.</li>
-                    <li>Verify the correct mounting of volumes.</li>
-                </ul>
-                <p>For persistent issues, the GitLab community serves as an alliance of knowledge.</p>
-            </section>
-           <section className="content-section cyberpunk-btn">
+      <section className="content-section cyberpunk-btn"> 
+        <h2>Initial Access: Securing the Gateway to GitLab</h2> 
+        <p><i>(As the newly deployed GitLab instance hums with life, CyberFox stands ready to fortify its digital gates against any potential cyber threats.)</i></p> 
+        <p>"In the digital realm, the strength of our fortress is defined by the robustness of its entrance," CyberFox reflects. "It's imperative we reinforce our portal with impenetrable defenses and infuse it with our unique code of honor."</p> 
+        <ol> 
+          <li><h3>Stepping into the heart of the GitLab container:</h3>
+            <div className="code-block"> 
+              <code>docker exec -it gitlab /bin/bash</code> 
+            </div> 
+          </li>
+          <li><h3>Summoning the core of GitLab intelligence </h3> 
+            <div className="code-block"> 
+              <code>gitlab-rails console -e production</code> 
+            </div>
+          </li>
+          <li><h3>Enacting the rite of passage, bestowing upon the guardian a new identity and the keys to the kingdom:</h3>
+            <div className="code-block"> 
+              <code> 
+                user = User.where(id: 1).first<br /> 
+                user.username = 'cyberfox'<br /> 
+                user.password = 'masterpassword'<br /> 
+                user.password_confirmation = 'masterpassword'<br /> 
+                user.save! 
+              </code> 
+            </div>
+          </li>
+        </ol> 
+        <p><i>(With each command, CyberFox weaves her essence into the fabric of GitLab, transforming the generic administrator into a sentinel that mirrors her cybernetic spirit.)</i></p> 
+        <p>"Our digital bastion now stands tall, a beacon of strength and identity in the boundless cyber sea," CyberFox proclaims with a steely resolve. "Let us venture forth, secure in the knowledge that our gateway reflects our unwavering commitment to cybersecurity and the unique ethos of our domain."</p> 
+      </section> 
+      <section className="content-section cyberpunk-btn">
+        <h2>Navigating the Cyber Labyrinth: GitLab Troubleshooting</h2>
+        <p><i>(The screens display diagnostic data as CyberFox troubleshoots.)</i></p>
+        <p>CyberFox's journey is not without its challenges. Here are steps to overcome common obstacles:</p>
+        <ul>
+          <li>Confirm Docker's active status.</li>
+          <li>Ensure the correct GitLab image: <code>gitlab/gitlab-ce:latest</code>.</li>
+          <li>Check for port conflicts (443, 80, 22).</li>
+          <li>Analyze Docker container logs for insights.</li>
+          <li>Verify the correct mounting of volumes.</li>
+        </ul>
+        <p>For persistent issues, the GitLab community serves as an alliance of knowledge.</p>
+      </section>
+      <section className="content-section cyberpunk-btn">
         <h2>Command-Line Conquest: Integrating Code with CyberFox's GitLab</h2>
         <p>In the digital realm of CyberFox, the GitLab instance thrives within a Dockerized container, a citadel of innovation accessible at <a href="http://cyberfox/users/sign_in" target="_blank">http://cyberfox/users/sign_in</a>. Here's how CyberFox channels the power of the command line to weave her code into the fabric of GitLab:</p>
+
         <h3>1. Accessing the GitLab Instance</h3>
-        
+        <p>CyberFox ensures seamless access to her digital fortress by navigating to the GitLab instance and verifying her credentials, ensuring the gateway stands vigilant.</p>
+
         <h3>2. Creating a New Project</h3>
-       
+        <p>Within the GitLab UI, CyberFox conjures a new project, 'CyberShield,' cloaking it in privacy to shield her innovations from prying eyes.</p>
+
         <h3>3. Configuring Local Environment</h3>
         <div className="code-block">
           <code>
@@ -140,8 +143,9 @@ const Module2 = () => {
             git commit -m "Initial commit"<br />
           </code>
         </div>
+        
         <h3>4. Linking to GitLab</h3>
-        <p>With the local repository initialized, CyberFox sets her sights on connecting it to the newly created project in GitLab:</p>
+        <p>With the local repository primed, CyberFox endeavors to link it with her GitLab citadel:</p>
         <div className="code-block">
           <code>
             git remote add origin http://cyberfox/cyberfox/CyberShield.git<br />
@@ -149,6 +153,18 @@ const Module2 = () => {
             git push -u origin main<br />
           </code>
         </div>
+        <p>Encountering the tempest of errors, CyberFox navigates through with deft commands:</p>
+        <div className="code-block">
+          <code>
+            # In case of 'src refspec main does not match any':
+            git checkout -b main<br />
+            # If 'remote origin already exists':
+            git remote set-url origin http://cyberfox/cyberfox/CyberShield.git<br />
+            # Pushing through the tempest:
+            git push -u origin main --force<br />
+          </code>
+        </div>
+        <p>With the ether cleared and her code safely ensconced within GitLab's walls, CyberFox's digital dominion grows ever stronger, an unassailable bastion of innovation and security.</p>
       </section>
       <section className="content-section cyberpunk-btn">
         <h3>5. Continuous Innovation</h3>
@@ -162,105 +178,103 @@ const Module2 = () => {
         </div>
         <p>Each push sends her code soaring through the digital ether, safely within the walls of her GitLab citadel.</p>
         <p>Thus, through the power of the command line, CyberFox not only commands her GitLab instance but also ensures her domain remains an ever-evolving bastion of innovation and security.</p>
-        <section className="content-section cyberpunk-btn">
-            <h2>The Art of Cyber Warfare: Mastery of GitLab's CI/CD</h2>
-            <p><i>(Amidst the humming servers and flickering lights, CyberFox meticulously crafts the '.gitlab-ci.yml' file, the linchpin of her CI/CD strategy for 'CyberShield'.)</i></p>
-            <p>With the 'CyberShield' project primed in GitLab, she embarks on scripting the CI/CD pipeline, a sequence of commands that will automate the build, test, and deployment phases of her project.</p>
-            <div className="code-block">
-                <code>
-                stages:<br />
-                &nbsp;- build<br />
-                &nbsp;- test<br />
-                &nbsp;- deploy<br /><br />
-                build-job:<br />
-                &nbsp;stage: build<br />
-                &nbsp;script:<br />
-                &nbsp;&nbsp;- echo "Building the project..."<br /><br />
-                test-job:<br />
-                &nbsp;stage: test<br />
-                &nbsp;script:<br />
-                &nbsp;&nbsp;- echo "Running tests..."<br /><br />
-                deploy-job:<br />
-                &nbsp;stage: deploy<br />
-                &nbsp;script:<br />
-                &nbsp;&nbsp;- echo "Deploying to staging environment..."
-                </code>
-            </div>
-            <p>After committing the '.gitlab-ci.yml' to her project, CyberFox turns to the terminal, her gateway to the heartbeats of her CI/CD pipeline.</p>
-            <p>Before diving deeper into the CI/CD commands, she ensures secure access to GitLab's API for automation tasks by creating a personal access token:</p>
-            <div className="code-block">
-                <code>
-                # Open a Rails console on the GitLab server<br />  
-                  <code>gitlab-rails console -e production</code> 
-                    </code>
-                    </div>
-                    <div className="code-block">
-                <code>
-                  // Create a personal access token for 'cyberfox'<br />
-                  user = User.find_by_username('cyberfox')<br />
-                  <span className="comment">// Ensure you replace 'your-username' with the actual username</span><br />
-                  token = user.personal_access_tokens.create(<br />
-                  <span className="indent">scopes: ['api'],</span><br />
-                  <span className="indent">name: 'CyberFox API Token',</span><br />
-                  <span className="indent">expires_at: Date.parse('2025-02-03')</span><br />
-                  )<br />
-                  puts token.token // This will print the token. Note: Tokens are only visible once for security reasons.
-                </code>
-              </div>
-
-            <p>With her personal access token securely stored, CyberFox proceeds to authenticate the GitLab CLI tool with her project, enabling her to monitor and control the CI/CD pipeline directly from her terminal:</p>
-            <div className="code-block">
-                <code>
-                # Install GitLab CLI tool if not already installed<br />
-                apt update -y && apt install sudo -y<br />
-                curl -s https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | sudo bash<br />
-                sudo apt-get install gitlab-runner<br /><br />
-                # Authenticate GitLab CLI with her project<br />
-                gitlab-runner login --url https://cyberfox/login/ --registration-token PROJECT_REGISTRATION_TOKEN<br /><br />
-                # View the status of the most recent pipeline<br />
-                gitlab-runner status<br /><br />
-                # List all jobs for the latest pipeline in 'CyberShield'<br />
-                gitlab-ci-multi-runner list
-                </code>
-            </div>
-            <p>Through these commands, CyberFox can monitor the pulse of 'CyberShield's CI/CD pipeline, each terminal output a testament to the seamless orchestration of build, test, and deployment processes. This vigilant oversight ensures that 'CyberShield' remains not only a project but a bastion of security, continuously fortified through the art of GitLab's CI/CD.</p>
-</section>
-            <section className="content-section cyberpunk-btn">
-                <h2>Securing the Digital Frontier with GitLab CI/CD</h2>
-                <p>Within the cybernetic echelons of CyberFox's domain, the GitLab CI/CD pipelines serve as the first line of defense, meticulously fortifying the codebase against the digital specters lurking in the shadows. To enhance this digital bulwark, CyberFox embeds a series of commands within her CI/CD configurations, invoking the arcane scripts that initiate automated security scans, each a guardian spell cast upon her code.</p>
-                <div className="code-block">
-                    <code>
-                    stages:<br />
-                    - build<br />
-                    - test<br />
-                    - deploy<br />
-                    - secure<br /><br />
-                    security_scan:<br />
-                    stage: secure<br />
-                    script:<br />
-                    - echo "Initiating security scan..."<br />
-                    - docker run --rm -v $(pwd):/app <em>security_scanner_image</em> /app<br />
-                    only:<br />
-                    - master<br />
-                    </code>
-                </div>
-                <p>With the incantation set, the pipelines awaken at each code commit, their tendrils weaving through the repositories. The <code>security_scan</code> job, invoked post-deployment, channels the essence of CyberFox's protective will, employing containerized security scanners to dissect and analyze the code for vulnerabilities.</p>
-                <p>The echoes of the scan's completion ripple through the cybernetic realm, each finding a beacon highlighting potential weaknesses to be fortified. CyberFox, with her command center aglow, reviews the outcomes, her strategic acumen guiding her in strengthening the digital defenses, ensuring that the realm remains an impregnable bastion within the cyber void.</p>
-            </section>
-            </section>
-            <section className="content-section cyberpunk-btn">
-                <h2>The Silent Sentinels: GitLab's Private Repositories</h2>
-                <p><i>(A series of encrypted vaults emerge, symbolizing GitLab's private repositories.)</i></p>
-                <p>For CyberFox, private repositories in GitLab are akin to covert vaults, accessible only to those bearing the right digital keys. These sanctuaries of code are crucial for conducting clandestine cyber operations and safeguarding sensitive data.</p>
-            </section>
-            <section className="content-section cyberpunk-btn">
-                <h2>Mastering the Cyber Hunt: Leveraging Advanced GitLab Features</h2>
-                <p><i>(Immersed in a virtual reality interface, CyberFox explores GitLab's advanced features.)</i></p>
-                <p>As a cyber threat hunter, mastering these features is akin to refining her arsenal. Advanced issue tracking, merge request approvals, and extensive logging capabilities are vital tools in her quest to maintain digital supremacy and operational efficiency.</p>
-            </section> 
+      </section>
+      <section className="content-section cyberpunk-btn">
+        <h2>The Art of Cyber Warfare: Mastery of GitLab's CI/CD</h2>
+        <p><i>(Amidst the humming servers and flickering lights, CyberFox meticulously crafts the '.gitlab-ci.yml' file, the linchpin of her CI/CD strategy for 'CyberShield'.)</i></p>
+        <p>With the 'CyberShield' project primed in GitLab, she embarks on scripting the CI/CD pipeline, a sequence of commands that will automate the build, test, and deployment phases of her project.</p>
+        <div className="code-block">
+          <code>
+            stages:<br />
+            &nbsp;- build<br />
+            &nbsp;- test<br />
+            &nbsp;- deploy<br /><br />
+            build-job:<br />
+            &nbsp;stage: build<br />
+            &nbsp;script:<br />
+            &nbsp;&nbsp;- echo "Building the project..."<br /><br />
+            test-job:<br />
+            &nbsp;stage: test<br />
+            &nbsp;script:<br />
+            &nbsp;&nbsp;- echo "Running tests..."<br /><br />
+            deploy-job:<br />
+            &nbsp;stage: deploy<br />
+            &nbsp;script:<br />
+            &nbsp;&nbsp;- echo "Deploying to staging environment..."
+          </code>
         </div>
-    );
+        <p>After committing the '.gitlab-ci.yml' to her project, CyberFox turns to the terminal, her gateway to the heartbeats of her CI/CD pipeline.</p>
+        <p>Before diving deeper into the CI/CD commands, she ensures secure access to GitLab's API for automation tasks by creating a personal access token:</p>
+        <div className="code-block">
+          <code>
+            # Open a Rails console on the GitLab server<br />
+            gitlab-rails console -e production<br />
+            <br />
+            # Create a personal access token for 'cyberfox'<br />
+            user = User.find_by_username('cyberfox')<br />
+            <span className="comment">// Ensure you replace 'your-username' with the actual username</span><br />
+            token = user.personal_access_tokens.create(<br />
+            <span className="indent">scopes: ['api'],name: 'CyberFox API Token',expires_at: Date.parse('2025-02-03'))</span><br />
+            puts token.token // This will print the token. Note: Tokens are only visible once for security reasons.
+          </code>
+        </div>
+        <p>With her personal access token securely stored, CyberFox proceeds to authenticate the GitLab CLI tool with her project, enabling her to monitor and control the CI/CD pipeline directly from her terminal:</p>
+        <div className="code-block">
+          <code>
+            # Install GitLab Runner if not already installed<br />
+            apt update -y and apt install sudo -y<br />
+            curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | sudo bash<br />
+            sudo apt-get install gitlab-runner<br /><br />
+            # Retrieve the registration token:<br />
+            # 1. Navigate to your GitLab project.<br />
+            # 2. Go to Settings &gt; CI/CD and expand the Runners section.<br />
+            # 3. Note the registration token provided.<br /><br />
+            # Register the GitLab Runner with your GitLab instance using the retrieved token.<br />
+            sudo gitlab-runner register --url http://cyberfox/ --registration-token YOUR_REGISTRATION_TOKEN<br /><br />
+            # During registration, when prompted for an executor, type 'docker' and press Enter.<br />
+            # Enter an executor: docker<br /><br />
+            # You might also be prompted to enter the Docker image to use for projects that do not define one in their .gitlab-ci.yml:<br />
+            # Enter the default Docker image (e.g., ruby:2.6): alpine:latest<br /><br />
+            # After successful registration, verify the runner is listed and active<br />
+            sudo gitlab-runner list<br />
+          </code>
+        </div>
+        <p>Through these commands, CyberFox can monitor the pulse of 'CyberShield's CI/CD pipeline, each terminal output a testament to the seamless orchestration of build, test, and deployment processes. This vigilant oversight ensures that 'CyberShield' remains not only a project but a bastion of security, continuously fortified through the art of GitLab's CI/CD.</p>
+      </section>
+      <section className="content-section cyberpunk-btn">
+        <h2>Securing the Digital Frontier with GitLab CI/CD</h2>
+        <p>Within the cybernetic echelons of CyberFox's domain, the GitLab CI/CD pipelines serve as the first line of defense, meticulously fortifying the codebase against the digital specters lurking in the shadows. To enhance this digital bulwark, CyberFox embeds a series of commands within her CI/CD configurations, invoking the arcane scripts that initiate automated security scans, each a guardian spell cast upon her code.</p>
+        <div className="code-block">
+          <code>
+            stages:<br />
+            - build<br />
+            - test<br />
+            - deploy<br />
+            - secure<br /><br />
+            security_scan:<br />
+            stage: secure<br />
+            script:<br />
+            - echo "Initiating security scan..."<br />
+            - docker run --rm -v $(pwd):/app <em>security_scanner_image</em> /app<br />
+            only:<br />
+            - master<br />
+          </code>
+        </div>
+        <p>With the incantation set, the pipelines awaken at each code commit, their tendrils weaving through the repositories. The <code>security_scan</code> job, invoked post-deployment, channels the essence of CyberFox's protective will, employing containerized security scanners to dissect and analyze the code for vulnerabilities.</p>
+        <p>The echoes of the scan's completion ripple through the cybernetic realm, each finding a beacon highlighting potential weaknesses to be fortified. CyberFox, with her command center aglow, reviews the outcomes, her strategic acumen guiding her in strengthening the digital defenses, ensuring that the realm remains an impregnable bastion within the cyber void.</p>
+      </section>
+      <section className="content-section cyberpunk-btn">
+        <h3>The Silent Sentinels: GitLab's Private Repositories</h3>
+        <p><i>(A series of encrypted vaults emerge, symbolizing GitLab's private repositories.)</i></p>
+        <p>For CyberFox, private repositories in GitLab are akin to covert vaults, accessible only to those bearing the right digital keys. These sanctuaries of code are crucial for conducting clandestine cyber operations and safeguarding sensitive data.</p>
+      </section>
+      <section className="content-section cyberpunk-btn">
+        <h2>Mastering the Cyber Hunt: Leveraging Advanced GitLab Features</h2>
+        <p><i>(Immersed in a virtual reality interface, CyberFox explores GitLab's advanced features.)</i></p>
+        <p>As a cyber threat hunter, mastering these features is akin to refining her arsenal. Advanced issue tracking, merge request approvals, and extensive logging capabilities are vital tools in her quest to maintain digital supremacy and operational efficiency.</p>
+      </section> 
+    </div>
+  );
 };
 
 export default Module2;
-
