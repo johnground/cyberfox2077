@@ -283,5 +283,8 @@ const Module2 = () => {
     <p>Her quest for digital supremacy is empowered by sophisticated tools at her disposal. Issue tracking becomes an intricate web, trapping bugs in its silken threads. Merge request approvals transform into ceremonial endorsements, each one a knighted guardian of her code's integrity. Comprehensive logging capabilities serve as her omniscient scribes, chronicling every event in the annals of her domain.</p>
     <p>The mastery of these tools is not just about wielding power; it's about orchestrating an ecosystem where innovation thrives under the vigilant watch of efficiency and control. Each feature is a testament to CyberFox's strategic foresight, ensuring her digital dominion remains impervious to the chaos of the cyber wilderness.</p>
 </section>
+</div>
+  );
+};
 
 export default Module2;
