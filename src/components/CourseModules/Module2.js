@@ -124,9 +124,9 @@ const Module2 = () => {
         <h2>Command-Line Conquest: Integrating Code with CyberFox's GitLab</h2>
         <p>In the digital realm of CyberFox, the GitLab instance thrives within a Dockerized container, a citadel of innovation accessible at <a href="http://cyberfox/users/sign_in" target="_blank">http://cyberfox/users/sign_in</a>. Here's how CyberFox channels the power of the command line to weave her code into the fabric of GitLab:</p>
         <h3>1. Accessing the GitLab Instance</h3>
-        {/* Content */}
+        
         <h3>2. Creating a New Project</h3>
-        {/* Content */}
+       
         <h3>3. Configuring Local Environment</h3>
         <div className="code-block">
           <code>
@@ -190,17 +190,24 @@ const Module2 = () => {
             <p>Before diving deeper into the CI/CD commands, she ensures secure access to GitLab's API for automation tasks by creating a personal access token:</p>
             <div className="code-block">
                 <code>
-                # Open a Rails console on the GitLab server<br />
-                <div className="code-block"> 
-                            <code>docker exec -it gitlab /bin/bash</code> 0    
-                            <code>gitlab-rails console -e production</code> 
-                        </div>
-                # Create a personal access token for 'cyberfox'<br />
-                user = User.find_by_username('cyberfox')<br />
-                token = user.personal_access_tokens.create(scopes: ['read_user', 'api'], name: 'Automation token', expires_at: Date.today + 1.year)<br />
-                puts token.token
+                # Open a Rails console on the GitLab server<br />  
+                  <code>gitlab-rails console -e production</code> 
+                    </code>
+                    </div>
+                    <div className="code-block">
+                <code>
+                  // Create a personal access token for 'cyberfox'<br />
+                  user = User.find_by_username('cyberfox')<br />
+                  <span className="comment">// Ensure you replace 'your-username' with the actual username</span><br />
+                  token = user.personal_access_tokens.create(<br />
+                  <span className="indent">scopes: ['api'],</span><br />
+                  <span className="indent">name: 'CyberFox API Token',</span><br />
+                  <span className="indent">expires_at: Date.parse('2025-02-03')</span><br />
+                  )<br />
+                  puts token.token // This will print the token. Note: Tokens are only visible once for security reasons.
                 </code>
-            </div>
+              </div>
+
             <p>With her personal access token securely stored, CyberFox proceeds to authenticate the GitLab CLI tool with her project, enabling her to monitor and control the CI/CD pipeline directly from her terminal:</p>
             <div className="code-block">
                 <code>
