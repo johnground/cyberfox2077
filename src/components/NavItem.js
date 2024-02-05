@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import Badge from './Badge'; // Assuming you have a Badge component
+import Badge from './Badge';
 import { route } from 'preact-router';
 
 export default function NavItem({ navItem }) {
@@ -8,15 +8,21 @@ export default function NavItem({ navItem }) {
   const handleNavigation = (event) => {
     event.preventDefault();
 
-    // Check if the navItem is "Files" and trigger file input
-    if (navItem.text === "Files") {
+    // Redirect to external URLs for specific nav items
+    if (navItem.text === "Ansible")  {
+      window.open('https://docs.ansible.com/', '_blank');
+    } else if (navItem.text === "Projects") {
+      window.open('http://cyberfox/', '_blank');
+    }
+    // Handle internal routing for other nav items
+    else if (navItem.text === "Files") {
       fileInput.click();
     } else if (navItem.text === "CyberFox-2077 Home") {
       route('/');
     } else if (navItem.text === "README") {
       route('/readme');
     } else if (navItem.text === "Project") {
-      route('/project');
+      window.open('http://cyberfox/', '_blank');
     } else {
       console.log(`Navigate to ${navItem.text}`);
     }
@@ -26,8 +32,6 @@ export default function NavItem({ navItem }) {
     const file = event.target.files[0];
     if (!file) return;
 
-    // Implement the file upload logic here
-    // For example, using FormData to append the file and send it to the server
     const formData = new FormData();
     formData.append('file', file);
 
