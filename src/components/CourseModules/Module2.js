@@ -222,13 +222,13 @@ const Module2 = () => {
         <div className="code-block">
           <code>
             # Install GitLab Runner if not already installed<br />
-            apt update -y and apt install sudo -y<br />
+            apt update -y && apt install sudo -y<br />
             curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | sudo bash<br />
             sudo apt-get install gitlab-runner<br /><br />
             # Retrieve the registration token:<br />
-            # 1. Navigate to your GitLab project.<br />
+            # 1. Navigate to your GitLab project http://cyberfox/cyberfox/CyberShield//<br />
             # 2. Go to Settings &gt; CI/CD and expand the Runners section.<br />
-            # 3. Note the registration token provided.<br /><br />
+            # 3. Click the three dots next to New Project Runner, press the Eye to reveal and Note the registration token provided.<br /><br />
             # Register the GitLab Runner with your GitLab instance using the retrieved token.<br />
             sudo gitlab-runner register --url http://cyberfox/ --registration-token YOUR_REGISTRATION_TOKEN<br /><br />
             # During registration, when prompted for an executor, type 'docker' and press Enter.<br />
@@ -243,38 +243,45 @@ const Module2 = () => {
       </section>
       <section className="content-section cyberpunk-btn">
         <h2>Securing the Digital Frontier with GitLab CI/CD</h2>
-        <p>Within the cybernetic echelons of CyberFox's domain, the GitLab CI/CD pipelines serve as the first line of defense, meticulously fortifying the codebase against the digital specters lurking in the shadows. To enhance this digital bulwark, CyberFox embeds a series of commands within her CI/CD configurations, invoking the arcane scripts that initiate automated security scans, each a guardian spell cast upon her code.</p>
+        <p>In the labyrinthine networks of CyberFox's domain, the GitLab CI/CD pipelines stand as vigilant sentinels, ever watchful against the encroaching shadows of cyber threats. CyberFox, in her unyielding quest to safeguard her digital realm, weaves potent enchantments into her CI/CD tapestry, commanding the ethereal forces to conduct automated security scans, each acting as a shield woven from the very fabric of code.</p>
         <div className="code-block">
           <code>
             stages:<br />
-            - build<br />
-            - test<br />
-            - deploy<br />
-            - secure<br /><br />
+            &nbsp;- build<br />
+            &nbsp;- test<br />
+            &nbsp;- deploy<br />
+            &nbsp;- secure<br /><br />
             security_scan:<br />
-            stage: secure<br />
-            script:<br />
-            - echo "Initiating security scan..."<br />
-            - docker run --rm -v $(pwd):/app <em>security_scanner_image</em> /app<br />
-            only:<br />
-            - master<br />
+            &nbsp;stage: secure<br />
+            &nbsp;script:<br />
+            &nbsp;&nbsp;- echo "Commencing arcane security rituals..."<br />
+            &nbsp;&nbsp;- docker run --rm -v $(pwd):/app alpine/security_scanner /app<br />
+            &nbsp;only:<br />
+            &nbsp;&nbsp;- master<br />
           </code>
         </div>
-        <p>With the incantation set, the pipelines awaken at each code commit, their tendrils weaving through the repositories. The <code>security_scan</code> job, invoked post-deployment, channels the essence of CyberFox's protective will, employing containerized security scanners to dissect and analyze the code for vulnerabilities.</p>
-        <p>The echoes of the scan's completion ripple through the cybernetic realm, each finding a beacon highlighting potential weaknesses to be fortified. CyberFox, with her command center aglow, reviews the outcomes, her strategic acumen guiding her in strengthening the digital defenses, ensuring that the realm remains an impregnable bastion within the cyber void.</p>
+        <p>With her incantations set, CyberFox's pipelines stir to life with every commit, their spectral tendrils entwining the codebase. The <code>security_scan</code> ritual, cast in the aftermath of deployment, harnesses the power of alchemical Docker containers to scrutinize the code, seeking out the spectral vulnerabilities hidden within.</p>
+        <p>As the ritual concludes, its reverberations echo through the cyber realm, illuminating the crevices where potential breaches may lurk. CyberFox, her gaze piercing through the veil of digital ether, interprets these omens, her wisdom guiding her hand as she fortifies the defenses, ensuring her kingdom stands resolute against the ceaseless tide of digital entropy.</p>
       </section>
       <section className="content-section cyberpunk-btn">
-        <h3>The Silent Sentinels: GitLab's Private Repositories</h3>
-        <p><i>(A series of encrypted vaults emerge, symbolizing GitLab's private repositories.)</i></p>
-        <p>For CyberFox, private repositories in GitLab are akin to covert vaults, accessible only to those bearing the right digital keys. These sanctuaries of code are crucial for conducting clandestine cyber operations and safeguarding sensitive data.</p>
-      </section>
-      <section className="content-section cyberpunk-btn">
-        <h2>Mastering the Cyber Hunt: Leveraging Advanced GitLab Features</h2>
-        <p><i>(Immersed in a virtual reality interface, CyberFox explores GitLab's advanced features.)</i></p>
-        <p>As a cyber threat hunter, mastering these features is akin to refining her arsenal. Advanced issue tracking, merge request approvals, and extensive logging capabilities are vital tools in her quest to maintain digital supremacy and operational efficiency.</p>
-      </section> 
+    <h2>Enigma Initiative: The Birth of 'OmegaProtocol'</h2>
+    <p><i>(Bathed in the glow of multiple screens, CyberFox channels her focus into the creation of a new, concealed project known as 'OmegaProtocol'.)</i></p>
+    <p>Commanding the digital elements, she inputs the perfected incantation into the console, casting a secure shell of invisibility over 'OmegaProtocol'.</p>
+    <div className="code-block">
+        <code>
+        # CyberFox's adept fingers fly over the keyboard as she summons the OmegaProtocol into existence<br />
+        curl --header "PRIVATE-TOKEN: your_access_token" -X POST "http://cyberfox/api/v4/projects?name=OmegaProtocol&visibility=private"<br />
+        </code>
     </div>
-  );
-};
+    <p><i>(The command executed, a notification chimes, confirming the project's creation — a private bastion for her clandestine endeavors.)</i></p>
+    <p>With a strategic flicker of her eyes, CyberFox knows that her next move is to rally her Netrunners, granting them access to this newly formed digital fortress.</p>
+    <p>Thus, the narrative unfolds, with CyberFox's dominion expanding into new realms, her mastery over the network's ebb and flow undisputed.</p>
+</section>
+<section className="content-section cyberpunk-btn">
+    <h2>Mastering the Cyber Hunt: Leveraging Advanced GitLab Features</h2>
+    <p><i>(Surrounded by a virtual panorama of data streams, CyberFox delves into the depths of GitLab's advanced features, each a weapon in her digital arsenal.)</i></p>
+    <p>Her quest for digital supremacy is empowered by sophisticated tools at her disposal. Issue tracking becomes an intricate web, trapping bugs in its silken threads. Merge request approvals transform into ceremonial endorsements, each one a knighted guardian of her code's integrity. Comprehensive logging capabilities serve as her omniscient scribes, chronicling every event in the annals of her domain.</p>
+    <p>The mastery of these tools is not just about wielding power; it's about orchestrating an ecosystem where innovation thrives under the vigilant watch of efficiency and control. Each feature is a testament to CyberFox's strategic foresight, ensuring her digital dominion remains impervious to the chaos of the cyber wilderness.</p>
+</section>
 
 export default Module2;
