@@ -20,33 +20,39 @@ const Module3 = () => {
       </section>
 
 
-        <section className="content-section cyberpunk-btn">
-          <h2>Mastering the Merge: Confluence of Code Streams</h2>
-          <p>In the network's neural pathways, branches diverge and converge like streams in a vast digital delta. CyberFox stands at the confluence, orchestrating the merge with deft precision, ensuring that no byte is out of place.</p>
-          <div className="code-block">
-            <code>git merge --no-ff feature-branch</code>
-          </div>
-          <p>The <code>--no-ff</code> flag commands Git to create a new commit object during the merge, preserving the history of the feature branch's existence.</p>
-        </section>
+      <section className="content-section cyberpunk-btn">
+        <h2>Convergence of Code Streams: The Art of the Merge</h2>
+        <p><i>(Amidst a symphony of pulsating data streams, CyberFox stands vigilant at the digital confluence, her gaze piercing through the intertwining code branches.)</i></p>
+        <p>At the heart of CyberFox's realm, the seamless integration of divergent code streams is paramount. With a command that resonates through the cybernetic void, <code>git merge --no-ff feature-branch</code>, she masterfully orchestrates the union of disparate code paths, weaving them into the main narrative without losing their individual essence.</p>
+        <div className="code-block">
+          <code>git merge --no-ff feature-branch</code>
+        </div>
+        <p>This command, marked by the <code>--no-ff</code> flag, is not merely a technical directive but a strategic maneuver. It ensures that each branch's journey is preserved, encapsulated in a new commit, maintaining the integrity of the feature branch's history. This act is a testament to CyberFox's wisdom, acknowledging that every line of code, every branch's journey, contributes to the tapestry of her digital empire.</p>
+        <p><i>(As the merge completes, the digital tapestry shimmers with newfound coherence, each thread now part of a greater whole, yet its origin story intact, a tribute to CyberFox's adept governance over her codebase.)</i></p>
+      </section>
+      <section className="content-section cyberpunk-btn">
+      <h2>Veiling the Code: The Art of Stashing</h2>
+      <p><i>(In the midst of a digital maelstrom, CyberFox detects a critical alert—her immediate attention is demanded elsewhere. Yet, the tapestry of her current creation remains unfinished, delicate threads of code hanging in the balance.)</i></p>
+      <p>Summoning the ancient rite of <code>git stash</code>, she casts her unfinished work into the shadows, a digital vault where it remains shielded from the chaos of the ongoing storm. This command, <code>git stash push -m "New feature work in progress"</code>, serves as a protective incantation, ensuring her endeavors are safely ensconced in the ether, awaiting her return.</p>
+      <div className="code-block">
+        <code>git stash push -m "New feature work in progress"</code>
+      </div>
+      <p>This act of stashing is not merely a pause but a strategic retreat, allowing CyberFox to address the immediate without sacrificing the future. <i>(As the code vanishes from the visible realm, CyberFox turns her focus to the urgent, her mind at ease knowing her creations are safeguarded within the digital vault, ready to be summoned forth when the time is right.)</i></p>
+    </section>
 
 
-        <section className="content-section cyberpunk-btn">
-          <h2>Stashing Secrets: The Hidden Cache of Code</h2>
-          <p><i>(Alerts flash across her HUD — an urgent fix is needed in production. With unsaved changes still in her workspace, CyberFox needs a place to store them temporarily.)</i></p>
-          <p>Like a shadow vault, <code>git stash</code> conceals her work in progress, tucked away from prying eyes until she can return to continue her craft.</p>
-          <div className="code-block">
-            <code>git stash push -m "New feature work in progress"</code>
-          </div>
-        </section>
 
+    <section className="content-section cyberpunk-btn">
+      <h2>The Temporal Weave: Cherry-Picking Through Time</h2>
+      <p><i>(In the dim glow of her digital sanctum, CyberFox stands before the flowing streams of code, her eyes tracing the lines of power that bind the present to the past.)</i></p>
+      <p>With the precision of a time weaver, she invokes the command <code>git cherry-pick 4a2b3c4d</code>, reaching back into the annals of her repository to retrieve a fragment of code, a lost artifact of innovation that holds the key to surmounting her current challenge.</p>
+      <div className="code-block">
+        <code>git cherry-pick 4a2b3c4d</code>
+      </div>
+      <p><i>(As the chosen commit materializes within her present workstream, the once dormant code pulses with renewed life, its integration seamless, as if it had always been a part of the grand design.)</i></p>
+      <p>This act of cherry-picking is not merely the retrieval of code but a masterstroke of strategy, allowing CyberFox to bridge temporal divides and harness the collective wisdom of her past endeavors, ensuring that no insight, no spark of genius, is ever left behind in the relentless march towards the future.</p>
+    </section>
 
-          <section className="content-section cyberpunk-btn">
-          <h2>Cherry-Picking Fragments of Time</h2>
-          <p>Sometimes, the future needs a spark from the past. CyberFox plucks specific commits from the branches of time, cherry-picking them to weave into the current narrative of her project's code.</p>
-          <div className="code-block">
-            <code>git cherry-pick 4a2b3c4d</code>
-          </div>
-        </section>
 
           <section className="content-section cyberpunk-btn">
           <h2>Epilogue: The Artisan of Archives</h2>
