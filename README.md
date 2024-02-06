@@ -146,8 +146,9 @@ Each module contains a mix of theoretical concepts and practical exercises. It i
 Contributions to CyberFox-2077 are welcome! If you have suggestions or improvements, please create an issue or a pull request.
 
 ## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the LICENSE file for details. Module 6 content is copyright by Secure Enterprise Engineering https://www.secure-ee.com/. 
 
 ## Acknowledgements
+Secure Enterprise Engineering for inspiring the many integrations and resources for this course.
 OpenCTI for providing the context for cybersecurity project management.
 The Git and GitLab communities for their invaluable resources and support
